@@ -1,0 +1,6 @@
+// 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:block
+7aa0fb00e1b93af2ec90650326497b902fd8c54d data/minecraft/tags/block/logs.json
+aeddd8b9f86ab6f8f55fc5c479574ab88ee552f0 data/minecraft/tags/block/logs_that_burn.json
+7aa0fb00e1b93af2ec90650326497b902fd8c54d data/minecraft/tags/block/snaps_goat_horn.json
+9ff7005e0d168409def122d318e15569e8f4986e data/snailspeed/tags/block/cracked_logs.json
+331f79c27da803fa3bdcfe5c1e6a77ade600d35b data/snailspeed/tags/block/trimmed_logs.json

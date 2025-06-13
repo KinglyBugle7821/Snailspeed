@@ -49,6 +49,7 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/damaged_pale_oak_log"));
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
+
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -68,6 +69,8 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.WOOD_DUST, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

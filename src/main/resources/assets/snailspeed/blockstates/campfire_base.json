@@ -1,0 +1,85 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_base"
+      },
+      "when": {
+        "stages": 1,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_1"
+      },
+      "when": {
+        "stages": 2,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_2"
+      },
+      "when": {
+        "stages": 3,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_3"
+      },
+      "when": {
+        "stages": 4,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_unlit"
+      },
+      "when": {
+        "stages": 5,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_lit_small"
+      },
+      "when": {
+        "stages": 5,
+        "lit": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_lit_medium"
+      },
+      "when": {
+        "stages": 5,
+        "lit": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_lit_large"
+      },
+      "when": {
+        "stages": 5,
+        "lit": 4
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1
+      }
+    }
+  ]
+}

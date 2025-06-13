@@ -17,6 +17,15 @@
     "snailspeed:cracked_dark_oak_log",
     "snailspeed:cracked_mangrove_log",
     "snailspeed:cracked_cherry_log",
-    "snailspeed:cracked_pale_oak_log"
+    "snailspeed:cracked_pale_oak_log",
+    "snailspeed:damaged_oak_log",
+    "snailspeed:damaged_spruce_log",
+    "snailspeed:damaged_birch_log",
+    "snailspeed:damaged_jungle_log",
+    "snailspeed:damaged_acacia_log",
+    "snailspeed:damaged_dark_oak_log",
+    "snailspeed:damaged_mangrove_log",
+    "snailspeed:damaged_cherry_log",
+    "snailspeed:damaged_pale_oak_log"
   ]
 }

@@ -5,8 +5,7 @@ import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Blocks.class)
@@ -18,8 +17,7 @@ public class SnailModifyLog {
         AbstractBlock.Settings modified = AbstractBlock.Settings.create()
                 .mapColor((state) -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMapColor : sideMapColor)
                 .instrument(NoteBlockInstrument.BASS)
-                .strength(4.0F)
-                .hardness(6.0F)
+                .strength(6.0F)
                 .sounds(sounds)
                 .burnable()
                 .requiresTool();
@@ -32,7 +30,6 @@ public class SnailModifyLog {
                 .mapColor((state) -> mapColor)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(6.0F)
-                .hardness(8.0F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.NETHER_STEM);
         cir.setReturnValue(modified);

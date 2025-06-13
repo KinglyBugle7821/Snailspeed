@@ -85,36 +85,38 @@ public class SnailWoodReplace {
         };
 
         PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockState, blockEntity) -> {
-            for (Object[] entry : logToTrimmed){
-                Block logBlock = (Block) entry[0];
-                Block trimmedLogBlock = (Block) entry[1];
+            if (!playerEntity.isCreative()){
+                for (Object[] entry : logToTrimmed){
+                    Block logBlock = (Block) entry[0];
+                    Block trimmedLogBlock = (Block) entry[1];
 
-                if (blockState.isOf(logBlock)){
-                    world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                    if (blockState.isOf(logBlock)){
+                        world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                    }
                 }
-            }
-            for (Object[] entry : woodToTrimmed){
-                Block woodBlock = (Block) entry[0];
-                Block trimmedLogBlock = (Block) entry[1];
+                for (Object[] entry : woodToTrimmed){
+                    Block woodBlock = (Block) entry[0];
+                    Block trimmedLogBlock = (Block) entry[1];
 
-                if (blockState.isOf(woodBlock)){
-                    world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                    if (blockState.isOf(woodBlock)){
+                        world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                    }
                 }
-            }
-            for (Object[] entry : trimmedToCracked) {
-                Block trimmedLogBlock = (Block) entry[0];
-                Block crackedLogBlock = (Block) entry[1];
+                for (Object[] entry : trimmedToCracked) {
+                    Block trimmedLogBlock = (Block) entry[0];
+                    Block crackedLogBlock = (Block) entry[1];
 
-                if (blockState.isOf(trimmedLogBlock)){
-                    world.setBlockState(blockPos, crackedLogBlock.getStateWithProperties(blockState));
+                    if (blockState.isOf(trimmedLogBlock)){
+                        world.setBlockState(blockPos, crackedLogBlock.getStateWithProperties(blockState));
+                    }
                 }
-            }
-            for (Object[] entry : crackedToDamaged) {
-                Block crackedLogBlock = (Block) entry[0];
-                Block damagedLogBlock = (Block) entry[1];
+                for (Object[] entry : crackedToDamaged) {
+                    Block crackedLogBlock = (Block) entry[0];
+                    Block damagedLogBlock = (Block) entry[1];
 
-                if (blockState.isOf(crackedLogBlock)){
-                    world.setBlockState(blockPos, damagedLogBlock.getStateWithProperties(blockState));
+                    if (blockState.isOf(crackedLogBlock)){
+                        world.setBlockState(blockPos, damagedLogBlock.getStateWithProperties(blockState));
+                    }
                 }
             }
         });

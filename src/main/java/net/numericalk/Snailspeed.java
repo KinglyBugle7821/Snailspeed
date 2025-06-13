@@ -1,22 +1,16 @@
 package net.numericalk;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.impl.content.registry.FlammableBlockRegistryImpl;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTables;
-import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.ItemGroups;
 import net.numericalk.blocks.SnailBlocks;
+import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.items.SnailItemGroup;
 import net.numericalk.items.SnailItems;
+import net.numericalk.utils.SnailBreakEvents;
+import net.numericalk.utils.SnailLogStripping;
 import net.numericalk.utils.SnailLootTableMod;
 import net.numericalk.utils.SnailWoodReplace;
 import org.slf4j.Logger;
@@ -31,8 +25,13 @@ public class Snailspeed implements ModInitializer {
 		SnailItems.initialize();
 		SnailBlocks.initialize();
 		SnailItemGroup.initialize();
+		SnailBlockEntities.initialize();
 
 		SnailLootTableMod.modifyLootTables();
 		SnailWoodReplace.replaceWoodBlock();
+		SnailLogStripping.logStripping();
+		SnailBreakEvents.playerBreak();
+		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
+
 	}
 }

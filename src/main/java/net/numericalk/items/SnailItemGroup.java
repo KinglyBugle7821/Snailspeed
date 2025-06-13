@@ -31,6 +31,8 @@ public class SnailItemGroup {
                         entries.add(SnailItems.WOOD_DUST);
 
                         entries.add(SnailItems.FLINT_FLAKE);
+
+                        entries.add(SnailBlocks.CAMPFIRE_BASE);
                     }).build());
     public static void initialize() {}
 

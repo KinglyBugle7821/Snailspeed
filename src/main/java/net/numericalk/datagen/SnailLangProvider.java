@@ -68,7 +68,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_STEM, "Damaged Crimson Stem");
         translationBuilder.add(SnailBlocks.DAMAGED_WARPED_STEM, "Damaged Warped Stem");
 
-
+        translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
 
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }

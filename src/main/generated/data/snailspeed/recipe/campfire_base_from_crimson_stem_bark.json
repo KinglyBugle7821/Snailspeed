@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "b": "#snailspeed:log_barks"
+  },
+  "pattern": [
+    "bb",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:campfire_base"
+  }
+}

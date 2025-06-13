@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crimson_stem_bark": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:crimson_stem_bark"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "snailspeed:campfire_base_from_crimson_stem_bark"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crimson_stem_bark"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "snailspeed:campfire_base_from_crimson_stem_bark"
+    ]
+  }
+}

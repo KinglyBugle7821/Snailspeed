@@ -21,6 +21,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "flint_flake_repairable"));
     public static final TagKey<Item> CAMPFIRE_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "campfire_fuel"));
+    public static final TagKey<Item> LOG_BARKS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -44,5 +45,17 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.CRIMSON_STEM_BARK)
                 .add(SnailItems.WARPED_STEM_BARK)
                 .add(SnailItems.WOOD_DUST);
+        getOrCreateTagBuilder(LOG_BARKS)
+                .add(SnailItems.OAK_LOG_BARK)
+                .add(SnailItems.SPRUCE_LOG_BARK)
+                .add(SnailItems.BIRCH_LOG_BARK)
+                .add(SnailItems.JUNGLE_LOG_BARK)
+                .add(SnailItems.ACACIA_LOG_BARK)
+                .add(SnailItems.DARK_OAK_LOG_BARK)
+                .add(SnailItems.MANGROVE_LOG_BARK)
+                .add(SnailItems.CHERRY_LOG_BARK)
+                .add(SnailItems.PALE_OAK_LOG_BARK)
+                .add(SnailItems.CRIMSON_STEM_BARK)
+                .add(SnailItems.WARPED_STEM_BARK);
     }
 }

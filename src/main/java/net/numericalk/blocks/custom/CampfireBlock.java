@@ -25,6 +25,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.custom.CampfireBlockEntity;
+import net.numericalk.datagen.SnailItemTagsProvider;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -97,6 +98,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+
         if (stack.isOf(Items.STICK) && state.get(STAGES) < 5){
             if (!world.isClient()){
                 world.setBlockState(pos, state.cycle(STAGES));
@@ -120,8 +122,28 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             stack.decrement(1);
             return ActionResult.SUCCESS;
         }
+        if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL) && state.get(LIT) == 2){
+            if (!world.isClient()) {
+                BlockEntity be = world.getBlockEntity(pos);
+                if (be instanceof CampfireBlockEntity campfireBlockEntity) {
+                    campfireBlockEntity.calculateAddedFireTime();
+                }
+            }
+            stack.decrement(1);
+            return ActionResult.SUCCESS;
+        }
+        if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL) && state.get(LIT) == 3){
+            if (!world.isClient()) {
+                BlockEntity be = world.getBlockEntity(pos);
+                if (be instanceof CampfireBlockEntity campfireBlockEntity) {
+                    campfireBlockEntity.calculateAddedFireTime();
+                }
+            }
+            stack.decrement(1);
+            return ActionResult.SUCCESS;
+        }
 
-        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+        return ActionResult.PASS;
     }
 
     @Override
@@ -131,7 +153,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         }
         return validateTicker(type, SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) ->
-                blockEntity.tick(world1, pos, state));
+                blockEntity.tick(world1, pos, state1));
     }
 
     @Override

@@ -31,7 +31,7 @@ public class Snailspeed implements ModInitializer {
 		SnailWoodReplace.replaceWoodBlock();
 		SnailLogStripping.logStripping();
 		SnailBreakEvents.playerBreak();
-		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
 
+		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
 	}
 }

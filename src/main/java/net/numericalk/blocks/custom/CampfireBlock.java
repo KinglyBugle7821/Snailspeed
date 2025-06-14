@@ -6,10 +6,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -200,6 +202,32 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
+        if (canPlaceStick(stack, state)){
+            placeStick(world, pos, state, player, stack);
+            return ActionResult.SUCCESS;
+        }
+
+        if (canLitCampfire(stack, state, Items.FLINT_AND_STEEL)){
+            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FLINTANDSTEEL_USE);
+            return ActionResult.SUCCESS;
+        } else if (canLitCampfire(stack, state, Items.FIRE_CHARGE)){
+            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FIRECHARGE_USE);
+            return ActionResult.SUCCESS;
+        } else if (canLitCampfire(stack, state, SnailItems.BURNING_TINDER)){
+            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FIRECHARGE_USE);
+            return ActionResult.SUCCESS;
+        }
+
+        if (canFeedFire(stack, state, player, pos, world)){
+            feedFire(world, pos, player, stack);
+            return ActionResult.SUCCESS;
+        }
+
+        if (canPlaceCookingStation(stack, state)){
+            placeCookingStation(world, pos, state, player, stack);
+            return ActionResult.SUCCESS;
+        }
+
         if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity) {
             if (!stack.isEmpty() && state.get(COOKING) == 4) {
                 for (int i = 0; i < 3; i++) {
@@ -227,72 +255,77 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             }
         }
 
-
-        if (stack.isOf(Items.STICK) && state.get(STAGES) < 5){
-            if (!world.isClient()){
-                world.setBlockState(pos, state.cycle(STAGES));
-            }
-            if (!player.isCreative()){
-                stack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-        if (stack.isOf(Items.FLINT_AND_STEEL) && state.get(LIT) == 1 && state.get(STAGES) == 5){
-            if (!world.isClient()){
-                world.setBlockState(pos, state.with(LIT, 2));
-            }
-            world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1f, 1f);
-            if (!player.isCreative()){
-                stack.damage(1, player);
-            }
-            return ActionResult.SUCCESS;
-        }
-        if ((stack.isOf(Items.FIRE_CHARGE) || stack.isOf(SnailItems.BURNING_TINDER)) && state.get(LIT) == 1 && state.get(STAGES) == 5){
-            if (!world.isClient()){
-                world.setBlockState(pos, state.with(LIT, 2));
-            }
-            world.playSound(player, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1f, 1f);
-            if (!player.isCreative()){
-                stack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-        if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL) && state.get(LIT) == 2 && !player.isSneaking()){
-            if (!world.isClient()) {
-                BlockEntity be = world.getBlockEntity(pos);
-                if (be instanceof CampfireBlockEntity campfireBlockEntity) {
-                    campfireBlockEntity.calculateAddedFireTime();
-                }
-            }
-            if (!player.isCreative()){
-                stack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-        if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL) && state.get(LIT) == 3 && !player.isSneaking()){
-            if (!world.isClient()) {
-                BlockEntity be = world.getBlockEntity(pos);
-                if (be instanceof CampfireBlockEntity campfireBlockEntity) {
-                    campfireBlockEntity.calculateAddedFireTime();
-                }
-            }
-            if (!player.isCreative()){
-                stack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-
-        if (stack.isOf(Items.STICK) && state.get(STAGES) == 5 && state.get(COOKING) < 4){
-            if (!world.isClient()){
-                world.setBlockState(pos, state.cycle(COOKING));
-            }
-            if (!player.isCreative()){
-                stack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-
         return ActionResult.PASS;
+    }
+
+    private void placeStick(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack) {
+        if (!world.isClient()){
+            cycleThrough(world, pos, state, STAGES);
+        }
+        if (!player.isCreative()){
+            stack.decrement(1);
+        }
+    }
+
+    private void placeCookingStation(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack) {
+        if (!world.isClient()){
+            cycleThrough(world, pos, state, COOKING);
+        }
+        if (!player.isCreative()){
+            stack.decrement(1);
+        }
+    }
+
+    private boolean canPlaceCookingStation(ItemStack stack, BlockState state) {
+        return stack.isOf(Items.STICK) && state.get(STAGES) == 5 && state.get(COOKING) < 4;
+    }
+
+    private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
+        if (!world.isClient()) {
+            BlockEntity be = world.getBlockEntity(pos);
+            if (be instanceof CampfireBlockEntity campfireBlockEntity) {
+                campfireBlockEntity.calculateAddedFireTime();
+            }
+        }
+        if (!player.isCreative()){
+            stack.decrement(1);
+        }
+    }
+
+    private boolean canFeedFire(ItemStack stack, BlockState state, PlayerEntity player, BlockPos pos, World world) {
+        BlockEntity be = world.getBlockEntity(pos);
+        if (!(be instanceof CampfireBlockEntity campfireBE)) return false;
+
+        return stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)
+                && state.get(LIT) >= 2
+                && !player.isSneaking()
+                && campfireBE.getFireDegradeTime() < campfireBE.getFireDegradeTimeLimit();
+    }
+
+    private boolean canLitCampfire(ItemStack stack, BlockState state, Item itemToLitCampfire) {
+        return stack.isOf(itemToLitCampfire) && state.get(LIT) == 1 && state.get(STAGES) == 5;
+    }
+
+    private void litFire(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack, SoundEvent itemLitSound) {
+        if (!world.isClient()){
+            world.setBlockState(pos, state.with(LIT, 2));
+        }
+        world.playSound(player, pos, itemLitSound, SoundCategory.BLOCKS, 1f, 1f);
+        if (!player.isCreative()) {
+            if (stack.isDamageable()) {
+                stack.damage(1, player);
+            } else {
+                stack.decrement(1);
+            }
+        }
+    }
+
+    private void cycleThrough(World world, BlockPos pos, BlockState state, IntProperty stages) {
+        world.setBlockState(pos, state.cycle(stages));
+    }
+
+    private boolean canPlaceStick(ItemStack stack ,BlockState state) {
+        return stack.isOf(Items.STICK) && state.get(STAGES) < 5;
     }
 
     @Override

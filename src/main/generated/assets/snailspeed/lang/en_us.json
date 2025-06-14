@@ -35,6 +35,8 @@
   "block.snailspeed.trimmed_warped_stem": "Trimmed Warped Stem",
   "item.snailspeed.acacia_log_bark": "Acacia Log Bark",
   "item.snailspeed.birch_log_bark": "Birch Log Bark",
+  "item.snailspeed.burning_tinder": "Burning Tinder",
+  "item.snailspeed.burnt_tinder": "Burnt Tinder",
   "item.snailspeed.cherry_log_bark": "Cherry Log Bark",
   "item.snailspeed.crimson_stem_bark": "Crimson Stem Bark",
   "item.snailspeed.dark_oak_log_bark": "Dark Oak Log Bark",
@@ -44,6 +46,7 @@
   "item.snailspeed.oak_log_bark": "Oak Log Bark",
   "item.snailspeed.pale_oak_log_bark": "Pale Oak Log Bark",
   "item.snailspeed.spruce_log_bark": "Spruce Log Bark",
+  "item.snailspeed.tinder": "Tinder",
   "item.snailspeed.warped_stem_bark": "Warped Stem Bark",
   "item.snailspeed.wood_dust": "Wood Dust",
   "itemgroup.snailspeed": "Snailspeed"

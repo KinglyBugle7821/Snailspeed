@@ -157,7 +157,7 @@ public class SnailBlocks {
 
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+                    .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().luminance(CampfireBlock::getLuminance)));
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
@@ -175,6 +175,7 @@ public class SnailBlocks {
                 new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey()
                         .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name)))));
     }
+
 
     public static void initialize() {}
 }

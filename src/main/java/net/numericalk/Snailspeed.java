@@ -4,9 +4,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemGroups;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
+import net.numericalk.blocks.entity.renderer.CampfireBlockEntityRenderer;
 import net.numericalk.items.SnailItemGroup;
 import net.numericalk.items.SnailItems;
 import net.numericalk.utils.SnailBreakEvents;
@@ -32,6 +34,9 @@ public class Snailspeed implements ModInitializer {
 		SnailLogStripping.logStripping();
 		SnailBreakEvents.playerBreak();
 
+
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
+
+		BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY, CampfireBlockEntityRenderer::new);
 	}
 }

@@ -30,6 +30,10 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.WOOD_DUST, "Wood Dust");
 
+        translationBuilder.add(SnailItems.TINDER, "Tinder");
+        translationBuilder.add(SnailItems.BURNING_TINDER, "Burning Tinder");
+        translationBuilder.add(SnailItems.BURNT_TINDER, "Burnt Tinder");
+
         translationBuilder.add(SnailItems.FLINT_FLAKE, "Flint Flake");
 
         translationBuilder.add(SnailBlocks.TRIMMED_OAK_LOG, "Trimmed Oak Log");

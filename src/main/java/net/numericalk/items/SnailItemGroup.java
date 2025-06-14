@@ -33,6 +33,10 @@ public class SnailItemGroup {
                         entries.add(SnailItems.FLINT_FLAKE);
 
                         entries.add(SnailBlocks.CAMPFIRE_BASE);
+
+                        entries.add(SnailItems.TINDER);
+                        entries.add(SnailItems.BURNING_TINDER);
+                        entries.add(SnailItems.BURNT_TINDER);
                     }).build());
     public static void initialize() {}
 

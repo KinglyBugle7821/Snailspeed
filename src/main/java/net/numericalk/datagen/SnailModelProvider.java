@@ -71,6 +71,10 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.GENERATED);
 
         itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.TINDER, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_TINDER, Models.GENERATED);
     }
     @Override
     public String getName() {

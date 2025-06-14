@@ -1,5 +1,6 @@
 package net.numericalk.items;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
@@ -9,6 +10,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.numericalk.Snailspeed;
+import net.numericalk.items.custom.TinderItem;
 import net.numericalk.utils.SnailToolMaterial;
 
 import java.util.function.Function;
@@ -31,6 +33,10 @@ public class SnailItems {
     public static final Item WOOD_DUST = register("wood_dust", Item::new);
 
     public static final Item FLINT_FLAKE = register("flint_flake", settings -> new AxeItem(SnailToolMaterial.FLINT_MATERIAL, 0f, -2.4f, settings), new Item.Settings());
+
+    public static final Item TINDER = register("tinder", settings -> new TinderItem(settings.maxCount(1)));
+    public static final Item BURNING_TINDER = register("burning_tinder", settings -> new TinderItem(settings.maxCount(1)));
+    public static final Item BURNT_TINDER = register("burnt_tinder", settings -> new TinderItem(settings.maxCount(1)));
 
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),

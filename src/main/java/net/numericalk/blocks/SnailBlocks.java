@@ -57,11 +57,11 @@ public class SnailBlocks {
     public static final Block TRIMMED_CRIMSON_STEM = registerBlock("trimmed_crimson_stem",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.DULL_PINK)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block TRIMMED_WARPED_STEM = registerBlock("trimmed_warped_stem",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block CRACKED_OAK_LOG = registerBlock("cracked_oak_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.OAK_TAN)
@@ -102,11 +102,11 @@ public class SnailBlocks {
     public static final Block CRACKED_CRIMSON_STEM = registerBlock("cracked_crimson_stem",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.DULL_PINK)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block CRACKED_WARPED_STEM = registerBlock("cracked_warped_stem",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block DAMAGED_OAK_LOG = registerBlock("damaged_oak_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.OAK_TAN)
@@ -147,11 +147,11 @@ public class SnailBlocks {
     public static final Block DAMAGED_CRIMSON_STEM = registerBlock("damaged_crimson_stem",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.DULL_PINK)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block DAMAGED_WARPED_STEM = registerBlock("damaged_warped_stem",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
-                    .sounds(BlockSoundGroup.NETHER_WOOD).burnable().nonOpaque().requiresTool()));
+                    .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
@@ -163,6 +163,17 @@ public class SnailBlocks {
     public static final Block DRIED_GRASS_SHEAF = registerBlock("dried_grass_sheaf",
             properties -> new DriedGrassSheafBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision().burnable()));
+
+    public static final Block SCRATCHED_STONE = registerBlock("scratched_stone",
+            properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
+                    .strength(2f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block UNTIED_STICK_BUNDLE = registerBlock("untied_stick_bundle",
+            properties -> new UntiedStickBundleBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(2.5f, 2f).sounds(BlockSoundGroup.BAMBOO).burnable()));
+    public static final Block STICK_BUNDLE = registerBlock("stick_bundle",
+            properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(2.5f, 2f).sounds(BlockSoundGroup.BAMBOO).burnable()));
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));

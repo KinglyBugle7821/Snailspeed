@@ -38,6 +38,9 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.GRASS_SHEAF);
                         entries.add(SnailBlocks.DRIED_GRASS_SHEAF);
 
+                        entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
+                        entries.add(SnailBlocks.STICK_BUNDLE);
+
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);
                         entries.add(SnailItems.BURNT_TINDER);

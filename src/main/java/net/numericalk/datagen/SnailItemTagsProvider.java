@@ -31,7 +31,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(ItemTags.AXES)
                 .add(SnailItems.FLINT_FLAKE);
         getOrCreateTagBuilder(ItemTags.WOODEN_TOOL_MATERIALS)
-                .add(SnailItems.FLINT_FLAKE);
+                .add(SnailItems.FLINT_FLAKE)
+                .add(SnailItems.FLINT_HATCHET);
         getOrCreateTagBuilder(CAMPFIRE_FUEL)
                 .add(Items.STICK)
                 .add(SnailItems.OAK_LOG_BARK)

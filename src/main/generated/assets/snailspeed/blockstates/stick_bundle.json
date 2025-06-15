@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "snailspeed:block/stick_bundle",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "snailspeed:block/stick_bundle"
+    },
+    "axis=z": {
+      "model": "snailspeed:block/stick_bundle",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "snailspeed:block/untied_stick_bundle_top",
+    "side": "snailspeed:block/untied_stick_bundle_side"
+  }
+}

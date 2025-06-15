@@ -3,8 +3,11 @@ package net.numericalk.utils;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.numericalk.blocks.SnailBlocks;
+import net.numericalk.items.SnailItems;
 
 public class SnailWoodReplace {
     public static void replaceWoodBlock() {
@@ -86,39 +89,57 @@ public class SnailWoodReplace {
 
         PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockState, blockEntity) -> {
             if (!playerEntity.isCreative()){
-                for (Object[] entry : logToTrimmed){
-                    Block logBlock = (Block) entry[0];
-                    Block trimmedLogBlock = (Block) entry[1];
+                if (hasTrimmingItem(playerEntity)){
+                    for (Object[] entry : logToTrimmed){
+                        Block logBlock = (Block) entry[0];
+                        Block trimmedLogBlock = (Block) entry[1];
 
-                    if (blockState.isOf(logBlock)){
-                        world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                        if (blockState.isOf(logBlock)){
+                            world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                        }
                     }
-                }
-                for (Object[] entry : woodToTrimmed){
-                    Block woodBlock = (Block) entry[0];
-                    Block trimmedLogBlock = (Block) entry[1];
+                    for (Object[] entry : woodToTrimmed){
+                        Block woodBlock = (Block) entry[0];
+                        Block trimmedLogBlock = (Block) entry[1];
 
-                    if (blockState.isOf(woodBlock)){
-                        world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                        if (blockState.isOf(woodBlock)){
+                            world.setBlockState(blockPos, trimmedLogBlock.getStateWithProperties(blockState));
+                        }
                     }
-                }
-                for (Object[] entry : trimmedToCracked) {
-                    Block trimmedLogBlock = (Block) entry[0];
-                    Block crackedLogBlock = (Block) entry[1];
+                    for (Object[] entry : trimmedToCracked) {
+                        Block trimmedLogBlock = (Block) entry[0];
+                        Block crackedLogBlock = (Block) entry[1];
 
-                    if (blockState.isOf(trimmedLogBlock)){
-                        world.setBlockState(blockPos, crackedLogBlock.getStateWithProperties(blockState));
+                        if (blockState.isOf(trimmedLogBlock)){
+                            world.setBlockState(blockPos, crackedLogBlock.getStateWithProperties(blockState));
+                        }
                     }
-                }
-                for (Object[] entry : crackedToDamaged) {
-                    Block crackedLogBlock = (Block) entry[0];
-                    Block damagedLogBlock = (Block) entry[1];
+                    for (Object[] entry : crackedToDamaged) {
+                        Block crackedLogBlock = (Block) entry[0];
+                        Block damagedLogBlock = (Block) entry[1];
 
-                    if (blockState.isOf(crackedLogBlock)){
-                        world.setBlockState(blockPos, damagedLogBlock.getStateWithProperties(blockState));
+                        if (blockState.isOf(crackedLogBlock)){
+                            world.setBlockState(blockPos, damagedLogBlock.getStateWithProperties(blockState));
+                        }
                     }
                 }
             }
         });
+    }
+
+    static Object[] trimmingTool = {
+            SnailItems.FLINT_FLAKE,
+            SnailItems.FLINT_HATCHET
+    };
+
+    private static boolean hasTrimmingItem(PlayerEntity playerEntity) {
+        for (Object entry : trimmingTool){
+            Item trimmingItem = (Item) entry;
+            if (playerEntity.getMainHandStack() == trimmingItem.getDefaultStack()){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

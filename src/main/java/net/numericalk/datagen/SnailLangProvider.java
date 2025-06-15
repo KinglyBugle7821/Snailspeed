@@ -91,6 +91,11 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
 
+        translationBuilder.add(SnailBlocks.SCRATCHED_STONE, "Scratched Stone");
+
+        translationBuilder.add(SnailBlocks.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
+        translationBuilder.add(SnailBlocks.STICK_BUNDLE, "Stick Bundle");
+
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }
 }

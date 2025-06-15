@@ -18,7 +18,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.custom.DriedGrassSheafBlockEntity;
-import net.numericalk.blocks.entity.custom.GrassSheafBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class DriedGrassSheafBlock extends BlockWithEntity implements BlockEntityProvider {

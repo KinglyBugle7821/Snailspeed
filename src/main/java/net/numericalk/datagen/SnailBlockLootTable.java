@@ -3,6 +3,7 @@ package net.numericalk.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -88,5 +89,10 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.CAMPFIRE_BASE);
         addDrop(SnailBlocks.GRASS_SHEAF);
         addDrop(SnailBlocks.DRIED_GRASS_SHEAF);
+
+        addDropWithSilkTouch(SnailBlocks.SCRATCHED_STONE, Blocks.COBBLESTONE);
+
+        addDrop(SnailBlocks.UNTIED_STICK_BUNDLE);
+        addDrop(SnailBlocks.STICK_BUNDLE);
     }
 }

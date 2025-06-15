@@ -71,67 +71,6 @@ public class SnailLootTableMod {
     private static final Identifier TALL_GRASS_ID = Identifier.of("minecraft", "blocks/tall_grass");
 
     public static void modifyLootTables() {
-        Object[][] logToBark = {
-                { OAK_LOG_ID, OAK_WOOD_ID, STRIPPED_OAK_LOG_ID, SnailItems.OAK_LOG_BARK },
-                { SPRUCE_LOG_ID, SPRUCE_WOOD_ID, STRIPPED_SPRUCE_LOG_ID, SnailItems.SPRUCE_LOG_BARK },
-                { BIRCH_LOG_ID, BIRCH_WOOD_ID, STRIPPED_BIRCH_LOG_ID, SnailItems.BIRCH_LOG_BARK },
-                { JUNGLE_LOG_ID, JUNGLE_WOOD_ID, STRIPPED_JUNGLE_LOG_ID, SnailItems.JUNGLE_LOG_BARK },
-                { ACACIA_LOG_ID, ACACIA_WOOD_ID, STRIPPED_ACACIA_LOG_ID, SnailItems.ACACIA_LOG_BARK },
-                { DARK_OAK_LOG_ID, DARK_OAK_WOOD_ID, STRIPPED_DARK_OAK_LOG_ID, SnailItems.DARK_OAK_LOG_BARK },
-                { MANGROVE_LOG_ID, MANGROVE_WOOD_ID, STRIPPED_MANGROVE_LOG_ID, SnailItems.MANGROVE_LOG_BARK },
-                { CHERRY_LOG_ID, CHERRY_WOOD_ID, STRIPPED_CHERRY_LOG_ID, SnailItems.CHERRY_LOG_BARK },
-                { PALE_OAK_LOG_ID, PALE_OAK_WOOD_ID, STRIPPED_PALE_OAK_LOG_ID, SnailItems.PALE_OAK_LOG_BARK },
-                { CRIMSON_STEM_ID, CRIMSON_HYPHAE_ID, STRIPPED_CRIMSON_STEM_ID, SnailItems.CRIMSON_STEM_BARK },
-                { WARPED_STEM_ID, WARPED_HYPHAE_ID, STRIPPED_WARPED_STEM_ID, SnailItems.WARPED_STEM_BARK },
-        };
-
-        LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
-            for (Object[] entry : logToBark) {
-                Identifier log = (Identifier) entry[0];
-                Identifier wood = (Identifier) entry[1];
-                Identifier strippedLog = (Identifier) entry[2];
-                Item bark = (Item) entry[3];
-
-                if (log.equals(registryKey.getValue())) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .conditionally(RandomChanceLootCondition.builder(1.0F))
-                            .with(ItemEntry.builder(bark))
-                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
-
-                    return LootTable.builder().pool(poolBuilder).build();
-                }
-
-                if (wood.equals(registryKey.getValue())) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .conditionally(RandomChanceLootCondition.builder(1.0F))
-                            .with(ItemEntry.builder(bark))
-                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2)).build());
-
-                    return LootTable.builder().pool(poolBuilder).build();
-                }
-                if (wood.equals(registryKey.getValue())) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .conditionally(RandomChanceLootCondition.builder(1.0F))
-                            .with(ItemEntry.builder(bark))
-                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2)).build());
-
-                    return LootTable.builder().pool(poolBuilder).build();
-                }
-                if (strippedLog.equals(registryKey.getValue())) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .conditionally(RandomChanceLootCondition.builder(1.0F))
-                            .with(ItemEntry.builder(SnailItems.WOOD_DUST))
-                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
-
-                    return LootTable.builder().pool(poolBuilder).build();
-                }
-            }
-            return lootTable;
-        });
 
         LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
             RegistryEntryLookup<Item> itemRegistry = wrapperLookup.getOrThrow(RegistryKeys.ITEM);

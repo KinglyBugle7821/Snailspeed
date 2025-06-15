@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "snailspeed:item/untied_stick_bundle"
+    "model": "snailspeed:block/untied_stick_bundle"
   }
 }

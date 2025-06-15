@@ -11,10 +11,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.numericalk.Snailspeed;
-import net.numericalk.blocks.custom.CrackedLogBlock;
-import net.numericalk.blocks.custom.DamagedLogBlock;
+import net.numericalk.blocks.custom.*;
 import net.numericalk.blocks.custom.CampfireBlock;
-import net.numericalk.blocks.custom.TrimmedLogBlock;
 
 import java.util.function.Function;
 
@@ -158,6 +156,13 @@ public class SnailBlocks {
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().luminance(CampfireBlock::getLuminance)));
+
+    public static final Block GRASS_SHEAF = registerBlock("grass_sheaf",
+            properties -> new GrassSheafBlock(properties.mapColor(MapColor.EMERALD_GREEN)
+                    .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision().burnable()));
+    public static final Block DRIED_GRASS_SHEAF = registerBlock("dried_grass_sheaf",
+            properties -> new DriedGrassSheafBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision().burnable()));
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));

@@ -59,6 +59,7 @@ public class SnailLogStripping {
                         stack.damage(1, playerEntity, playerEntity.getPreferredEquipmentSlot(stack));
 
                         world.setBlockState(pos, strippedLog.getStateWithProperties(state));
+                        return ActionResult.SUCCESS;
                     }
                     if (state.isOf(barkedWood)){
                         if (world instanceof ServerWorld serverWorld) {
@@ -69,8 +70,9 @@ public class SnailLogStripping {
                         stack.damage(1, playerEntity, playerEntity.getPreferredEquipmentSlot(stack));
 
                         world.setBlockState(pos, strippedWood.getStateWithProperties(state));
+                        return ActionResult.SUCCESS;
                     }
-                    return ActionResult.SUCCESS;
+                    return ActionResult.PASS;
                 }
             }
             return ActionResult.PASS;

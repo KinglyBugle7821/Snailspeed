@@ -3,6 +3,7 @@ package net.numericalk.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
@@ -81,9 +82,11 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
             addDrop(damaged, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
                     .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                    .with(ItemEntry.builder(SnailItems.WOOD_DUST))))
+                    .with(ItemEntry.builder(Items.STICK))))
             );
         }
         addDrop(SnailBlocks.CAMPFIRE_BASE);
+        addDrop(SnailBlocks.GRASS_SHEAF);
+        addDrop(SnailBlocks.DRIED_GRASS_SHEAF);
     }
 }

@@ -34,7 +34,24 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.BURNING_TINDER, "Burning Tinder");
         translationBuilder.add(SnailItems.BURNT_TINDER, "Burnt Tinder");
 
+        translationBuilder.add(SnailItems.BURNT_POTATO, "Burnt Potato");
+        translationBuilder.add(SnailItems.BURNT_POPPED_CHORUS_FRUIT, "Burnt Chorus Fruit");
+        translationBuilder.add(SnailItems.BURNT_CHICKEN, "Burnt Chicken");
+        translationBuilder.add(SnailItems.BURNT_COD, "Burnt Cod");
+        translationBuilder.add(SnailItems.BURNT_MUTTON, "Burnt Mutton");
+        translationBuilder.add(SnailItems.BURNT_PORKCHOP, "Burnt Porkchop");
+        translationBuilder.add(SnailItems.BURNT_RABBIT, "Burnt Rabbit");
+        translationBuilder.add(SnailItems.BURNT_SALMON, "Burnt Salmon");
+        translationBuilder.add(SnailItems.BURNT_KELP, "Burnt Kelp");
+        translationBuilder.add(SnailItems.BURNT_BEEF, "Burnt Beef");
+
         translationBuilder.add(SnailItems.FLINT_FLAKE, "Flint Flake");
+        translationBuilder.add(SnailItems.FLINT_HATCHET, "Flint Hatchet");
+
+        translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
+
+        translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
+        translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
 
         translationBuilder.add(SnailBlocks.TRIMMED_OAK_LOG, "Trimmed Oak Log");
         translationBuilder.add(SnailBlocks.TRIMMED_SPRUCE_LOG, "Trimmed Spruce Log");

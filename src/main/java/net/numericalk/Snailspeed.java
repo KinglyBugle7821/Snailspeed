@@ -11,10 +11,7 @@ import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.renderer.CampfireBlockEntityRenderer;
 import net.numericalk.items.SnailItemGroup;
 import net.numericalk.items.SnailItems;
-import net.numericalk.utils.SnailBreakEvents;
-import net.numericalk.utils.SnailLogStripping;
-import net.numericalk.utils.SnailLootTableMod;
-import net.numericalk.utils.SnailWoodReplace;
+import net.numericalk.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +30,7 @@ public class Snailspeed implements ModInitializer {
 		SnailWoodReplace.replaceWoodBlock();
 		SnailLogStripping.logStripping();
 		SnailBreakEvents.playerBreak();
-
+		SnailSetBlockOnFire.SetOnFire();
 
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
 

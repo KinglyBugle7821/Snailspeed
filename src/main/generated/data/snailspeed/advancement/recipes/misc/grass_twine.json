@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dried_grass_sheaf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:dried_grass_sheaf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "snailspeed:grass_twine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dried_grass_sheaf"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "snailspeed:grass_twine"
+    ]
+  }
+}

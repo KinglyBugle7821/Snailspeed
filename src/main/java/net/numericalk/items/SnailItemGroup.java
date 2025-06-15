@@ -29,14 +29,31 @@ public class SnailItemGroup {
                         entries.add(SnailItems.WARPED_STEM_BARK);
 
                         entries.add(SnailItems.WOOD_DUST);
+                        entries.add(SnailItems.FLINT_HATCHET);
 
                         entries.add(SnailItems.FLINT_FLAKE);
 
                         entries.add(SnailBlocks.CAMPFIRE_BASE);
 
+                        entries.add(SnailBlocks.GRASS_SHEAF);
+                        entries.add(SnailBlocks.DRIED_GRASS_SHEAF);
+
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);
                         entries.add(SnailItems.BURNT_TINDER);
+
+                        entries.add(SnailItems.BURNT_POTATO);
+                        entries.add(SnailItems.BURNT_POPPED_CHORUS_FRUIT);
+                        entries.add(SnailItems.BURNT_CHICKEN);
+                        entries.add(SnailItems.BURNT_COD);
+                        entries.add(SnailItems.BURNT_MUTTON);
+                        entries.add(SnailItems.BURNT_PORKCHOP);
+                        entries.add(SnailItems.BURNT_RABBIT);
+                        entries.add(SnailItems.BURNT_SALMON);
+                        entries.add(SnailItems.BURNT_KELP);
+                        entries.add(SnailItems.BURNT_BEEF);
+
+                        entries.add(SnailItems.GRASS_TWINE);
                     }).build());
     public static void initialize() {}
 

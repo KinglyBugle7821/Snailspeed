@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "g": "snailspeed:dried_grass_sheaf"
+  },
+  "pattern": [
+    " g",
+    "g "
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:grass_twine"
+  }
+}

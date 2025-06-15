@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "snailspeed:block/grass_sheaf",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "snailspeed:block/grass_sheaf"
+    },
+    "facing=south": {
+      "model": "snailspeed:block/grass_sheaf",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "snailspeed:block/grass_sheaf",
+      "y": 270
+    }
+  }
+}

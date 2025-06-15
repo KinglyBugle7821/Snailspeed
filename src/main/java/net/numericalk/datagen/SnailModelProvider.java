@@ -50,6 +50,8 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
 
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -68,13 +70,30 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.WOOD_DUST, Models.GENERATED);
 
-        itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.FLINT_HATCHET, Models.HANDHELD);
 
         itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.TINDER, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BURNT_TINDER, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BURNT_POTATO, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_POPPED_CHORUS_FRUIT, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_CHICKEN, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_COD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_MUTTON, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_PORKCHOP, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_RABBIT, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_SALMON, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_KELP, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_BEEF, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.GRASS_TWINE, Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

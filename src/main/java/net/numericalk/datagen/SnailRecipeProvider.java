@@ -51,11 +51,33 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     createShaped(RecipeCategory.MISC, SnailBlocks.CAMPFIRE_BASE, 1)
                             .pattern("bb")
                             .pattern("bb")
-                            .input('b', SnailItemTagsProvider.LOG_BARKS)
+                            .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
                             .group("multi_bench")
                             .criterion(hasItem(bark), conditionsFromItem(bark))
                             .offerTo(exporter, String.valueOf(Identifier.of("snailspeed", "campfire_base_from_" + idPath)));
                 }
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.TINDER)
+                        .input(SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
+                        .input(SnailItems.WOOD_DUST)
+                        .criterion(hasItem(SnailItems.WOOD_DUST), conditionsFromItem(SnailItems.WOOD_DUST))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.GRASS_TWINE, 1)
+                        .pattern(" g")
+                        .pattern("g ")
+                        .input('g', SnailBlocks.DRIED_GRASS_SHEAF)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailBlocks.DRIED_GRASS_SHEAF), conditionsFromItem(SnailBlocks.DRIED_GRASS_SHEAF))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.FLINT_HATCHET, 1)
+                        .pattern("gf")
+                        .pattern("sf")
+                        .input('g', SnailItems.GRASS_TWINE)
+                        .input('s', Items.STICK)
+                        .input('f', SnailItems.FLINT_FLAKE)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.GRASS_TWINE), conditionsFromItem(SnailItems.GRASS_TWINE))
+                        .offerTo(exporter);
             }
         };
     }

@@ -5,11 +5,13 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -22,10 +24,14 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.block.WireOrientation;
+import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.custom.CampfireBlockEntity;
 import net.numericalk.datagen.SnailItemTagsProvider;
@@ -218,13 +224,13 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             return ActionResult.SUCCESS;
         }
 
-        if (canFeedFire(stack, state, player, pos, world)){
-            feedFire(world, pos, player, stack);
+        if (canPlaceCookingStation(stack, state)){
+            placeCookingStation(world, pos, state, player, stack);
             return ActionResult.SUCCESS;
         }
 
-        if (canPlaceCookingStation(stack, state)){
-            placeCookingStation(world, pos, state, player, stack);
+        if (canFeedFire(stack, state, player, pos, world)){
+            feedFire(world, pos, player, stack);
             return ActionResult.SUCCESS;
         }
 
@@ -341,5 +347,27 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(STAGES, LIT, COOKING, FACING);
+    }
+
+    @Override
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+        checkSupport(state, world, pos);
+    }
+
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        checkSupport(state, world, pos);
+    }
+
+    private void checkSupport(BlockState state, World world, BlockPos pos) {
+        if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP)) {
+            world.breakBlock(pos, true); // Breaks the block and drops items.
+        }
+    }
+
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP);
     }
 }

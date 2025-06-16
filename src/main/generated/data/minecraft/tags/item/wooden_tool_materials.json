@@ -1,6 +1,8 @@
 {
   "values": [
     "snailspeed:flint_flake",
-    "snailspeed:flint_hatchet"
+    "snailspeed:flint_hatchet",
+    "minecraft:wooden_axe",
+    "minecraft:golden_axe"
   ]
 }

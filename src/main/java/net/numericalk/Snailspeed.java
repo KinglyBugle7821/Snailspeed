@@ -27,7 +27,7 @@ public class Snailspeed implements ModInitializer {
 		SnailBlockEntities.initialize();
 
 		SnailLootTableMod.modifyLootTables();
-		SnailWoodReplace.replaceWoodBlock();
+		SnailWoodReplace.replaceWood();
 		SnailLogStripping.logStripping();
 		SnailBreakEvents.playerBreak();
 		SnailSetBlockOnFire.SetOnFire();

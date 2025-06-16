@@ -29,10 +29,21 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(FLINT_FLAKE_REPAIRABLE)
                 .add(Items.FLINT);
         getOrCreateTagBuilder(ItemTags.AXES)
-                .add(SnailItems.FLINT_FLAKE);
-        getOrCreateTagBuilder(ItemTags.WOODEN_TOOL_MATERIALS)
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET);
+        getOrCreateTagBuilder(ItemTags.WOODEN_TOOL_MATERIALS)
+                .add(SnailItems.FLINT_FLAKE)
+                .add(SnailItems.FLINT_HATCHET)
+                .add(Items.WOODEN_AXE)
+                .add(Items.GOLDEN_AXE);
+        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
+                .add(Items.STONE_AXE);
+        getOrCreateTagBuilder(ItemTags.IRON_TOOL_MATERIALS)
+                .add(Items.IRON_AXE);
+        getOrCreateTagBuilder(ItemTags.DIAMOND_TOOL_MATERIALS)
+                .add(Items.DIAMOND_AXE);
+        getOrCreateTagBuilder(ItemTags.NETHERITE_TOOL_MATERIALS)
+                .add(Items.NETHERITE_AXE);
         getOrCreateTagBuilder(CAMPFIRE_FUEL)
                 .add(Items.STICK)
                 .add(SnailItems.OAK_LOG_BARK)

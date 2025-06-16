@@ -175,6 +175,13 @@ public class SnailBlocks {
             properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(2.5f, 2f).sounds(BlockSoundGroup.BAMBOO).burnable()));
 
+    public static final Block UNSTEADY_DIRT = registerBlock("unsteady_dirt",
+            properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
+                    .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));
+    public static final Block UNSTEADY_COARSE_DIRT = registerBlock("unsteady_coarse_dirt",
+            properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
+                    .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));
+
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

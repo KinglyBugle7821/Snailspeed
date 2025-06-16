@@ -1,9 +1,0 @@
-{
-  "type": "snailspeed:campfire",
-  "ingredient": {
-    "item": "minecraft:chicken"
-  },
-  "result": {
-    "id": "minecraft:cooked_chicken"
-  }
-}

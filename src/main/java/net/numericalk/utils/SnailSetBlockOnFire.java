@@ -37,5 +37,8 @@ public class SnailSetBlockOnFire {
 
         FlammableBlockRegistry.getDefaultInstance().add(SnailBlocks.GRASS_SHEAF, 30, 60);
         FlammableBlockRegistry.getDefaultInstance().add(SnailBlocks.DRIED_GRASS_SHEAF, 80, 100);
+
+        FlammableBlockRegistry.getDefaultInstance().add(SnailBlocks.STICK_BUNDLE, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(SnailBlocks.UNTIED_STICK_BUNDLE, 5, 20);
     }
 }

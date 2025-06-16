@@ -4,7 +4,7 @@
   "group": "multi_bench",
   "key": {
     "f": "snailspeed:flint_flake",
-    "g": "snailspeed:grass_twine",
+    "g": "#snailspeed:string",
     "s": "minecraft:stick"
   },
   "pattern": [

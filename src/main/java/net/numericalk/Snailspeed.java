@@ -21,6 +21,7 @@ public class Snailspeed implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 		SnailItems.initialize();
 		SnailBlocks.initialize();
 		SnailItemGroup.initialize();

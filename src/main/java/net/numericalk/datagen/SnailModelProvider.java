@@ -55,14 +55,12 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.SCRATCHED_STONE);
 
-//        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, Identifier.of("snailspeed", "block/untied_stick_bundle"));
-//        blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, Identifier.of("snailspeed", "block/stick_bundle"));
-
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
-//        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, Identifier.of("snailspeed", "block/untied_stick_bundle"));
-//        blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, Identifier.of("snailspeed", "block/stick_bundle"));
-    }
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
+      }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(SnailItems.OAK_LOG_BARK, Models.GENERATED);

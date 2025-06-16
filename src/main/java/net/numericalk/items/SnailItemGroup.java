@@ -41,6 +41,11 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
                         entries.add(SnailBlocks.STICK_BUNDLE);
 
+                        entries.add(SnailBlocks.UNSTEADY_DIRT);
+                        entries.add(SnailBlocks.UNSTEADY_COARSE_DIRT);
+
+                        entries.add(SnailBlocks.SCRATCHED_STONE);
+
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);
                         entries.add(SnailItems.BURNT_TINDER);

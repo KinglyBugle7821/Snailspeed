@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "snailspeed:block/unsteady_coarse_dirt"
+    }
+  }
+}

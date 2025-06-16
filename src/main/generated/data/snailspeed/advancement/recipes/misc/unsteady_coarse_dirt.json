@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "snailspeed:unsteady_coarse_dirt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unsteady_dirt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:unsteady_dirt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unsteady_dirt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "snailspeed:unsteady_coarse_dirt"
+    ]
+  }
+}

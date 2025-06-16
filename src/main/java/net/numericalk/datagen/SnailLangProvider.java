@@ -96,6 +96,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
         translationBuilder.add(SnailBlocks.STICK_BUNDLE, "Stick Bundle");
 
+        translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
+        translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
+
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }
 }

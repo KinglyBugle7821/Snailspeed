@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "snailspeed:block/untied_thatch_block_top",
+    "side": "snailspeed:block/untied_thatch_block_side"
+  }
+}

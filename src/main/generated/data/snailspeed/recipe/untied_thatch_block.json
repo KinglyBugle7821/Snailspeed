@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:dried_grass_sheaf",
+    "snailspeed:dried_grass_sheaf",
+    "snailspeed:dried_grass_sheaf",
+    "snailspeed:dried_grass_sheaf"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:untied_thatch_block"
+  }
+}

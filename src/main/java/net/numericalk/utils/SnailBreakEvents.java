@@ -1,10 +1,10 @@
 package net.numericalk.utils;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ItemScatterer;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.items.SnailItems;
 
@@ -17,6 +17,7 @@ public class SnailBreakEvents {
                 if (mainHandItem.getItem() == Items.FLINT) {
                     world.setBlockState(blockPos, SnailBlocks.SCRATCHED_STONE.getDefaultState());
 
+                    ItemScatterer.spawn(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SnailItems.PEBBLE.getDefaultStack());
                     playerEntity.giveOrDropStack(SnailItems.FLINT_FLAKE.getDefaultStack());
                     playerEntity.getMainHandStack().decrement(1);
                 }

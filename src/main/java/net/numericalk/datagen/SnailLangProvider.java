@@ -49,6 +49,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.FLINT_HATCHET, "Flint Hatchet");
 
         translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
+        translationBuilder.add(SnailItems.PEBBLE, "Pebble");
 
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
@@ -95,6 +96,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailBlocks.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
         translationBuilder.add(SnailBlocks.STICK_BUNDLE, "Stick Bundle");
+        translationBuilder.add(SnailBlocks.UNTIED_THATCH_BLOCK, "Untied Thatch Block");
+        translationBuilder.add(SnailBlocks.THATCH_BLOCK, "Thatch Block");
 
         translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
         translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");

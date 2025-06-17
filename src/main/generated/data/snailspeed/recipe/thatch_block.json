@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:untied_thatch_block",
+    "snailspeed:grass_twine"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:thatch_block"
+  }
+}

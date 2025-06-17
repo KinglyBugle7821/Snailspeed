@@ -5,7 +5,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
@@ -31,7 +30,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.block.WireOrientation;
-import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.custom.CampfireBlockEntity;
 import net.numericalk.datagen.SnailItemTagsProvider;
@@ -44,24 +42,24 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
 
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
 
-    //1 Bark
-    //2 One Stick
-    //3 Two Sticks
-    //4 Three Sticks
-    //5 Four Sticks
-    //6 Burnt
+    public static final int STAGES_BASE = 1;
+    public static final int STAGES_ONE_STICK = 2;
+    public static final int STAGES_TWO_STICKS = 3;
+    public static final int STAGES_THREE_STICKS = 4;
+    public static final int STAGES_FULL_STICK = 5;
+    public static final int STAGES_BURNT = 6;
     public static final IntProperty STAGES = IntProperty.of("stages", 1, 6);
 
-    //1 Unlit
-    //2 Small Fire
-    //3 Medium Fire
-    //4 Large Fire
+    public static final int LIT_UNLIT = 1;
+    public static final int LIT_SMALL = 2;
+    public static final int LIT_MEDIUM = 3;
+    public static final int LIT_LARGE = 4;
     public static final IntProperty LIT = IntProperty.of("lit", 1, 4);
 
-    //1 No Stick
-    //2 One Stick
-    //3 Two Sticks
-    //4 Three Sticks
+    public static final int COOKING_NO_SUPPORT = 1;
+    public static final int COOKING_ONE_SUPPORT = 2;
+    public static final int COOKING_TWO_SUPPORTS = 3;
+    public static final int COOKING_FULL_SUPPORT = 4;
     public static final IntProperty COOKING = IntProperty.of("cooking", 1, 4);
 
     @Override
@@ -81,10 +79,10 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
 
     public static int getLuminance(BlockState state) {
         return switch (state.get(LIT)){
-            case 1 -> 0;
-            case 2 -> 7;
-            case 3 -> 11;
-            case 4 -> 15;
+            case LIT_UNLIT -> 0;
+            case LIT_SMALL -> 7;
+            case LIT_MEDIUM -> 11;
+            case LIT_LARGE -> 15;
             default -> 7;
         };
     }
@@ -97,37 +95,37 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             Block.createCuboidShape(12, 0, 6, 13, 1, 10)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     private static final VoxelShape SHAPE_FULL =
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13);
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14);
     private static final VoxelShape SHAPE_FULL_1_WEST = Stream.of(
             Block.createCuboidShape(7, 0, 0, 9, 16, 1),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     private static final VoxelShape SHAPE_FULL_2_WEST = Stream.of(
             Block.createCuboidShape(7, 0, 0, 9, 16, 1),
             Block.createCuboidShape(7, 0, 15, 9, 16, 16),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     private static final VoxelShape SHAPE_FULL_3_WEST = Stream.of(
             Block.createCuboidShape(7, 0, 0, 9, 16, 1),
             Block.createCuboidShape(7, 0, 15, 9, 16, 16),
             Block.createCuboidShape(7, 15, 1, 9, 16, 15),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     private static final VoxelShape SHAPE_FULL_1_NORTH = Stream.of(
             Block.createCuboidShape(15, 0, 7, 16, 16, 9),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     private static final VoxelShape SHAPE_FULL_2_NORTH = Stream.of(
             Block.createCuboidShape(0, 0, 7, 1, 16, 9),
             Block.createCuboidShape(15, 0, 7, 16, 16, 9),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
     private static final VoxelShape SHAPE_FULL_3_NORTH = Stream.of(
             Block.createCuboidShape(0, 0, 7, 1, 16, 9),
             Block.createCuboidShape(15, 0, 7, 16, 16, 9),
             Block.createCuboidShape(1, 15, 7, 15, 16, 9),
-            Block.createCuboidShape(2, 0, 2, 13, 10, 13)
+            Block.createCuboidShape(2, 0, 2, 14, 11, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     public CampfireBlock(Settings settings) {
@@ -142,7 +140,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             return SHAPE_BASE;
         }
         switch (state.get(COOKING)){
-            case 2 -> {
+            case COOKING_ONE_SUPPORT -> {
                 switch (state.get(FACING)){
                     case Direction.WEST, Direction.EAST -> {
                         return SHAPE_FULL_1_WEST;
@@ -152,7 +150,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                     }
                 }
             }
-            case 3 -> {
+            case COOKING_TWO_SUPPORTS -> {
                 switch (state.get(FACING)){
                     case Direction.WEST, Direction.EAST -> {
                         return SHAPE_FULL_2_WEST;
@@ -162,7 +160,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                     }
                 }
             }
-            case 4 -> {
+            case COOKING_FULL_SUPPORT -> {
                 switch (state.get(FACING)){
                     case Direction.WEST, Direction.EAST -> {
                         return SHAPE_FULL_3_WEST;
@@ -201,31 +199,46 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                 ItemScatterer.spawn(world, pos, ((CampfireBlockEntity) blockEntity));
                 world.updateComparators(pos, this);
             }
+            switch (state.get(STAGES)){
+                case STAGES_ONE_STICK -> dropItem(world, pos, Items.STICK, 0);
+                case STAGES_TWO_STICKS -> dropItem(world, pos, Items.STICK, 1);
+                case STAGES_THREE_STICKS -> dropItem(world, pos, Items.STICK, 2);
+                case STAGES_FULL_STICK -> dropItem(world, pos, Items.STICK, 3);
+                case STAGES_BURNT -> dropItem(world, pos, Items.CHARCOAL, 1);
+                default -> dropItem(world, pos, Items.AIR, 1);
+            }
+            switch (state.get(COOKING)){
+                case COOKING_ONE_SUPPORT -> dropItem(world, pos, Items.STICK, 1);
+                case COOKING_TWO_SUPPORTS -> dropItem(world, pos, Items.STICK, 2);
+                case COOKING_FULL_SUPPORT -> dropItem(world, pos, Items.STICK, 3);
+                default -> dropItem(world, pos, Items.AIR, 1);
+            }
             super.onStateReplaced(state, world, pos, newState, moved);
+        }
+    }
+
+    private void dropItem(World world, BlockPos pos, Item item, int count) {
+        for (int i = 0; i <= count; i++){
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());
         }
     }
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-
-        if (canPlaceStick(stack, state)){
-            placeStick(world, pos, state, player, stack);
+        if (canPlaceStickFor(STAGES, STAGES_FULL_STICK, state, stack)){
+            placeStickFor(STAGES, stack, state, world, pos, player);
+            return ActionResult.SUCCESS;
+        } else if (canPlaceStickFor(COOKING, COOKING_FULL_SUPPORT, STAGES, STAGES_BURNT, state, stack)){
+            placeStickFor(COOKING, stack, state, world, pos, player);
             return ActionResult.SUCCESS;
         }
 
-        if (canLitCampfire(stack, state, Items.FLINT_AND_STEEL)){
-            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FLINTANDSTEEL_USE);
+        if (canPlayerLitCampfireWith(Items.FLINT_AND_STEEL, stack, state, world, pos)){
+            litCampfireWith(SoundEvents.ITEM_FLINTANDSTEEL_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
-        } else if (canLitCampfire(stack, state, Items.FIRE_CHARGE)){
-            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FIRECHARGE_USE);
-            return ActionResult.SUCCESS;
-        } else if (canLitCampfire(stack, state, SnailItems.BURNING_TINDER)){
-            litFire(world, pos, state, player, stack, SoundEvents.ITEM_FIRECHARGE_USE);
-            return ActionResult.SUCCESS;
-        }
-
-        if (canPlaceCookingStation(stack, state)){
-            placeCookingStation(world, pos, state, player, stack);
+        } else if (canPlayerLitCampfireWith(Items.FIRE_CHARGE, stack, state, world, pos)
+                || canPlayerLitCampfireWith(SnailItems.BURNING_TINDER, stack, state, world, pos)){
+            litCampfireWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
         }
 
@@ -235,55 +248,53 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         }
 
         if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity) {
-            if (!stack.isEmpty() && state.get(COOKING) == 4) {
-                for (int i = 0; i < 3; i++) {
-                    if (campfireBlockEntity.getStack(i).isEmpty()) {
-                        campfireBlockEntity.setStack(i, stack.copyWithCount(1));
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                        if (!player.isCreative()) {
-                            stack.decrement(1);
+                    if (canPutItem(stack, state)) {
+                        for (int i = 0; i < 3; i++) {
+                            if (campfireBlockEntity.getStack(i).isEmpty()) {
+                                campfireBlockEntity.setStack(i, stack.copyWithCount(1));
+                                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                                if (!player.isCreative()) {
+                                    stack.decrement(1);
+                                }
+                                world.updateListeners(pos, state, state, 0);
+                                return ActionResult.SUCCESS;
+                            }
                         }
-                        world.updateListeners(pos, state, state, 0);
-                        return ActionResult.SUCCESS;
+                    }
+                    if (canGetItem(stack, state)){
+                        for (int i = 0; i < 3; i++) {
+                            if (!campfireBlockEntity.getStack(i).isEmpty()){
+                                world.updateListeners(pos, state, state, 0);
+                                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                                player.giveOrDropStack(campfireBlockEntity.getStack(i));
+                                campfireBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                                return ActionResult.SUCCESS;
+                            }
+                        }
                     }
                 }
-            }
-            if (stack.isEmpty() && state.get(COOKING) == 4){
-                for (int i = 0; i < 3; i++) {
-                    if (!campfireBlockEntity.getStack(i).isEmpty()){
-                        world.updateListeners(pos, state, state, 0);
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                        player.giveOrDropStack(campfireBlockEntity.getStack(i));
-                        campfireBlockEntity.setStack(i, Items.AIR.getDefaultStack());
-                        return ActionResult.SUCCESS;
-                    }
-                }
-            }
-        }
 
         return ActionResult.PASS;
     }
+    public boolean isSkyVisible(World world1, BlockPos pos) {
+        int worldHeight = world1.getHeight();
 
-    private void placeStick(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack) {
-        if (!world.isClient()){
-            cycleThrough(world, pos, state, STAGES);
+        for (int y = pos.getY() + 1; y < worldHeight; y++) {
+            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
+            if (!world1.isAir(abovePos)) {
+                return false;
+            }
         }
-        if (!player.isCreative()){
-            stack.decrement(1);
-        }
+
+        return true;
     }
 
-    private void placeCookingStation(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack) {
-        if (!world.isClient()){
-            cycleThrough(world, pos, state, COOKING);
-        }
-        if (!player.isCreative()){
-            stack.decrement(1);
-        }
+    private boolean canGetItem(ItemStack stack, BlockState state) {
+        return stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT;
     }
 
-    private boolean canPlaceCookingStation(ItemStack stack, BlockState state) {
-        return stack.isOf(Items.STICK) && state.get(STAGES) == 5 && state.get(COOKING) < 4;
+    private boolean canPutItem(ItemStack stack, BlockState state) {
+        return !stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT;
     }
 
     private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
@@ -297,41 +308,57 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             stack.decrement(1);
         }
     }
-
     private boolean canFeedFire(ItemStack stack, BlockState state, PlayerEntity player, BlockPos pos, World world) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof CampfireBlockEntity campfireBE)) return false;
 
         return stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)
-                && state.get(LIT) >= 2
+                && state.get(LIT) >= LIT_SMALL
                 && !player.isSneaking()
                 && campfireBE.getFireDegradeTime() < campfireBE.getFireDegradeTimeLimit();
     }
 
-    private boolean canLitCampfire(ItemStack stack, BlockState state, Item itemToLitCampfire) {
-        return stack.isOf(itemToLitCampfire) && state.get(LIT) == 1 && state.get(STAGES) == 5;
-    }
-
-    private void litFire(World world, BlockPos pos, BlockState state, PlayerEntity player, ItemStack stack, SoundEvent itemLitSound) {
-        if (!world.isClient()){
-            world.setBlockState(pos, state.with(LIT, 2));
-        }
-        world.playSound(player, pos, itemLitSound, SoundCategory.BLOCKS, 1f, 1f);
-        if (!player.isCreative()) {
-            if (stack.isDamageable()) {
-                stack.damage(1, player);
-            } else {
-                stack.decrement(1);
-            }
+    private void litCampfireWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
+        world.setBlockState(pos, state.cycle(LIT));
+        world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1f, 1f);
+        if (stack.isDamageable() && !player.isCreative()){
+            stack.damage(1, player);
+        }else if (!player.isCreative()){
+            stack.decrement(1);
         }
     }
 
-    private void cycleThrough(World world, BlockPos pos, BlockState state, IntProperty stages) {
-        world.setBlockState(pos, state.cycle(stages));
+    private boolean canPlayerLitCampfireWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
+        return stack.isOf(item) && state.get(LIT).equals(LIT_UNLIT) && rainFireHandler(world, pos) && state.get(STAGES) == STAGES_FULL_STICK;
     }
 
-    private boolean canPlaceStick(ItemStack stack ,BlockState state) {
-        return stack.isOf(Items.STICK) && state.get(STAGES) < 5;
+    private boolean rainFireHandler(World world, BlockPos pos) {
+        if (!world.isRaining() && !world.isThundering()){
+            return true;
+        } else if (!isSkyVisible(world, pos) && (world.isRaining() || world.isThundering())){
+            return true;
+        }
+        return false;
+    }
+
+    private void placeStickFor(IntProperty blockState, ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player) {
+        world.setBlockState(pos, state.cycle(blockState));
+        if (!player.isCreative()){
+            stack.decrement(1);
+        }
+    }
+
+    private boolean canPlaceStickFor(IntProperty blockState, int maxBlockState, BlockState state, ItemStack stack) {
+        if (stack.isOf(Items.STICK)){
+            return state.get(blockState) < maxBlockState;
+        }
+        return false;
+    }
+    private boolean canPlaceStickFor(IntProperty blockState, int maxBlockState, IntProperty blockState2, int maxBlockState2, BlockState state, ItemStack stack) {
+        if (stack.isOf(Items.STICK)){
+            return state.get(blockState) < maxBlockState && state.get(blockState2) < maxBlockState2;
+        }
+        return false;
     }
 
     @Override

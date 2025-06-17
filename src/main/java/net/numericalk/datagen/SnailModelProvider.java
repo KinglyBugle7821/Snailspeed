@@ -57,6 +57,8 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
@@ -83,9 +85,9 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(SnailItems.TINDER, Models.GENERATED);
-        itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.GENERATED);
-        itemModelGenerator.register(SnailItems.BURNT_TINDER, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.TINDER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BURNT_TINDER, Models.HANDHELD);
 
         itemModelGenerator.register(SnailItems.BURNT_POTATO, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BURNT_POPPED_CHORUS_FRUIT, Models.GENERATED);
@@ -99,6 +101,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.BURNT_BEEF, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.GRASS_TWINE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PEBBLE, Models.GENERATED);
 
         itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);

@@ -49,7 +49,7 @@ public class SnailItems {
     public static final Item BURNT_BEEF = register("burnt_beef", Item::new);
 
     public static final Item GRASS_TWINE = register("grass_twine", Item::new);
-
+    public static final Item PEBBLE = register("pebble", Item::new);
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name)))));

@@ -40,6 +40,8 @@ public class SnailItemGroup {
 
                         entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
                         entries.add(SnailBlocks.STICK_BUNDLE);
+                        entries.add(SnailBlocks.UNTIED_THATCH_BLOCK);
+                        entries.add(SnailBlocks.THATCH_BLOCK);
 
                         entries.add(SnailBlocks.UNSTEADY_DIRT);
                         entries.add(SnailBlocks.UNSTEADY_COARSE_DIRT);
@@ -62,6 +64,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BURNT_BEEF);
 
                         entries.add(SnailItems.GRASS_TWINE);
+                        entries.add(SnailItems.PEBBLE);
                     }).build());
     public static void initialize() {}
 

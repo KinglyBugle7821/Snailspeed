@@ -378,12 +378,189 @@
 
     {
       "apply": {
+        "model": "snailspeed:block/campfire_burnt",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 1,
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 1,
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "snailspeed:block/campfire_burnt"
       },
       "when": {
         "stages": 6,
         "lit": 1,
-        "cooking": 1
+        "cooking": 1,
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 1,
+        "facing": "east"
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_1",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 2,
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_1",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 2,
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_1"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 2,
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_1"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 2,
+        "facing": "east"
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_2",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 3,
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_2",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 3,
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_2"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 3,
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_2"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 3,
+        "facing": "east"
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_3",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 4,
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_3",
+        "y": 90
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 4,
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_3"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 4,
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/campfire_burnt_3"
+      },
+      "when": {
+        "stages": 6,
+        "lit": 1,
+        "cooking": 4,
+        "facing": "east"
       }
     },
 

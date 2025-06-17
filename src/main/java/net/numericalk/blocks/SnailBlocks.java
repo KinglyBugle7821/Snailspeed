@@ -172,8 +172,15 @@ public class SnailBlocks {
             properties -> new UntiedStickBundleBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(2.5f, 2f).sounds(BlockSoundGroup.BAMBOO).burnable()));
     public static final Block STICK_BUNDLE = registerBlock("stick_bundle",
-            properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
+            properties -> new TiedStickBundleBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(2.5f, 2f).sounds(BlockSoundGroup.BAMBOO).burnable()));
+
+    public static final Block UNTIED_THATCH_BLOCK = registerBlock("untied_thatch_block",
+            properties -> new UntiedThatchBlock(properties.mapColor(MapColor.TERRACOTTA_YELLOW)
+                    .strength(1.5f).sounds(BlockSoundGroup.GRASS).burnable()));
+    public static final Block THATCH_BLOCK = registerBlock("thatch_block",
+            properties -> new TiedThatchBlock(properties.mapColor(MapColor.TERRACOTTA_YELLOW)
+                    .strength(1.5f).sounds(BlockSoundGroup.GRASS).burnable()));
 
     public static final Block UNSTEADY_DIRT = registerBlock("unsteady_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
@@ -181,7 +188,6 @@ public class SnailBlocks {
     public static final Block UNSTEADY_COARSE_DIRT = registerBlock("unsteady_coarse_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
                     .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));
-
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

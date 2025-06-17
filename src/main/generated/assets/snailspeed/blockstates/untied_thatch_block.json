@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "snailspeed:block/untied_thatch_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "snailspeed:block/untied_thatch_block"
+    },
+    "axis=z": {
+      "model": "snailspeed:block/untied_thatch_block",
+      "x": 90
+    }
+  }
+}

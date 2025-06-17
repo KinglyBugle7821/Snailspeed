@@ -1,6 +1,8 @@
 package net.numericalk.blocks.entity.custom;
 
+import net.minecraft.block.BeaconBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BeaconBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
@@ -20,9 +22,11 @@ import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
+import static net.numericalk.blocks.custom.CampfireBlock.*;
+
 public class CampfireBlockEntity extends BlockEntity implements ImplementedInventory {
 
-    private final float fireDegradeTimeFinal = 1200f;
+    private final float fireDegradeTimeFinal = 1200f; // 5 Minutes
     private float fireDegradeTime = fireDegradeTimeFinal;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
@@ -70,39 +74,64 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     private int maxProgress;
     public void tick(World world1, BlockPos pos, BlockState state) {
 
-        System.out.println(fireDegradeTime);
-        if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > 1){
+        if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT){
             fireDegradeTime --;
         } else if (canExtinguishFire(state)){
             extinguishFire(world1, pos, state);
         }
-        if (canUpgradeFire(state, 2, 200f)){
-            upgradeFire(world1, pos, state, 2);
+
+        if (isWorldRaining(state, world1) && isSkyVisible(world1, pos)){
+            extinguishFireWithoutBeingBurnt(world1, pos, state);
         }
-        if (canDegradeFire(state, 3)){
-            degradeFire(world1, pos, state, 3);
+        if (canUpgradeFire(state, LIT_SMALL, 200f)){
+            upgradeFire(world1, pos, state, LIT_SMALL);
         }
-        if (canUpgradeFire(state, 3, 400f)){
-            upgradeFire(world1, pos, state, 3);
+        if (canDegradeFire(state, LIT_MEDIUM)){
+            degradeFire(world1, pos, state, LIT_MEDIUM);
         }
-        if (canDegradeFire(state, 4)){
-            degradeFire(world1, pos, state, 4);
+        if (canUpgradeFire(state, LIT_MEDIUM, 400f)){
+            upgradeFire(world1, pos, state, LIT_MEDIUM);
+        }
+        if (canDegradeFire(state, LIT_LARGE)){
+            degradeFire(world1, pos, state, LIT_LARGE);
         }
 
         //RECIPE
 
         if (getLitBlockState(state) == 2){
-            maxProgress = 20 * 60 * 2;
+            maxProgress = 20 * 60 * 5;
             cookItem(world1, pos, maxProgress);
         }
         if (getLitBlockState(state) == 3){
-            maxProgress = 20 * 60;
+            maxProgress = 20 * 60 * 3;
             cookItem(world1, pos, maxProgress);
         }
         if (getLitBlockState(state) == 4){
             maxProgress = 20 * 60;
             burnItem(world1, pos, maxProgress);
         }
+    }
+
+    private void extinguishFireWithoutBeingBurnt(World world1, BlockPos pos, BlockState state) {
+        world1.setBlockState(pos, state.with(CampfireBlock.LIT, 1));
+        setFireDegradeTime(fireDegradeTimeFinal);
+    }
+
+    public boolean isSkyVisible(World world1, BlockPos pos) {
+        int worldHeight = world1.getHeight();
+
+        for (int y = pos.getY() + 1; y < worldHeight; y++) {
+            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
+            if (!world1.isAir(abovePos)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean isWorldRaining(BlockState state, World world1) {
+        return (world1.isRaining() || world1.isThundering()) && state.get(LIT) >= LIT_SMALL;
     }
 
     private void burnItem(World world1, BlockPos pos, int maxProgress) {
@@ -184,7 +213,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         return state.get(CampfireBlock.LIT) == 2 && fireDegradeTime <= 0;
     }
     private void extinguishFire(World world1, BlockPos pos, BlockState state){
-        world1.setBlockState(pos, state.with(CampfireBlock.LIT, 1));
+        world1.setBlockState(pos, state.with(CampfireBlock.LIT, 1).with(CampfireBlock.STAGES, 6));
         setFireDegradeTime(fireDegradeTimeFinal);
     }
 

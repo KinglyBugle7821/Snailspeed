@@ -11,7 +11,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -21,38 +20,23 @@ import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Supplier;
-
-import static net.minecraft.block.PillarBlock.changeRotation;
-
-public class UntiedStickBundleBlock extends FallingBlock {
-
+public class UntiedThatchBlock extends FallingBlock {
+    public static final MapCodec<UntiedThatchBlock> CODEC = UntiedThatchBlock.createCodec(UntiedThatchBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = Properties.AXIS;
-    public static final MapCodec<UntiedStickBundleBlock> CODEC = UntiedStickBundleBlock.createCodec(UntiedStickBundleBlock::new);
 
-    public UntiedStickBundleBlock(Settings settings) {
+    public UntiedThatchBlock(Settings settings) {
         super(settings);
-        this.setDefaultState( this.getDefaultState().with(AXIS, Direction.Axis.Y));
+        this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
     }
-    protected BlockState rotate(BlockState state, BlockRotation rotation) {
-        return changeRotation(state, rotation);
-    }
-
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(AXIS, ctx.getSide().getAxis());
     }
-
-    @Override
-    protected MapCodec<? extends FallingBlock> getCodec() {
-        return CODEC;
-    }
-
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.isOf(SnailItems.GRASS_TWINE)){
             if (!world.isClient()){
-                world.setBlockState(pos, SnailBlocks.STICK_BUNDLE.getStateWithProperties(state));
+                world.setBlockState(pos, SnailBlocks.THATCH_BLOCK.getStateWithProperties(state));
             }
             if (!player.isCreative()){
                 stack.decrement(1);
@@ -63,7 +47,12 @@ public class UntiedStickBundleBlock extends FallingBlock {
     }
 
     @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return CODEC;
+    }
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AXIS);
     }
+
 }

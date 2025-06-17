@@ -79,6 +79,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.GRASS_TWINE), conditionsFromItem(SnailItems.GRASS_TWINE))
                         .offerTo(exporter);
 
+
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.UNTIED_STICK_BUNDLE)
                         .input(Items.STICK, 4)
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
@@ -88,6 +89,17 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input(SnailItems.GRASS_TWINE)
                         .criterion(hasItem(SnailBlocks.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocks.UNTIED_STICK_BUNDLE))
                         .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.UNTIED_THATCH_BLOCK)
+                        .input(SnailBlocks.DRIED_GRASS_SHEAF, 4)
+                        .criterion(hasItem(SnailBlocks.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocks.UNTIED_THATCH_BLOCK))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.THATCH_BLOCK)
+                        .input(SnailBlocks.UNTIED_THATCH_BLOCK)
+                        .input(SnailItems.GRASS_TWINE)
+                        .criterion(hasItem(SnailBlocks.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocks.UNTIED_THATCH_BLOCK))
+                        .offerTo(exporter);
+
 
                 createShaped(RecipeCategory.MISC, SnailBlocks.UNSTEADY_COARSE_DIRT, 4)
                         .pattern("dg")

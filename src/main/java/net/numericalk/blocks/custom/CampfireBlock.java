@@ -233,11 +233,11 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
             return ActionResult.SUCCESS;
         }
 
-        if (canPlayerLitCampfireWith(Items.FLINT_AND_STEEL, stack, state, world, pos)){
+        if (canLitCampfireWith(Items.FLINT_AND_STEEL, stack, state, world, pos)){
             litCampfireWith(SoundEvents.ITEM_FLINTANDSTEEL_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
-        } else if (canPlayerLitCampfireWith(Items.FIRE_CHARGE, stack, state, world, pos)
-                || canPlayerLitCampfireWith(SnailItems.BURNING_TINDER, stack, state, world, pos)){
+        } else if (canLitCampfireWith(Items.FIRE_CHARGE, stack, state, world, pos)
+                || canLitCampfireWith(SnailItems.BURNING_TINDER, stack, state, world, pos)){
             litCampfireWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
         }
@@ -248,32 +248,31 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         }
 
         if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity) {
-                    if (canPutItem(stack, state)) {
-                        for (int i = 0; i < 3; i++) {
-                            if (campfireBlockEntity.getStack(i).isEmpty()) {
-                                campfireBlockEntity.setStack(i, stack.copyWithCount(1));
-                                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                                if (!player.isCreative()) {
-                                    stack.decrement(1);
-                                }
-                                world.updateListeners(pos, state, state, 0);
-                                return ActionResult.SUCCESS;
-                            }
+            if (canPutItem(stack, state)) {
+                for (int i = 0; i < 3; i++) {
+                    if (campfireBlockEntity.getStack(i).isEmpty()) {
+                        campfireBlockEntity.setStack(i, stack.copyWithCount(1));
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                        if (!player.isCreative()) {
+                            stack.decrement(1);
                         }
-                    }
-                    if (canGetItem(stack, state)){
-                        for (int i = 0; i < 3; i++) {
-                            if (!campfireBlockEntity.getStack(i).isEmpty()){
-                                world.updateListeners(pos, state, state, 0);
-                                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                                player.giveOrDropStack(campfireBlockEntity.getStack(i));
-                                campfireBlockEntity.setStack(i, Items.AIR.getDefaultStack());
-                                return ActionResult.SUCCESS;
-                            }
-                        }
+                        world.updateListeners(pos, state, state, 0);
+                        return ActionResult.SUCCESS;
                     }
                 }
-
+            }
+            if (canTakeItem(stack, state)){
+                for (int i = 0; i < 3; i++) {
+                    if (!campfireBlockEntity.getStack(i).isEmpty()){
+                        world.updateListeners(pos, state, state, 0);
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                        player.giveOrDropStack(campfireBlockEntity.getStack(i));
+                        campfireBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        return ActionResult.SUCCESS;
+                    }
+                }
+            }
+        }
         return ActionResult.PASS;
     }
     public boolean isSkyVisible(World world1, BlockPos pos) {
@@ -289,7 +288,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         return true;
     }
 
-    private boolean canGetItem(ItemStack stack, BlockState state) {
+    private boolean canTakeItem(ItemStack stack, BlockState state) {
         return stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT;
     }
 
@@ -328,7 +327,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         }
     }
 
-    private boolean canPlayerLitCampfireWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
+    private boolean canLitCampfireWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
         return stack.isOf(item) && state.get(LIT).equals(LIT_UNLIT) && rainFireHandler(world, pos) && state.get(STAGES) == STAGES_FULL_STICK;
     }
 
@@ -389,7 +388,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
 
     private void checkSupport(BlockState state, World world, BlockPos pos) {
         if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP)) {
-            world.breakBlock(pos, true); // Breaks the block and drops items.
+            world.breakBlock(pos, true);
         }
     }
 

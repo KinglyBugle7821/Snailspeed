@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "minecraft:block/white_concrete_powder",
+		"particle": "minecraft:block/white_concrete_powder"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 2],
+			"to": [11, 2, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 12]},
+			"faces": {
+				"north": {"uv": [5, 14, 11, 16], "texture": "#0"},
+				"east": {"uv": [11, 2, 13, 14], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [5, 0, 11, 2], "texture": "#0"},
+				"west": {"uv": [3, 2, 5, 14], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [5, 2, 11, 14], "texture": "#0"},
+				"down": {"uv": [5, 2, 11, 14], "texture": "#0"}
+			}
+		}
+	]
+}

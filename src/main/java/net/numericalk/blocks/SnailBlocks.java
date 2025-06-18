@@ -157,12 +157,30 @@ public class SnailBlocks {
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().luminance(CampfireBlock::getLuminance)));
 
+    public static final Block BRICK_OVEN_BASE = registerBlock("brick_oven_base",
+            properties -> new BrickOvenBaseBlock(properties.mapColor(MapColor.DULL_RED)
+                    .strength(5.5F).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
+    public static final Block BRICK_OVEN = registerBlock("brick_oven",
+            properties -> new BrickOvenBlock(properties.mapColor(MapColor.DULL_RED)
+                    .strength(5.5F).sounds(BlockSoundGroup.STONE).nonOpaque()
+                    .luminance(BrickOvenBlock::getLuminance).requiresTool()));
+
     public static final Block GRASS_SHEAF = registerBlock("grass_sheaf",
             properties -> new GrassSheafBlock(properties.mapColor(MapColor.EMERALD_GREEN)
                     .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision().burnable()));
     public static final Block DRIED_GRASS_SHEAF = registerBlock("dried_grass_sheaf",
             properties -> new DriedGrassSheafBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision().burnable()));
+    public static final Block CLAY_BRICK = registerBlock("clay_brick",
+            properties -> new ClayBrickBlock(properties.mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRAVEL).nonOpaque()));
+    public static final Block DRIED_CLAY_BRICK = registerBlock("dried_clay_brick",
+            properties -> new DriedClayBrickBlock(properties.mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.STONE).nonOpaque()));
+
+    public static final Block FIRED_BRICK = registerBlock("fired_brick",
+            properties -> new FiredBrickBlock(properties.mapColor(MapColor.DULL_RED)
+                    .strength(0.5F).breakInstantly().sounds(BlockSoundGroup.STONE).nonOpaque()));
 
     public static final Block SCRATCHED_STONE = registerBlock("scratched_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)

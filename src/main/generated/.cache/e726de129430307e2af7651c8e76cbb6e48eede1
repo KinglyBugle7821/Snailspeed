@@ -1,5 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Block Loot Tables
+6ab8dcddb2d5484629706375c25cbf6c8d793511 data/snailspeed/loot_table/blocks/brick_oven.json
 6790e1065863882744e42124dd521b19b7ec36fe data/snailspeed/loot_table/blocks/campfire_base.json
+61d37c3554e4b5db38e4d754e40b5724dc24a232 data/snailspeed/loot_table/blocks/clay_brick.json
 672723e06981cddd0f53612a808eebbdf35b4b02 data/snailspeed/loot_table/blocks/cracked_acacia_log.json
 672723e06981cddd0f53612a808eebbdf35b4b02 data/snailspeed/loot_table/blocks/cracked_birch_log.json
 672723e06981cddd0f53612a808eebbdf35b4b02 data/snailspeed/loot_table/blocks/cracked_cherry_log.json
@@ -22,7 +24,9 @@ afcbac7e96265e2873425e02685162d351d65a6f data/snailspeed/loot_table/blocks/damag
 afcbac7e96265e2873425e02685162d351d65a6f data/snailspeed/loot_table/blocks/damaged_pale_oak_log.json
 afcbac7e96265e2873425e02685162d351d65a6f data/snailspeed/loot_table/blocks/damaged_spruce_log.json
 afcbac7e96265e2873425e02685162d351d65a6f data/snailspeed/loot_table/blocks/damaged_warped_stem.json
+d102fe8a6bc5a1747d65b1a7f9f67c6d144a9baa data/snailspeed/loot_table/blocks/dried_clay_brick.json
 9ccbabaefc56fa176d2c96d27de4996f19d6cf1a data/snailspeed/loot_table/blocks/dried_grass_sheaf.json
+46b1da980e6398b37e3ddfb22cdc0ac6766ca753 data/snailspeed/loot_table/blocks/fired_brick.json
 aa9c5052f2ebe94ed75c9216df2357e21589ba43 data/snailspeed/loot_table/blocks/grass_sheaf.json
 f6d1b27c81ff9a8c2849545679b67cf721416b86 data/snailspeed/loot_table/blocks/scratched_stone.json
 a5b739bdb59f9cf0862e72f859e0654b2308bd9d data/snailspeed/loot_table/blocks/stick_bundle.json

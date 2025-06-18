@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "snailspeed:block/fired_brick",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "snailspeed:block/fired_brick"
+    },
+    "facing=south": {
+      "model": "snailspeed:block/fired_brick",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "snailspeed:block/fired_brick",
+      "y": 270
+    }
+  }
+}

@@ -6,7 +6,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
@@ -42,14 +44,15 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
     }
 
     private int burnTimeRemaining = 0;
-    private final int maxBurnTime = 20 * 60 * 5;
+    private final int maxBurnTime = 20 * 60 * 4;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (isGrassSheaf(state)){
+        if (isDriedGrassSheaf(state)){
             if (!isRaining(world1) && hasDaylight(world1, pos)){
                 if (hasProgressComplete()){
                     dryGrassSheaf(world1, pos, state);
                 }
+                spawnSmokeParticle(world1, pos);
                 increaseProgress();
             } else if (!hasDaylight(world1, pos)){
                 pauseProgress();
@@ -58,6 +61,17 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
             }
         } else {
             resetProgress();
+        }
+    }
+    private void spawnSmokeParticle(World world1, BlockPos pos) {
+        if (!world1.isClient){
+            ((ServerWorld) world1).spawnParticles(
+                    ParticleTypes.SMOKE,
+                    pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
+                    1,
+                    0.4, 0.5, 0.4,
+                    0.001
+            );
         }
     }
 
@@ -91,7 +105,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
         return world1.isRaining() || world1.isThundering();
     }
 
-    private boolean isGrassSheaf(BlockState state1) {
-        return state1.isOf(SnailBlocks.GRASS_SHEAF);
+    private boolean isDriedGrassSheaf(BlockState state1) {
+        return state1.isOf(SnailBlocks.DRIED_GRASS_SHEAF);
     }
 }

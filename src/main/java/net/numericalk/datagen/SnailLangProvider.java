@@ -53,6 +53,10 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
+        translationBuilder.add(SnailBlocks.CLAY_BRICK, "Clay Brick");
+        translationBuilder.add(SnailBlocks.DRIED_CLAY_BRICK, "Dried Clay Brick");
+
+        translationBuilder.add(SnailBlocks.FIRED_BRICK, "Fired Brick");
 
         translationBuilder.add(SnailBlocks.TRIMMED_OAK_LOG, "Trimmed Oak Log");
         translationBuilder.add(SnailBlocks.TRIMMED_SPRUCE_LOG, "Trimmed Spruce Log");
@@ -91,6 +95,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DAMAGED_WARPED_STEM, "Damaged Warped Stem");
 
         translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
+        translationBuilder.add(SnailBlocks.BRICK_OVEN_BASE, "Brick Oven Base");
+        translationBuilder.add(SnailBlocks.BRICK_OVEN, "Brick Oven");
 
         translationBuilder.add(SnailBlocks.SCRATCHED_STONE, "Scratched Stone");
 

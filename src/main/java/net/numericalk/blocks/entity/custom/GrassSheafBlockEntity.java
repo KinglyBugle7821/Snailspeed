@@ -6,7 +6,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
@@ -42,16 +44,15 @@ public class GrassSheafBlockEntity extends BlockEntity {
         return createNbt(registryLookup);
     }
     private int dryTimeRemaining = 0;
-    private final int maxDryTime = 20 * 60 * 5;
+    private final int maxDryTime = 20 * 60;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isGrassSheaf(state)){
-            System.out.println("It is Grass Sheaf");
             if (!isRaining(world1) && hasDaylight(world1, pos)){
-                System.out.println("IT should Work : " + dryTimeRemaining);
                 if (hasProgressComplete()){
                     dryGrassSheaf(world1, pos, state);
                 }
+                spawnSmokeParticle(world1, pos);
                 increaseProgress();
             } else if (!hasDaylight(world1, pos)){
                 pauseProgress();
@@ -60,6 +61,18 @@ public class GrassSheafBlockEntity extends BlockEntity {
             }
         } else {
             resetProgress();
+        }
+    }
+
+    private void spawnSmokeParticle(World world1, BlockPos pos) {
+        if (!world1.isClient){
+            ((ServerWorld) world1).spawnParticles(
+                    ParticleTypes.WHITE_SMOKE,
+                    pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
+                    1,
+                    0.4, 0.5, 0.4,
+                    0.001
+            );
         }
     }
 

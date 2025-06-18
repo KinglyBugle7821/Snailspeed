@@ -34,9 +34,15 @@ public class SnailItemGroup {
                         entries.add(SnailItems.FLINT_FLAKE);
 
                         entries.add(SnailBlocks.CAMPFIRE_BASE);
+                        entries.add(SnailBlocks.BRICK_OVEN_BASE);
+                        entries.add(SnailBlocks.BRICK_OVEN);
 
                         entries.add(SnailBlocks.GRASS_SHEAF);
                         entries.add(SnailBlocks.DRIED_GRASS_SHEAF);
+                        entries.add(SnailBlocks.CLAY_BRICK);
+                        entries.add(SnailBlocks.DRIED_CLAY_BRICK);
+
+                        entries.add(SnailBlocks.FIRED_BRICK);
 
                         entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
                         entries.add(SnailBlocks.STICK_BUNDLE);

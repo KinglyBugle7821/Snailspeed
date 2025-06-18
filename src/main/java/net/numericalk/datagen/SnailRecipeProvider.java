@@ -100,7 +100,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailBlocks.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocks.UNTIED_THATCH_BLOCK))
                         .offerTo(exporter);
 
-
                 createShaped(RecipeCategory.MISC, SnailBlocks.UNSTEADY_COARSE_DIRT, 4)
                         .pattern("dg")
                         .pattern("gd")
@@ -108,6 +107,17 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('g', Blocks.GRAVEL)
                         .group("multi_bench")
                         .criterion(hasItem(SnailBlocks.UNSTEADY_DIRT), conditionsFromItem(SnailBlocks.UNSTEADY_DIRT))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_OVEN_BASE)
+                        .pattern("##")
+                        .input('#', Items.BRICK)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.CLAY_BRICK, 4)
+                        .input(Items.CLAY_BALL, 4)
+                        .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
             }
         };

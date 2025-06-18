@@ -9,4 +9,5 @@ c2efde79fb0c82952b8e138ba927a42ddc15089b data/minecraft/tags/item/wooden_tool_ma
 4333e5b0d3c082c5e91baec1955d1a9d418dc318 data/snailspeed/tags/item/flint_flake_repairable.json
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json
 75a089e3aa2e0448de8c4ac6f44f0dbb8f720cb5 data/snailspeed/tags/item/log_barks_that_burn.json
+eb3feed584a764d49a00a94721aeced05f228689 data/snailspeed/tags/item/oven_fuel.json
 b3d5e20b17e25bb8403cb41cda4e07c1be41d1b9 data/snailspeed/tags/item/string.json

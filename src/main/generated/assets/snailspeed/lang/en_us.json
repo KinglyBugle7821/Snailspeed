@@ -1,5 +1,8 @@
 {
+  "block.snailspeed.brick_oven": "Brick Oven",
+  "block.snailspeed.brick_oven_base": "Brick Oven Base",
   "block.snailspeed.campfire_base": "Campfire Base",
+  "block.snailspeed.clay_brick": "Clay Brick",
   "block.snailspeed.cracked_acacia_log": "Cracked Acacia Log",
   "block.snailspeed.cracked_birch_log": "Cracked Birch Log",
   "block.snailspeed.cracked_cherry_log": "Cracked Cherry Log",
@@ -22,7 +25,9 @@
   "block.snailspeed.damaged_pale_oak_log": "Damaged Pale Oak Log",
   "block.snailspeed.damaged_spruce_log": "Damaged Spruce Log",
   "block.snailspeed.damaged_warped_stem": "Damaged Warped Stem",
+  "block.snailspeed.dried_clay_brick": "Dried Clay Brick",
   "block.snailspeed.dried_grass_sheaf": "Dried Grass Sheaf",
+  "block.snailspeed.fired_brick": "Fired Brick",
   "block.snailspeed.grass_sheaf": "Grass Sheaf",
   "block.snailspeed.scratched_stone": "Scratched Stone",
   "block.snailspeed.stick_bundle": "Stick Bundle",

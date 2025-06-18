@@ -26,7 +26,7 @@ import static net.numericalk.blocks.custom.CampfireBlock.*;
 
 public class CampfireBlockEntity extends BlockEntity implements ImplementedInventory {
 
-    private final float fireDegradeTimeFinal = 1200f; // 5 Minutes
+    private final float fireDegradeTimeFinal = 1200f;
     private float fireDegradeTime = fireDegradeTimeFinal;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 

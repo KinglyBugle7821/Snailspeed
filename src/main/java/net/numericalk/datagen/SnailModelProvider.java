@@ -52,6 +52,10 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_BRICK);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.FIRED_BRICK);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.SCRATCHED_STONE);
 
@@ -62,7 +66,7 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
-      }
+    }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(SnailItems.OAK_LOG_BARK, Models.GENERATED);
@@ -105,6 +109,11 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.FIRED_BRICK.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

@@ -89,8 +89,14 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
             );
         }
         addDrop(SnailBlocks.CAMPFIRE_BASE);
+        addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN, Items.BRICK, 4));
+
         addDrop(SnailBlocks.GRASS_SHEAF);
         addDrop(SnailBlocks.DRIED_GRASS_SHEAF);
+        addDrop(SnailBlocks.CLAY_BRICK);
+        addDrop(SnailBlocks.DRIED_CLAY_BRICK);
+
+        addDrop(SnailBlocks.FIRED_BRICK, bundledBlockDrop(SnailBlocks.FIRED_BRICK, Items.BRICK, 1));
 
         addDropWithSilkTouch(SnailBlocks.SCRATCHED_STONE, Blocks.COBBLESTONE);
 

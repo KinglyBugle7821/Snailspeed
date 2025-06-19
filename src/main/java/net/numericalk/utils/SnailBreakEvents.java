@@ -28,7 +28,7 @@ public class SnailBreakEvents {
         PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
             if (whatIsTarget(Blocks.STONE, player, state) || whatIsTarget(Blocks.DEEPSLATE, player, state)) {
                 if (playerHas(Items.FLINT, player)) {
-                    degradeStoneSmall(world, pos, state);
+                    degradeStoneSmall(world, pos, state, true);
                     decrementStack(player, world);
                     givePlayer(SnailItems.FLINT_FLAKE, world, player);
                 }
@@ -39,7 +39,7 @@ public class SnailBreakEvents {
                     return true;
                 } else if (hasIronPickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
-                        degradeStoneHuge(world, pos, state);
+                        degradeStoneHuge(world, pos, state, true);
                         damageItem(stack, player, world);
                         return false;
                     } else {
@@ -47,7 +47,7 @@ public class SnailBreakEvents {
                     }
                 } else if(hasStonePickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
-                        degradeStoneBig(world, pos, state);
+                        degradeStoneBig(world, pos, state, true);
                         damageItem(stack, player, world);
                         return false;
                     } else {
@@ -55,14 +55,21 @@ public class SnailBreakEvents {
                     }
                 } else if (hasWoodenPickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
-                        degradeStoneSmall(world, pos, state);
+                        degradeStoneSmall(world, pos, state, true);
+                        damageItem(stack, player, world);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                } else {
+                    if (!hasReachedCrumbled(state)) {
+                        degradeStoneSmall(world, pos, state, false);
                         damageItem(stack, player, world);
                         return false;
                     } else {
                         return true;
                     }
                 }
-                return false;
             }
             return true;
         });
@@ -102,7 +109,7 @@ public class SnailBreakEvents {
             player.getMainHandStack().decrement(1);
         }
     }
-    private static void degradeStoneHuge(World world, BlockPos pos, BlockState state) {
+    private static void degradeStoneHuge(World world, BlockPos pos, BlockState state, boolean canDrop) {
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -111,34 +118,41 @@ public class SnailBreakEvents {
             Block crumbled = stone[5];
             if (state.isOf(stone[0])){
                 turnBlockTo(cobbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(scratched)){
                 turnBlockTo(fractured, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.STONE_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                }
             } else if (state.isOf(cracked)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.STONE_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                }
             } else if (state.isOf(cobbled)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(fractured)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             }
         }
     }
 
-    private static void degradeStoneBig(World world, BlockPos pos, BlockState state) {
+    private static void degradeStoneBig(World world, BlockPos pos, BlockState state, boolean canDrop) {
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -147,28 +161,37 @@ public class SnailBreakEvents {
             Block crumbled = stone[5];
             if (state.isOf(stone[0])){
                 turnBlockTo(cracked, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(scratched)){
                 turnBlockTo(cobbled, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(cracked)){
                 turnBlockTo(fractured, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(cobbled)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(fractured)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             }
         }
     }
-    private static void degradeStoneSmall(World world, BlockPos pos, BlockState state) {
+    private static void degradeStoneSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -177,19 +200,29 @@ public class SnailBreakEvents {
             Block crumbled = stone[5];
             if (state.isOf(stone[0])){
                 turnBlockTo(scratched, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                }
             } else if (state.isOf(scratched)){
                 turnBlockTo(cracked, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(cracked)){
                 turnBlockTo(cobbled, pos, state, world);
-                addDrop(world, SnailItems.PEBBLE, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             } else if (state.isOf(cobbled)){
                 turnBlockTo(fractured, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.STONE_DUST, pos);
+                }
             } else if (state.isOf(fractured)){
                 turnBlockTo(crumbled, pos, state, world);
-                addDrop(world, SnailItems.STONE_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                }
             }
         }
     }

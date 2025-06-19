@@ -40,7 +40,7 @@ public class SnailWoodReplace {
                         return true;
                     } else if(hasStoneAxe(stack)){
                          if (!hasReachedDamaged(state)) {
-                             degradeLogBig(world, pos, state);
+                             degradeLogBig(world, pos, state, true);
                              damageItem(stack, player, world);
                              return false;
                          } else {
@@ -48,14 +48,21 @@ public class SnailWoodReplace {
                          }
                      } else if (hasWoodenAxe(stack)){
                         if (!hasReachedDamaged(state)) {
-                            degradeLogSmall(world, pos, state);
+                            degradeLogSmall(world, pos, state, true);
+                            damageItem(stack, player, world);
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    } else {
+                        if (!hasReachedDamaged(state)) {
+                            degradeLogSmall(world, pos, state, false);
                             damageItem(stack, player, world);
                             return false;
                         } else {
                             return true;
                         }
                     }
-                    return false;
                 }
             }
 
@@ -86,7 +93,7 @@ public class SnailWoodReplace {
         }
     }
 
-    private static void degradeLogSmall(World world, BlockPos pos, BlockState state) {
+    private static void degradeLogSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
         for (Object[] log : logBlocksCombo){
             Block trimmed = (Block) log[4];
             Block cracked = (Block) log[5];
@@ -95,20 +102,26 @@ public class SnailWoodReplace {
             for (int i = 0; i < 4; i++){
                 if (state.isOf((Block) log[i])){
                     turnBlockTo(trimmed, pos, state, world);
-                    addDrop(world, bark, pos);
+                    if (canDrop) {
+                        addDrop(world, bark, pos);
+                    }
                     return;
                 }
             }
             if (state.isOf(trimmed)){
                 turnBlockTo(cracked, pos, state, world);
-                addDrop(world, SnailItems.WOOD_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                }
             } else if (state.isOf(cracked)){
                 turnBlockTo(damaged, pos, state, world);
-                addDrop(world, SnailItems.WOOD_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                }
             }
         }
     }
-    private static void degradeLogBig(World world, BlockPos pos, BlockState state) {
+    private static void degradeLogBig(World world, BlockPos pos, BlockState state, boolean canDrop) {
         for (Object[] log : logBlocksCombo){
             Block trimmed = (Block) log[4];
             Block cracked = (Block) log[5];
@@ -117,19 +130,25 @@ public class SnailWoodReplace {
             for (int i = 0; i < 4; i++){
                 if (state.isOf((Block) log[i])){
                     turnBlockTo(cracked, pos, state, world);
-                    addDrop(world, bark, pos);
-                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                    if (canDrop) {
+                        addDrop(world, bark, pos);
+                        addDrop(world, SnailItems.WOOD_DUST, pos);
+                    }
                     return;
                 }
             }
             if (state.isOf(trimmed)){
                 turnBlockTo(damaged, pos, state, world);
-                addDrop(world, SnailItems.WOOD_DUST, pos);
-                addDrop(world, SnailItems.WOOD_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                }
             }
             if (state.isOf(cracked)){
                 turnBlockTo(damaged, pos, state, world);
-                addDrop(world, SnailItems.WOOD_DUST, pos);
+                if (canDrop){
+                    addDrop(world, SnailItems.WOOD_DUST, pos);
+                }
             }
         }
     }

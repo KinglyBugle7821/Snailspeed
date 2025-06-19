@@ -36,12 +36,12 @@ public class SnailWoodReplace {
             ItemStack stack = player.getMainHandStack();
             if (!player.isCreative()){
                 if (isTargetLogBlock(state)){
-                     if (hasBetterAxe(stack)){
+                    if (hasBetterAxe(stack)){
                         return true;
                     } else if(hasStoneAxe(stack)){
                          if (!hasReachedDamaged(state)) {
                              degradeLogBig(world, pos, state);
-                             damageItem(stack, player);
+                             damageItem(stack, player, world);
                              return false;
                          } else {
                              return true;
@@ -49,7 +49,7 @@ public class SnailWoodReplace {
                      } else if (hasWoodenAxe(stack)){
                         if (!hasReachedDamaged(state)) {
                             degradeLogSmall(world, pos, state);
-                            damageItem(stack, player);
+                            damageItem(stack, player, world);
                             return false;
                         } else {
                             return true;
@@ -77,11 +77,13 @@ public class SnailWoodReplace {
         return state.isIn(SnailBlockTagsProvider.DAMAGED_LOGS);
     }
 
-    private static void damageItem(ItemStack stack, PlayerEntity player) {
-        if (stack.isDamageable()){
-            stack.damage(1, player);
+    private static void damageItem(ItemStack stack, PlayerEntity player, World world) {
+        if (!world.isClient()){
+            if (stack.isDamageable()){
+                stack.damage(1, player);
+            }
+            else stack.decrement(1);
         }
-        else stack.decrement(1);
     }
 
     private static void degradeLogSmall(World world, BlockPos pos, BlockState state) {
@@ -92,16 +94,16 @@ public class SnailWoodReplace {
             Item bark = (Item) log[7];
             for (int i = 0; i < 4; i++){
                 if (state.isOf((Block) log[i])){
-                    world.setBlockState(pos, trimmed.getStateWithProperties(state));
+                    turnBlockTo(trimmed, pos, state, world);
                     addDrop(world, bark, pos);
                     return;
                 }
             }
             if (state.isOf(trimmed)){
-                world.setBlockState(pos, cracked.getStateWithProperties(state));
+                turnBlockTo(cracked, pos, state, world);
                 addDrop(world, SnailItems.WOOD_DUST, pos);
             } else if (state.isOf(cracked)){
-                world.setBlockState(pos, damaged.getStateWithProperties(state));
+                turnBlockTo(damaged, pos, state, world);
                 addDrop(world, SnailItems.WOOD_DUST, pos);
             }
         }
@@ -114,27 +116,33 @@ public class SnailWoodReplace {
             Item bark = (Item) log[7];
             for (int i = 0; i < 4; i++){
                 if (state.isOf((Block) log[i])){
-                    System.out.println("Player Changed The Block");
-                    world.setBlockState(pos, cracked.getStateWithProperties(state));
+                    turnBlockTo(cracked, pos, state, world);
                     addDrop(world, bark, pos);
                     addDrop(world, SnailItems.WOOD_DUST, pos);
                     return;
                 }
             }
             if (state.isOf(trimmed)){
-                world.setBlockState(pos, damaged.getStateWithProperties(state));
+                turnBlockTo(damaged, pos, state, world);
                 addDrop(world, SnailItems.WOOD_DUST, pos);
                 addDrop(world, SnailItems.WOOD_DUST, pos);
             }
             if (state.isOf(cracked)){
-                world.setBlockState(pos, damaged.getStateWithProperties(state));
+                turnBlockTo(damaged, pos, state, world);
                 addDrop(world, SnailItems.WOOD_DUST, pos);
             }
         }
     }
+    private static void turnBlockTo(Block block, BlockPos pos, BlockState state, World world) {
+        if (!world.isClient()){
+            world.setBlockState(pos, block.getStateWithProperties(state));
+        }
+    }
 
     private static void addDrop(World world, Item bark, BlockPos pos) {
-        ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), bark.getDefaultStack());
+        if (!world.isClient()){
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), bark.getDefaultStack());
+        }
     }
 
     private static boolean hasWoodenAxe(ItemStack stack) {

@@ -2,7 +2,6 @@ package net.numericalk.blocks.entity.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -10,18 +9,15 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 import net.numericalk.blocks.SnailBlocks;
-import net.numericalk.blocks.custom.CampfireBlock;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import static net.numericalk.blocks.custom.CampfireBlock.LIT;
-import static net.numericalk.blocks.custom.CampfireBlock.STAGES;
 
 public class DriedClayBrickBlockEntity extends BlockEntity {
     public DriedClayBrickBlockEntity(BlockPos pos, BlockState state) {
@@ -118,10 +114,6 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
 
     private boolean hasProgressComplete() {
         return dryTimeRemaining >= maxDryTime;
-    }
-
-    private boolean hasDaylight(World world1, BlockPos pos) {
-        return world1.getLightLevel(LightType.SKY, pos.up()) == 15;
     }
 
     private boolean isRaining(World world1) {

@@ -7,6 +7,7 @@ import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(Blocks.class)
 public class SnailModifyLog {
@@ -151,5 +152,43 @@ public class SnailModifyLog {
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=grass_block")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeGrassBlockHardness(float originalHardness) {
         return 4.0f;
+    }
+    @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=farmland")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static float changeFarmlandHardness(float originalHardness) {
+        return 4.0f;
+    }
+
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=stone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static void changeStoneStrength(Args args) {
+        float hardness = 8.0f;
+        float resistance = 8.0f;
+
+        args.set(0, hardness);
+        args.set(1, resistance);
+    }
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cobblestone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static void changeCobblestoneStrength(Args args) {
+        float hardness = 8.0f;
+        float resistance = 8.0f;
+
+        args.set(0, hardness);
+        args.set(1, resistance);
+    }
+
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static void changeDeepslateStrength(Args args) {
+        float hardness = 9.0f;
+        float resistance = 9.0f;
+
+        args.set(0, hardness);
+        args.set(1, resistance);
+    }
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cobbled_deepslate")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static void changeCobbledDeepslateStrength(Args args) {
+        float hardness = 9.5f;
+        float resistance = 9.5f;
+
+        args.set(0, hardness);
+        args.set(1, resistance);
     }
 }

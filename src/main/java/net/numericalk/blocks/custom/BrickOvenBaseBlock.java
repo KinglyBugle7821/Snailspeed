@@ -15,7 +15,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -26,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class BrickOvenBaseBlock extends HorizontalFacingBlock {
+
     public static final VoxelShape SHAPE_BASE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
 
     public static final VoxelShape SHAPE_LEFT_WALL_NORTH = VoxelShapes.combineAndSimplify(

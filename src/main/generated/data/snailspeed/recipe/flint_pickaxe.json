@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "f": "snailspeed:flint_flake",
+    "g": "#snailspeed:string",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "ff",
+    "sg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:flint_pickaxe"
+  }
+}

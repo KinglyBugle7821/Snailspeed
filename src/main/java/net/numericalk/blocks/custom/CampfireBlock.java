@@ -252,10 +252,11 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                 for (int i = 0; i < 3; i++) {
                     if (campfireBlockEntity.getStack(i).isEmpty()) {
                         campfireBlockEntity.setStack(i, stack.copyWithCount(1));
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                         if (!player.isCreative()) {
                             stack.decrement(1);
                         }
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+
                         world.updateListeners(pos, state, state, 0);
                         return ActionResult.SUCCESS;
                     }
@@ -297,11 +298,9 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
-        if (!world.isClient()) {
-            BlockEntity be = world.getBlockEntity(pos);
-            if (be instanceof CampfireBlockEntity campfireBlockEntity) {
-                campfireBlockEntity.calculateAddedFireTime();
-            }
+        BlockEntity be = world.getBlockEntity(pos);
+        if (be instanceof CampfireBlockEntity campfireBlockEntity) {
+            campfireBlockEntity.calculateAddedFireTime();
         }
         if (!player.isCreative()){
             stack.decrement(1);

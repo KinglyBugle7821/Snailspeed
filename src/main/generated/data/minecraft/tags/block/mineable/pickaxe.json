@@ -1,6 +1,14 @@
 {
   "values": [
     "snailspeed:brick_oven_base",
-    "snailspeed:brick_oven"
+    "snailspeed:brick_oven",
+    "snailspeed:scratched_stone",
+    "snailspeed:cracked_stone",
+    "snailspeed:fractured_stone",
+    "snailspeed:crumbled_stone",
+    "snailspeed:scratched_deepslate",
+    "snailspeed:cracked_deepslate",
+    "snailspeed:fractured_deepslate",
+    "snailspeed:crumbled_deepslate"
   ]
 }

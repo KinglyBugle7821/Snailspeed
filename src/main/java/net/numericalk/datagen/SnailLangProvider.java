@@ -47,6 +47,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.FLINT_FLAKE, "Flint Flake");
         translationBuilder.add(SnailItems.FLINT_HATCHET, "Flint Hatchet");
+        translationBuilder.add(SnailItems.FLINT_PICKAXE, "Flint Pickaxe");
 
         translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");

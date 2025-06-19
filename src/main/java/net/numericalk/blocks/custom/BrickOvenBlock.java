@@ -41,8 +41,6 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
         super(settings);
     }
 
-
-
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
         return CODEC;
@@ -80,14 +78,12 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                 if (canPutItem(stack)){
                     for (int i = 0; i < 5; i++){
                         if (brickOvenBlockEntity.getStack(i).isEmpty()){
-                            if (!world.isClient()){
-                                brickOvenBlockEntity.setStack(i, stack.copyWithCount(1));
-                                if (!player.isCreative()) {
-                                    stack.decrement(1);
-                                }
+                            world.updateListeners(pos, state, state, 0);
+                            brickOvenBlockEntity.setStack(i, stack.copyWithCount(1));
+                            if (!player.isCreative()) {
+                                stack.decrement(1);
                             }
                             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                            world.updateListeners(pos, state, state, 0);
                             return ActionResult.SUCCESS;
                         }
                     }
@@ -105,14 +101,12 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                 }
             } else {
                 if (brickOvenBlockEntity.getStack(5).isEmpty() && isFuel(stack)){
-                    if (!world.isClient()){
-                        brickOvenBlockEntity.setStack(5, stack.copyWithCount(1));
-                        if (!player.isCreative()) {
-                            stack.decrement(1);
-                        }
+                    world.updateListeners(pos, state, state, 0);
+                    brickOvenBlockEntity.setStack(5, stack.copyWithCount(1));
+                    if (!player.isCreative()) {
+                        stack.decrement(1);
                     }
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                    world.updateListeners(pos, state, state, 0);
                     return ActionResult.SUCCESS;
                 }
                 if (canLitOvenWith(Items.FLINT_AND_STEEL, stack, state, world, pos)){
@@ -143,12 +137,12 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
 
     private void litOvenWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.with(LIT, 2));
-        world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1f, 1f);
         if (stack.isDamageable() && !player.isCreative()){
             stack.damage(1, player);
         }else if (!player.isCreative()){
             stack.decrement(1);
         }
+        world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1f, 1f);
     }
 
     private boolean canLitOvenWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
@@ -156,17 +150,15 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
     }
 
     private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
-        if (!world.isClient()) {
-            BlockEntity be = world.getBlockEntity(pos);
-            if (be instanceof BrickOvenBlockEntity brickOvenBlockEntity) {
-                if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)){
-                    brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.CAMPFIRE_FUEL);
-                } else if (stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
-                    brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.OVEN_FUEL);
-                }
-                if (!player.isCreative()){
-                    stack.decrement(1);
-                }
+        BlockEntity be = world.getBlockEntity(pos);
+        if (be instanceof BrickOvenBlockEntity brickOvenBlockEntity) {
+            if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)){
+                brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.CAMPFIRE_FUEL);
+            } else if (stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
+                brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.OVEN_FUEL);
+            }
+            if (!player.isCreative()){
+                stack.decrement(1);
             }
         }
     }

@@ -42,18 +42,27 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(ItemTags.AXES)
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET);
+        getOrCreateTagBuilder(ItemTags.PICKAXES)
+                .add(SnailItems.FLINT_PICKAXE);
         getOrCreateTagBuilder(ItemTags.WOODEN_TOOL_MATERIALS)
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET)
+                .add(SnailItems.FLINT_PICKAXE)
                 .add(Items.WOODEN_AXE)
-                .add(Items.GOLDEN_AXE);
+                .add(Items.GOLDEN_AXE)
+                .add(Items.WOODEN_PICKAXE)
+                .add(Items.GOLDEN_PICKAXE);
         getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
+                .add(Items.STONE_PICKAXE)
                 .add(Items.STONE_AXE);
         getOrCreateTagBuilder(ItemTags.IRON_TOOL_MATERIALS)
+                .add(Items.IRON_PICKAXE)
                 .add(Items.IRON_AXE);
         getOrCreateTagBuilder(ItemTags.DIAMOND_TOOL_MATERIALS)
+                .add(Items.DIAMOND_PICKAXE)
                 .add(Items.DIAMOND_AXE);
         getOrCreateTagBuilder(ItemTags.NETHERITE_TOOL_MATERIALS)
+                .add(Items.NETHERITE_PICKAXE)
                 .add(Items.NETHERITE_AXE);
         getOrCreateTagBuilder(CAMPFIRE_FUEL)
                 .add(Items.STICK)

@@ -99,6 +99,39 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.FIRED_BRICK, bundledBlockDrop(SnailBlocks.FIRED_BRICK, Items.BRICK, 1));
 
         addDropWithSilkTouch(SnailBlocks.SCRATCHED_STONE, Blocks.COBBLESTONE);
+        addDropWithSilkTouch(SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE);
+        addDrop(SnailBlocks.FRACTURED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
+                .with(ItemEntry.builder(SnailItems.PEBBLE))))
+        );
+        addDrop(SnailBlocks.CRUMBLED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+                        .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
+                        .with(ItemEntry.builder(SnailItems.PEBBLE))))
+        );
+
+        addDropWithSilkTouch(SnailBlocks.SCRATCHED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE);
+        addDropWithSilkTouch(SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE);
+        addDrop(SnailBlocks.FRACTURED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
+                .with(ItemEntry.builder(SnailItems.PEBBLE))))
+        );
+        addDrop(SnailBlocks.CRUMBLED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
+                .with(ItemEntry.builder(SnailItems.PEBBLE))))
+        );
+
+        addDrop(Blocks.GRANITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
+                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
+        );
+        addDrop(Blocks.DIORITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
+                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
+        );
+        addDrop(Blocks.ANDESITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
+                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
+        );
 
         addDrop(SnailBlocks.UNTIED_STICK_BUNDLE, bundledBlockDrop(SnailBlocks.UNTIED_STICK_BUNDLE, Items.STICK, 4));
         addDrop(SnailBlocks.STICK_BUNDLE);

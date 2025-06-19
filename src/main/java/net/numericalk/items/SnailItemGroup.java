@@ -30,6 +30,7 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.WOOD_DUST);
                         entries.add(SnailItems.FLINT_HATCHET);
+                        entries.add(SnailItems.FLINT_PICKAXE);
 
                         entries.add(SnailItems.FLINT_FLAKE);
 

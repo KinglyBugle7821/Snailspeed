@@ -1,10 +1,11 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:item
 c9e357dda3c80df9c5c73a7dab9fe7c0486fc8a2 data/minecraft/tags/item/axes.json
-d199d91b4a97809b384b90a64d630226826e4397 data/minecraft/tags/item/diamond_tool_materials.json
-ab2da1a92f65e3431c440aba7b1caee3eb04646d data/minecraft/tags/item/iron_tool_materials.json
-81c3ad15d9ebdd4bc1a1a640a8eccad71e5f23c5 data/minecraft/tags/item/netherite_tool_materials.json
-1ff6d1b74c6c7164a77c9c7e8e94d3f90ef6a238 data/minecraft/tags/item/stone_tool_materials.json
-c2efde79fb0c82952b8e138ba927a42ddc15089b data/minecraft/tags/item/wooden_tool_materials.json
+010fb98f151b2e701792d8dd4a7c0f13ab24bb11 data/minecraft/tags/item/diamond_tool_materials.json
+8bbe3012a241dd5ef1cfc3b0e6b9e364ecc2ac74 data/minecraft/tags/item/iron_tool_materials.json
+2fd849aaa5faa63cb7b9babf4e60884f988da07c data/minecraft/tags/item/netherite_tool_materials.json
+fc163ee563f9a29bfde821a99d5566688851543b data/minecraft/tags/item/pickaxes.json
+5170faa8ab3a8bdc65a8c719ab127f212d3f6f60 data/minecraft/tags/item/stone_tool_materials.json
+05f818e16d305e57f0d2bce698055a91d41c1ba9 data/minecraft/tags/item/wooden_tool_materials.json
 4ac88136ece95c0b93df293bf83368f6bf35a9f6 data/snailspeed/tags/item/campfire_fuel.json
 4333e5b0d3c082c5e91baec1955d1a9d418dc318 data/snailspeed/tags/item/flint_flake_repairable.json
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json

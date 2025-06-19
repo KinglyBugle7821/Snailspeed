@@ -184,29 +184,29 @@ public class SnailBlocks {
 
     public static final Block SCRATCHED_STONE = registerBlock("scratched_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block CRACKED_STONE = registerBlock("cracked_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block FRACTURED_STONE = registerBlock("fractured_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block CRUMBLED_STONE = registerBlock("crumbled_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
 
     public static final Block SCRATCHED_DEEPSLATE = registerBlock("scratched_deepslate",
             properties -> new PillarBlock(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block CRACKED_DEEPSLATE = registerBlock("cracked_deepslate",
             properties -> new PillarBlock(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block FRACTURED_DEEPSLATE = registerBlock("fractured_deepslate",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block CRUMBLED_DEEPSLATE = registerBlock("crumbled_deepslate",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(6.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
 
     public static final Block UNTIED_STICK_BUNDLE = registerBlock("untied_stick_bundle",

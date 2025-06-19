@@ -54,22 +54,22 @@ public class SnailLogStripping {
                         if (world instanceof ServerWorld serverWorld) {
                             ItemStack drop = new ItemStack(barkDrop, 1);
                             Block.dropStack(serverWorld, pos, drop);
+                            world.setBlockState(pos, strippedLog.getStateWithProperties(state));
                         }
                         world.playSound(null, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
                         stack.damage(1, playerEntity, playerEntity.getPreferredEquipmentSlot(stack));
 
-                        world.setBlockState(pos, strippedLog.getStateWithProperties(state));
                         return ActionResult.SUCCESS;
                     }
                     if (state.isOf(barkedWood)){
                         if (world instanceof ServerWorld serverWorld) {
                             ItemStack drop = new ItemStack(barkDrop, 2);
                             Block.dropStack(serverWorld, pos, drop);
+                            world.setBlockState(pos, strippedWood.getStateWithProperties(state));
                         }
                         world.playSound(null, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
                         stack.damage(1, playerEntity, playerEntity.getPreferredEquipmentSlot(stack));
 
-                        world.setBlockState(pos, strippedWood.getStateWithProperties(state));
                         return ActionResult.SUCCESS;
                     }
                     return ActionResult.PASS;

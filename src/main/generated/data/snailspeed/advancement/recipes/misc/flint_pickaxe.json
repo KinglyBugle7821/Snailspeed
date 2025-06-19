@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "snailspeed:flint_hatchet"
+        "recipe": "snailspeed:flint_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "snailspeed:flint_hatchet"
+      "snailspeed:flint_pickaxe"
     ]
   }
 }

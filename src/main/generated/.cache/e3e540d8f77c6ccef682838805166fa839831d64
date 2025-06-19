@@ -2,11 +2,12 @@
 eb8e862befebb438e713f8e2a7d45c6a4e6ba7b6 data/minecraft/tags/block/logs.json
 2296d73f01f8c917b9f4e72747c9f108f5947d76 data/minecraft/tags/block/logs_that_burn.json
 6f86f13307b4b661cabc08128ca14e0275285bae data/minecraft/tags/block/mineable/axe.json
-17e21d775f562c998de20559bdf23c9113b2ffc2 data/minecraft/tags/block/mineable/pickaxe.json
+eb36940e33b2b70364bacb4bb999e91bd75ae480 data/minecraft/tags/block/mineable/pickaxe.json
 7aa0fb00e1b93af2ec90650326497b902fd8c54d data/minecraft/tags/block/snaps_goat_horn.json
 9ff7005e0d168409def122d318e15569e8f4986e data/snailspeed/tags/block/cracked_logs.json
+f8736b7c10c8ac2984cfa5c349c678782d1a7639 data/snailspeed/tags/block/crumbled_stone_block.json
 d4a1f971f79d217d5b9aa965208e0b574f5463f4 data/snailspeed/tags/block/damaged_logs.json
-ebc6b544060e3cd4d62b22b0555354310aa9ad2e data/snailspeed/tags/block/stone_block.json
+07e3c229c9a3893a60c10ec3588d0157a46143f9 data/snailspeed/tags/block/stone_block.json
 dd15b2071a7bd8a37ffe713d989b3c555e2ef962 data/snailspeed/tags/block/stripped_logs.json
 331f79c27da803fa3bdcfe5c1e6a77ade600d35b data/snailspeed/tags/block/trimmed_logs.json
 90cdef6caaafcf8b40bdf138e4a80af76949c2c0 data/snailspeed/tags/block/unstripped_logs.json

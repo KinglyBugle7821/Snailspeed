@@ -18,13 +18,11 @@ public class TiedThatchBlock extends PillarBlock {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (player.getMainHandStack().isEmpty()){
-            if (!world.isClient()){
-                world.setBlockState(pos, SnailBlocks.UNTIED_THATCH_BLOCK.getStateWithProperties(state));
-                ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.GRASS_TWINE.getDefaultStack());
-            }
+            world.setBlockState(pos, SnailBlocks.UNTIED_THATCH_BLOCK.getStateWithProperties(state));
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.GRASS_TWINE.getDefaultStack());
+
             return ActionResult.SUCCESS;
         }
-
         return ActionResult.PASS;
     }
 }

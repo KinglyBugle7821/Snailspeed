@@ -93,6 +93,7 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.FLINT_HATCHET, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.FLINT_PICKAXE, Models.HANDHELD);
 
         itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
 

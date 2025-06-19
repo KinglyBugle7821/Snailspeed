@@ -35,9 +35,7 @@ public class UntiedThatchBlock extends FallingBlock {
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.isOf(SnailItems.GRASS_TWINE)){
-            if (!world.isClient()){
-                world.setBlockState(pos, SnailBlocks.THATCH_BLOCK.getStateWithProperties(state));
-            }
+            world.setBlockState(pos, SnailBlocks.THATCH_BLOCK.getStateWithProperties(state));
             if (!player.isCreative()){
                 stack.decrement(1);
             }

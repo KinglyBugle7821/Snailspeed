@@ -76,9 +76,17 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('s', Items.STICK)
                         .input('f', SnailItems.FLINT_FLAKE)
                         .group("multi_bench")
-                        .criterion(hasItem(SnailItems.GRASS_TWINE), conditionsFromItem(SnailItems.GRASS_TWINE))
+                        .criterion(hasItem(SnailItems.FLINT_FLAKE), conditionsFromItem(SnailItems.FLINT_FLAKE))
                         .offerTo(exporter);
-
+                createShaped(RecipeCategory.MISC, SnailItems.FLINT_PICKAXE, 1)
+                        .pattern("ff")
+                        .pattern("sg")
+                        .input('g', SnailItemTagsProvider.STRING)
+                        .input('s', Items.STICK)
+                        .input('f', SnailItems.FLINT_FLAKE)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.FLINT_FLAKE), conditionsFromItem(SnailItems.FLINT_FLAKE))
+                        .offerTo(exporter);
 
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.UNTIED_STICK_BUNDLE)
                         .input(Items.STICK, 4)

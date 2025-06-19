@@ -2,6 +2,7 @@ package net.numericalk.items;
 
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -32,6 +33,7 @@ public class SnailItems {
 
     public static final Item FLINT_FLAKE = register("flint_flake", settings -> new AxeItem(SnailToolMaterial.FLINT_MATERIAL, 0f, -2.4f, settings), new Item.Settings());
     public static final Item FLINT_HATCHET = register("flint_hatchet", settings -> new AxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 1f, -2.4f, settings), new Item.Settings());
+    public static final Item FLINT_PICKAXE = register("flint_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 1f, -2.0f, settings), new Item.Settings());
 
     public static final Item TINDER = register("tinder", settings -> new TinderItem(settings.maxCount(1)));
     public static final Item BURNING_TINDER = register("burning_tinder", settings -> new TinderItem(settings.maxCount(1)));

@@ -35,27 +35,24 @@ public class SnailWoodReplace {
         PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
             ItemStack stack = player.getMainHandStack();
             if (!player.isCreative()){
-                System.out.println("Player Isn't creative");
                 if (isTargetLogBlock(state)){
-                    System.out.println("Target Is a Log Block");
                      if (hasBetterAxe(stack)){
-                        System.out.println("Player Has Better Axe");
                         return true;
                     } else if(hasStoneAxe(stack)){
-                         System.out.println("Has a Stone Axe");
                          if (!hasReachedDamaged(state)) {
-                             System.out.println("Player Hasn't Reached Damage");
                              degradeLogBig(world, pos, state);
                              damageItem(stack, player);
                              return false;
+                         } else {
+                             return true;
                          }
                      } else if (hasWoodenAxe(stack)){
-                        System.out.println("Player Has a Wooden Axe");
                         if (!hasReachedDamaged(state)) {
-                            System.out.println("Player Hasn't Reached Damage");
                             degradeLogSmall(world, pos, state);
                             damageItem(stack, player);
                             return false;
+                        } else {
+                            return true;
                         }
                     }
                     return false;
@@ -95,7 +92,6 @@ public class SnailWoodReplace {
             Item bark = (Item) log[7];
             for (int i = 0; i < 4; i++){
                 if (state.isOf((Block) log[i])){
-                    System.out.println("Player Changed The Block");
                     world.setBlockState(pos, trimmed.getStateWithProperties(state));
                     addDrop(world, bark, pos);
                     return;

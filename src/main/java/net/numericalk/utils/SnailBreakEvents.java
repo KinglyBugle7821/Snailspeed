@@ -1,27 +1,46 @@
 package net.numericalk.utils;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ItemScatterer;
 import net.numericalk.blocks.SnailBlocks;
+import net.numericalk.datagen.SnailBlockTagsProvider;
 import net.numericalk.items.SnailItems;
 
 public class SnailBreakEvents {
+    static Object[][] StoneBlockCombo = {
+            {Blocks.STONE, SnailBlocks.SCRATCHED_STONE, SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocks.FRACTURED_STONE, SnailBlocks.CRUMBLED_STONE},
+            {Blocks.DEEPSLATE, SnailBlocks.SCRATCHED_DEEPSLATE, SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocks.FRACTURED_DEEPSLATE, SnailBlocks.CRUMBLED_DEEPSLATE}
+    };
+
     public static void playerBreak(){
-        PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockState, blockEntity) -> {
-            if (!playerEntity.isCreative() && blockState.isOf(Blocks.STONE)) {
-                ItemStack mainHandItem = playerEntity.getMainHandStack();
+//        PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
+//            if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK, player, state)) {
+//                if (playerHas(Items.FLINT, player)) {
+//                    world.setBlockState(pos, SnailBlocks.SCRATCHED_STONE.getDefaultState());
+//
+//                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.PEBBLE.getDefaultStack());
+//                    player.giveOrDropStack(SnailItems.FLINT_FLAKE.getDefaultStack());
+//                    player.getMainHandStack().decrement(1);
+//                }
+//            }
+//            return true;
+//        });
+    }
 
-                if (mainHandItem.getItem() == Items.FLINT) {
-                    world.setBlockState(blockPos, SnailBlocks.SCRATCHED_STONE.getDefaultState());
+    private static boolean wgatIsTarget(TagKey<Block> targetBlockTag, PlayerEntity player, BlockState state) {
+        return !player.isCreative() && state.isIn(targetBlockTag);
+    }
 
-                    ItemScatterer.spawn(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SnailItems.PEBBLE.getDefaultStack());
-                    playerEntity.giveOrDropStack(SnailItems.FLINT_FLAKE.getDefaultStack());
-                    playerEntity.getMainHandStack().decrement(1);
-                }
-            }
-        });
+    private static boolean playerHas(Item item, PlayerEntity player) {
+        ItemStack mainHandItem = player.getMainHandStack();
+        return mainHandItem.getItem() == item;
     }
 }

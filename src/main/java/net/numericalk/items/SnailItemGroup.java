@@ -53,6 +53,13 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.UNSTEADY_COARSE_DIRT);
 
                         entries.add(SnailBlocks.SCRATCHED_STONE);
+                        entries.add(SnailBlocks.CRACKED_STONE);
+                        entries.add(SnailBlocks.FRACTURED_STONE);
+                        entries.add(SnailBlocks.CRUMBLED_STONE);
+                        entries.add(SnailBlocks.SCRATCHED_DEEPSLATE);
+                        entries.add(SnailBlocks.CRACKED_DEEPSLATE);
+                        entries.add(SnailBlocks.FRACTURED_DEEPSLATE);
+                        entries.add(SnailBlocks.CRUMBLED_DEEPSLATE);
 
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);

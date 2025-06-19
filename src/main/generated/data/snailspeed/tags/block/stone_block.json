@@ -1,0 +1,12 @@
+{
+  "values": [
+    "minecraft:stone",
+    "snailspeed:cracked_stone",
+    "snailspeed:fractured_stone",
+    "snailspeed:crumbled_stone",
+    "minecraft:deepslate",
+    "snailspeed:cracked_deepslate",
+    "snailspeed:fractured_deepslate",
+    "snailspeed:crumbled_deepslate"
+  ]
+}

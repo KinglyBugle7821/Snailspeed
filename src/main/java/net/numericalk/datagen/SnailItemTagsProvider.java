@@ -10,6 +10,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.numericalk.Snailspeed;
+import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.items.SnailItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -31,7 +32,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(OVEN_FUEL)
                 .add(Items.CHARCOAL)
                 .add(Items.COAL)
-                .add(Items.COAL_BLOCK);
+                .add(Items.COAL_BLOCK)
+                .add(SnailBlocks.DRIED_GRASS_SHEAF.asItem());
         getOrCreateTagBuilder(STRING)
                 .add(Items.STRING)
                 .add(SnailItems.GRASS_TWINE);

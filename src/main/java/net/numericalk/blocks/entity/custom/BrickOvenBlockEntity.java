@@ -81,8 +81,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
 
         if (state.get(BrickOvenBlock.LIT).equals(2)){
             maxProgress = 20 * 60 * 2;
-            cookItem(world1, pos, maxProgress);
-            spawnSmokeParticle(world1, pos, state);
+            cookItem(state, world1, pos, maxProgress);
         }
     }
 
@@ -91,8 +90,8 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.SMOKE,
                     pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
-                    3,
-                    0, 0.5, 0,
+                    1,
+                    0, 0.2, 0,
                     0.01
             );
         }
@@ -104,7 +103,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         }
         return null;
     }
-    private void cookItem(World world1, BlockPos pos, int maxProgress) {
+    private void cookItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
         for (int i = 0; i < 5; i++) {
             ItemStack stack = getStack(i);
             if (stack.isEmpty()) continue;
@@ -112,6 +111,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             Item cooked = getCookedItem(stack.getItem());
             if (cooked != null) {
                 progress[i]++;
+                spawnSmokeParticle(world1, pos, state);
                 if (progress[i] >= maxProgress) {
                     setStack(i, new ItemStack(cooked));
                     progress[i] = 0;

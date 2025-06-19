@@ -69,7 +69,7 @@ public class ClayBrickBlockEntity extends BlockEntity {
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
                     1,
-                    0.2, 0.5, 0.2,
+                    0.2, 0, 0.2,
                     0.001
             );
         }

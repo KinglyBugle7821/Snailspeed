@@ -28,8 +28,19 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
     public static final TagKey<Block> STRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stripped_logs"));
     public static final TagKey<Block> UNSTRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "unstripped_logs"));
 
+    public static final TagKey<Block> STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stone_block"));
+
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(STONE_BLOCK)
+                .add(Blocks.STONE)
+                .add(SnailBlocks.CRACKED_STONE)
+                .add(SnailBlocks.FRACTURED_STONE)
+                .add(SnailBlocks.CRUMBLED_STONE)
+                .add(Blocks.DEEPSLATE)
+                .add(SnailBlocks.CRACKED_DEEPSLATE)
+                .add(SnailBlocks.FRACTURED_DEEPSLATE)
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE);
         getOrCreateTagBuilder(UNSTRIPPED_LOGS)
                 .add(Blocks.OAK_LOG)
                 .add(Blocks.OAK_WOOD)

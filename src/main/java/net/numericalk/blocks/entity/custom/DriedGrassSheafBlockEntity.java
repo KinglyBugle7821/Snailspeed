@@ -69,7 +69,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
                     ParticleTypes.SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
                     1,
-                    0.4, 0.5, 0.4,
+                    0.4, 0, 0.4,
                     0.001
             );
         }

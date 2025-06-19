@@ -12,7 +12,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -75,6 +77,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     public void tick(World world1, BlockPos pos, BlockState state) {
 
         if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT){
+            spawnSmokeParticle(world1, pos, state);
             fireDegradeTime --;
         } else if (canExtinguishFire(state)){
             extinguishFire(world1, pos, state);
@@ -109,6 +112,18 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         if (getLitBlockState(state) == 4){
             maxProgress = 20 * 60;
             burnItem(world1, pos, maxProgress);
+        }
+    }
+
+    private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {
+        if (!world1.isClient){
+            ((ServerWorld) world1).spawnParticles(
+                    ParticleTypes.WHITE_SMOKE,
+                    pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
+                    1,
+                    0.0, 0.5, 0.0,
+                    0.01
+            );
         }
     }
 

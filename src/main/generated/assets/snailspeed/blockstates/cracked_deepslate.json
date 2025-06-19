@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "snailspeed:block/cracked_deepslate",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "snailspeed:block/cracked_deepslate"
+    },
+    "axis=z": {
+      "model": "snailspeed:block/cracked_deepslate",
+      "x": 90
+    }
+  }
+}

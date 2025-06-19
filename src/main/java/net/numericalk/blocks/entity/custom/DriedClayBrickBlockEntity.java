@@ -55,7 +55,7 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isDriedClayBrick(state)){
-            if (isBesideCampfire(world1, pos)){
+            if (isBesideCampfire(world1, pos) && !isRaining(world1)){
                 if (hasProgressComplete()){
                     fireClayBrick(world1, pos, state);
                 }
@@ -92,7 +92,7 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
                     1,
-                    0.2, 0.5, 0.2,
+                    0.2, 0, 0.2,
                     0.001
             );
         }

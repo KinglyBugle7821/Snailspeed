@@ -50,6 +50,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");
+        translationBuilder.add(SnailItems.STONE_DUST, "Stone Dust");
 
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
@@ -99,6 +100,13 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.BRICK_OVEN, "Brick Oven");
 
         translationBuilder.add(SnailBlocks.SCRATCHED_STONE, "Scratched Stone");
+        translationBuilder.add(SnailBlocks.CRACKED_STONE, "Cracked Stone");
+        translationBuilder.add(SnailBlocks.FRACTURED_STONE, "Fractured Stone");
+        translationBuilder.add(SnailBlocks.CRUMBLED_STONE, "Crumbled Stone");
+        translationBuilder.add(SnailBlocks.SCRATCHED_DEEPSLATE, "Scratched Deepslate");
+        translationBuilder.add(SnailBlocks.CRACKED_DEEPSLATE, "Cracked Deepslate");
+        translationBuilder.add(SnailBlocks.FRACTURED_DEEPSLATE, "Fractured Deepslate");
+        translationBuilder.add(SnailBlocks.CRUMBLED_DEEPSLATE, "Crumbled Deepslate");
 
         translationBuilder.add(SnailBlocks.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
         translationBuilder.add(SnailBlocks.STICK_BUNDLE, "Stick Bundle");

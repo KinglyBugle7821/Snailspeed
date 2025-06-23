@@ -153,6 +153,55 @@ public class SnailBlocks {
                     .instrument(NoteBlockInstrument.BASS).strength(6.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
+    public static final Block DAMAGED_OAK_PLANKS = registerBlock("damaged_oak_planks",
+            properties -> new Block(properties.mapColor(MapColor.OAK_TAN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_SPRUCE_PLANKS = registerBlock("damaged_spruce_planks",
+            properties -> new Block(properties.mapColor(MapColor.SPRUCE_BROWN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_BIRCH_PLANKS = registerBlock("damaged_birch_planks",
+            properties -> new Block(properties.mapColor(MapColor.PALE_YELLOW)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_JUNGLE_PLANKS = registerBlock("damaged_jungle_planks",
+            properties -> new Block(properties.mapColor(MapColor.DIRT_BROWN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_ACACIA_PLANKS = registerBlock("damaged_acacia_planks",
+            properties -> new Block(properties.mapColor(MapColor.ORANGE)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_DARK_OAK_PLANKS = registerBlock("damaged_dark_oak_planks",
+            properties -> new Block(properties.mapColor(MapColor.BROWN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_MANGROVE_PLANKS = registerBlock("damaged_mangrove_planks",
+            properties -> new Block(properties.mapColor(MapColor.RED)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_CHERRY_PLANKS = registerBlock("damaged_cherry_planks",
+            properties -> new Block(properties.mapColor(MapColor.TERRACOTTA_PINK)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_PALE_OAK_PLANKS = registerBlock("damaged_pale_oak_planks",
+            properties -> new Block(properties.mapColor(MapColor.OAK_TAN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_BAMBOO_PLANKS = registerBlock("damaged_bamboo_planks",
+            properties -> new Block(properties.mapColor(MapColor.PALE_GREEN)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().requiresTool()));
+    public static final Block DAMAGED_CRIMSON_PLANKS = registerBlock("damaged_crimson_planks",
+            properties -> new Block(properties.mapColor(MapColor.DULL_PINK)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.NETHER_WOOD).requiresTool()));
+    public static final Block DAMAGED_WARPED_PLANKS = registerBlock("damaged_warped_planks",
+            properties -> new Block(properties.mapColor(MapColor.DARK_AQUA)
+                    .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
+                    .sounds(BlockSoundGroup.NETHER_WOOD).requiresTool()));
+
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().luminance(CampfireBlock::getLuminance)));
@@ -164,6 +213,10 @@ public class SnailBlocks {
             properties -> new BrickOvenBlock(properties.mapColor(MapColor.DULL_RED)
                     .strength(5.5F).sounds(BlockSoundGroup.STONE).nonOpaque()
                     .luminance(BrickOvenBlock::getLuminance).requiresTool()));
+
+    public static final Block MORTAR = registerBlock("mortar",
+            properties -> new MortarBlock(properties.mapColor(MapColor.LIGHT_GRAY)
+                    .strength(4.5F).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
 
     public static final Block GRASS_SHEAF = registerBlock("grass_sheaf",
             properties -> new GrassSheafBlock(properties.mapColor(MapColor.EMERALD_GREEN)

@@ -123,9 +123,28 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, SnailBlocks.MORTAR)
+                        .pattern("##")
+                        .input('#', SnailItems.ROCK)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.PESTLE)
+                        .pattern("#")
+                        .pattern("#")
+                        .input('#', SnailItems.ROCK)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
+                        .offerTo(exporter);
+
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.CLAY_BRICK, 4)
                         .input(Items.CLAY_BALL, 4)
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.COPPER_NUGGET, 4)
+                        .input(Items.COPPER_INGOT, 1)
+                        .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
             }
         };

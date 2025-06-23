@@ -122,6 +122,46 @@
         "facing": "west",
         "lit": 2
       }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_oven_blazing"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_oven_blazing",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_oven_blazing",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_oven_blazing",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 3
+      }
     }
   ]
 }

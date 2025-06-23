@@ -69,6 +69,8 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
                 fireTime = 0;
                 setLitState(0, world1, pos, state);
                 this.getStack(5).decrement(1);
+            } else if (fireTime <= 20 * 60 * 3 && state.get(BrickOvenBlock.LIT).equals(3)){
+                setLitState(2, world1, pos, state);
             }
         } else if (hasFuel()){
             displayHasFuel(world1, pos, state);
@@ -81,6 +83,9 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         if (state.get(BrickOvenBlock.LIT).equals(2)){
             maxProgress = 20 * 60 * 2;
             cookItem(state, world1, pos, maxProgress);
+        } else if (state.get(BrickOvenBlock.LIT).equals(3)){
+            maxProgress = 20 * 60;
+            smeltItem(state, world1, pos, maxProgress);
         }
     }
 
@@ -101,6 +106,35 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             if (entry[0] == raw) return (Item) entry[1];
         }
         return null;
+    }
+    private Item getSmeltedItem(Item raw) {
+        for (Object[] entry : smeltingRecipe) {
+            if (entry[0] == raw) return (Item) entry[1];
+        }
+        return null;
+    }
+    private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
+        for (int i = 0; i < 5; i++) {
+            ItemStack stack = getStack(i);
+            if (stack.isEmpty()) continue;
+
+            Item smelted = getSmeltedItem(stack.getItem());
+            if (smelted != null) {
+                progress[i]++;
+                spawnSmokeParticle(world1, pos, state);
+                if (progress[i] >= maxProgress) {
+                    setStack(i, new ItemStack(smelted));
+                    progress[i] = 0;
+
+                    if (!world1.isClient) {
+                        markDirty();
+                        world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
+                    }
+                }
+            } else {
+                progress[i] = 0;
+            }
+        }
     }
     private void cookItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
         for (int i = 0; i < 5; i++) {
@@ -139,9 +173,9 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     }
     public void calculatedAddedFireTime(TagKey<Item> fuelType) {
         if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL){
-            fireTime += ((600f/100f) * 25f);
-        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL){
             fireTime += ((1200f/100f) * 25f);
+        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL){
+            fireTime += ((2400f/100f) * 25f);
         }
     }
 
@@ -162,7 +196,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     }
 
     private boolean isLit(BlockState state) {
-        return state.get(BrickOvenBlock.LIT).equals(2);
+        return state.get(BrickOvenBlock.LIT) >= 2;
     }
 
     private boolean hasFuel() {
@@ -191,5 +225,20 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             {Items.SALMON, Items.COOKED_SALMON},
             {Items.KELP, Items.DRIED_KELP},
             {Items.BEEF, Items.COOKED_BEEF},
+    };
+    Object[][] smeltingRecipe = {
+            {Items.POTATO, SnailItems.BURNT_POTATO},
+            {Items.CHORUS_FRUIT, SnailItems.BURNT_POPPED_CHORUS_FRUIT},
+            {Items.CHICKEN, SnailItems.BURNT_CHICKEN},
+            {Items.COD, SnailItems.BURNT_COD},
+            {Items.MUTTON, SnailItems.BURNT_MUTTON},
+            {Items.PORKCHOP, SnailItems.BURNT_PORKCHOP},
+            {Items.RABBIT, SnailItems.BURNT_RABBIT},
+            {Items.SALMON, SnailItems.BURNT_SALMON},
+            {Items.KELP, SnailItems.BURNT_KELP},
+            {Items.BEEF, SnailItems.BURNT_BEEF},
+            {SnailItems.COPPER_DUST, SnailItems.COPPER_NUGGET},
+            {SnailItems.IRON_DUST, Items.IRON_NUGGET},
+            {SnailItems.GOLD_DUST, Items.GOLD_NUGGET}
     };
 }

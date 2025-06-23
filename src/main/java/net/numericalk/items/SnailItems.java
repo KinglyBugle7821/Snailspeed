@@ -51,9 +51,20 @@ public class SnailItems {
     public static final Item BURNT_BEEF = register("burnt_beef", Item::new);
 
     public static final Item GRASS_TWINE = register("grass_twine", Item::new);
+    public static final Item PESTLE = register("pestle", settings -> new Item(settings.maxDamage(16).maxCount(1)));
 
     public static final Item PEBBLE = register("pebble", Item::new);
+    public static final Item ROCK = register("rock", Item::new);
     public static final Item STONE_DUST = register("stone_dust", Item::new);
+
+    public static final Item SOUL = register("soul", Item::new);
+
+    public static final Item COPPER_DUST = register("copper_dust", Item::new);
+    public static final Item COPPER_NUGGET = register("copper_nugget", Item::new);
+
+    public static final Item IRON_DUST = register("iron_dust", Item::new);
+
+    public static final Item GOLD_DUST = register("gold_dust", Item::new);
 
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),

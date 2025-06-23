@@ -28,6 +28,9 @@ public class SnailBlockEntities {
     public static final BlockEntityType<DriedClayBrickBlockEntity> DRIED_CLAY_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "dried_clay_brick_block_entity"),
                     FabricBlockEntityTypeBuilder.create(DriedClayBrickBlockEntity::new, SnailBlocks.DRIED_CLAY_BRICK).build(null));
+    public static final BlockEntityType<MortarBlockEntity> MORTAR_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "mortar_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(MortarBlockEntity::new, SnailBlocks.MORTAR).build(null));
 
     public static void initialize() {
 

@@ -2,16 +2,13 @@ package net.numericalk;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.item.ItemGroups;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
 import net.numericalk.blocks.entity.renderer.BrickOvenBlockEntityRenderer;
 import net.numericalk.blocks.entity.renderer.CampfireBlockEntityRenderer;
+import net.numericalk.blocks.entity.renderer.MortarBlockEntityRenderer;
 import net.numericalk.items.SnailItemGroup;
 import net.numericalk.items.SnailItems;
 import net.numericalk.utils.*;
@@ -40,5 +37,6 @@ public class Snailspeed implements ModInitializer {
 
 		BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY, CampfireBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY, BrickOvenBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR_BLOCK_ENTITY, MortarBlockEntityRenderer::new);
 	}
 }

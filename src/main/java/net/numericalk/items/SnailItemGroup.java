@@ -44,6 +44,7 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.DRIED_CLAY_BRICK);
 
                         entries.add(SnailBlocks.FIRED_BRICK);
+                        entries.add(SnailBlocks.MORTAR);
 
                         entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
                         entries.add(SnailBlocks.STICK_BUNDLE);
@@ -78,7 +79,17 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BURNT_BEEF);
 
                         entries.add(SnailItems.GRASS_TWINE);
+                        entries.add(SnailItems.PESTLE);
                         entries.add(SnailItems.PEBBLE);
+                        entries.add(SnailItems.ROCK);
+
+                        entries.add(SnailItems.SOUL);
+
+                        entries.add(SnailItems.COPPER_DUST);
+                        entries.add(SnailItems.COPPER_NUGGET);
+
+                        entries.add(SnailItems.IRON_DUST);
+                        entries.add(SnailItems.GOLD_DUST);
                     }).build());
     public static void initialize() {}
 

@@ -25,11 +25,16 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
     public static final TagKey<Block> CRACKED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "cracked_logs"));
     public static final TagKey<Block> DAMAGED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "damaged_logs"));
 
+    public static final TagKey<Block> DAMAGED_PLANKS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "damaged_planks"));
+
     public static final TagKey<Block> STRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stripped_logs"));
     public static final TagKey<Block> UNSTRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "unstripped_logs"));
 
     public static final TagKey<Block> STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stone_block"));
     public static final TagKey<Block> CRUMBLED_STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "crumbled_stone_block"));
+
+    public static final TagKey<Block> ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "ores"));
+    public static final TagKey<Block> DEEPSLATE_ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "deepslate_ores"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -135,6 +140,32 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.DAMAGED_PALE_OAK_LOG)
                 .add(SnailBlocks.DAMAGED_CRIMSON_STEM)
                 .add(SnailBlocks.DAMAGED_WARPED_STEM);
+
+        getOrCreateTagBuilder(DAMAGED_PLANKS)
+                .add(SnailBlocks.DAMAGED_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_SPRUCE_PLANKS)
+                .add(SnailBlocks.DAMAGED_BIRCH_PLANKS)
+                .add(SnailBlocks.DAMAGED_JUNGLE_PLANKS)
+                .add(SnailBlocks.DAMAGED_ACACIA_PLANKS)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_MANGROVE_PLANKS)
+                .add(SnailBlocks.DAMAGED_CHERRY_PLANKS)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_CRIMSON_PLANKS)
+                .add(SnailBlocks.DAMAGED_WARPED_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.PLANKS)
+                .add(SnailBlocks.DAMAGED_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_SPRUCE_PLANKS)
+                .add(SnailBlocks.DAMAGED_BIRCH_PLANKS)
+                .add(SnailBlocks.DAMAGED_JUNGLE_PLANKS)
+                .add(SnailBlocks.DAMAGED_ACACIA_PLANKS)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_MANGROVE_PLANKS)
+                .add(SnailBlocks.DAMAGED_CHERRY_PLANKS)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_CRIMSON_PLANKS)
+                .add(SnailBlocks.DAMAGED_WARPED_PLANKS);
 
         getOrCreateTagBuilder(BlockTags.LOGS)
                 .add(SnailBlocks.TRIMMED_OAK_LOG)
@@ -243,6 +274,26 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.CRACKED_DEEPSLATE)
                 .add(SnailBlocks.FRACTURED_DEEPSLATE)
                 .add(SnailBlocks.CRUMBLED_DEEPSLATE);
+
+        getOrCreateTagBuilder(ORES)
+                .add(Blocks.COAL_ORE)
+                .add(Blocks.COPPER_ORE)
+                .add(Blocks.IRON_ORE)
+                .add(Blocks.LAPIS_ORE)
+                .add(Blocks.REDSTONE_ORE)
+                .add(Blocks.GOLD_ORE)
+                .add(Blocks.EMERALD_ORE)
+                .add(Blocks.DIAMOND_ORE);
+
+        getOrCreateTagBuilder(DEEPSLATE_ORES)
+                .add(Blocks.DEEPSLATE_COAL_ORE)
+                .add(Blocks.DEEPSLATE_COPPER_ORE)
+                .add(Blocks.DEEPSLATE_IRON_ORE)
+                .add(Blocks.DEEPSLATE_LAPIS_ORE)
+                .add(Blocks.DEEPSLATE_REDSTONE_ORE)
+                .add(Blocks.DEEPSLATE_GOLD_ORE)
+                .add(Blocks.DEEPSLATE_EMERALD_ORE)
+                .add(Blocks.DEEPSLATE_DIAMOND_ORE);
     }
     @Override
     protected FabricTagProvider<Block>.FabricTagBuilder getOrCreateTagBuilder(TagKey<Block> tag) {

@@ -50,8 +50,18 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.FLINT_PICKAXE, "Flint Pickaxe");
 
         translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
+        translationBuilder.add(SnailItems.PESTLE, "Pestle");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");
+        translationBuilder.add(SnailItems.ROCK, "Rock");
         translationBuilder.add(SnailItems.STONE_DUST, "Stone Dust");
+
+        translationBuilder.add(SnailItems.SOUL, "Soul");
+
+        translationBuilder.add(SnailItems.COPPER_DUST, "Copper Dust");
+        translationBuilder.add(SnailItems.COPPER_NUGGET, "Copper Nugget");
+
+        translationBuilder.add(SnailItems.IRON_DUST, "Iron Dust");
+        translationBuilder.add(SnailItems.GOLD_DUST, "Gold Dust");
 
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
@@ -59,6 +69,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DRIED_CLAY_BRICK, "Dried Clay Brick");
 
         translationBuilder.add(SnailBlocks.FIRED_BRICK, "Fired Brick");
+
+        translationBuilder.add(SnailBlocks.MORTAR, "Mortar");
 
         translationBuilder.add(SnailBlocks.TRIMMED_OAK_LOG, "Trimmed Oak Log");
         translationBuilder.add(SnailBlocks.TRIMMED_SPRUCE_LOG, "Trimmed Spruce Log");
@@ -95,6 +107,19 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DAMAGED_PALE_OAK_LOG, "Damaged Pale Oak Log");
         translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_STEM, "Damaged Crimson Stem");
         translationBuilder.add(SnailBlocks.DAMAGED_WARPED_STEM, "Damaged Warped Stem");
+
+        translationBuilder.add(SnailBlocks.DAMAGED_OAK_PLANKS, "Damaged Oak Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_SPRUCE_PLANKS, "Damaged Spruce Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_BIRCH_PLANKS, "Damaged Birch Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_JUNGLE_PLANKS, "Damaged Jungle Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_ACACIA_PLANKS, "Damaged Acacia Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS, "Damaged Dark Oak Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_MANGROVE_PLANKS, "Damaged Mangrove Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_CHERRY_PLANKS, "Damaged Cherry Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS, "Damaged Pale Oak Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_BAMBOO_PLANKS, "Damaged Bamboo Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_PLANKS, "Damaged Crimson Planks");
+        translationBuilder.add(SnailBlocks.DAMAGED_WARPED_PLANKS, "Damaged Warped Planks");
 
         translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
         translationBuilder.add(SnailBlocks.BRICK_OVEN_BASE, "Brick Oven Base");

@@ -64,6 +64,20 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 SnailBlocks.DAMAGED_CRIMSON_STEM,
                 SnailBlocks.DAMAGED_WARPED_STEM
         };
+        Object[] damagedPlanks = {
+                SnailBlocks.DAMAGED_OAK_PLANKS,
+                SnailBlocks.DAMAGED_SPRUCE_PLANKS,
+                SnailBlocks.DAMAGED_BIRCH_PLANKS,
+                SnailBlocks.DAMAGED_JUNGLE_PLANKS,
+                SnailBlocks.DAMAGED_ACACIA_PLANKS,
+                SnailBlocks.DAMAGED_DARK_OAK_PLANKS,
+                SnailBlocks.DAMAGED_MANGROVE_PLANKS,
+                SnailBlocks.DAMAGED_CHERRY_PLANKS,
+                SnailBlocks.DAMAGED_PALE_OAK_PLANKS,
+                SnailBlocks.DAMAGED_BAMBOO_PLANKS,
+                SnailBlocks.DAMAGED_CRIMSON_PLANKS,
+                SnailBlocks.DAMAGED_WARPED_PLANKS
+        };
         for (Object entry : trimmedLogs) {
             Block trimmed = (Block) entry;
 
@@ -88,6 +102,14 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                     .with(ItemEntry.builder(Items.STICK))))
             );
         }
+        for (Object entry : damagedPlanks) {
+            Block damaged = (Block) entry;
+
+            addDrop(damaged, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
+                    .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(2)))
+                    .with(ItemEntry.builder(SnailItems.WOOD_DUST))))
+            );
+        }
         addDrop(SnailBlocks.CAMPFIRE_BASE);
         addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN, Items.BRICK, 4));
 
@@ -104,9 +126,9 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
                 .with(ItemEntry.builder(SnailItems.PEBBLE))))
         );
-        addDrop(SnailBlocks.CRUMBLED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+        addDrop(SnailBlocks.CRUMBLED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
                         .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                        .with(ItemEntry.builder(SnailItems.PEBBLE))))
+                        .with(ItemEntry.builder(SnailItems.ROCK))))
         );
 
         addDropWithSilkTouch(SnailBlocks.SCRATCHED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE);
@@ -115,9 +137,9 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
                 .with(ItemEntry.builder(SnailItems.PEBBLE))))
         );
-        addDrop(SnailBlocks.CRUMBLED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
+        addDrop(SnailBlocks.CRUMBLED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                .with(ItemEntry.builder(SnailItems.PEBBLE))))
+                .with(ItemEntry.builder(SnailItems.ROCK))))
         );
 
         addDrop(Blocks.GRANITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
@@ -137,6 +159,8 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.STICK_BUNDLE);
         addDrop(SnailBlocks.UNTIED_THATCH_BLOCK, bundledBlockDrop(SnailBlocks.UNTIED_THATCH_BLOCK, SnailBlocks.DRIED_GRASS_SHEAF.asItem(), 4));
         addDrop(SnailBlocks.THATCH_BLOCK);
+
+        addDrop(SnailBlocks.MORTAR);
 
         addDrop(SnailBlocks.UNSTEADY_DIRT);
         addDrop(SnailBlocks.UNSTEADY_COARSE_DIRT);

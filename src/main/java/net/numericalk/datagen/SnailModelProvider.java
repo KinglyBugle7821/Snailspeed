@@ -50,12 +50,26 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
 
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_SPRUCE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BIRCH_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_JUNGLE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_ACACIA_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_DARK_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_MANGROVE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CHERRY_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_PALE_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BAMBOO_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CRIMSON_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_WARPED_PLANKS);
+
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_BRICK);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_BRICK);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.FIRED_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.MORTAR);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.SCRATCHED_STONE);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRACKED_STONE);
@@ -113,14 +127,25 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.BURNT_BEEF, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.GRASS_TWINE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PESTLE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.PEBBLE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.STONE_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.SOUL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_DUST, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_NUGGET, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLD_DUST, Models.GENERATED);
 
         itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_CLAY_BRICK.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.FIRED_BRICK.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.MORTAR.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(SnailBlocks.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
     }

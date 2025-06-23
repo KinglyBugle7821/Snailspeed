@@ -43,8 +43,6 @@ public class SnailLootTableMod {
     private static final Identifier LANTERN_ID = Identifier.of("minecraft", "blocks/lantern");
     private static final Identifier SOUL_LANTERN_ID = Identifier.of("minecraft", "blocks/soul_lantern");
 
-    private static final Identifier OAK_PLANKS = Identifier.of("minecraft", "blocks/oak_planks");
-
     public static void modifyLootTables() {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {

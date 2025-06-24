@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "snailspeed:block/clay_crucible",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "snailspeed:block/clay_crucible"
+    },
+    "facing=south": {
+      "model": "snailspeed:block/clay_crucible",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "snailspeed:block/clay_crucible",
+      "y": 270
+    }
+  }
+}

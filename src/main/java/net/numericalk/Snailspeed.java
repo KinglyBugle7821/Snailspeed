@@ -6,6 +6,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
+import net.numericalk.blocks.entity.renderer.BrickFurnaceBlockEntityRenderer;
 import net.numericalk.blocks.entity.renderer.BrickOvenBlockEntityRenderer;
 import net.numericalk.blocks.entity.renderer.CampfireBlockEntityRenderer;
 import net.numericalk.blocks.entity.renderer.MortarBlockEntityRenderer;
@@ -38,6 +39,7 @@ public class Snailspeed implements ModInitializer {
 		BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY, CampfireBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY, BrickOvenBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR_BLOCK_ENTITY, MortarBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY, BrickFurnaceBlockEntityRenderer::new);
 
 
 	}

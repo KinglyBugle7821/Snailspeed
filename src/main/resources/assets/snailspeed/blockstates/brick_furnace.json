@@ -1,0 +1,786 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 0,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 0,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 0,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 0,
+        "crucible": false,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 1,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 1,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 1,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 1,
+        "crucible": false,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 2,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 2,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 2,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 2,
+        "crucible": false,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 3,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 3,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 3,
+        "crucible": false,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 3,
+        "crucible": false,
+        "lid": false
+      }
+    },
+
+
+
+
+
+
+    {
+    "apply": {
+      "model": "snailspeed:block/brick_furnace_crucible"
+    },
+    "when": {
+      "facing": "north",
+      "lit": 0,
+      "crucible": true,
+      "lid": false
+    }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 0,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 0,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 0,
+        "crucible": true,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 1,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 1,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 1,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 1,
+        "crucible": true,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 2,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 2,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 2,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 2,
+        "crucible": true,
+        "lid": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 3,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 3,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 3,
+        "crucible": true,
+        "lid": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 3,
+        "crucible": true,
+        "lid": false
+      }
+    },
+
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 0,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 0,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 0,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 0,
+        "crucible": false,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 1,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 1,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 1,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 1,
+        "crucible": false,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 2,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 2,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 2,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 2,
+        "crucible": false,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 3,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 3,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 3,
+        "crucible": false,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 3,
+        "crucible": false,
+        "lid": true
+      }
+    },
+
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 0,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 0,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 0,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_crucible_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 0,
+        "crucible": true,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 1,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 1,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 1,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_fuel_crucible_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 1,
+        "crucible": true,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 2,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 2,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 2,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_burning_crucible_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 2,
+        "crucible": true,
+        "lid": true
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible_lid"
+      },
+      "when": {
+        "facing": "north",
+        "lit": 3,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible_lid",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "lit": 3,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible_lid",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "lit": 3,
+        "crucible": true,
+        "lid": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_blazing_crucible_lid",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "lit": 3,
+        "crucible": true,
+        "lid": true
+      }
+    }
+  ]
+}

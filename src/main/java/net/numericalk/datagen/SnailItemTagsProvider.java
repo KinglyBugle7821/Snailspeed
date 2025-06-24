@@ -26,9 +26,14 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> LOG_BARKS_THAT_BURN = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks_that_burn"));
     public static final TagKey<Item> STRING = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "string"));
     public static final TagKey<Item> OVEN_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "oven_fuel"));
+    public static final TagKey<Item> MOLTEN_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "molten_items"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(MOLTEN_ITEMS)
+                .add(SnailItems.MOLTEN_COPPER)
+                .add(SnailItems.MOLTEN_IRON)
+                .add(SnailItems.MOLTEN_GOLD);
         getOrCreateTagBuilder(OVEN_FUEL)
                 .add(Items.CHARCOAL)
                 .add(Items.COAL)

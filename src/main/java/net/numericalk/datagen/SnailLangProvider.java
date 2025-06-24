@@ -51,6 +51,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.GRASS_TWINE, "Grass Twine");
         translationBuilder.add(SnailItems.PESTLE, "Pestle");
+        translationBuilder.add(SnailItems.CLAY_SAND, "Clay Sand");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");
         translationBuilder.add(SnailItems.ROCK, "Rock");
         translationBuilder.add(SnailItems.STONE_DUST, "Stone Dust");
@@ -62,6 +63,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.IRON_DUST, "Iron Dust");
         translationBuilder.add(SnailItems.GOLD_DUST, "Gold Dust");
+
+        translationBuilder.add(SnailItems.FURNACE_LID, "Furnace Lid");
 
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
@@ -124,6 +127,12 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
         translationBuilder.add(SnailBlocks.BRICK_OVEN_BASE, "Brick Oven Base");
         translationBuilder.add(SnailBlocks.BRICK_OVEN, "Brick Oven");
+
+        translationBuilder.add(SnailBlocks.BRICK_FURNACE_BASE, "Brick Furnace Base");
+        translationBuilder.add(SnailBlocks.BRICK_FURNACE, "Brick Furnace");
+        translationBuilder.add(SnailBlocks.CLAY_CRUCIBLE, "Clay Crucible");
+        translationBuilder.add(SnailBlocks.DRIED_CLAY_CRUCIBLE, "Dried Clay Crucible");
+        translationBuilder.add(SnailBlocks.CRUCIBLE, "Crucible");
 
         translationBuilder.add(SnailBlocks.SCRATCHED_STONE, "Scratched Stone");
         translationBuilder.add(SnailBlocks.CRACKED_STONE, "Cracked Stone");

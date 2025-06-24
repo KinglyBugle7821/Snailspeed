@@ -38,6 +38,12 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.BRICK_OVEN_BASE);
                         entries.add(SnailBlocks.BRICK_OVEN);
 
+                        entries.add(SnailBlocks.BRICK_FURNACE_BASE);
+                        entries.add(SnailBlocks.BRICK_FURNACE);
+                        entries.add(SnailBlocks.CLAY_CRUCIBLE);
+                        entries.add(SnailBlocks.DRIED_CLAY_CRUCIBLE);
+                        entries.add(SnailBlocks.CRUCIBLE);
+
                         entries.add(SnailBlocks.GRASS_SHEAF);
                         entries.add(SnailBlocks.DRIED_GRASS_SHEAF);
                         entries.add(SnailBlocks.CLAY_BRICK);
@@ -85,11 +91,15 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.SOUL);
 
+                        entries.add(SnailItems.CLAY_SAND);
+
                         entries.add(SnailItems.COPPER_DUST);
                         entries.add(SnailItems.COPPER_NUGGET);
 
                         entries.add(SnailItems.IRON_DUST);
                         entries.add(SnailItems.GOLD_DUST);
+
+                        entries.add(SnailItems.FURNACE_LID);
                     }).build());
     public static void initialize() {}
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "#": "minecraft:clay_ball",
+    "S": "minecraft:sand"
+  },
+  "pattern": [
+    "S#",
+    "#S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:clay_sand"
+  }
+}

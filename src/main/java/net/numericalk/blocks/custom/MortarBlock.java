@@ -198,7 +198,9 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
         return null;
     }
     Object[][] crushingRecipe = {
-            {Items.RAW_COPPER, SnailItems.COPPER_DUST}
+            {Items.RAW_COPPER, SnailItems.COPPER_DUST},
+            {Items.RAW_IRON, SnailItems.IRON_DUST},
+            {Items.RAW_GOLD, SnailItems.GOLD_DUST}
     };
     private boolean canTakeItem(ItemStack stack, BlockState state) {
         return stack.isEmpty();

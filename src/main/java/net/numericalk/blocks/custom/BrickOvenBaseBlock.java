@@ -233,6 +233,9 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
         if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 6){
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, SnailBlocks.BRICK_OVEN.getStateWithProperties(state));
+            if (!player.isCreative()){
+                stack.decrement(1);
+            }
         }
         return ActionResult.SUCCESS;
     }

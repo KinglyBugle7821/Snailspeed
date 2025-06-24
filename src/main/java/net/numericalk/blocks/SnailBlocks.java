@@ -276,6 +276,23 @@ public class SnailBlocks {
             properties -> new TiedThatchBlock(properties.mapColor(MapColor.TERRACOTTA_YELLOW)
                     .strength(1.5f).sounds(BlockSoundGroup.GRASS).burnable()));
 
+    public static final Block CLAY_CRUCIBLE = registerBlock("clay_crucible",
+            properties -> new ClayCrucibleBlock(properties.mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.5f).breakInstantly().sounds(BlockSoundGroup.GRAVEL).nonOpaque()));
+    public static final Block DRIED_CLAY_CRUCIBLE = registerBlock("dried_clay_crucible",
+            properties -> new DriedClayCrucibleBlock(properties.mapColor(MapColor.WHITE_GRAY)
+                    .strength(2.0f).breakInstantly().sounds(BlockSoundGroup.STONE).nonOpaque()));
+    public static final Block CRUCIBLE = registerBlock("crucible",
+            properties -> new CrucibleBlock(properties.mapColor(MapColor.WHITE_GRAY)
+                    .strength(2.0f).breakInstantly().sounds(BlockSoundGroup.STONE).nonOpaque()));
+
+    public static final Block BRICK_FURNACE = registerBlock("brick_furnace",
+            properties -> new BrickFurnaceBlock(properties.mapColor(MapColor.WHITE_GRAY)
+                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
+    public static final Block BRICK_FURNACE_BASE = registerBlock("brick_furnace_base",
+            properties -> new BrickFurnaceBaseBlock(properties.mapColor(MapColor.WHITE_GRAY)
+                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
+
     public static final Block UNSTEADY_DIRT = registerBlock("unsteady_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
                     .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));

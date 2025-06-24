@@ -74,7 +74,6 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
             BlockPos offsetPos = pos.offset(direction);
             BlockState neighborState = world.getBlockState(offsetPos);
             if (neighborState.isOf(SnailBlocks.CAMPFIRE_BASE) && neighborState.get(LIT).equals(4)) {
-                System.out.println(direction.getName() + " side is lit campfire");
                 return true;
             }
         }

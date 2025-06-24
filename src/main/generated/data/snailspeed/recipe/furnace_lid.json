@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "#": "minecraft:brick",
+    "O": "snailspeed:brick_oven_base"
+  },
+  "pattern": [
+    "#O"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:furnace_lid"
+  }
+}

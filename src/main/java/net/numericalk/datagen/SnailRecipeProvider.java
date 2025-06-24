@@ -122,6 +122,21 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_FURNACE_BASE)
+                        .pattern("#O")
+                        .pattern("O#")
+                        .input('#', Items.BRICK)
+                        .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.FURNACE_LID)
+                        .pattern("#O")
+                        .input('#', Items.BRICK)
+                        .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
+                        .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailBlocks.MORTAR)
                         .pattern("##")
@@ -145,6 +160,15 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.COPPER_NUGGET, 4)
                         .input(Items.COPPER_INGOT, 1)
                         .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.CLAY_SAND)
+                        .pattern("S#")
+                        .pattern("#S")
+                        .input('#', Items.CLAY_BALL)
+                        .input('S', Items.SAND)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
                         .offerTo(exporter);
             }
         };

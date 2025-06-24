@@ -1,0 +1,219 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_base"
+      },
+      "when": {
+        "facing": "north",
+        "stages": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_base",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "stages": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_base",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "stages": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_base",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "stages": 0
+      }
+    },
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_1"
+      },
+      "when": {
+        "facing": "north",
+        "stages": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "stages": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "stages": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "stages": 1
+      }
+    },
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_2"
+      },
+      "when": {
+        "facing": "north",
+        "stages": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "stages": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "stages": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "stages": 2
+      }
+    },
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_3"
+      },
+      "when": {
+        "facing": "north",
+        "stages": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "stages": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "stages": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "stages": 3
+      }
+    },
+
+
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_4"
+      },
+      "when": {
+        "facing": "north",
+        "stages": 4
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "stages": 4
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "stages": 4
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/brick_furnace_4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "stages": 4
+      }
+    }
+  ]
+}

@@ -111,7 +111,10 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
             );
         }
         addDrop(SnailBlocks.CAMPFIRE_BASE);
-        addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN, Items.BRICK, 4));
+        addDrop(SnailBlocks.BRICK_OVEN_BASE);
+        addDrop(SnailBlocks.BRICK_FURNACE_BASE);
+        addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN_BASE, Items.BRICK, 4));
+        addDrop(SnailBlocks.BRICK_FURNACE, bundledBlockDrop(SnailBlocks.BRICK_FURNACE_BASE, Items.BRICK, 2));
 
         addDrop(SnailBlocks.GRASS_SHEAF);
         addDrop(SnailBlocks.DRIED_GRASS_SHEAF);
@@ -164,6 +167,13 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.UNSTEADY_DIRT);
         addDrop(SnailBlocks.UNSTEADY_COARSE_DIRT);
+
+        addDrop(SnailBlocks.CLAY_CRUCIBLE);
+        addDrop(SnailBlocks.DRIED_CLAY_CRUCIBLE);
+        addDrop(SnailBlocks.CRUCIBLE);
+
+        addDrop(SnailBlocks.CLAY_MOLD);
+        addDrop(SnailBlocks.DRIED_CLAY_BRICK);
     }
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
         return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ItemEntry.builder(drop2).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));

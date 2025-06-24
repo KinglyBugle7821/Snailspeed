@@ -41,6 +41,14 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     public BrickFurnaceBlock(Settings settings) {
         super(settings);
     }
+    public static int getLuminance(BlockState state) {
+        if (state.get(LIT).equals(2)){
+            return 15;
+        } else if (state.get(LIT).equals(3)){
+            return 10;
+        }
+        return 0;
+    }
 
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
@@ -58,6 +66,12 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             if(blockEntity instanceof BrickFurnaceBlockEntity be) {
                 if (!be.getStack(0).isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
                     ItemScatterer.spawn(world, pos, ((BrickFurnaceBlockEntity) blockEntity));
+                }
+                if (state.get(CRUCIBLE)){
+                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailBlocks.CRUCIBLE.asItem().getDefaultStack());
+                }
+                if (state.get(LID)){
+                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.FURNACE_LID.getDefaultStack());
                 }
                 world.updateComparators(pos, this);
             }

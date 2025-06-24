@@ -72,6 +72,14 @@ public class SnailItems {
 
     public static final Item FURNACE_LID = register("furnace_lid", Item::new);
 
+    public static final Item BLANK_CLAY_MOLD = register("blank_clay_mold", Item::new);
+    public static final Item SWORD_CLAY_MOLD = register("sword_clay_mold", Item::new);
+    public static final Item AXE_CLAY_MOLD = register("axe_clay_mold", Item::new);
+    public static final Item PICKAXE_CLAY_MOLD = register("pickaxe_clay_mold", Item::new);
+    public static final Item SHOVEL_CLAY_MOLD = register("shovel_clay_mold", Item::new);
+    public static final Item HOE_CLAY_MOLD = register("hoe_clay_mold", Item::new);
+    public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", Item::new);
+
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name)))));

@@ -66,6 +66,14 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.FURNACE_LID, "Furnace Lid");
 
+        translationBuilder.add(SnailItems.BLANK_CLAY_MOLD, "Blank Clay Mold");
+        translationBuilder.add(SnailItems.SWORD_CLAY_MOLD, "Sword Clay Mold");
+        translationBuilder.add(SnailItems.AXE_CLAY_MOLD, "Axe Clay Mold");
+        translationBuilder.add(SnailItems.PICKAXE_CLAY_MOLD, "Pickaxe Clay Mold");
+        translationBuilder.add(SnailItems.SHOVEL_CLAY_MOLD, "Shovel Clay Mold");
+        translationBuilder.add(SnailItems.HOE_CLAY_MOLD, "Hoe Clay Mold");
+        translationBuilder.add(SnailItems.INGOT_CLAY_MOLD, "Ingot Clay Mold");
+
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
         translationBuilder.add(SnailBlocks.CLAY_BRICK, "Clay Brick");
@@ -150,6 +158,10 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
         translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
+
+        translationBuilder.add(SnailBlocks.CLAY_MOLD, "Clay Mold");
+        translationBuilder.add(SnailBlocks.DRIED_CLAY_MOLD, "Dried Clay Mold");
+        translationBuilder.add(SnailBlocks.FIRED_CLAY_MOLD, "Fired Clay Mold");
 
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }

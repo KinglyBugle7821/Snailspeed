@@ -1,12 +1,12 @@
 {
-	"required": true,
-	"package": "net.numericalk.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"SnailModifyLog",
-		"ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.numericalk.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ExampleMixin",
+    "SnailModifyLog"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

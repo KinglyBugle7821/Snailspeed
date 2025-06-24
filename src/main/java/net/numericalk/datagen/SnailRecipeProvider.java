@@ -168,8 +168,16 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('#', Items.CLAY_BALL)
                         .input('S', Items.SAND)
                         .group("multi_bench")
-                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
+                        .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_MOLD)
+                        .pattern("##")
+                        .input('#', Items.CLAY_BALL)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
+                        .offerTo(exporter);
+
             }
         };
     }

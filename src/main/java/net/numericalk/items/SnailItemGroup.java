@@ -100,6 +100,18 @@ public class SnailItemGroup {
                         entries.add(SnailItems.GOLD_DUST);
 
                         entries.add(SnailItems.FURNACE_LID);
+
+                        entries.add(SnailBlocks.CLAY_MOLD);
+                        entries.add(SnailBlocks.DRIED_CLAY_MOLD);
+                        entries.add(SnailBlocks.FIRED_CLAY_MOLD);
+
+                        entries.add(SnailItems.BLANK_CLAY_MOLD);
+                        entries.add(SnailItems.SWORD_CLAY_MOLD);
+                        entries.add(SnailItems.AXE_CLAY_MOLD);
+                        entries.add(SnailItems.PICKAXE_CLAY_MOLD);
+                        entries.add(SnailItems.SHOVEL_CLAY_MOLD);
+                        entries.add(SnailItems.HOE_CLAY_MOLD);
+                        entries.add(SnailItems.INGOT_CLAY_MOLD);
                     }).build());
     public static void initialize() {}
 

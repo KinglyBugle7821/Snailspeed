@@ -288,7 +288,7 @@ public class SnailBlocks {
 
     public static final Block BRICK_FURNACE = registerBlock("brick_furnace",
             properties -> new BrickFurnaceBlock(properties.mapColor(MapColor.WHITE_GRAY)
-                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
+                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool().luminance(BrickFurnaceBlock::getLuminance)));
     public static final Block BRICK_FURNACE_BASE = registerBlock("brick_furnace_base",
             properties -> new BrickFurnaceBaseBlock(properties.mapColor(MapColor.WHITE_GRAY)
                     .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
@@ -299,6 +299,17 @@ public class SnailBlocks {
     public static final Block UNSTEADY_COARSE_DIRT = registerBlock("unsteady_coarse_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
                     .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));
+
+    public static final Block CLAY_MOLD = registerBlock("clay_mold",
+            properties -> new ClayMoldBlock(properties.mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.5F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRAVEL)));
+    public static final Block DRIED_CLAY_MOLD = registerBlock("dried_clay_mold",
+            properties -> new DriedClayMoldBlock(properties.mapColor(MapColor.LIGHT_BLUE)
+                    .strength(0.5F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+    public static final Block FIRED_CLAY_MOLD = registerBlock("fired_clay_mold",
+            properties -> new FiredClayMoldBlock(properties.mapColor(MapColor.DULL_RED)
+                    .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

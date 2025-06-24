@@ -7,7 +7,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.Snailspeed;
 import net.numericalk.blocks.SnailBlocks;
-import net.numericalk.blocks.custom.DriedClayCrucibleBlock;
 import net.numericalk.blocks.entity.custom.*;
 
 public class SnailBlockEntities {
@@ -41,6 +40,12 @@ public class SnailBlockEntities {
     public static final BlockEntityType<BrickFurnaceBlockEntity> BRICK_FURNACE_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "brick_furnace_block_entity"),
                     FabricBlockEntityTypeBuilder.create(BrickFurnaceBlockEntity::new, SnailBlocks.BRICK_FURNACE).build(null));
+    public static final BlockEntityType<ClayMoldBlockEntity> CLAY_MOLD_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "clay_mold_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(ClayMoldBlockEntity::new, SnailBlocks.CLAY_MOLD).build(null));
+    public static final BlockEntityType<DriedClayMoldBlockEntity> DRIED_CLAY_MOLD_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "dried_clay_mold_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(DriedClayMoldBlockEntity::new, SnailBlocks.DRIED_CLAY_MOLD).build(null));
 
     public static void initialize() {
 

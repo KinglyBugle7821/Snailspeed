@@ -91,6 +91,7 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
+
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -150,6 +151,14 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.FURNACE_LID, Models.GENERATED);
 
+        itemModelGenerator.register(SnailItems.BLANK_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SWORD_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.AXE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PICKAXE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SHOVEL_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.HOE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.INGOT_CLAY_MOLD, Models.GENERATED);
+
         itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
@@ -163,6 +172,10 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.BRICK_FURNACE_BASE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.FIRED_CLAY_MOLD.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

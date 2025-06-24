@@ -1,0 +1,60 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold"
+      },
+      "when": {
+        "mold_shape": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_sword"
+      },
+      "when": {
+        "mold_shape": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_axe"
+      },
+      "when": {
+        "mold_shape": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_pickaxe"
+      },
+      "when": {
+        "mold_shape": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_shovel"
+      },
+      "when": {
+        "mold_shape": 4
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_hoe"
+      },
+      "when": {
+        "mold_shape": 5
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_ingot"
+      },
+      "when": {
+        "mold_shape": 6
+      }
+    }
+  ]
+}

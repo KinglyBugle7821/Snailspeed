@@ -83,7 +83,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             maxProgress = 20 * 60 * 2;
             smeltItem(state, world1, pos, maxProgress);
         } else if (state.get(BrickFurnaceBlock.LIT).equals(3)){
-            maxProgress = 20 * 10;
+            maxProgress = 20 * 60;
             smeltItem(state, world1, pos, maxProgress);
         }
     }

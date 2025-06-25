@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.datagen.SnailBlockTagsProvider;
+import net.numericalk.datagen.SnailItemTagsProvider;
 import net.numericalk.items.SnailItems;
 
 public class SnailBreakEvents {
@@ -137,33 +138,33 @@ public class SnailBreakEvents {
         }
     }
     private static boolean hasWoodenAxe(ItemStack stack) {
-        return stack.isIn(ItemTags.WOODEN_TOOL_MATERIALS) && stack.isIn(ItemTags.AXES);
+        return stack.isIn(SnailItemTagsProvider.WOODEN_TOOLS) && stack.isIn(ItemTags.AXES);
     }
 
     private static boolean hasStoneAxe(ItemStack stack) {
-        return stack.isIn(ItemTags.STONE_TOOL_MATERIALS) && stack.isIn(ItemTags.AXES);
+        return stack.isIn(SnailItemTagsProvider.STONE_TOOLS) && stack.isIn(ItemTags.AXES);
     }
 
     private static boolean hasBetterAxe(ItemStack stack) {
-        return  (stack.isIn(ItemTags.IRON_TOOL_MATERIALS) && stack.isIn(ItemTags.AXES)) ||
-                (stack.isIn(ItemTags.DIAMOND_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES)) ||
-                (stack.isIn(ItemTags.NETHERITE_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES));
+        return  (stack.isIn(SnailItemTagsProvider.IRON_TOOLS) && stack.isIn(ItemTags.AXES)) ||
+                (stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) && stack.isIn(ItemTags.AXES)) ||
+                (stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS) && stack.isIn(ItemTags.AXES));
     }
 
     private static boolean hasBetterPickaxe(ItemStack stack) {
-        return (stack.isIn(ItemTags.DIAMOND_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES)) ||
-                (stack.isIn(ItemTags.NETHERITE_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES));
+        return (stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) && stack.isIn(ItemTags.PICKAXES)) ||
+                (stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS) && stack.isIn(ItemTags.PICKAXES));
     }
 
     private static boolean hasWoodenPickaxe(ItemStack stack) {
-        return stack.isIn(ItemTags.WOODEN_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES);
+        return stack.isIn(SnailItemTagsProvider.WOODEN_TOOLS) && stack.isIn(ItemTags.PICKAXES);
     }
 
     private static boolean hasStonePickaxe(ItemStack stack) {
-        return stack.isIn(ItemTags.STONE_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES);
+        return stack.isIn(SnailItemTagsProvider.STONE_TOOLS) && stack.isIn(ItemTags.PICKAXES);
     }
     private static boolean hasIronPickaxe(ItemStack stack) {
-        return stack.isIn(ItemTags.IRON_TOOL_MATERIALS) && stack.isIn(ItemTags.PICKAXES);
+        return stack.isIn(SnailItemTagsProvider.IRON_TOOLS) && stack.isIn(ItemTags.PICKAXES);
     }
 
     private static boolean hasReachedCrumbled(BlockState state) {

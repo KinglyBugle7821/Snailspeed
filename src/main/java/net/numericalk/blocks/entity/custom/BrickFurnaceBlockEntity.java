@@ -83,12 +83,14 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             maxProgress = 20 * 60 * 2;
             smeltItem(state, world1, pos, maxProgress);
         } else if (state.get(BrickFurnaceBlock.LIT).equals(3)){
-            maxProgress = 20 * 60;
+            maxProgress = 20 * 5;
             smeltItem(state, world1, pos, maxProgress);
         }
     }
 
     private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
+        boolean matchedRecipe = false;
+
         for (Item[] items : smeltingRecipe){
             Item input1 = items[0];
             Item input2 = items[1];
@@ -98,12 +100,16 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             Item output = items[5];
 
             if (getStack(INPUT_1).isOf(input1) &&
-                getStack(INPUT_2).isOf(input2) &&
-                getStack(INPUT_3).isOf(input3) &&
-                getStack(INPUT_4).isOf(input4) &&
-                getStack(INPUT_5).isOf(input5)){
+                    getStack(INPUT_2).isOf(input2) &&
+                    getStack(INPUT_3).isOf(input3) &&
+                    getStack(INPUT_4).isOf(input4) &&
+                    getStack(INPUT_5).isOf(input5) &&
+                    state.get(BrickFurnaceBlock.LID)) {
+
+                matchedRecipe = true;
                 progress++;
                 spawnSmokeParticle(world1, pos, state);
+
                 if (progress >= maxProgress) {
                     setStack(INPUT_1, new ItemStack(output));
                     setStack(INPUT_2, new ItemStack(output));
@@ -118,14 +124,20 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
                         world1.updateListeners(pos, getCachedState(), getCachedState(), BrickFurnaceBlock.NOTIFY_ALL);
                     }
                 }
-            } else {
-                progress = 0;
+                break;
             }
+        }
+
+        if (!matchedRecipe) {
+            progress = 0;
         }
     }
 
+
     Item[][] smeltingRecipe ={
-            {SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.MOLTEN_COPPER}
+            {SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.MOLTEN_COPPER},
+            {Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, SnailItems.MOLTEN_IRON},
+            {Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, SnailItems.MOLTEN_GOLD}
     };
 
     private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {

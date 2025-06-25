@@ -1,0 +1,14 @@
+{
+  "values": [
+    "snailspeed:copper_sword",
+    "snailspeed:copper_axe",
+    "snailspeed:copper_pickaxe",
+    "snailspeed:copper_shovel",
+    "snailspeed:copper_hoe",
+    "minecraft:stone_sword",
+    "minecraft:stone_axe",
+    "minecraft:stone_pickaxe",
+    "minecraft:stone_shovel",
+    "minecraft:stone_hoe"
+  ]
+}

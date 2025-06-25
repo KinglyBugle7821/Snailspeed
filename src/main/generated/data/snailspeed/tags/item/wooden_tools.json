@@ -1,0 +1,17 @@
+{
+  "values": [
+    "snailspeed:flint_flake",
+    "snailspeed:flint_hatchet",
+    "snailspeed:flint_pickaxe",
+    "minecraft:wooden_sword",
+    "minecraft:golden_sword",
+    "minecraft:wooden_axe",
+    "minecraft:golden_axe",
+    "minecraft:wooden_pickaxe",
+    "minecraft:golden_pickaxe",
+    "minecraft:wooden_shovel",
+    "minecraft:golden_shovel",
+    "minecraft:wooden_hoe",
+    "minecraft:golden_hoe"
+  ]
+}

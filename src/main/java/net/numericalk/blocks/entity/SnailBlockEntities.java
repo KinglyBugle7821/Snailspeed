@@ -46,6 +46,9 @@ public class SnailBlockEntities {
     public static final BlockEntityType<DriedClayMoldBlockEntity> DRIED_CLAY_MOLD_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "dried_clay_mold_block_entity"),
                     FabricBlockEntityTypeBuilder.create(DriedClayMoldBlockEntity::new, SnailBlocks.DRIED_CLAY_MOLD).build(null));
+    public static final BlockEntityType<ResinBowlBlockEntity> RESIN_BOWL_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "resin_bowl_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(ResinBowlBlockEntity::new, SnailBlocks.RESIN_BOWL).build(null));
 
     public static void initialize() {
 

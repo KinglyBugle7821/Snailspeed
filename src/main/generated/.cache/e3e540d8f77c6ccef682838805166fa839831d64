@@ -1,5 +1,5 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:block
-eb8e862befebb438e713f8e2a7d45c6a4e6ba7b6 data/minecraft/tags/block/logs.json
+aa4b12686cde5346720e8626daf48939fadf4201 data/minecraft/tags/block/logs.json
 2296d73f01f8c917b9f4e72747c9f108f5947d76 data/minecraft/tags/block/logs_that_burn.json
 6f86f13307b4b661cabc08128ca14e0275285bae data/minecraft/tags/block/mineable/axe.json
 eb36940e33b2b70364bacb4bb999e91bd75ae480 data/minecraft/tags/block/mineable/pickaxe.json
@@ -13,5 +13,6 @@ dea689a6cbb84d9f61721499d847e75ca5791b7a data/snailspeed/tags/block/deepslate_or
 c2bd91cab1fd6a9c8af77aacf2b2320770343cd4 data/snailspeed/tags/block/ores.json
 07e3c229c9a3893a60c10ec3588d0157a46143f9 data/snailspeed/tags/block/stone_block.json
 dd15b2071a7bd8a37ffe713d989b3c555e2ef962 data/snailspeed/tags/block/stripped_logs.json
+7ddb7e6d9c5b06da7873d10256923faa45578876 data/snailspeed/tags/block/tapped_logs.json
 331f79c27da803fa3bdcfe5c1e6a77ade600d35b data/snailspeed/tags/block/trimmed_logs.json
 90cdef6caaafcf8b40bdf138e4a80af76949c2c0 data/snailspeed/tags/block/unstripped_logs.json

@@ -202,6 +202,32 @@ public class SnailBlocks {
                     .instrument(NoteBlockInstrument.BASS).strength(3.0F, 4.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).requiresTool()));
 
+    public static final Block TAPPED_SPRUCE_LOG = registerBlock("tapped_spruce_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+    public static final Block TAPPED_BIRCH_LOG = registerBlock("tapped_birch_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.PALE_YELLOW)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+    public static final Block TAPPED_PALE_OAK_LOG = registerBlock("tapped_pale_oak_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+
+    public static final Block DECAYED_SPRUCE_LOG = registerBlock("decayed_spruce_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+    public static final Block DECAYED_BIRCH_LOG = registerBlock("decayed_birch_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.PALE_YELLOW)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+    public static final Block DECAYED_PALE_OAK_LOG = registerBlock("decayed_pale_oak_log",
+            properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
+
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
             properties -> new CampfireBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().luminance(CampfireBlock::getLuminance)));
@@ -308,6 +334,11 @@ public class SnailBlocks {
                     .strength(0.5F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
     public static final Block FIRED_CLAY_MOLD = registerBlock("fired_clay_mold",
             properties -> new FiredClayMoldBlock(properties.mapColor(MapColor.DULL_RED)
+                    .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+
+
+    public static final Block RESIN_BOWL = registerBlock("resin_bowl",
+            properties -> new ResinBowlBlock(properties.mapColor(MapColor.DULL_RED)
                     .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {

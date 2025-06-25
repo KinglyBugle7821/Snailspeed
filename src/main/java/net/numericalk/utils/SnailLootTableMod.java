@@ -43,9 +43,69 @@ public class SnailLootTableMod {
     private static final Identifier LANTERN_ID = Identifier.of("minecraft", "blocks/lantern");
     private static final Identifier SOUL_LANTERN_ID = Identifier.of("minecraft", "blocks/soul_lantern");
 
+    private static final Identifier BLACK_CANDLE_ID = Identifier.of("minecraft", "block/black_candle");
+    private static final Identifier BLUE_CANDLE_ID = Identifier.of("minecraft", "block/blue_candle");
+    private static final Identifier BROWN_CANDLE_ID = Identifier.of("minecraft", "block/brown_candle");
+    private static final Identifier CYAN_CANDLE_ID = Identifier.of("minecraft", "block/cyan_candle");
+    private static final Identifier GRAY_CANDLE_ID = Identifier.of("minecraft", "block/gray_candle");
+    private static final Identifier GREEN_CANDLE_ID = Identifier.of("minecraft", "block/green_candle");
+    private static final Identifier LIGHT_BLUE_CANDLE_ID = Identifier.of("minecraft", "block/light_blue_candle");
+    private static final Identifier LIGHT_GRAY_CANDLE_ID = Identifier.of("minecraft", "block/light_gray_candle");
+    private static final Identifier LIME_CANDLE_ID = Identifier.of("minecraft", "block/lime_candle");
+    private static final Identifier MAGENTA_CANDLE_ID = Identifier.of("minecraft", "block/magenta_candle");
+    private static final Identifier ORANGE_CANDLE_ID = Identifier.of("minecraft", "block/orange_candle");
+    private static final Identifier PINK_CANDLE_ID = Identifier.of("minecraft", "block/pink_candle");
+    private static final Identifier PURPLE_CANDLE_ID = Identifier.of("minecraft", "block/purple_candle");
+    private static final Identifier RED_CANDLE_ID = Identifier.of("minecraft", "block/red_candle");
+    private static final Identifier WHITE_CANDLE_ID = Identifier.of("minecraft", "block/white_candle");
+    private static final Identifier YELLOW_CANDLE_ID = Identifier.of("minecraft", "block/yellow_candle");
+
+    private static final Identifier CHEST_ID = Identifier.of("minecraft", "block/chest");
+    private static final Identifier BARREL_ID = Identifier.of("minecraft", "block/barrel");
+
+    static Identifier[] candles = {
+            BLACK_CANDLE_ID,
+            BLUE_CANDLE_ID,
+            BROWN_CANDLE_ID,
+            CYAN_CANDLE_ID,
+            GRAY_CANDLE_ID,
+            GREEN_CANDLE_ID,
+            LIGHT_BLUE_CANDLE_ID,
+            LIGHT_GRAY_CANDLE_ID,
+            LIME_CANDLE_ID,
+            MAGENTA_CANDLE_ID,
+            ORANGE_CANDLE_ID,
+            PINK_CANDLE_ID,
+            PURPLE_CANDLE_ID,
+            RED_CANDLE_ID,
+            WHITE_CANDLE_ID,
+            YELLOW_CANDLE_ID
+    };
     public static void modifyLootTables() {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
+            if (CHEST_ID.equals(registryKey.getValue()) || BARREL_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Items.STICK))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0f, 8.0f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+            for (Identifier id : candles){
+                if (id.equals(registryKey.getValue())){
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1f))
+                            .conditionally(RandomChanceLootCondition.builder(1f))
+                            .with(ItemEntry.builder(Items.STRING))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                    LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                    return tableBuilder.build();
+                }
+            }
+
             if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))

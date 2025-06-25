@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "snailspeed:item/copper_hoe_head"
+  }
+}

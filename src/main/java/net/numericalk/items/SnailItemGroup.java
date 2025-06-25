@@ -69,6 +69,16 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.FRACTURED_DEEPSLATE);
                         entries.add(SnailBlocks.CRUMBLED_DEEPSLATE);
 
+                        entries.add(SnailBlocks.RESIN_BOWL);
+
+                        entries.add(SnailBlocks.TAPPED_SPRUCE_LOG);
+                        entries.add(SnailBlocks.TAPPED_BIRCH_LOG);
+                        entries.add(SnailBlocks.TAPPED_PALE_OAK_LOG);
+
+                        entries.add(SnailBlocks.DECAYED_SPRUCE_LOG);
+                        entries.add(SnailBlocks.DECAYED_BIRCH_LOG);
+                        entries.add(SnailBlocks.DECAYED_PALE_OAK_LOG);
+
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);
                         entries.add(SnailItems.BURNT_TINDER);
@@ -101,6 +111,8 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.FURNACE_LID);
 
+                        entries.add(SnailItems.RESIN_BALL);
+
                         entries.add(SnailBlocks.CLAY_MOLD);
                         entries.add(SnailBlocks.DRIED_CLAY_MOLD);
                         entries.add(SnailBlocks.FIRED_CLAY_MOLD);
@@ -112,6 +124,30 @@ public class SnailItemGroup {
                         entries.add(SnailItems.SHOVEL_CLAY_MOLD);
                         entries.add(SnailItems.HOE_CLAY_MOLD);
                         entries.add(SnailItems.INGOT_CLAY_MOLD);
+
+                        entries.add(SnailItems.COPPER_SWORD_BLADE);
+                        entries.add(SnailItems.COPPER_AXE_HEAD);
+                        entries.add(SnailItems.COPPER_PICKAXE_HEAD);
+                        entries.add(SnailItems.COPPER_SHOVEL_HEAD);
+                        entries.add(SnailItems.COPPER_HOE_HEAD);
+
+                        entries.add(SnailItems.IRON_SWORD_BLADE);
+                        entries.add(SnailItems.IRON_AXE_HEAD);
+                        entries.add(SnailItems.IRON_PICKAXE_HEAD);
+                        entries.add(SnailItems.IRON_SHOVEL_HEAD);
+                        entries.add(SnailItems.IRON_HOE_HEAD);
+
+                        entries.add(SnailItems.GOLDEN_SWORD_BLADE);
+                        entries.add(SnailItems.GOLDEN_AXE_HEAD);
+                        entries.add(SnailItems.GOLDEN_PICKAXE_HEAD);
+                        entries.add(SnailItems.GOLDEN_SHOVEL_HEAD);
+                        entries.add(SnailItems.GOLDEN_HOE_HEAD);
+
+                        entries.add(SnailItems.COPPER_SWORD);
+                        entries.add(SnailItems.COPPER_AXE);
+                        entries.add(SnailItems.COPPER_PICKAXE);
+                        entries.add(SnailItems.COPPER_SHOVEL);
+                        entries.add(SnailItems.COPPER_HOE);
                     }).build());
     public static void initialize() {}
 

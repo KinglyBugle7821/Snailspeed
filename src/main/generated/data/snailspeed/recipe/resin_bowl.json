@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "#": "#snailspeed:log_barks",
+    "C": "snailspeed:copper_nugget",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "SC",
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:resin_bowl"
+  }
+}

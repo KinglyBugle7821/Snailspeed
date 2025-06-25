@@ -1,15 +1,18 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:item
-c9e357dda3c80df9c5c73a7dab9fe7c0486fc8a2 data/minecraft/tags/item/axes.json
-010fb98f151b2e701792d8dd4a7c0f13ab24bb11 data/minecraft/tags/item/diamond_tool_materials.json
-8bbe3012a241dd5ef1cfc3b0e6b9e364ecc2ac74 data/minecraft/tags/item/iron_tool_materials.json
-2fd849aaa5faa63cb7b9babf4e60884f988da07c data/minecraft/tags/item/netherite_tool_materials.json
-fc163ee563f9a29bfde821a99d5566688851543b data/minecraft/tags/item/pickaxes.json
-5170faa8ab3a8bdc65a8c719ab127f212d3f6f60 data/minecraft/tags/item/stone_tool_materials.json
-05f818e16d305e57f0d2bce698055a91d41c1ba9 data/minecraft/tags/item/wooden_tool_materials.json
-4ac88136ece95c0b93df293bf83368f6bf35a9f6 data/snailspeed/tags/item/campfire_fuel.json
+11959ebfcfd8501b3836022100440041d61b08f3 data/minecraft/tags/item/axes.json
+e62a5a643279fba1226993724ae95fcaff871994 data/minecraft/tags/item/pickaxes.json
+f2fb01b041ef3ab9a22bbfce6f40ae230d550bc8 data/snailspeed/tags/item/campfire_fuel.json
+c844b81088f39bc2793092dcc905b923513ad43a data/snailspeed/tags/item/clay_mold.json
+6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/snailspeed/tags/item/copper_tool_repairable.json
+eb6f9638a958bbce6c4bdde131c7e0a2568cb348 data/snailspeed/tags/item/diamond_tools.json
 4333e5b0d3c082c5e91baec1955d1a9d418dc318 data/snailspeed/tags/item/flint_flake_repairable.json
+45ee8816c161791d833dd8559bef514d13d1e595 data/snailspeed/tags/item/glues.json
+53aaebfacc268a3ec8775f779b41b8f4da7e335d data/snailspeed/tags/item/iron_tools.json
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json
 75a089e3aa2e0448de8c4ac6f44f0dbb8f720cb5 data/snailspeed/tags/item/log_barks_that_burn.json
 de616a47376ce89c586e599e35257f881d73e635 data/snailspeed/tags/item/molten_items.json
-cdc1b2d31f49d833c7bbccc5f0664febabc6a646 data/snailspeed/tags/item/oven_fuel.json
+025fdcd405c7a8f2c5361c63e49f32cc52dc27c8 data/snailspeed/tags/item/netherite_tools.json
+626dd1b62fbe57cc60e739ec16ce6c7a5f8e034d data/snailspeed/tags/item/oven_fuel.json
+8c4f3737351c185b395ce0cda7b2488812a0ccbc data/snailspeed/tags/item/stone_tools.json
 b3d5e20b17e25bb8403cb41cda4e07c1be41d1b9 data/snailspeed/tags/item/string.json
+885676e2fb8781519540a85df22657d477e561dd data/snailspeed/tags/item/wooden_tools.json

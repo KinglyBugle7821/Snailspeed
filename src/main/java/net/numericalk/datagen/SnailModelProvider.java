@@ -63,6 +63,14 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CRIMSON_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_WARPED_PLANKS);
 
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_BRICK);
@@ -159,6 +167,32 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.HOE_CLAY_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.INGOT_CLAY_MOLD, Models.GENERATED);
 
+        itemModelGenerator.register(SnailItems.COPPER_SWORD_BLADE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_AXE_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_PICKAXE_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_SHOVEL_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_HOE_HEAD, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.COPPER_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.IRON_SWORD_BLADE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_AXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_PICKAXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_SHOVEL_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_HOE_HEAD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.GOLDEN_SWORD_BLADE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_AXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_PICKAXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_SHOVEL_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_HOE_HEAD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.RESIN_BALL, Models.GENERATED);
+
         itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
@@ -176,6 +210,8 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailBlocks.CLAY_MOLD.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.DRIED_CLAY_MOLD.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.FIRED_CLAY_MOLD.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

@@ -1,0 +1,85 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_empty"
+      },
+      "when": {
+        "facing": "north",
+        "has_resin": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_empty",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "has_resin": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_empty",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "has_resin": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_empty",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "has_resin": false
+      }
+    },
+
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_full"
+      },
+      "when": {
+        "facing": "north",
+        "has_resin": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_full",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "has_resin": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_full",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "has_resin": true
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/resin_bowl_full",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "has_resin": true
+      }
+    }
+  ]
+}

@@ -40,9 +40,32 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     SnailItems.WARPED_STEM_BARK
             };
 
+            final Item[][] toolRecipe = {
+                    {SnailItems.COPPER_SWORD_BLADE, SnailItems.COPPER_SWORD},
+                    {SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_AXE},
+                    {SnailItems.COPPER_PICKAXE_HEAD, SnailItems.COPPER_PICKAXE},
+                    {SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_SHOVEL},
+                    {SnailItems.COPPER_HOE_HEAD, SnailItems.COPPER_HOE}
+            };
+
             @Override
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
+
+                for (Item[] entry : toolRecipe){
+                    Item head = entry[0];
+                    Item tool = entry[1];
+
+                    createShaped(RecipeCategory.MISC, tool, 1)
+                            .pattern("hg")
+                            .pattern("s ")
+                            .input('s', Items.STICK)
+                            .input('g', SnailItemTagsProvider.GLUES)
+                            .input('h', head)
+                            .group("multi_bench")
+                            .criterion(hasItem(head), conditionsFromItem(head))
+                            .offerTo(exporter);
+                }
 
                 for (Object entry : logBark) {
                     Item bark = (Item) entry;
@@ -176,6 +199,16 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('#', Items.CLAY_BALL)
                         .group("multi_bench")
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailBlocks.RESIN_BOWL)
+                        .pattern("SC")
+                        .pattern("##")
+                        .input('#', SnailItemTagsProvider.LOG_BARKS)
+                        .input('S', Items.STICK)
+                        .input('C', SnailItems.COPPER_NUGGET)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
 
             }

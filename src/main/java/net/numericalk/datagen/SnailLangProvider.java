@@ -74,6 +74,32 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.HOE_CLAY_MOLD, "Hoe Clay Mold");
         translationBuilder.add(SnailItems.INGOT_CLAY_MOLD, "Ingot Clay Mold");
 
+        translationBuilder.add(SnailItems.COPPER_SWORD_BLADE, "Copper Sword Blade");
+        translationBuilder.add(SnailItems.COPPER_AXE_HEAD, "Copper Axe Head");
+        translationBuilder.add(SnailItems.COPPER_PICKAXE_HEAD, "Copper Pickaxe Head");
+        translationBuilder.add(SnailItems.COPPER_SHOVEL_HEAD, "Copper Shovel Head");
+        translationBuilder.add(SnailItems.COPPER_HOE_HEAD, "Copper Hoe Head");
+
+        translationBuilder.add(SnailItems.IRON_SWORD_BLADE, "Iron Sword Blade");
+        translationBuilder.add(SnailItems.IRON_AXE_HEAD, "Iron Axe Head");
+        translationBuilder.add(SnailItems.IRON_PICKAXE_HEAD, "Iron Pickaxe Head");
+        translationBuilder.add(SnailItems.IRON_SHOVEL_HEAD, "Iron Shovel Head");
+        translationBuilder.add(SnailItems.IRON_HOE_HEAD, "Iron Hoe Head");
+
+        translationBuilder.add(SnailItems.GOLDEN_SWORD_BLADE, "Golden Sword Blade");
+        translationBuilder.add(SnailItems.GOLDEN_AXE_HEAD, "Golden Axe Head");
+        translationBuilder.add(SnailItems.GOLDEN_PICKAXE_HEAD, "Golden Pickaxe Head");
+        translationBuilder.add(SnailItems.GOLDEN_SHOVEL_HEAD, "Golden Shovel Head");
+        translationBuilder.add(SnailItems.GOLDEN_HOE_HEAD, "Golden Hoe Head");
+
+        translationBuilder.add(SnailItems.COPPER_SWORD, "Copper Sword");
+        translationBuilder.add(SnailItems.COPPER_AXE, "Copper Axe");
+        translationBuilder.add(SnailItems.COPPER_PICKAXE, "Copper Pickaxe");
+        translationBuilder.add(SnailItems.COPPER_SHOVEL, "Copper Shovel");
+        translationBuilder.add(SnailItems.COPPER_HOE, "Copper Hoe");
+
+        translationBuilder.add(SnailItems.RESIN_BALL, "Resin Ball");
+
         translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
         translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
         translationBuilder.add(SnailBlocks.CLAY_BRICK, "Clay Brick");
@@ -132,6 +158,14 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_PLANKS, "Damaged Crimson Planks");
         translationBuilder.add(SnailBlocks.DAMAGED_WARPED_PLANKS, "Damaged Warped Planks");
 
+        translationBuilder.add(SnailBlocks.TAPPED_SPRUCE_LOG, "Tapped Spruce Log");
+        translationBuilder.add(SnailBlocks.TAPPED_BIRCH_LOG, "Tapped Birch Log");
+        translationBuilder.add(SnailBlocks.TAPPED_PALE_OAK_LOG, "Tapped Pale Oak Log");
+
+        translationBuilder.add(SnailBlocks.DECAYED_SPRUCE_LOG, "Decayed Spruce Log");
+        translationBuilder.add(SnailBlocks.DECAYED_BIRCH_LOG, "Decayed Birch Log");
+        translationBuilder.add(SnailBlocks.DECAYED_PALE_OAK_LOG, "Decayed Pale Oak Log");
+
         translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
         translationBuilder.add(SnailBlocks.BRICK_OVEN_BASE, "Brick Oven Base");
         translationBuilder.add(SnailBlocks.BRICK_OVEN, "Brick Oven");
@@ -162,6 +196,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.CLAY_MOLD, "Clay Mold");
         translationBuilder.add(SnailBlocks.DRIED_CLAY_MOLD, "Dried Clay Mold");
         translationBuilder.add(SnailBlocks.FIRED_CLAY_MOLD, "Fired Clay Mold");
+
+        translationBuilder.add(SnailBlocks.RESIN_BOWL, "Resin Bowl");
 
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }

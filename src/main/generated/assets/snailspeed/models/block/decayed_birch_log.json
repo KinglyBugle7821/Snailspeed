@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "snailspeed:block/decayed_birch_log_top",
+    "side": "snailspeed:block/decayed_birch_log_side"
+  }
+}

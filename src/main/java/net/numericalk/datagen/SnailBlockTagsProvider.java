@@ -27,6 +27,8 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
 
     public static final TagKey<Block> DAMAGED_PLANKS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "damaged_planks"));
 
+    public static final TagKey<Block> TAPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "tapped_logs"));
+
     public static final TagKey<Block> STRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stripped_logs"));
     public static final TagKey<Block> UNSTRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "unstripped_logs"));
 
@@ -38,6 +40,10 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(TAPPED_LOGS)
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
         getOrCreateTagBuilder(STONE_BLOCK)
                 .add(Blocks.STONE)
                 .add(SnailBlocks.SCRATCHED_STONE)
@@ -202,7 +208,11 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.DAMAGED_CHERRY_LOG)
                 .add(SnailBlocks.DAMAGED_PALE_OAK_LOG)
                 .add(SnailBlocks.DAMAGED_CRIMSON_STEM)
-                .add(SnailBlocks.DAMAGED_WARPED_STEM);
+                .add(SnailBlocks.DAMAGED_WARPED_STEM)
+
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
         getOrCreateTagBuilder(BlockTags.SNAPS_GOAT_HORN)
                 .add(SnailBlocks.TRIMMED_OAK_LOG)
                 .add(SnailBlocks.TRIMMED_SPRUCE_LOG)

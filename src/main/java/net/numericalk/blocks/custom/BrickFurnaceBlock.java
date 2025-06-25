@@ -116,6 +116,12 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
 
+    Item[][] moldingRecipe = {
+            {SnailItems.MOLTEN_COPPER, SnailItems.COPPER_SWORD_BLADE, SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_PICKAXE_HEAD, SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_HOE_HEAD, Items.COPPER_INGOT},
+            {SnailItems.MOLTEN_IRON, SnailItems.IRON_SWORD_BLADE, SnailItems.IRON_AXE_HEAD, SnailItems.IRON_PICKAXE_HEAD, SnailItems.IRON_SHOVEL_HEAD, SnailItems.IRON_HOE_HEAD, Items.IRON_INGOT},
+            {SnailItems.MOLTEN_GOLD, SnailItems.GOLDEN_SWORD_BLADE, SnailItems.GOLDEN_AXE_HEAD, SnailItems.GOLDEN_PICKAXE_HEAD, SnailItems.GOLDEN_SHOVEL_HEAD, SnailItems.GOLDEN_HOE_HEAD, Items.GOLD_INGOT}
+    };
+
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         Vec3d hitPos = hit.getPos();
@@ -152,7 +158,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                         }
                     }
                 }
-                if (canTakeItem(stack)){
+                if (canTakeItem(stack, state)){
                     for (int i = 4; i > -1; i--) {
                         if (!brickFurnaceBlockEntity.getStack(i).isEmpty() && !brickFurnaceBlockEntity.getStack(i).isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
                             world.updateListeners(pos, state, state,  3);
@@ -163,7 +169,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                         }
                     }
                 }
-                if (canTakeCrucible(stack, state)){
+                if (canTakeCrucible(stack, state) && brickFurnaceBlockEntity.isEmpty()){
                     world.setBlockState(pos, state.with(CRUCIBLE, false));
                     player.giveOrDropStack(SnailBlocks.CRUCIBLE.asItem().getDefaultStack());
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
@@ -174,6 +180,95 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                     player.giveOrDropStack(SnailItems.FURNACE_LID.getDefaultStack());
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                     return ActionResult.SUCCESS;
+                }
+
+                if (canCraftTools(stack, state, brickFurnaceBlockEntity)){
+                    if (stack.isOf(SnailItems.SWORD_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[1].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    } else if (stack.isOf(SnailItems.AXE_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[2].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    } else if (stack.isOf(SnailItems.PICKAXE_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[3].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    } else if (stack.isOf(SnailItems.SHOVEL_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[4].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    } else if (stack.isOf(SnailItems.HOE_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[5].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    } else if (stack.isOf(SnailItems.INGOT_CLAY_MOLD)){
+                        for (Item[] entry : moldingRecipe){
+                            world.updateListeners(pos, state, state,  3);
+                            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])){
+                                player.giveOrDropStack(entry[6].getDefaultStack());
+                            }
+                        }
+                        for (int i = 0; i < 5; i++){
+                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        }
+                        stack.decrement(1);
+                        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+
+                        return ActionResult.SUCCESS;
+                    }
+
                 }
             } else {
                 if (brickFurnaceBlockEntity.getStack(5).isEmpty() && isFuel(stack)){
@@ -206,6 +301,13 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         return ActionResult.PASS;
     }
 
+    private boolean canCraftTools(ItemStack stack, BlockState state, BrickFurnaceBlockEntity brickFurnaceBlockEntity) {
+        if (brickFurnaceBlockEntity.getStack(0).isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
+            return stack.isIn(SnailItemTagsProvider.CLAY_MOLD) && state.get(CRUCIBLE).equals(true) && state.get(LID).equals(false);
+        }
+        return false;
+    }
+
     private boolean canTakeLid(ItemStack stack, BlockState state) {
         return stack.isEmpty() && state.get(LID).equals(true);
     }
@@ -222,11 +324,11 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     private boolean canPutItem(ItemStack stack, BlockState state) {
-        return !stack.isEmpty() && state.get(CRUCIBLE).equals(true);
+        return !stack.isEmpty() && state.get(CRUCIBLE).equals(true) && state.get(LID).equals(false);
     }
 
-    private boolean canTakeItem(ItemStack stack) {
-        return stack.isEmpty();
+    private boolean canTakeItem(ItemStack stack, BlockState state) {
+        return stack.isEmpty() && state.get(LID).equals(false);
     }
     private boolean isFuel(ItemStack stack) {
         return stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL) || stack.isIn(SnailItemTagsProvider.OVEN_FUEL);

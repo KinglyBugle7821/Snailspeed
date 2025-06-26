@@ -66,9 +66,6 @@ public class SnailLootTableMod {
     private static final Identifier CHEST_ID = Identifier.of("minecraft", "blocks/chest");
     private static final Identifier BARREL_ID = Identifier.of("minecraft", "blocks/barrel");
 
-    private static final Identifier STONE_ID = Identifier.of("minecraft", "blocks/stone");
-    private static final Identifier DEEPSLATE_ID = Identifier.of("minecraft", "blocks/deepslate");
-
     static Identifier[] candles = {
             BLACK_CANDLE_ID,
             BLUE_CANDLE_ID,

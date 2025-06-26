@@ -3,9 +3,9 @@
 	"id": "snailspeed",
 	"version": "${version}",
 	"name": "Snailspeed",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "The Mod That Slows The Progression",
 	"authors": [
-		"Me!"
+		"NumericalEquator"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",

@@ -9,6 +9,12 @@
     "snailspeed:scratched_deepslate",
     "snailspeed:cracked_deepslate",
     "snailspeed:fractured_deepslate",
-    "snailspeed:crumbled_deepslate"
+    "snailspeed:crumbled_deepslate",
+    "snailspeed:brick_furnace_base",
+    "snailspeed:brick_furnace",
+    "snailspeed:deepslate_tin_ore",
+    "snailspeed:tin_ore",
+    "snailspeed:graphite_ore",
+    "snailspeed:deepslate_graphite_ore"
   ]
 }

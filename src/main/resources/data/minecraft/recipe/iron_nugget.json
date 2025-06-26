@@ -1,0 +1,12 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "count": 5,
+    "id": "minecraft:iron_nugget"
+  }
+}

@@ -12,6 +12,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -20,9 +21,12 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.numericalk.blocks.SnailBlocks;
+import net.numericalk.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
+
+import static net.numericalk.blocks.custom.ClayMoldBlock.MOLD_SHAPE;
 
 public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
     public static final MapCodec<BrickFurnaceBaseBlock> CODEC = BrickFurnaceBaseBlock.createCodec(BrickFurnaceBaseBlock::new);

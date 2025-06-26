@@ -13,6 +13,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
+import net.numericalk.Snailspeed;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.items.SnailItems;
 
@@ -25,6 +26,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
+
         return new RecipeGenerator(wrapperLookup, recipeExporter) {
             final Object[] logBark = {
                     SnailItems.OAK_LOG_BARK,
@@ -45,7 +47,35 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_AXE},
                     {SnailItems.COPPER_PICKAXE_HEAD, SnailItems.COPPER_PICKAXE},
                     {SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_SHOVEL},
-                    {SnailItems.COPPER_HOE_HEAD, SnailItems.COPPER_HOE}
+                    {SnailItems.COPPER_HOE_HEAD, SnailItems.COPPER_HOE},
+
+                    {SnailItems.BRONZE_SWORD_BLADE, SnailItems.BRONZE_SWORD},
+                    {SnailItems.BRONZE_AXE_HEAD, SnailItems.BRONZE_AXE},
+                    {SnailItems.BRONZE_PICKAXE_HEAD, SnailItems.BRONZE_PICKAXE},
+                    {SnailItems.BRONZE_SHOVEL_HEAD, SnailItems.BRONZE_SHOVEL},
+                    {SnailItems.BRONZE_HOE_HEAD, SnailItems.BRONZE_HOE},
+
+                    {SnailItems.IRON_SWORD_BLADE, Items.IRON_SWORD},
+                    {SnailItems.IRON_AXE_HEAD, Items.IRON_AXE},
+                    {SnailItems.IRON_PICKAXE_HEAD, Items.IRON_PICKAXE},
+                    {SnailItems.IRON_SHOVEL_HEAD, Items.IRON_SHOVEL},
+                    {SnailItems.IRON_HOE_HEAD, Items.IRON_HOE},
+
+                    {SnailItems.GOLDEN_SWORD_BLADE, Items.GOLDEN_SWORD},
+                    {SnailItems.GOLDEN_AXE_HEAD, Items.GOLDEN_AXE},
+                    {SnailItems.GOLDEN_PICKAXE_HEAD, Items.GOLDEN_PICKAXE},
+                    {SnailItems.GOLDEN_SHOVEL_HEAD, Items.GOLDEN_SHOVEL},
+                    {SnailItems.GOLDEN_HOE_HEAD, Items.GOLDEN_HOE}
+            };
+
+            final Item[][] graphiteMoldRecipe = {
+                    {SnailItems.BLANK_CLAY_MOLD, SnailItems.BLANK_GRAPHITE_MOLD},
+                    {SnailItems.SWORD_CLAY_MOLD, SnailItems.SWORD_GRAPHITE_MOLD},
+                    {SnailItems.AXE_CLAY_MOLD, SnailItems.AXE_GRAPHITE_MOLD},
+                    {SnailItems.PICKAXE_CLAY_MOLD, SnailItems.PICKAXE_GRAPHITE_MOLD},
+                    {SnailItems.SHOVEL_CLAY_MOLD, SnailItems.SHOVEL_GRAPHITE_MOLD},
+                    {SnailItems.HOE_CLAY_MOLD, SnailItems.HOE_GRAPHITE_MOLD},
+                    {SnailItems.INGOT_CLAY_MOLD, SnailItems.INGOT_GRAPHITE_MOLD}
             };
 
             @Override
@@ -69,7 +99,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
 
                 for (Object entry : logBark) {
                     Item bark = (Item) entry;
-                    String idPath = Registries.ITEM.getId(bark).getPath(); // e.g., "oak_log_bark"
+                    String idPath = Registries.ITEM.getId(bark).getPath();
 
                     createShaped(RecipeCategory.MISC, SnailBlocks.CAMPFIRE_BASE, 1)
                             .pattern("bb")
@@ -180,12 +210,16 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.COPPER_NUGGET, 4)
-                        .input(Items.COPPER_INGOT, 1)
-                        .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
+
+                createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_CRUCIBLE)
+                        .pattern("##")
+                        .pattern("##")
+                        .input('#', SnailItems.CLAY_SAND)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.CLAY_SAND), conditionsFromItem(SnailItems.CLAY_SAND))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailItems.CLAY_SAND)
+                createShaped(RecipeCategory.MISC, SnailItems.CLAY_SAND, 3)
                         .pattern("S#")
                         .pattern("#S")
                         .input('#', Items.CLAY_BALL)
@@ -211,6 +245,55 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
 
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.COPPER_NUGGET, 5)
+                        .input(Items.COPPER_INGOT)
+                        .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.BRONZE_NUGGET, 5)
+                        .input(SnailItems.BRONZE_INGOT)
+                        .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.FILTERING_TRAY_BASE)
+                        .input(SnailBlocks.UNTIED_STICK_BUNDLE, 4)
+                        .criterion(hasItem(SnailBlocks.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocks.UNTIED_STICK_BUNDLE))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.FIBER_FILTER)
+                        .input(SnailItems.GRASS_TWINE, 4)
+                        .criterion(hasItem(SnailItems.GRASS_TWINE), conditionsFromItem(SnailItems.GRASS_TWINE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.BARK_SPUD)
+                        .pattern("SN")
+                        .pattern("# ")
+                        .input('#', Items.STICK)
+                        .input('S', SnailItems.COPPER_SHOVEL_HEAD)
+                        .input('N', SnailItems.TIN_NUGGET)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.COPPER_SHOVEL_HEAD), conditionsFromItem(SnailItems.COPPER_SHOVEL_HEAD))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.BLANK_GRAPHITE_MOLD)
+                        .pattern("##")
+                        .input('#', SnailItems.REFINED_GRAPHITE)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.REFINED_GRAPHITE), conditionsFromItem(SnailItems.REFINED_GRAPHITE))
+                        .offerTo(exporter);
+
+                for (Item[] entry : graphiteMoldRecipe){
+                    Item clay = entry[0];
+                    Item graphite = entry[1];
+                    String idPath = Registries.ITEM.getId(clay).getPath();
+
+                    createShaped(RecipeCategory.MISC, graphite, 1)
+                            .pattern("#C")
+                            .input('#', graphite)
+                            .input('C', clay)
+                            .group("multi_bench")
+                            .criterion(hasItem(clay), conditionsFromItem(clay))
+                            .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "graphite_mold_from" + idPath)));
+                }
             }
         };
     }

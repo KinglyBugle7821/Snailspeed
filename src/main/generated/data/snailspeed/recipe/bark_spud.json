@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "#": "minecraft:stick",
+    "N": "snailspeed:tin_nugget",
+    "S": "snailspeed:copper_shovel_head"
+  },
+  "pattern": [
+    "SN",
+    "# "
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:bark_spud"
+  }
+}

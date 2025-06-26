@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:untied_stick_bundle",
+    "snailspeed:untied_stick_bundle",
+    "snailspeed:untied_stick_bundle",
+    "snailspeed:untied_stick_bundle"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:filtering_tray_base"
+  }
+}

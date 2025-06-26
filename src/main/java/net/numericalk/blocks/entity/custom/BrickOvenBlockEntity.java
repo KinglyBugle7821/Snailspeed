@@ -238,6 +238,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             {Items.BEEF, SnailItems.BURNT_BEEF},
             {SnailItems.COPPER_DUST, SnailItems.COPPER_NUGGET},
             {SnailItems.IRON_DUST, Items.IRON_NUGGET},
-            {SnailItems.GOLD_DUST, Items.GOLD_NUGGET}
+            {SnailItems.GOLD_DUST, Items.GOLD_NUGGET},
+            {SnailItems.TIN_DUST, SnailItems.TIN_NUGGET}
     };
 }

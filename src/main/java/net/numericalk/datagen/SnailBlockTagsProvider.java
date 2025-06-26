@@ -38,8 +38,28 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
     public static final TagKey<Block> ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "ores"));
     public static final TagKey<Block> DEEPSLATE_ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "deepslate_ores"));
 
+    public static final TagKey<Block> NEEDS_BRONZE_TOOL = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "needs_bronze_tool"));
+    public static final TagKey<Block> INCORRECT_FOR_BRONZE_TOOL = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "incorrect_for_bronze_tool"));
+
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(INCORRECT_FOR_BRONZE_TOOL)
+                .forceAddTag(BlockTags.NEEDS_IRON_TOOL)
+                .forceAddTag(BlockTags.NEEDS_DIAMOND_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(NEEDS_BRONZE_TOOL)
+                .add(Blocks.IRON_ORE)
+                .add(Blocks.DEEPSLATE_IRON_ORE)
+                .add(Blocks.RAW_IRON_BLOCK)
+                .add(Blocks.IRON_BLOCK)
+                .add(SnailBlocks.GRAPHITE_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE)
+                .forceAddTag(BlockTags.NEEDS_STONE_TOOL);
         getOrCreateTagBuilder(TAPPED_LOGS)
                 .add(SnailBlocks.TAPPED_SPRUCE_LOG)
                 .add(SnailBlocks.TAPPED_BIRCH_LOG)
@@ -283,7 +303,16 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.SCRATCHED_DEEPSLATE)
                 .add(SnailBlocks.CRACKED_DEEPSLATE)
                 .add(SnailBlocks.FRACTURED_DEEPSLATE)
-                .add(SnailBlocks.CRUMBLED_DEEPSLATE);
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE)
+
+                .add(SnailBlocks.BRICK_FURNACE_BASE)
+                .add(SnailBlocks.BRICK_FURNACE)
+
+                .add(SnailBlocks.DEEPSLATE_TIN_ORE)
+                .add(SnailBlocks.TIN_ORE)
+
+                .add(SnailBlocks.GRAPHITE_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
 
         getOrCreateTagBuilder(ORES)
                 .add(Blocks.COAL_ORE)
@@ -293,7 +322,9 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(Blocks.REDSTONE_ORE)
                 .add(Blocks.GOLD_ORE)
                 .add(Blocks.EMERALD_ORE)
-                .add(Blocks.DIAMOND_ORE);
+                .add(Blocks.DIAMOND_ORE)
+                .add(SnailBlocks.TIN_ORE)
+                .add(SnailBlocks.GRAPHITE_ORE);
 
         getOrCreateTagBuilder(DEEPSLATE_ORES)
                 .add(Blocks.DEEPSLATE_COAL_ORE)
@@ -303,7 +334,9 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(Blocks.DEEPSLATE_REDSTONE_ORE)
                 .add(Blocks.DEEPSLATE_GOLD_ORE)
                 .add(Blocks.DEEPSLATE_EMERALD_ORE)
-                .add(Blocks.DEEPSLATE_DIAMOND_ORE);
+                .add(Blocks.DEEPSLATE_DIAMOND_ORE)
+                .add(SnailBlocks.DEEPSLATE_TIN_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
     }
     @Override
     protected FabricTagProvider<Block>.FabricTagBuilder getOrCreateTagBuilder(TagKey<Block> tag) {

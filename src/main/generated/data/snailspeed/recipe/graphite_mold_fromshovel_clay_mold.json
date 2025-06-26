@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "#": "snailspeed:shovel_graphite_mold",
+    "C": "snailspeed:shovel_clay_mold"
+  },
+  "pattern": [
+    "#C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:shovel_graphite_mold"
+  }
+}

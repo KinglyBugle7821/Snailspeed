@@ -29,7 +29,11 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> OVEN_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "oven_fuel"));
     public static final TagKey<Item> MOLTEN_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "molten_items"));
     public static final TagKey<Item> CLAY_MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "clay_mold"));
+    public static final TagKey<Item> GRAPHITE_MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "graphite_mold"));
+    public static final TagKey<Item> MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "mold"));
     public static final TagKey<Item> GLUES = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "glues"));
+
+    public static final TagKey<Item> FILTERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "filters"));
 
     public static final TagKey<Item> WOODEN_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "wooden_tools"));
     public static final TagKey<Item> STONE_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "stone_tools"));
@@ -39,6 +43,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(FILTERS)
+                .add(SnailItems.FIBER_FILTER);
         getOrCreateTagBuilder(GLUES)
                 .add(Items.SLIME_BALL)
                 .add(SnailItems.RESIN_BALL);
@@ -50,10 +56,35 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.SHOVEL_CLAY_MOLD)
                 .add(SnailItems.HOE_CLAY_MOLD)
                 .add(SnailItems.INGOT_CLAY_MOLD);
+        getOrCreateTagBuilder(GRAPHITE_MOLD)
+                .add(SnailItems.BLANK_GRAPHITE_MOLD)
+                .add(SnailItems.SWORD_GRAPHITE_MOLD)
+                .add(SnailItems.AXE_GRAPHITE_MOLD)
+                .add(SnailItems.PICKAXE_GRAPHITE_MOLD)
+                .add(SnailItems.SHOVEL_GRAPHITE_MOLD)
+                .add(SnailItems.HOE_GRAPHITE_MOLD)
+                .add(SnailItems.INGOT_GRAPHITE_MOLD);
+        getOrCreateTagBuilder(MOLD)
+                .add(SnailItems.BLANK_CLAY_MOLD)
+                .add(SnailItems.SWORD_CLAY_MOLD)
+                .add(SnailItems.AXE_CLAY_MOLD)
+                .add(SnailItems.PICKAXE_CLAY_MOLD)
+                .add(SnailItems.SHOVEL_CLAY_MOLD)
+                .add(SnailItems.HOE_CLAY_MOLD)
+                .add(SnailItems.INGOT_CLAY_MOLD)
+                .add(SnailItems.BLANK_CLAY_MOLD)
+                .add(SnailItems.SWORD_CLAY_MOLD)
+                .add(SnailItems.AXE_CLAY_MOLD)
+                .add(SnailItems.PICKAXE_CLAY_MOLD)
+                .add(SnailItems.SHOVEL_CLAY_MOLD)
+                .add(SnailItems.HOE_CLAY_MOLD)
+                .add(SnailItems.INGOT_CLAY_MOLD);
         getOrCreateTagBuilder(MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_COPPER)
                 .add(SnailItems.MOLTEN_IRON)
-                .add(SnailItems.MOLTEN_GOLD);
+                .add(SnailItems.MOLTEN_GOLD)
+                .add(SnailItems.MOLTEN_TIN)
+                .add(SnailItems.MOLTEN_BRONZE);
         getOrCreateTagBuilder(OVEN_FUEL)
                 .add(Items.CHARCOAL)
                 .add(Items.COAL);
@@ -68,11 +99,13 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET)
 
-                .add(SnailItems.COPPER_AXE);
+                .add(SnailItems.COPPER_AXE)
+                .add(SnailItems.BRONZE_AXE);
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(SnailItems.FLINT_PICKAXE)
 
-                .add(SnailItems.COPPER_PICKAXE);
+                .add(SnailItems.COPPER_PICKAXE)
+                .add(SnailItems.BRONZE_PICKAXE);
         getOrCreateTagBuilder(WOODEN_TOOLS)
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET)
@@ -88,6 +121,11 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(Items.WOODEN_HOE)
                 .add(Items.GOLDEN_HOE);
         getOrCreateTagBuilder(STONE_TOOLS)
+                .add(SnailItems.BRONZE_SWORD)
+                .add(SnailItems.BRONZE_AXE)
+                .add(SnailItems.BRONZE_PICKAXE)
+                .add(SnailItems.BRONZE_SHOVEL)
+                .add(SnailItems.BRONZE_HOE)
                 .add(SnailItems.COPPER_SWORD)
                 .add(SnailItems.COPPER_AXE)
                 .add(SnailItems.COPPER_PICKAXE)

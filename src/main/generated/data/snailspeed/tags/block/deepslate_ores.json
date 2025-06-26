@@ -7,6 +7,8 @@
     "minecraft:deepslate_redstone_ore",
     "minecraft:deepslate_gold_ore",
     "minecraft:deepslate_emerald_ore",
-    "minecraft:deepslate_diamond_ore"
+    "minecraft:deepslate_diamond_ore",
+    "snailspeed:deepslate_tin_ore",
+    "snailspeed:deepslate_graphite_ore"
   ]
 }

@@ -6,10 +6,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.blocks.entity.SnailBlockEntities;
-import net.numericalk.blocks.entity.renderer.BrickFurnaceBlockEntityRenderer;
-import net.numericalk.blocks.entity.renderer.BrickOvenBlockEntityRenderer;
-import net.numericalk.blocks.entity.renderer.CampfireBlockEntityRenderer;
-import net.numericalk.blocks.entity.renderer.MortarBlockEntityRenderer;
+import net.numericalk.blocks.entity.renderer.*;
 import net.numericalk.items.SnailItemGroup;
 import net.numericalk.items.SnailItems;
 import net.numericalk.utils.*;
@@ -35,6 +32,7 @@ public class Snailspeed implements ModInitializer {
 		SnailSetBlockOnFire.SetOnFire();
 
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CAMPFIRE_BASE, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.FILTERING_TRAY, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.CLAY_MOLD, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.DRIED_CLAY_MOLD, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.FIRED_CLAY_MOLD, RenderLayer.getTranslucent());
@@ -43,7 +41,7 @@ public class Snailspeed implements ModInitializer {
 		BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY, BrickOvenBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR_BLOCK_ENTITY, MortarBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY, BrickFurnaceBlockEntityRenderer::new);
-
+		BlockEntityRendererFactories.register(SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY, FilteringTrayBlockEntityRenderer::new);
 
 	}
 }

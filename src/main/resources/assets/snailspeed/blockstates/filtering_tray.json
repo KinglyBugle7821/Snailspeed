@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray"
+      },
+      "when": {
+        "has_filter": false
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray_filter"
+      },
+      "when": {
+        "has_filter": true
+      }
+    }
+  ]
+}

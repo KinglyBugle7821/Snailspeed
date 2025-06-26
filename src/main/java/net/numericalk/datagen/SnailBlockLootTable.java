@@ -4,14 +4,19 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.numericalk.blocks.SnailBlocks;
 import net.numericalk.items.SnailItems;
@@ -113,6 +118,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.CAMPFIRE_BASE);
         addDrop(SnailBlocks.BRICK_OVEN_BASE);
         addDrop(SnailBlocks.BRICK_FURNACE_BASE);
+        addDrop(SnailBlocks.FILTERING_TRAY_BASE);
         addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN_BASE, Items.BRICK, 4));
         addDrop(SnailBlocks.BRICK_FURNACE, bundledBlockDrop(SnailBlocks.BRICK_FURNACE_BASE, Items.BRICK, 2));
 
@@ -174,8 +180,23 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.CLAY_MOLD);
         addDrop(SnailBlocks.DRIED_CLAY_BRICK);
+
+        addDrop(SnailBlocks.RESIN_BOWL);
+        addDrop(SnailBlocks.FILTERING_TRAY);
+
+        addDrop(SnailBlocks.TIN_ORE, multipleOreDrops(SnailBlocks.TIN_ORE, SnailItems.RAW_TIN, 1f, 2f));
+        addDrop(SnailBlocks.DEEPSLATE_TIN_ORE, multipleOreDrops(SnailBlocks.DEEPSLATE_TIN_ORE, SnailItems.RAW_TIN, 1f, 2f));
+
+        addDrop(SnailBlocks.GRAPHITE_ORE, multipleOreDrops(SnailBlocks.GRAPHITE_ORE, SnailItems.RAW_GRAPHITE, 1f, 1f));
+        addDrop(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, multipleOreDrops(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, SnailItems.RAW_GRAPHITE, 1f, 1f));
     }
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
         return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ItemEntry.builder(drop2).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));
+    }
+    public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
+        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ((LeafEntry.Builder<?>)
+                ItemEntry.builder(item).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops))))
+                .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
     }
 }

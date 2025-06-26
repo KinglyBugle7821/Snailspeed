@@ -2,6 +2,7 @@
   "values": [
     "snailspeed:flint_flake",
     "snailspeed:flint_hatchet",
-    "snailspeed:copper_axe"
+    "snailspeed:copper_axe",
+    "snailspeed:bronze_axe"
   ]
 }

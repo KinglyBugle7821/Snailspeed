@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "g": "#snailspeed:glues",
+    "h": "snailspeed:golden_pickaxe_head",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "hg",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:golden_pickaxe"
+  }
+}

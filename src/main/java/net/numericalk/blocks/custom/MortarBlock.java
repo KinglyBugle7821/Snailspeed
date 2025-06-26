@@ -84,57 +84,6 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
     public MortarBlock(Settings settings) {
         super(settings);
     }
-    Random random = new Random() {
-        @Override
-        public Random split() {
-            return null;
-        }
-
-        @Override
-        public RandomSplitter nextSplitter() {
-            return null;
-        }
-
-        @Override
-        public void setSeed(long seed) {
-
-        }
-
-        @Override
-        public int nextInt() {
-            return 1;
-        }
-
-        @Override
-        public int nextInt(int bound) {
-            return 4;
-        }
-
-        @Override
-        public long nextLong() {
-            return 0;
-        }
-
-        @Override
-        public boolean nextBoolean() {
-            return false;
-        }
-
-        @Override
-        public float nextFloat() {
-            return 0;
-        }
-
-        @Override
-        public double nextDouble() {
-            return 0;
-        }
-
-        @Override
-        public double nextGaussian() {
-            return 0;
-        }
-    };
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -153,13 +102,10 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
                 }
             }
             if (HasPestle(stack)){
-                int randomChance = random.nextInt();
-                if (randomChance == 1){
-                    Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
-                    if (hasRecipe(mortarBlockEntity)){
-                        mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
-                        world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
-                    }
+                Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
+                if (hasRecipe(mortarBlockEntity)){
+                    mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
+                    world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
                 }
                 stack.damage(1, player);
                 return ActionResult.SUCCESS;
@@ -200,7 +146,9 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
     Object[][] crushingRecipe = {
             {Items.RAW_COPPER, SnailItems.COPPER_DUST},
             {Items.RAW_IRON, SnailItems.IRON_DUST},
-            {Items.RAW_GOLD, SnailItems.GOLD_DUST}
+            {Items.RAW_GOLD, SnailItems.GOLD_DUST},
+            {SnailItems.RAW_TIN, SnailItems.TIN_DUST},
+            {SnailItems.RAW_GRAPHITE, SnailItems.GROUND_GRAPHITE}
     };
     private boolean canTakeItem(ItemStack stack, BlockState state) {
         return stack.isEmpty();

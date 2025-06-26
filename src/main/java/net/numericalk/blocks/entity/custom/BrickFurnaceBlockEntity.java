@@ -80,10 +80,10 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
 
 
         if (state.get(BrickFurnaceBlock.LIT).equals(2)){
-            maxProgress = 20 * 60 * 2;
+            maxProgress = 20 * 60 * 3;
             smeltItem(state, world1, pos, maxProgress);
         } else if (state.get(BrickFurnaceBlock.LIT).equals(3)){
-            maxProgress = 20 * 5;
+            maxProgress = 20 * 60;
             smeltItem(state, world1, pos, maxProgress);
         }
     }
@@ -137,7 +137,16 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     Item[][] smeltingRecipe ={
             {SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.MOLTEN_COPPER},
             {Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, SnailItems.MOLTEN_IRON},
-            {Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, SnailItems.MOLTEN_GOLD}
+            {Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, SnailItems.MOLTEN_GOLD},
+            {SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.MOLTEN_TIN},
+            {SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.MOLTEN_BRONZE},
+            {SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.TIN_NUGGET, SnailItems.MOLTEN_BRONZE},
+
+            {Items.COPPER_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_COPPER},
+            {Items.IRON_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_IRON},
+            {Items.GOLD_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_GOLD},
+            {SnailItems.TIN_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_TIN},
+            {SnailItems.BRONZE_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_BRONZE}
     };
 
     private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {

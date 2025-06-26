@@ -20,137 +20,137 @@ public class SnailBlocks {
 
     public static final Block TRIMMED_OAK_LOG = registerBlock("trimmed_oak_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_SPRUCE_LOG = registerBlock("trimmed_spruce_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_BIRCH_LOG = registerBlock("trimmed_birch_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.PALE_YELLOW)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_JUNGLE_LOG = registerBlock("trimmed_jungle_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.DIRT_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_ACACIA_LOG = registerBlock("trimmed_acacia_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.ORANGE)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_DARK_OAK_LOG = registerBlock("trimmed_dark_oak_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_MANGROVE_LOG = registerBlock("trimmed_mangrove_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.RED)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_CHERRY_LOG = registerBlock("trimmed_cherry_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.TERRACOTTA_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_PALE_OAK_LOG = registerBlock("trimmed_pale_oak_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TRIMMED_CRIMSON_STEM = registerBlock("trimmed_crimson_stem",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.DULL_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block TRIMMED_WARPED_STEM = registerBlock("trimmed_warped_stem",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block CRACKED_OAK_LOG = registerBlock("cracked_oak_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_SPRUCE_LOG = registerBlock("cracked_spruce_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_BIRCH_LOG = registerBlock("cracked_birch_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.PALE_YELLOW)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_JUNGLE_LOG = registerBlock("cracked_jungle_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.DIRT_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_ACACIA_LOG = registerBlock("cracked_acacia_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.ORANGE)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_DARK_OAK_LOG = registerBlock("cracked_dark_oak_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_MANGROVE_LOG = registerBlock("cracked_mangrove_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.RED)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_CHERRY_LOG = registerBlock("cracked_cherry_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.TERRACOTTA_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_PALE_OAK_LOG = registerBlock("cracked_pale_oak_log",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block CRACKED_CRIMSON_STEM = registerBlock("cracked_crimson_stem",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.DULL_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block CRACKED_WARPED_STEM = registerBlock("cracked_warped_stem",
             properties -> new CrackedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block DAMAGED_OAK_LOG = registerBlock("damaged_oak_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_SPRUCE_LOG = registerBlock("damaged_spruce_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_BIRCH_LOG = registerBlock("damaged_birch_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.PALE_YELLOW)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_JUNGLE_LOG = registerBlock("damaged_jungle_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.DIRT_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_ACACIA_LOG = registerBlock("damaged_acacia_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.ORANGE)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_DARK_OAK_LOG = registerBlock("damaged_dark_oak_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_MANGROVE_LOG = registerBlock("damaged_mangrove_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.RED)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_CHERRY_LOG = registerBlock("damaged_cherry_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.TERRACOTTA_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_PALE_OAK_LOG = registerBlock("damaged_pale_oak_log",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DAMAGED_CRIMSON_STEM = registerBlock("damaged_crimson_stem",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.DULL_PINK)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
     public static final Block DAMAGED_WARPED_STEM = registerBlock("damaged_warped_stem",
             properties -> new DamagedLogBlock(properties.mapColor(MapColor.DARK_AQUA)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.NETHER_WOOD).nonOpaque().requiresTool()));
 
     public static final Block DAMAGED_OAK_PLANKS = registerBlock("damaged_oak_planks",
@@ -204,28 +204,28 @@ public class SnailBlocks {
 
     public static final Block TAPPED_SPRUCE_LOG = registerBlock("tapped_spruce_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TAPPED_BIRCH_LOG = registerBlock("tapped_birch_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.PALE_YELLOW)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block TAPPED_PALE_OAK_LOG = registerBlock("tapped_pale_oak_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
 
     public static final Block DECAYED_SPRUCE_LOG = registerBlock("decayed_spruce_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.SPRUCE_BROWN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DECAYED_BIRCH_LOG = registerBlock("decayed_birch_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.PALE_YELLOW)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
     public static final Block DECAYED_PALE_OAK_LOG = registerBlock("decayed_pale_oak_log",
             properties -> new PillarBlock(properties.mapColor(MapColor.OAK_TAN)
-                    .instrument(NoteBlockInstrument.BASS).strength(6.0F)
+                    .instrument(NoteBlockInstrument.BASS).strength(5.0F, 2.0F)
                     .sounds(BlockSoundGroup.WOOD).burnable().nonOpaque().requiresTool()));
 
     public static final Block CAMPFIRE_BASE = registerBlock("campfire_base",
@@ -263,29 +263,29 @@ public class SnailBlocks {
 
     public static final Block SCRATCHED_STONE = registerBlock("scratched_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(7.0F, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block CRACKED_STONE = registerBlock("cracked_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(7.0F, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block FRACTURED_STONE = registerBlock("fractured_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(7.0F, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block CRUMBLED_STONE = registerBlock("crumbled_stone",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(8.0f, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
+                    .strength(7.0F, 6.0f).sounds(BlockSoundGroup.STONE).requiresTool()));
 
     public static final Block SCRATCHED_DEEPSLATE = registerBlock("scratched_deepslate",
             properties -> new PillarBlock(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(8.0F, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block CRACKED_DEEPSLATE = registerBlock("cracked_deepslate",
             properties -> new PillarBlock(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(8.0F, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block FRACTURED_DEEPSLATE = registerBlock("fractured_deepslate",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(8.0F, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block CRUMBLED_DEEPSLATE = registerBlock("crumbled_deepslate",
             properties -> new Block(properties.mapColor(MapColor.LIGHT_GRAY)
-                    .strength(9.0f, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+                    .strength(8.0F, 6.0f).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
 
     public static final Block UNTIED_STICK_BUNDLE = registerBlock("untied_stick_bundle",
@@ -314,10 +314,10 @@ public class SnailBlocks {
 
     public static final Block BRICK_FURNACE = registerBlock("brick_furnace",
             properties -> new BrickFurnaceBlock(properties.mapColor(MapColor.WHITE_GRAY)
-                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool().luminance(BrickFurnaceBlock::getLuminance)));
+                    .strength(4.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool().luminance(BrickFurnaceBlock::getLuminance)));
     public static final Block BRICK_FURNACE_BASE = registerBlock("brick_furnace_base",
             properties -> new BrickFurnaceBaseBlock(properties.mapColor(MapColor.WHITE_GRAY)
-                    .strength(5.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
+                    .strength(4.5f).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
 
     public static final Block UNSTEADY_DIRT = registerBlock("unsteady_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
@@ -340,6 +340,28 @@ public class SnailBlocks {
     public static final Block RESIN_BOWL = registerBlock("resin_bowl",
             properties -> new ResinBowlBlock(properties.mapColor(MapColor.DULL_RED)
                     .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+
+    public static final Block TIN_ORE = registerBlock("tin_ore",
+            properties -> new Block(properties.mapColor(MapColor.STONE_GRAY)
+                    .strength(7.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
+            properties -> new Block(properties.mapColor(MapColor.STONE_GRAY)
+                    .strength(8.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+
+    public static final Block GRAPHITE_ORE = registerBlock("graphite_ore",
+            properties -> new Block(properties.mapColor(MapColor.STONE_GRAY)
+                    .strength(7.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block DEEPSLATE_GRAPHITE_ORE = registerBlock("deepslate_graphite_ore",
+            properties -> new Block(properties.mapColor(MapColor.DEEPSLATE_GRAY)
+                    .strength(8.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+
+    public static final Block FILTERING_TRAY_BASE = registerBlock("filtering_tray_base",
+            properties -> new FilteringTrayBaseBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(3.0F).sounds(BlockSoundGroup.WOOD).burnable().nonOpaque()));
+    public static final Block FILTERING_TRAY = registerBlock("filtering_tray",
+            properties -> new FilteringTrayBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(3.0F).sounds(BlockSoundGroup.WOOD).burnable().nonOpaque()));
+
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));

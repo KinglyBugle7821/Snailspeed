@@ -3,6 +3,7 @@ package net.numericalk.utils;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+import net.numericalk.datagen.SnailBlockTagsProvider;
 import net.numericalk.datagen.SnailItemTagsProvider;
 import net.numericalk.items.SnailItems;
 
@@ -28,6 +29,15 @@ public class SnailToolMaterial {
             67,
             1.0F,
             2.0F,
+            20,
+            SnailItemTagsProvider.COPPER_TOOL_REPAIRABLE
+    );
+
+    public static final ToolMaterial BRONZE_TOOL_MATERIAL = new ToolMaterial(
+            SnailBlockTagsProvider.INCORRECT_FOR_BRONZE_TOOL,
+            131,
+            2.0F,
+            3.0F,
             20,
             SnailItemTagsProvider.COPPER_TOOL_REPAIRABLE
     );

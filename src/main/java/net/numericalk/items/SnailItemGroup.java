@@ -34,6 +34,8 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.FLINT_FLAKE);
 
+                        entries.add(SnailItems.FIBER_FILTER);
+
                         entries.add(SnailBlocks.CAMPFIRE_BASE);
                         entries.add(SnailBlocks.BRICK_OVEN_BASE);
                         entries.add(SnailBlocks.BRICK_OVEN);
@@ -70,6 +72,8 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.CRUMBLED_DEEPSLATE);
 
                         entries.add(SnailBlocks.RESIN_BOWL);
+                        entries.add(SnailBlocks.FILTERING_TRAY_BASE);
+                        entries.add(SnailBlocks.FILTERING_TRAY);
 
                         entries.add(SnailBlocks.TAPPED_SPRUCE_LOG);
                         entries.add(SnailBlocks.TAPPED_BIRCH_LOG);
@@ -96,6 +100,7 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.GRASS_TWINE);
                         entries.add(SnailItems.PESTLE);
+                        entries.add(SnailItems.BARK_SPUD);
                         entries.add(SnailItems.PEBBLE);
                         entries.add(SnailItems.ROCK);
 
@@ -125,6 +130,14 @@ public class SnailItemGroup {
                         entries.add(SnailItems.HOE_CLAY_MOLD);
                         entries.add(SnailItems.INGOT_CLAY_MOLD);
 
+                        entries.add(SnailItems.BLANK_GRAPHITE_MOLD);
+                        entries.add(SnailItems.SWORD_GRAPHITE_MOLD);
+                        entries.add(SnailItems.AXE_GRAPHITE_MOLD);
+                        entries.add(SnailItems.PICKAXE_GRAPHITE_MOLD);
+                        entries.add(SnailItems.SHOVEL_GRAPHITE_MOLD);
+                        entries.add(SnailItems.HOE_GRAPHITE_MOLD);
+                        entries.add(SnailItems.INGOT_GRAPHITE_MOLD);
+
                         entries.add(SnailItems.COPPER_SWORD_BLADE);
                         entries.add(SnailItems.COPPER_AXE_HEAD);
                         entries.add(SnailItems.COPPER_PICKAXE_HEAD);
@@ -143,11 +156,40 @@ public class SnailItemGroup {
                         entries.add(SnailItems.GOLDEN_SHOVEL_HEAD);
                         entries.add(SnailItems.GOLDEN_HOE_HEAD);
 
+                        entries.add(SnailItems.BRONZE_SWORD_BLADE);
+                        entries.add(SnailItems.BRONZE_AXE_HEAD);
+                        entries.add(SnailItems.BRONZE_PICKAXE_HEAD);
+                        entries.add(SnailItems.BRONZE_SHOVEL_HEAD);
+                        entries.add(SnailItems.BRONZE_HOE_HEAD);
+
                         entries.add(SnailItems.COPPER_SWORD);
                         entries.add(SnailItems.COPPER_AXE);
                         entries.add(SnailItems.COPPER_PICKAXE);
                         entries.add(SnailItems.COPPER_SHOVEL);
                         entries.add(SnailItems.COPPER_HOE);
+
+                        entries.add(SnailItems.BRONZE_SWORD);
+                        entries.add(SnailItems.BRONZE_AXE);
+                        entries.add(SnailItems.BRONZE_PICKAXE);
+                        entries.add(SnailItems.BRONZE_SHOVEL);
+                        entries.add(SnailItems.BRONZE_HOE);
+
+                        entries.add(SnailBlocks.TIN_ORE);
+                        entries.add(SnailBlocks.DEEPSLATE_TIN_ORE);
+                        entries.add(SnailItems.RAW_TIN);
+                        entries.add(SnailItems.TIN_DUST);
+                        entries.add(SnailItems.TIN_NUGGET);
+                        entries.add(SnailItems.TIN_INGOT);
+
+                        entries.add(SnailBlocks.GRAPHITE_ORE);
+                        entries.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
+                        entries.add(SnailItems.RAW_GRAPHITE);
+                        entries.add(SnailItems.GROUND_GRAPHITE);
+                        entries.add(SnailItems.REFINED_GRAPHITE);
+
+                        entries.add(SnailItems.BRONZE_NUGGET);
+                        entries.add(SnailItems.BRONZE_INGOT);
+
                     }).build());
     public static void initialize() {}
 

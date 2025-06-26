@@ -1,16 +1,21 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:block
+613367057a81a8c4c302cb222064df59fabe949c data/minecraft/tags/block/incorrect_for_gold_tool.json
+613367057a81a8c4c302cb222064df59fabe949c data/minecraft/tags/block/incorrect_for_stone_tool.json
+613367057a81a8c4c302cb222064df59fabe949c data/minecraft/tags/block/incorrect_for_wooden_tool.json
 aa4b12686cde5346720e8626daf48939fadf4201 data/minecraft/tags/block/logs.json
 2296d73f01f8c917b9f4e72747c9f108f5947d76 data/minecraft/tags/block/logs_that_burn.json
 6f86f13307b4b661cabc08128ca14e0275285bae data/minecraft/tags/block/mineable/axe.json
-eb36940e33b2b70364bacb4bb999e91bd75ae480 data/minecraft/tags/block/mineable/pickaxe.json
+0af5208d4d1eb458ebf73ad4942337474279ddcb data/minecraft/tags/block/mineable/pickaxe.json
 c8cceb2644861b939846ec57c7446d02e5716796 data/minecraft/tags/block/planks.json
 7aa0fb00e1b93af2ec90650326497b902fd8c54d data/minecraft/tags/block/snaps_goat_horn.json
 9ff7005e0d168409def122d318e15569e8f4986e data/snailspeed/tags/block/cracked_logs.json
 f8736b7c10c8ac2984cfa5c349c678782d1a7639 data/snailspeed/tags/block/crumbled_stone_block.json
 d4a1f971f79d217d5b9aa965208e0b574f5463f4 data/snailspeed/tags/block/damaged_logs.json
 c8cceb2644861b939846ec57c7446d02e5716796 data/snailspeed/tags/block/damaged_planks.json
-dea689a6cbb84d9f61721499d847e75ca5791b7a data/snailspeed/tags/block/deepslate_ores.json
-c2bd91cab1fd6a9c8af77aacf2b2320770343cd4 data/snailspeed/tags/block/ores.json
+0280d5d8b11846a973714cb4b68945bbbae37174 data/snailspeed/tags/block/deepslate_ores.json
+fa78725871a0ded510a6e030fa49b9beccd69e34 data/snailspeed/tags/block/incorrect_for_bronze_tool.json
+f4c4208b2fdc92c6a556ae6dfc098e13953ab969 data/snailspeed/tags/block/needs_bronze_tool.json
+c1a253094cd3fb6309320a30807cfc952ffe0bc8 data/snailspeed/tags/block/ores.json
 07e3c229c9a3893a60c10ec3588d0157a46143f9 data/snailspeed/tags/block/stone_block.json
 dd15b2071a7bd8a37ffe713d989b3c555e2ef962 data/snailspeed/tags/block/stripped_logs.json
 7ddb7e6d9c5b06da7873d10256923faa45578876 data/snailspeed/tags/block/tapped_logs.json

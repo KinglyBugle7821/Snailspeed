@@ -7,6 +7,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.numericalk.Snailspeed;
+import net.numericalk.items.custom.AirItem;
+import net.numericalk.items.custom.BarkSpudItem;
 import net.numericalk.items.custom.TinderItem;
 import net.numericalk.utils.SnailToolMaterial;
 
@@ -67,6 +69,8 @@ public class SnailItems {
     public static final Item MOLTEN_COPPER = register("molten_copper", Item::new);
     public static final Item MOLTEN_IRON = register("molten_iron", Item::new);
     public static final Item MOLTEN_GOLD = register("molten_gold", Item::new);
+    public static final Item MOLTEN_TIN = register("molten_tin", Item::new);
+    public static final Item MOLTEN_BRONZE = register("molten_bronze", Item::new);
 
     public static final Item FURNACE_LID = register("furnace_lid", Item::new);
 
@@ -77,6 +81,14 @@ public class SnailItems {
     public static final Item SHOVEL_CLAY_MOLD = register("shovel_clay_mold", Item::new);
     public static final Item HOE_CLAY_MOLD = register("hoe_clay_mold", Item::new);
     public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", Item::new);
+
+    public static final Item BLANK_GRAPHITE_MOLD = register("blank_graphite_mold", Item::new);
+    public static final Item SWORD_GRAPHITE_MOLD = register("sword_graphite_mold", Item::new);
+    public static final Item AXE_GRAPHITE_MOLD = register("axe_graphite_mold", Item::new);
+    public static final Item PICKAXE_GRAPHITE_MOLD = register("pickaxe_graphite_mold", Item::new);
+    public static final Item SHOVEL_GRAPHITE_MOLD = register("shovel_graphite_mold", Item::new);
+    public static final Item HOE_GRAPHITE_MOLD = register("hoe_graphite_mold", Item::new);
+    public static final Item INGOT_GRAPHITE_MOLD = register("ingot_graphite_mold", Item::new);
 
     public static final Item COPPER_SWORD_BLADE = register("copper_sword_blade", Item::new);
     public static final Item COPPER_AXE_HEAD = register("copper_axe_head", Item::new);
@@ -96,13 +108,43 @@ public class SnailItems {
     public static final Item GOLDEN_SHOVEL_HEAD = register("golden_shovel_head", Item::new);
     public static final Item GOLDEN_HOE_HEAD = register("golden_hoe_head", Item::new);
 
+    public static final Item BRONZE_SWORD_BLADE = register("bronze_sword_blade", Item::new);
+    public static final Item BRONZE_AXE_HEAD = register("bronze_axe_head", Item::new);
+    public static final Item BRONZE_PICKAXE_HEAD = register("bronze_pickaxe_head", Item::new);
+    public static final Item BRONZE_SHOVEL_HEAD = register("bronze_shovel_head", Item::new);
+    public static final Item BRONZE_HOE_HEAD = register("bronze_hoe_head", Item::new);
+
     public static final Item COPPER_SWORD = register("copper_sword", settings -> new SwordItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 1f, -2.4f, settings), new Item.Settings());
     public static final Item COPPER_AXE = register("copper_axe", settings -> new AxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 2.5f, -3.3f, settings), new Item.Settings());
     public static final Item COPPER_PICKAXE = register("copper_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -1f, -2.8f, settings), new Item.Settings());
     public static final Item COPPER_SHOVEL = register("copper_shovel", settings -> new ShovelItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 0f, -3f, settings), new Item.Settings());
     public static final Item COPPER_HOE = register("copper_hoe", settings -> new HoeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -2f, -2.5f, settings), new Item.Settings());
 
+    public static final Item BRONZE_SWORD = register("bronze_sword", settings -> new SwordItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 1f, -2.4f, settings), new Item.Settings());
+    public static final Item BRONZE_AXE = register("bronze_axe", settings -> new AxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 2.5f, -3.3f, settings), new Item.Settings());
+    public static final Item BRONZE_PICKAXE = register("bronze_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -1f, -2.8f, settings), new Item.Settings());
+    public static final Item BRONZE_SHOVEL = register("bronze_shovel", settings -> new ShovelItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 0f, -3f, settings), new Item.Settings());
+    public static final Item BRONZE_HOE = register("bronze_hoe", settings -> new HoeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -2f, -2.5f, settings), new Item.Settings());
+
     public static final Item RESIN_BALL = register("resin_ball", Item::new);
+
+    public static final Item RAW_TIN = register("raw_tin", Item::new);
+    public static final Item TIN_DUST = register("tin_dust", Item::new);
+    public static final Item TIN_NUGGET = register("tin_nugget", Item::new);
+    public static final Item TIN_INGOT = register("tin_ingot", Item::new);
+
+    public static final Item RAW_GRAPHITE = register("raw_graphite", Item::new);
+    public static final Item GROUND_GRAPHITE = register("ground_graphite", Item::new);
+    public static final Item REFINED_GRAPHITE = register("refined_graphite", Item::new);
+
+    public static final Item BRONZE_NUGGET = register("bronze_nugget", Item::new);
+    public static final Item BRONZE_INGOT = register("bronze_ingot", Item::new);
+
+    public static final Item FIBER_FILTER = register("fiber_filter", Item::new);
+
+    public static final Item BARK_SPUD = register("bark_spud", settings -> new BarkSpudItem(settings.maxCount(1).maxDamage(24)));
+
+    public static final Item AIR = register("air", AirItem::new);
 
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),

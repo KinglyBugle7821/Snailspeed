@@ -56,10 +56,10 @@ public class SnailModifyLog {
         return 6.0f;
     }
 
-    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=oak_planks3")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=oak_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeOakPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -67,7 +67,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=spruce_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeSprucePlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -75,7 +75,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=birch_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeBirchPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -83,7 +83,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=jungle_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeJunglePlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -91,7 +91,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=acacia_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeAcaciaPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -99,7 +99,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=dark_oak_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDarkOakPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -107,7 +107,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=mangrove_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeMangrovePlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -115,7 +115,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cherry_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCherryPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -123,7 +123,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=pale_oak_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changePaleOakPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -131,7 +131,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=crimson_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCrimsonPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -139,7 +139,7 @@ public class SnailModifyLog {
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=warped_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeWarpedPlanksStrength(Args args) {
         float hardness = 3.0f;
-        float resistance = 4.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -228,37 +228,37 @@ public class SnailModifyLog {
     }
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=gravel")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeGravelHardness(float originalHardness) {
-        return 4.0f;
+        return 3.0f;
     }
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=sand")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeSandHardness(float originalHardness) {
-        return 4.0f;
+        return 3.0f;
     }
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=snow_block")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeSnowHardness(float originalHardness) {
-        return 4.0f;
+        return 3.0f;
     }
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=grass_block")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeGrassBlockHardness(float originalHardness) {
-        return 4.0f;
+        return 3.0f;
     }
     @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=farmland")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static float changeFarmlandHardness(float originalHardness) {
-        return 4.0f;
+        return 3.0f;
     }
 
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=stone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeStoneStrength(Args args) {
-        float hardness = 8.0f;
-        float resistance = 8.0f;
+        float hardness = 7.0f;
+        float resistance = 6.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cobblestone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCobblestoneStrength(Args args) {
-        float hardness = 8.0f;
-        float resistance = 8.0f;
+        float hardness = 7.0f;
+        float resistance = 6.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -266,128 +266,128 @@ public class SnailModifyLog {
 
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=coal_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCoalOreStrength(Args args) {
-        float hardness = 9.0f;
-        float resistance = 9.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_coal_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateCoalOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=copper_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCopperOreStrength(Args args) {
-        float hardness = 9.0f;
-        float resistance = 9.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_copper_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateCopperOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=lapis_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeLapisOreStrength(Args args) {
-        float hardness = 9.0f;
-        float resistance = 9.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_lapis_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateLapisOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=iron_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeIronOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_iron_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateIronOreStrength(Args args) {
-        float hardness = 11.0f;
-        float resistance = 11.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=gold_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeGoldOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_gold_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateGoldOreStrength(Args args) {
-        float hardness = 11.0f;
-        float resistance = 11.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=redstone_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeRedstoneOreStrength(Args args) {
-        float hardness = 10.0f;
-        float resistance = 10.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_redstone_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateRedstoneOreStrength(Args args) {
-        float hardness = 11.0f;
-        float resistance = 11.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=emerald_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeEmeraldOreStrength(Args args) {
-        float hardness = 10.5f;
-        float resistance = 10.5f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_emerald_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateEmeraldOreStrength(Args args) {
-        float hardness = 11.5f;
-        float resistance = 11.5f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=diamond_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDiamondOreStrength(Args args) {
-        float hardness = 11.0f;
-        float resistance = 11.0f;
+        float hardness = 7.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate_diamond_ore")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateDiamondOreStrength(Args args) {
-        float hardness = 12.0f;
-        float resistance = 12.0f;
+        float hardness = 8.0f;
+        float resistance = 3.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
@@ -395,16 +395,16 @@ public class SnailModifyLog {
 
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=deepslate")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeDeepslateStrength(Args args) {
-        float hardness = 9.0f;
-        float resistance = 9.0f;
+        float hardness = 8.0f;
+        float resistance = 6.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cobbled_deepslate")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCobbledDeepslateStrength(Args args) {
-        float hardness = 9.5f;
-        float resistance = 9.5f;
+        float hardness = 8f;
+        float resistance = 6.0f;
 
         args.set(0, hardness);
         args.set(1, resistance);

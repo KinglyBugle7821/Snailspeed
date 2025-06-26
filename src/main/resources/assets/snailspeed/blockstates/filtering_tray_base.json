@@ -1,0 +1,44 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray_base"
+      },
+      "when": {
+        "stages": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray_1"
+      },
+      "when": {
+        "stages": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray_2"
+      },
+      "when": {
+        "stages": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray_3"
+      },
+      "when": {
+        "stages": 3
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/filtering_tray"
+      },
+      "when": {
+        "stages": 4
+      }
+    }
+  ]
+}

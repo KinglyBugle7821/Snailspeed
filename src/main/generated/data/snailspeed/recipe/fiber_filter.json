@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:grass_twine",
+    "snailspeed:grass_twine",
+    "snailspeed:grass_twine",
+    "snailspeed:grass_twine"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:fiber_filter"
+  }
+}

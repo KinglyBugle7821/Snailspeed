@@ -1,0 +1,270 @@
+package net.numericalk.snailspeed.datagen;
+
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.client.data.*;
+import net.minecraft.util.Identifier;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.items.SnailItems;
+
+public class SnailModelProvider extends FabricModelProvider {
+
+    public SnailModelProvider(FabricDataOutput output) {
+        super(output);
+    }
+    @Override
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_SPRUCE_LOG, Identifier.of("snailspeed", "block/trimmed_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_BIRCH_LOG, Identifier.of("snailspeed", "block/trimmed_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_JUNGLE_LOG, Identifier.of("snailspeed", "block/trimmed_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_ACACIA_LOG, Identifier.of("snailspeed", "block/trimmed_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_MANGROVE_LOG, Identifier.of("snailspeed", "block/trimmed_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CHERRY_LOG, Identifier.of("snailspeed", "block/trimmed_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CRIMSON_STEM, Identifier.of("snailspeed", "block/trimmed_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_WARPED_STEM, Identifier.of("snailspeed", "block/trimmed_warped_stem"));
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_OAK_LOG, Identifier.of("snailspeed", "block/cracked_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_SPRUCE_LOG, Identifier.of("snailspeed", "block/cracked_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_BIRCH_LOG, Identifier.of("snailspeed", "block/cracked_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_JUNGLE_LOG, Identifier.of("snailspeed", "block/cracked_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_ACACIA_LOG, Identifier.of("snailspeed", "block/cracked_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/cracked_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_MANGROVE_LOG, Identifier.of("snailspeed", "block/cracked_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CHERRY_LOG, Identifier.of("snailspeed", "block/cracked_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/cracked_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CRIMSON_STEM, Identifier.of("snailspeed", "block/cracked_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_WARPED_STEM, Identifier.of("snailspeed", "block/cracked_warped_stem"));
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_OAK_LOG, Identifier.of("snailspeed", "block/damaged_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_SPRUCE_LOG, Identifier.of("snailspeed", "block/damaged_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_BIRCH_LOG, Identifier.of("snailspeed", "block/damaged_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_JUNGLE_LOG, Identifier.of("snailspeed", "block/damaged_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_ACACIA_LOG, Identifier.of("snailspeed", "block/damaged_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/damaged_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_MANGROVE_LOG, Identifier.of("snailspeed", "block/damaged_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CHERRY_LOG, Identifier.of("snailspeed", "block/damaged_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/damaged_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_SPRUCE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BIRCH_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_JUNGLE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_ACACIA_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_DARK_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_MANGROVE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CHERRY_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_PALE_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BAMBOO_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CRIMSON_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_WARPED_PLANKS);
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_BRICK);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.FIRED_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.MORTAR);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_CRUCIBLE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_CRUCIBLE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CRUCIBLE);
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.SCRATCHED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRACKED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.FRACTURED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRUMBLED_STONE);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.SCRATCHED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.FRACTURED_DEEPSLATE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRUMBLED_DEEPSLATE);
+
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocks.THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_TIN_ORE);
+
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.GRAPHITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
+
+    }
+    @Override
+    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(SnailItems.OAK_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SPRUCE_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BIRCH_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.JUNGLE_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ACACIA_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.DARK_OAK_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MANGROVE_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.CHERRY_LOG_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PALE_OAK_LOG_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.WARPED_STEM_BARK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.CRIMSON_STEM_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.WOOD_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.FLINT_FLAKE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.FLINT_HATCHET, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.FLINT_PICKAXE, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.TINDER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BURNT_TINDER, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.BURNT_POTATO, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_POPPED_CHORUS_FRUIT, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_CHICKEN, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_COD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_MUTTON, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_PORKCHOP, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_RABBIT, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_SALMON, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_KELP, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_BEEF, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.GRASS_TWINE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PESTLE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BARK_SPUD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.CLAY_SAND, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PEBBLE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STONE_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.SOUL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_DUST, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_NUGGET, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLD_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.MOLTEN_COPPER, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_IRON, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_GOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_TIN, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_BRONZE, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.FURNACE_LID, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BLANK_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SWORD_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.AXE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PICKAXE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SHOVEL_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.HOE_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.INGOT_CLAY_MOLD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BLANK_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SWORD_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.AXE_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.PICKAXE_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.SHOVEL_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.HOE_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.INGOT_GRAPHITE_MOLD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.COPPER_SWORD_BLADE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_AXE_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_PICKAXE_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_SHOVEL_HEAD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_HOE_HEAD, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.IRON_SWORD_BLADE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_AXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_PICKAXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_SHOVEL_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_HOE_HEAD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.GOLDEN_SWORD_BLADE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_AXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_PICKAXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_SHOVEL_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GOLDEN_HOE_HEAD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BRONZE_SWORD_BLADE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_AXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_PICKAXE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_SHOVEL_HEAD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_HOE_HEAD, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.COPPER_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.COPPER_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.BRONZE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BRONZE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BRONZE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BRONZE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.BRONZE_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.RESIN_BALL, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.RAW_TIN, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.TIN_DUST, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.TIN_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.TIN_INGOT, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.RAW_GRAPHITE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.GROUND_GRAPHITE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.REFINED_GRAPHITE, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BRONZE_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_INGOT, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.FIBER_FILTER, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
+
+
+
+
+
+        itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.FIRED_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.CLAY_CRUCIBLE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_CRUCIBLE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.CRUCIBLE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.MORTAR.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.BRICK_FURNACE_BASE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.FIRED_CLAY_MOLD.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
+    }
+    @Override
+    public String getName() {
+        return "snailspeed Model Provider";
+    }
+}

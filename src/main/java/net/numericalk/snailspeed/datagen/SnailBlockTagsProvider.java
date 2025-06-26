@@ -1,0 +1,344 @@
+package net.numericalk.snailspeed.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
+import net.numericalk.snailspeed.Snailspeed;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
+
+import java.util.concurrent.CompletableFuture;
+
+public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
+
+    public SnailBlockTagsProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, RegistryKeys.BLOCK, registriesFuture);
+    }
+
+    public static final TagKey<Block> TRIMMED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "trimmed_logs"));
+    public static final TagKey<Block> CRACKED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "cracked_logs"));
+    public static final TagKey<Block> DAMAGED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "damaged_logs"));
+
+    public static final TagKey<Block> DAMAGED_PLANKS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "damaged_planks"));
+
+    public static final TagKey<Block> TAPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "tapped_logs"));
+
+    public static final TagKey<Block> STRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stripped_logs"));
+    public static final TagKey<Block> UNSTRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "unstripped_logs"));
+
+    public static final TagKey<Block> STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stone_block"));
+    public static final TagKey<Block> CRUMBLED_STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "crumbled_stone_block"));
+
+    public static final TagKey<Block> ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "ores"));
+    public static final TagKey<Block> DEEPSLATE_ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "deepslate_ores"));
+
+    public static final TagKey<Block> NEEDS_BRONZE_TOOL = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "needs_bronze_tool"));
+    public static final TagKey<Block> INCORRECT_FOR_BRONZE_TOOL = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "incorrect_for_bronze_tool"));
+
+    @Override
+    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(INCORRECT_FOR_BRONZE_TOOL)
+                .forceAddTag(BlockTags.NEEDS_IRON_TOOL)
+                .forceAddTag(BlockTags.NEEDS_DIAMOND_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
+                .forceAddTag(NEEDS_BRONZE_TOOL);
+        getOrCreateTagBuilder(NEEDS_BRONZE_TOOL)
+                .add(Blocks.IRON_ORE)
+                .add(Blocks.DEEPSLATE_IRON_ORE)
+                .add(Blocks.RAW_IRON_BLOCK)
+                .add(Blocks.IRON_BLOCK)
+                .add(SnailBlocks.GRAPHITE_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE)
+                .forceAddTag(BlockTags.NEEDS_STONE_TOOL);
+        getOrCreateTagBuilder(TAPPED_LOGS)
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
+        getOrCreateTagBuilder(STONE_BLOCK)
+                .add(Blocks.STONE)
+                .add(SnailBlocks.SCRATCHED_STONE)
+                .add(SnailBlocks.CRACKED_STONE)
+                .add(Blocks.COBBLESTONE)
+                .add(SnailBlocks.FRACTURED_STONE)
+                .add(SnailBlocks.CRUMBLED_STONE)
+                .add(Blocks.DEEPSLATE)
+                .add(SnailBlocks.SCRATCHED_DEEPSLATE)
+                .add(SnailBlocks.CRACKED_DEEPSLATE)
+                .add(Blocks.COBBLED_DEEPSLATE)
+                .add(SnailBlocks.FRACTURED_DEEPSLATE)
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE);
+        getOrCreateTagBuilder(CRUMBLED_STONE_BLOCK)
+                .add(SnailBlocks.CRUMBLED_STONE)
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE);
+
+        getOrCreateTagBuilder(UNSTRIPPED_LOGS)
+                .add(Blocks.OAK_LOG)
+                .add(Blocks.OAK_WOOD)
+                .add(Blocks.SPRUCE_LOG)
+                .add(Blocks.SPRUCE_WOOD)
+                .add(Blocks.BIRCH_LOG)
+                .add(Blocks.BIRCH_WOOD)
+                .add(Blocks.JUNGLE_LOG)
+                .add(Blocks.JUNGLE_WOOD)
+                .add(Blocks.ACACIA_LOG)
+                .add(Blocks.ACACIA_WOOD)
+                .add(Blocks.DARK_OAK_LOG)
+                .add(Blocks.DARK_OAK_WOOD)
+                .add(Blocks.MANGROVE_LOG)
+                .add(Blocks.MANGROVE_WOOD)
+                .add(Blocks.CHERRY_LOG)
+                .add(Blocks.CHERRY_WOOD)
+                .add(Blocks.PALE_OAK_LOG)
+                .add(Blocks.PALE_OAK_WOOD)
+                .add(Blocks.CRIMSON_STEM)
+                .add(Blocks.CRIMSON_HYPHAE)
+                .add(Blocks.WARPED_STEM)
+                .add(Blocks.WARPED_HYPHAE);
+        getOrCreateTagBuilder(STRIPPED_LOGS)
+                .add(Blocks.STRIPPED_OAK_LOG)
+                .add(Blocks.STRIPPED_OAK_WOOD)
+                .add(Blocks.STRIPPED_SPRUCE_LOG)
+                .add(Blocks.STRIPPED_SPRUCE_WOOD)
+                .add(Blocks.STRIPPED_BIRCH_LOG)
+                .add(Blocks.STRIPPED_BIRCH_WOOD)
+                .add(Blocks.STRIPPED_JUNGLE_LOG)
+                .add(Blocks.STRIPPED_JUNGLE_WOOD)
+                .add(Blocks.STRIPPED_ACACIA_LOG)
+                .add(Blocks.STRIPPED_ACACIA_WOOD)
+                .add(Blocks.STRIPPED_DARK_OAK_LOG)
+                .add(Blocks.STRIPPED_DARK_OAK_WOOD)
+                .add(Blocks.STRIPPED_MANGROVE_LOG)
+                .add(Blocks.STRIPPED_MANGROVE_WOOD)
+                .add(Blocks.STRIPPED_CHERRY_LOG)
+                .add(Blocks.STRIPPED_CHERRY_WOOD)
+                .add(Blocks.STRIPPED_PALE_OAK_LOG)
+                .add(Blocks.STRIPPED_PALE_OAK_WOOD)
+                .add(Blocks.STRIPPED_CRIMSON_STEM)
+                .add(Blocks.STRIPPED_CRIMSON_HYPHAE)
+                .add(Blocks.STRIPPED_WARPED_STEM)
+                .add(Blocks.STRIPPED_WARPED_HYPHAE);
+
+        getOrCreateTagBuilder(TRIMMED_LOGS)
+                .add(SnailBlocks.TRIMMED_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_SPRUCE_LOG)
+                .add(SnailBlocks.TRIMMED_BIRCH_LOG)
+                .add(SnailBlocks.TRIMMED_JUNGLE_LOG)
+                .add(SnailBlocks.TRIMMED_ACACIA_LOG)
+                .add(SnailBlocks.TRIMMED_DARK_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_MANGROVE_LOG)
+                .add(SnailBlocks.TRIMMED_CHERRY_LOG)
+                .add(SnailBlocks.TRIMMED_PALE_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_CRIMSON_STEM)
+                .add(SnailBlocks.TRIMMED_WARPED_STEM);
+
+        getOrCreateTagBuilder(CRACKED_LOGS)
+                .add(SnailBlocks.CRACKED_OAK_LOG)
+                .add(SnailBlocks.CRACKED_SPRUCE_LOG)
+                .add(SnailBlocks.CRACKED_BIRCH_LOG)
+                .add(SnailBlocks.CRACKED_JUNGLE_LOG)
+                .add(SnailBlocks.CRACKED_ACACIA_LOG)
+                .add(SnailBlocks.CRACKED_DARK_OAK_LOG)
+                .add(SnailBlocks.CRACKED_MANGROVE_LOG)
+                .add(SnailBlocks.CRACKED_CHERRY_LOG)
+                .add(SnailBlocks.CRACKED_PALE_OAK_LOG)
+                .add(SnailBlocks.CRACKED_CRIMSON_STEM)
+                .add(SnailBlocks.CRACKED_WARPED_STEM);
+
+        getOrCreateTagBuilder(DAMAGED_LOGS)
+                .add(SnailBlocks.DAMAGED_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_SPRUCE_LOG)
+                .add(SnailBlocks.DAMAGED_BIRCH_LOG)
+                .add(SnailBlocks.DAMAGED_JUNGLE_LOG)
+                .add(SnailBlocks.DAMAGED_ACACIA_LOG)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_MANGROVE_LOG)
+                .add(SnailBlocks.DAMAGED_CHERRY_LOG)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_CRIMSON_STEM)
+                .add(SnailBlocks.DAMAGED_WARPED_STEM);
+
+        getOrCreateTagBuilder(DAMAGED_PLANKS)
+                .add(SnailBlocks.DAMAGED_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_SPRUCE_PLANKS)
+                .add(SnailBlocks.DAMAGED_BIRCH_PLANKS)
+                .add(SnailBlocks.DAMAGED_JUNGLE_PLANKS)
+                .add(SnailBlocks.DAMAGED_ACACIA_PLANKS)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_MANGROVE_PLANKS)
+                .add(SnailBlocks.DAMAGED_CHERRY_PLANKS)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_CRIMSON_PLANKS)
+                .add(SnailBlocks.DAMAGED_WARPED_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.PLANKS)
+                .add(SnailBlocks.DAMAGED_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_SPRUCE_PLANKS)
+                .add(SnailBlocks.DAMAGED_BIRCH_PLANKS)
+                .add(SnailBlocks.DAMAGED_JUNGLE_PLANKS)
+                .add(SnailBlocks.DAMAGED_ACACIA_PLANKS)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_MANGROVE_PLANKS)
+                .add(SnailBlocks.DAMAGED_CHERRY_PLANKS)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS)
+                .add(SnailBlocks.DAMAGED_CRIMSON_PLANKS)
+                .add(SnailBlocks.DAMAGED_WARPED_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(SnailBlocks.TRIMMED_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_SPRUCE_LOG)
+                .add(SnailBlocks.TRIMMED_BIRCH_LOG)
+                .add(SnailBlocks.TRIMMED_JUNGLE_LOG)
+                .add(SnailBlocks.TRIMMED_ACACIA_LOG)
+                .add(SnailBlocks.TRIMMED_DARK_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_MANGROVE_LOG)
+                .add(SnailBlocks.TRIMMED_CHERRY_LOG)
+                .add(SnailBlocks.TRIMMED_PALE_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_CRIMSON_STEM)
+                .add(SnailBlocks.TRIMMED_WARPED_STEM)
+
+                .add(SnailBlocks.CRACKED_OAK_LOG)
+                .add(SnailBlocks.CRACKED_SPRUCE_LOG)
+                .add(SnailBlocks.CRACKED_BIRCH_LOG)
+                .add(SnailBlocks.CRACKED_JUNGLE_LOG)
+                .add(SnailBlocks.CRACKED_ACACIA_LOG)
+                .add(SnailBlocks.CRACKED_DARK_OAK_LOG)
+                .add(SnailBlocks.CRACKED_MANGROVE_LOG)
+                .add(SnailBlocks.CRACKED_CHERRY_LOG)
+                .add(SnailBlocks.CRACKED_PALE_OAK_LOG)
+                .add(SnailBlocks.CRACKED_CRIMSON_STEM)
+                .add(SnailBlocks.CRACKED_WARPED_STEM)
+
+                .add(SnailBlocks.DAMAGED_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_SPRUCE_LOG)
+                .add(SnailBlocks.DAMAGED_BIRCH_LOG)
+                .add(SnailBlocks.DAMAGED_JUNGLE_LOG)
+                .add(SnailBlocks.DAMAGED_ACACIA_LOG)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_MANGROVE_LOG)
+                .add(SnailBlocks.DAMAGED_CHERRY_LOG)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_CRIMSON_STEM)
+                .add(SnailBlocks.DAMAGED_WARPED_STEM)
+
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
+        getOrCreateTagBuilder(BlockTags.SNAPS_GOAT_HORN)
+                .add(SnailBlocks.TRIMMED_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_SPRUCE_LOG)
+                .add(SnailBlocks.TRIMMED_BIRCH_LOG)
+                .add(SnailBlocks.TRIMMED_JUNGLE_LOG)
+                .add(SnailBlocks.TRIMMED_ACACIA_LOG)
+                .add(SnailBlocks.TRIMMED_DARK_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_MANGROVE_LOG)
+                .add(SnailBlocks.TRIMMED_CHERRY_LOG)
+                .add(SnailBlocks.TRIMMED_PALE_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_CRIMSON_STEM)
+                .add(SnailBlocks.TRIMMED_WARPED_STEM)
+
+                .add(SnailBlocks.CRACKED_OAK_LOG)
+                .add(SnailBlocks.CRACKED_SPRUCE_LOG)
+                .add(SnailBlocks.CRACKED_BIRCH_LOG)
+                .add(SnailBlocks.CRACKED_JUNGLE_LOG)
+                .add(SnailBlocks.CRACKED_ACACIA_LOG)
+                .add(SnailBlocks.CRACKED_DARK_OAK_LOG)
+                .add(SnailBlocks.CRACKED_MANGROVE_LOG)
+                .add(SnailBlocks.CRACKED_CHERRY_LOG)
+                .add(SnailBlocks.CRACKED_PALE_OAK_LOG)
+                .add(SnailBlocks.CRACKED_CRIMSON_STEM)
+                .add(SnailBlocks.CRACKED_WARPED_STEM);
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(SnailBlocks.TRIMMED_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_SPRUCE_LOG)
+                .add(SnailBlocks.TRIMMED_BIRCH_LOG)
+                .add(SnailBlocks.TRIMMED_JUNGLE_LOG)
+                .add(SnailBlocks.TRIMMED_ACACIA_LOG)
+                .add(SnailBlocks.TRIMMED_DARK_OAK_LOG)
+                .add(SnailBlocks.TRIMMED_MANGROVE_LOG)
+                .add(SnailBlocks.TRIMMED_CHERRY_LOG)
+                .add(SnailBlocks.TRIMMED_PALE_OAK_LOG)
+
+                .add(SnailBlocks.CRACKED_OAK_LOG)
+                .add(SnailBlocks.CRACKED_SPRUCE_LOG)
+                .add(SnailBlocks.CRACKED_BIRCH_LOG)
+                .add(SnailBlocks.CRACKED_JUNGLE_LOG)
+                .add(SnailBlocks.CRACKED_ACACIA_LOG)
+                .add(SnailBlocks.CRACKED_DARK_OAK_LOG)
+                .add(SnailBlocks.CRACKED_MANGROVE_LOG)
+                .add(SnailBlocks.CRACKED_CHERRY_LOG)
+                .add(SnailBlocks.CRACKED_PALE_OAK_LOG)
+
+                .add(SnailBlocks.DAMAGED_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_SPRUCE_LOG)
+                .add(SnailBlocks.DAMAGED_BIRCH_LOG)
+                .add(SnailBlocks.DAMAGED_JUNGLE_LOG)
+                .add(SnailBlocks.DAMAGED_ACACIA_LOG)
+                .add(SnailBlocks.DAMAGED_DARK_OAK_LOG)
+                .add(SnailBlocks.DAMAGED_MANGROVE_LOG)
+                .add(SnailBlocks.DAMAGED_CHERRY_LOG)
+                .add(SnailBlocks.DAMAGED_PALE_OAK_LOG);
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(SnailBlocks.CAMPFIRE_BASE)
+                .add(SnailBlocks.UNTIED_STICK_BUNDLE)
+                .add(SnailBlocks.STICK_BUNDLE);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(SnailBlocks.BRICK_OVEN_BASE)
+                .add(SnailBlocks.BRICK_OVEN)
+
+                .add(SnailBlocks.SCRATCHED_STONE)
+                .add(SnailBlocks.CRACKED_STONE)
+                .add(SnailBlocks.FRACTURED_STONE)
+                .add(SnailBlocks.CRUMBLED_STONE)
+
+                .add(SnailBlocks.SCRATCHED_DEEPSLATE)
+                .add(SnailBlocks.CRACKED_DEEPSLATE)
+                .add(SnailBlocks.FRACTURED_DEEPSLATE)
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE)
+
+                .add(SnailBlocks.BRICK_FURNACE_BASE)
+                .add(SnailBlocks.BRICK_FURNACE)
+
+                .add(SnailBlocks.DEEPSLATE_TIN_ORE)
+                .add(SnailBlocks.TIN_ORE)
+
+                .add(SnailBlocks.GRAPHITE_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
+
+        getOrCreateTagBuilder(ORES)
+                .add(Blocks.COAL_ORE)
+                .add(Blocks.COPPER_ORE)
+                .add(Blocks.IRON_ORE)
+                .add(Blocks.LAPIS_ORE)
+                .add(Blocks.REDSTONE_ORE)
+                .add(Blocks.GOLD_ORE)
+                .add(Blocks.EMERALD_ORE)
+                .add(Blocks.DIAMOND_ORE)
+                .add(SnailBlocks.TIN_ORE)
+                .add(SnailBlocks.GRAPHITE_ORE);
+
+        getOrCreateTagBuilder(DEEPSLATE_ORES)
+                .add(Blocks.DEEPSLATE_COAL_ORE)
+                .add(Blocks.DEEPSLATE_COPPER_ORE)
+                .add(Blocks.DEEPSLATE_IRON_ORE)
+                .add(Blocks.DEEPSLATE_LAPIS_ORE)
+                .add(Blocks.DEEPSLATE_REDSTONE_ORE)
+                .add(Blocks.DEEPSLATE_GOLD_ORE)
+                .add(Blocks.DEEPSLATE_EMERALD_ORE)
+                .add(Blocks.DEEPSLATE_DIAMOND_ORE)
+                .add(SnailBlocks.DEEPSLATE_TIN_ORE)
+                .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
+    }
+    @Override
+    protected FabricTagProvider<Block>.FabricTagBuilder getOrCreateTagBuilder(TagKey<Block> tag) {
+        return super.getOrCreateTagBuilder(tag);
+    }
+}

@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.numericalk.Snailspeed"
+          "net.numericalk.snailspeed.Snailspeed"
 		],
 		"fabric-datagen": [
-			"net.numericalk.SnailspeedDataGenerator"
+          "net.numericalk.snailspeed.SnailspeedDataGenerator"
 		]
 	},
 	"mixins": [

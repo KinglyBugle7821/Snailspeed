@@ -8,10 +8,10 @@
 		"NumericalEquator"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": "https://github.com/KinglyBugle7821/Snailspeed"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/snailspeed/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
           "net.numericalk.snailspeed.SnailspeedDataGenerator"
+		],
+		"client": [
+			"net.numericalk.snailspeed.SnailspeedClient"
 		]
 	},
 	"mixins": [

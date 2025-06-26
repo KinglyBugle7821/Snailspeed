@@ -10,6 +10,7 @@ import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.ExplosionDecayLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -45,148 +46,28 @@ public class SnailLootTableMod {
     private static final Identifier LANTERN_ID = Identifier.of("minecraft", "blocks/lantern");
     private static final Identifier SOUL_LANTERN_ID = Identifier.of("minecraft", "blocks/soul_lantern");
 
-    private static final Identifier BLACK_CANDLE_ID = Identifier.of("minecraft", "block/black_candle");
-    private static final Identifier BLUE_CANDLE_ID = Identifier.of("minecraft", "block/blue_candle");
-    private static final Identifier BROWN_CANDLE_ID = Identifier.of("minecraft", "block/brown_candle");
-    private static final Identifier CYAN_CANDLE_ID = Identifier.of("minecraft", "block/cyan_candle");
-    private static final Identifier GRAY_CANDLE_ID = Identifier.of("minecraft", "block/gray_candle");
-    private static final Identifier GREEN_CANDLE_ID = Identifier.of("minecraft", "block/green_candle");
-    private static final Identifier LIGHT_BLUE_CANDLE_ID = Identifier.of("minecraft", "block/light_blue_candle");
-    private static final Identifier LIGHT_GRAY_CANDLE_ID = Identifier.of("minecraft", "block/light_gray_candle");
-    private static final Identifier LIME_CANDLE_ID = Identifier.of("minecraft", "block/lime_candle");
-    private static final Identifier MAGENTA_CANDLE_ID = Identifier.of("minecraft", "block/magenta_candle");
-    private static final Identifier ORANGE_CANDLE_ID = Identifier.of("minecraft", "block/orange_candle");
-    private static final Identifier PINK_CANDLE_ID = Identifier.of("minecraft", "block/pink_candle");
-    private static final Identifier PURPLE_CANDLE_ID = Identifier.of("minecraft", "block/purple_candle");
-    private static final Identifier RED_CANDLE_ID = Identifier.of("minecraft", "block/red_candle");
-    private static final Identifier WHITE_CANDLE_ID = Identifier.of("minecraft", "block/white_candle");
-    private static final Identifier YELLOW_CANDLE_ID = Identifier.of("minecraft", "block/yellow_candle");
+    private static final Identifier BLACK_CANDLE_ID = Identifier.of("minecraft", "blocks/black_candle");
+    private static final Identifier BLUE_CANDLE_ID = Identifier.of("minecraft", "blocks/blue_candle");
+    private static final Identifier BROWN_CANDLE_ID = Identifier.of("minecraft", "blocks/brown_candle");
+    private static final Identifier CYAN_CANDLE_ID = Identifier.of("minecraft", "blocks/cyan_candle");
+    private static final Identifier GRAY_CANDLE_ID = Identifier.of("minecraft", "blocks/gray_candle");
+    private static final Identifier GREEN_CANDLE_ID = Identifier.of("minecraft", "blocks/green_candle");
+    private static final Identifier LIGHT_BLUE_CANDLE_ID = Identifier.of("minecraft", "blocks/light_blue_candle");
+    private static final Identifier LIGHT_GRAY_CANDLE_ID = Identifier.of("minecraft", "blocks/light_gray_candle");
+    private static final Identifier LIME_CANDLE_ID = Identifier.of("minecraft", "blocks/lime_candle");
+    private static final Identifier MAGENTA_CANDLE_ID = Identifier.of("minecraft", "blocks/magenta_candle");
+    private static final Identifier ORANGE_CANDLE_ID = Identifier.of("minecraft", "blocks/orange_candle");
+    private static final Identifier PINK_CANDLE_ID = Identifier.of("minecraft", "blocks/pink_candle");
+    private static final Identifier PURPLE_CANDLE_ID = Identifier.of("minecraft", "blocks/purple_candle");
+    private static final Identifier RED_CANDLE_ID = Identifier.of("minecraft", "blocks/red_candle");
+    private static final Identifier WHITE_CANDLE_ID = Identifier.of("minecraft", "blocks/white_candle");
+    private static final Identifier YELLOW_CANDLE_ID = Identifier.of("minecraft", "blocks/yellow_candle");
 
-    private static final Identifier CHEST_ID = Identifier.of("minecraft", "block/chest");
-    private static final Identifier BARREL_ID = Identifier.of("minecraft", "block/barrel");
+    private static final Identifier CHEST_ID = Identifier.of("minecraft", "blocks/chest");
+    private static final Identifier BARREL_ID = Identifier.of("minecraft", "blocks/barrel");
 
-    // Logs
-    private static final Identifier OAK_LOG_ID = Identifier.of("minecraft", "block/oak_log");
-    private static final Identifier SPRUCE_LOG_ID = Identifier.of("minecraft", "block/spruce_log");
-    private static final Identifier BIRCH_LOG_ID = Identifier.of("minecraft", "block/birch_log");
-    private static final Identifier JUNGLE_LOG_ID = Identifier.of("minecraft", "block/jungle_log");
-    private static final Identifier ACACIA_LOG_ID = Identifier.of("minecraft", "block/acacia_log");
-    private static final Identifier DARK_OAK_LOG_ID = Identifier.of("minecraft", "block/dark_oak_log");
-    private static final Identifier MANGROVE_LOG_ID = Identifier.of("minecraft", "block/mangrove_log");
-    private static final Identifier CHERRY_LOG_ID = Identifier.of("minecraft", "block/cherry_log");
-    private static final Identifier PALE_OAK_LOG_ID = Identifier.of("minecraft", "block/pale_oak_log");
-    private static final Identifier CRIMSON_STEM_ID = Identifier.of("minecraft", "block/crimson_stem");
-    private static final Identifier WARPED_STEM_ID = Identifier.of("minecraft", "block/warped_stem");
-
-    // Woods
-    private static final Identifier OAK_WOOD_ID = Identifier.of("minecraft", "block/oak_wood");
-    private static final Identifier SPRUCE_WOOD_ID = Identifier.of("minecraft", "block/spruce_wood");
-    private static final Identifier BIRCH_WOOD_ID = Identifier.of("minecraft", "block/birch_wood");
-    private static final Identifier JUNGLE_WOOD_ID = Identifier.of("minecraft", "block/jungle_wood");
-    private static final Identifier ACACIA_WOOD_ID = Identifier.of("minecraft", "block/acacia_wood");
-    private static final Identifier DARK_OAK_WOOD_ID = Identifier.of("minecraft", "block/dark_oak_wood");
-    private static final Identifier MANGROVE_WOOD_ID = Identifier.of("minecraft", "block/mangrove_wood");
-    private static final Identifier CHERRY_WOOD_ID = Identifier.of("minecraft", "block/cherry_wood");
-    private static final Identifier PALE_OAK_WOOD_ID = Identifier.of("minecraft", "block/pale_oak_wood");
-    private static final Identifier CRIMSON_HYPHAE_ID = Identifier.of("minecraft", "block/crimson_hyphae");
-    private static final Identifier WARPED_HYPHAE_ID = Identifier.of("minecraft", "block/warped_hyphae");
-
-    // Stripped Logs
-    private static final Identifier STRIPPED_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_oak_log");
-    private static final Identifier STRIPPED_SPRUCE_LOG_ID = Identifier.of("minecraft", "block/stripped_spruce_log");
-    private static final Identifier STRIPPED_BIRCH_LOG_ID = Identifier.of("minecraft", "block/stripped_birch_log");
-    private static final Identifier STRIPPED_JUNGLE_LOG_ID = Identifier.of("minecraft", "block/stripped_jungle_log");
-    private static final Identifier STRIPPED_ACACIA_LOG_ID = Identifier.of("minecraft", "block/stripped_acacia_log");
-    private static final Identifier STRIPPED_DARK_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_dark_oak_log");
-    private static final Identifier STRIPPED_MANGROVE_LOG_ID = Identifier.of("minecraft", "block/stripped_mangrove_log");
-    private static final Identifier STRIPPED_CHERRY_LOG_ID = Identifier.of("minecraft", "block/stripped_cherry_log");
-    private static final Identifier STRIPPED_PALE_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_pale_oak_log");
-    private static final Identifier STRIPPED_CRIMSON_STEM_ID = Identifier.of("minecraft", "block/stripped_crimson_stem");
-    private static final Identifier STRIPPED_WARPED_STEM_ID = Identifier.of("minecraft", "block/stripped_warped_stem");
-
-    // Stripped Woods
-    private static final Identifier STRIPPED_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_oak_wood");
-    private static final Identifier STRIPPED_SPRUCE_WOOD_ID = Identifier.of("minecraft", "block/stripped_spruce_wood");
-    private static final Identifier STRIPPED_BIRCH_WOOD_ID = Identifier.of("minecraft", "block/stripped_birch_wood");
-    private static final Identifier STRIPPED_JUNGLE_WOOD_ID = Identifier.of("minecraft", "block/stripped_jungle_wood");
-    private static final Identifier STRIPPED_ACACIA_WOOD_ID = Identifier.of("minecraft", "block/stripped_acacia_wood");
-    private static final Identifier STRIPPED_DARK_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_dark_oak_wood");
-    private static final Identifier STRIPPED_MANGROVE_WOOD_ID = Identifier.of("minecraft", "block/stripped_mangrove_wood");
-    private static final Identifier STRIPPED_CHERRY_WOOD_ID = Identifier.of("minecraft", "block/stripped_cherry_wood");
-    private static final Identifier STRIPPED_PALE_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_pale_oak_wood");
-    private static final Identifier STRIPPED_CRIMSON_HYPHAE_ID = Identifier.of("minecraft", "block/stripped_crimson_hyphae");
-    private static final Identifier STRIPPED_WARPED_HYPHAE_ID = Identifier.of("minecraft", "block/stripped_warped_hyphae");
-
-    private static final Identifier STONE_ID = Identifier.of("minecraft", "block/stone");
-    private static final Identifier DEEPSLATE_ID = Identifier.of("minecraft", "block/deepslate");
-
-    static final Identifier[] logs = {
-            // Oak
-            OAK_LOG_ID,
-            OAK_WOOD_ID,
-            STRIPPED_OAK_LOG_ID,
-            STRIPPED_OAK_WOOD_ID,
-
-            // Spruce
-            SPRUCE_LOG_ID,
-            SPRUCE_WOOD_ID,
-            STRIPPED_SPRUCE_LOG_ID,
-            STRIPPED_SPRUCE_WOOD_ID,
-
-            // Birch
-            BIRCH_LOG_ID,
-            BIRCH_WOOD_ID,
-            STRIPPED_BIRCH_LOG_ID,
-            STRIPPED_BIRCH_WOOD_ID,
-
-            // Jungle
-            JUNGLE_LOG_ID,
-            JUNGLE_WOOD_ID,
-            STRIPPED_JUNGLE_LOG_ID,
-            STRIPPED_JUNGLE_WOOD_ID,
-
-            // Acacia
-            ACACIA_LOG_ID,
-            ACACIA_WOOD_ID,
-            STRIPPED_ACACIA_LOG_ID,
-            STRIPPED_ACACIA_WOOD_ID,
-
-            // Dark Oak
-            DARK_OAK_LOG_ID,
-            DARK_OAK_WOOD_ID,
-            STRIPPED_DARK_OAK_LOG_ID,
-            STRIPPED_DARK_OAK_WOOD_ID,
-
-            // Mangrove
-            MANGROVE_LOG_ID,
-            MANGROVE_WOOD_ID,
-            STRIPPED_MANGROVE_LOG_ID,
-            STRIPPED_MANGROVE_WOOD_ID,
-
-            // Cherry
-            CHERRY_LOG_ID,
-            CHERRY_WOOD_ID,
-            STRIPPED_CHERRY_LOG_ID,
-            STRIPPED_CHERRY_WOOD_ID,
-
-            // Pale Oak
-            PALE_OAK_LOG_ID,
-            PALE_OAK_WOOD_ID,
-            STRIPPED_PALE_OAK_LOG_ID,
-            STRIPPED_PALE_OAK_WOOD_ID,
-
-            // Crimson
-            CRIMSON_STEM_ID,
-            CRIMSON_HYPHAE_ID,
-            STRIPPED_CRIMSON_STEM_ID,
-            STRIPPED_CRIMSON_HYPHAE_ID,
-
-            // Warped
-            WARPED_STEM_ID,
-            WARPED_HYPHAE_ID,
-            STRIPPED_WARPED_STEM_ID,
-            STRIPPED_WARPED_HYPHAE_ID
-    };
+    private static final Identifier STONE_ID = Identifier.of("minecraft", "blocks/stone");
+    private static final Identifier DEEPSLATE_ID = Identifier.of("minecraft", "blocks/deepslate");
 
     static Identifier[] candles = {
             BLACK_CANDLE_ID,
@@ -209,29 +90,6 @@ public class SnailLootTableMod {
     public static void modifyLootTables() {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
-            if (STONE_ID.equals(registryKey.getValue()) || DEEPSLATE_ID.equals(registryKey.getValue())){
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1f))
-                        .conditionally(SurvivesExplosionLootCondition.builder().build())
-                        .with(ItemEntry.builder(SnailItems.ROCK))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f, 3f)).build());
-
-                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
-                return tableBuilder.build();
-            }
-
-            for (Identifier id : logs){
-                if (id.equals(registryKey.getValue())){
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1f))
-                            .conditionally(SurvivesExplosionLootCondition.builder().build())
-                            .with(ItemEntry.builder(Items.STICK))
-                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f, 5f)).build());
-
-                    LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
-                    return tableBuilder.build();
-                }
-            }
 
             if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
@@ -247,6 +105,7 @@ public class SnailLootTableMod {
             if (CHEST_ID.equals(registryKey.getValue()) || BARREL_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
                         .with(ItemEntry.builder(Items.STICK))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0f, 8.0f)).build());
 

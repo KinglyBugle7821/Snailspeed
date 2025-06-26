@@ -10,17 +10,23 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.InvertedLootCondition;
+import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.SnailItems;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class SnailBlockLootTable extends FabricBlockLootTableProvider {
@@ -83,6 +89,77 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 SnailBlocks.DAMAGED_CRIMSON_PLANKS,
                 SnailBlocks.DAMAGED_WARPED_PLANKS
         };
+
+        Block[] logs = {
+                // Oak
+                Blocks.OAK_LOG,
+                Blocks.OAK_WOOD,
+                Blocks.STRIPPED_OAK_LOG,
+                Blocks.STRIPPED_OAK_WOOD,
+
+                // Spruce
+                Blocks.SPRUCE_LOG,
+                Blocks.SPRUCE_WOOD,
+                Blocks.STRIPPED_SPRUCE_LOG,
+                Blocks.STRIPPED_SPRUCE_WOOD,
+
+                // Birch
+                Blocks.BIRCH_LOG,
+                Blocks.BIRCH_WOOD,
+                Blocks.STRIPPED_BIRCH_LOG,
+                Blocks.STRIPPED_BIRCH_WOOD,
+
+                // Jungle
+                Blocks.JUNGLE_LOG,
+                Blocks.JUNGLE_WOOD,
+                Blocks.STRIPPED_JUNGLE_LOG,
+                Blocks.STRIPPED_JUNGLE_WOOD,
+
+                // Acacia
+                Blocks.ACACIA_LOG,
+                Blocks.ACACIA_WOOD,
+                Blocks.STRIPPED_ACACIA_LOG,
+                Blocks.STRIPPED_ACACIA_WOOD,
+
+                // Dark Oak
+                Blocks.DARK_OAK_LOG,
+                Blocks.DARK_OAK_WOOD,
+                Blocks.STRIPPED_DARK_OAK_LOG,
+                Blocks.STRIPPED_DARK_OAK_WOOD,
+
+                // Mangrove
+                Blocks.MANGROVE_LOG,
+                Blocks.MANGROVE_WOOD,
+                Blocks.STRIPPED_MANGROVE_LOG,
+                Blocks.STRIPPED_MANGROVE_WOOD,
+
+                // Cherry
+                Blocks.CHERRY_LOG,
+                Blocks.CHERRY_WOOD,
+                Blocks.STRIPPED_CHERRY_LOG,
+                Blocks.STRIPPED_CHERRY_WOOD,
+
+                // Pale Oak
+                Blocks.PALE_OAK_LOG,
+                Blocks.PALE_OAK_WOOD,
+                Blocks.STRIPPED_PALE_OAK_LOG,
+                Blocks.STRIPPED_PALE_OAK_WOOD,
+
+                // Crimson
+                Blocks.CRIMSON_STEM,
+                Blocks.CRIMSON_HYPHAE,
+                Blocks.STRIPPED_CRIMSON_STEM,
+                Blocks.STRIPPED_CRIMSON_HYPHAE,
+
+                // Warped
+                Blocks.WARPED_STEM,
+                Blocks.WARPED_HYPHAE,
+                Blocks.STRIPPED_WARPED_STEM,
+                Blocks.STRIPPED_WARPED_HYPHAE
+        };
+
+
+
         for (Object entry : trimmedLogs) {
             Block trimmed = (Block) entry;
 
@@ -129,40 +206,6 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.FIRED_BRICK, bundledBlockDrop(SnailBlocks.FIRED_BRICK, Items.BRICK, 1));
 
-        addDrop(SnailBlocks.SCRATCHED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
-                .with(ItemEntry.builder(SnailItems.PEBBLE))))
-        );
-        addDrop(SnailBlocks.CRACKED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
-                .with(ItemEntry.builder(SnailItems.PEBBLE))))
-        );
-        addDrop(SnailBlocks.FRACTURED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
-                .with(ItemEntry.builder(SnailItems.PEBBLE))))
-        );
-        addDrop(SnailBlocks.CRUMBLED_STONE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                        .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                        .with(ItemEntry.builder(SnailItems.ROCK))))
-        );
-
-        addDrop(SnailBlocks.SCRATCHED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
-                .with(ItemEntry.builder(Blocks.COBBLED_DEEPSLATE))))
-        );
-        addDrop(SnailBlocks.CRACKED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
-                .with(ItemEntry.builder(Blocks.COBBLED_DEEPSLATE))))
-        );
-        addDrop(SnailBlocks.FRACTURED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
-                .with(ItemEntry.builder(SnailItems.PEBBLE))))
-        );
-        addDrop(SnailBlocks.CRUMBLED_DEEPSLATE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.PEBBLE, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                .with(ItemEntry.builder(SnailItems.ROCK))))
-        );
-
         addDrop(Blocks.GRANITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
                 .with(ItemEntry.builder(SnailItems.STONE_DUST))))
@@ -201,9 +244,12 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.GRAPHITE_ORE, multipleOreDrops(SnailBlocks.GRAPHITE_ORE, SnailItems.RAW_GRAPHITE, 1f, 1f));
         addDrop(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, multipleOreDrops(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, SnailItems.RAW_GRAPHITE, 1f, 1f));
+
     }
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
-        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ItemEntry.builder(drop2).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));
+        return this.dropsWithSilkTouch(drop,
+                this.applyExplosionDecay(drop, ItemEntry.builder(drop2)
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));
     }
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
         RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);

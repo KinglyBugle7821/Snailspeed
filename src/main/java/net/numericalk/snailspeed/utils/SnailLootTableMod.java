@@ -1,12 +1,14 @@
 package net.numericalk.snailspeed.utils;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
+import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -63,6 +65,129 @@ public class SnailLootTableMod {
     private static final Identifier CHEST_ID = Identifier.of("minecraft", "block/chest");
     private static final Identifier BARREL_ID = Identifier.of("minecraft", "block/barrel");
 
+    // Logs
+    private static final Identifier OAK_LOG_ID = Identifier.of("minecraft", "block/oak_log");
+    private static final Identifier SPRUCE_LOG_ID = Identifier.of("minecraft", "block/spruce_log");
+    private static final Identifier BIRCH_LOG_ID = Identifier.of("minecraft", "block/birch_log");
+    private static final Identifier JUNGLE_LOG_ID = Identifier.of("minecraft", "block/jungle_log");
+    private static final Identifier ACACIA_LOG_ID = Identifier.of("minecraft", "block/acacia_log");
+    private static final Identifier DARK_OAK_LOG_ID = Identifier.of("minecraft", "block/dark_oak_log");
+    private static final Identifier MANGROVE_LOG_ID = Identifier.of("minecraft", "block/mangrove_log");
+    private static final Identifier CHERRY_LOG_ID = Identifier.of("minecraft", "block/cherry_log");
+    private static final Identifier PALE_OAK_LOG_ID = Identifier.of("minecraft", "block/pale_oak_log");
+    private static final Identifier CRIMSON_STEM_ID = Identifier.of("minecraft", "block/crimson_stem");
+    private static final Identifier WARPED_STEM_ID = Identifier.of("minecraft", "block/warped_stem");
+
+    // Woods
+    private static final Identifier OAK_WOOD_ID = Identifier.of("minecraft", "block/oak_wood");
+    private static final Identifier SPRUCE_WOOD_ID = Identifier.of("minecraft", "block/spruce_wood");
+    private static final Identifier BIRCH_WOOD_ID = Identifier.of("minecraft", "block/birch_wood");
+    private static final Identifier JUNGLE_WOOD_ID = Identifier.of("minecraft", "block/jungle_wood");
+    private static final Identifier ACACIA_WOOD_ID = Identifier.of("minecraft", "block/acacia_wood");
+    private static final Identifier DARK_OAK_WOOD_ID = Identifier.of("minecraft", "block/dark_oak_wood");
+    private static final Identifier MANGROVE_WOOD_ID = Identifier.of("minecraft", "block/mangrove_wood");
+    private static final Identifier CHERRY_WOOD_ID = Identifier.of("minecraft", "block/cherry_wood");
+    private static final Identifier PALE_OAK_WOOD_ID = Identifier.of("minecraft", "block/pale_oak_wood");
+    private static final Identifier CRIMSON_HYPHAE_ID = Identifier.of("minecraft", "block/crimson_hyphae");
+    private static final Identifier WARPED_HYPHAE_ID = Identifier.of("minecraft", "block/warped_hyphae");
+
+    // Stripped Logs
+    private static final Identifier STRIPPED_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_oak_log");
+    private static final Identifier STRIPPED_SPRUCE_LOG_ID = Identifier.of("minecraft", "block/stripped_spruce_log");
+    private static final Identifier STRIPPED_BIRCH_LOG_ID = Identifier.of("minecraft", "block/stripped_birch_log");
+    private static final Identifier STRIPPED_JUNGLE_LOG_ID = Identifier.of("minecraft", "block/stripped_jungle_log");
+    private static final Identifier STRIPPED_ACACIA_LOG_ID = Identifier.of("minecraft", "block/stripped_acacia_log");
+    private static final Identifier STRIPPED_DARK_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_dark_oak_log");
+    private static final Identifier STRIPPED_MANGROVE_LOG_ID = Identifier.of("minecraft", "block/stripped_mangrove_log");
+    private static final Identifier STRIPPED_CHERRY_LOG_ID = Identifier.of("minecraft", "block/stripped_cherry_log");
+    private static final Identifier STRIPPED_PALE_OAK_LOG_ID = Identifier.of("minecraft", "block/stripped_pale_oak_log");
+    private static final Identifier STRIPPED_CRIMSON_STEM_ID = Identifier.of("minecraft", "block/stripped_crimson_stem");
+    private static final Identifier STRIPPED_WARPED_STEM_ID = Identifier.of("minecraft", "block/stripped_warped_stem");
+
+    // Stripped Woods
+    private static final Identifier STRIPPED_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_oak_wood");
+    private static final Identifier STRIPPED_SPRUCE_WOOD_ID = Identifier.of("minecraft", "block/stripped_spruce_wood");
+    private static final Identifier STRIPPED_BIRCH_WOOD_ID = Identifier.of("minecraft", "block/stripped_birch_wood");
+    private static final Identifier STRIPPED_JUNGLE_WOOD_ID = Identifier.of("minecraft", "block/stripped_jungle_wood");
+    private static final Identifier STRIPPED_ACACIA_WOOD_ID = Identifier.of("minecraft", "block/stripped_acacia_wood");
+    private static final Identifier STRIPPED_DARK_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_dark_oak_wood");
+    private static final Identifier STRIPPED_MANGROVE_WOOD_ID = Identifier.of("minecraft", "block/stripped_mangrove_wood");
+    private static final Identifier STRIPPED_CHERRY_WOOD_ID = Identifier.of("minecraft", "block/stripped_cherry_wood");
+    private static final Identifier STRIPPED_PALE_OAK_WOOD_ID = Identifier.of("minecraft", "block/stripped_pale_oak_wood");
+    private static final Identifier STRIPPED_CRIMSON_HYPHAE_ID = Identifier.of("minecraft", "block/stripped_crimson_hyphae");
+    private static final Identifier STRIPPED_WARPED_HYPHAE_ID = Identifier.of("minecraft", "block/stripped_warped_hyphae");
+
+    private static final Identifier STONE_ID = Identifier.of("minecraft", "block/stone");
+    private static final Identifier DEEPSLATE_ID = Identifier.of("minecraft", "block/deepslate");
+
+    static final Identifier[] logs = {
+            // Oak
+            OAK_LOG_ID,
+            OAK_WOOD_ID,
+            STRIPPED_OAK_LOG_ID,
+            STRIPPED_OAK_WOOD_ID,
+
+            // Spruce
+            SPRUCE_LOG_ID,
+            SPRUCE_WOOD_ID,
+            STRIPPED_SPRUCE_LOG_ID,
+            STRIPPED_SPRUCE_WOOD_ID,
+
+            // Birch
+            BIRCH_LOG_ID,
+            BIRCH_WOOD_ID,
+            STRIPPED_BIRCH_LOG_ID,
+            STRIPPED_BIRCH_WOOD_ID,
+
+            // Jungle
+            JUNGLE_LOG_ID,
+            JUNGLE_WOOD_ID,
+            STRIPPED_JUNGLE_LOG_ID,
+            STRIPPED_JUNGLE_WOOD_ID,
+
+            // Acacia
+            ACACIA_LOG_ID,
+            ACACIA_WOOD_ID,
+            STRIPPED_ACACIA_LOG_ID,
+            STRIPPED_ACACIA_WOOD_ID,
+
+            // Dark Oak
+            DARK_OAK_LOG_ID,
+            DARK_OAK_WOOD_ID,
+            STRIPPED_DARK_OAK_LOG_ID,
+            STRIPPED_DARK_OAK_WOOD_ID,
+
+            // Mangrove
+            MANGROVE_LOG_ID,
+            MANGROVE_WOOD_ID,
+            STRIPPED_MANGROVE_LOG_ID,
+            STRIPPED_MANGROVE_WOOD_ID,
+
+            // Cherry
+            CHERRY_LOG_ID,
+            CHERRY_WOOD_ID,
+            STRIPPED_CHERRY_LOG_ID,
+            STRIPPED_CHERRY_WOOD_ID,
+
+            // Pale Oak
+            PALE_OAK_LOG_ID,
+            PALE_OAK_WOOD_ID,
+            STRIPPED_PALE_OAK_LOG_ID,
+            STRIPPED_PALE_OAK_WOOD_ID,
+
+            // Crimson
+            CRIMSON_STEM_ID,
+            CRIMSON_HYPHAE_ID,
+            STRIPPED_CRIMSON_STEM_ID,
+            STRIPPED_CRIMSON_HYPHAE_ID,
+
+            // Warped
+            WARPED_STEM_ID,
+            WARPED_HYPHAE_ID,
+            STRIPPED_WARPED_STEM_ID,
+            STRIPPED_WARPED_HYPHAE_ID
+    };
+
     static Identifier[] candles = {
             BLACK_CANDLE_ID,
             BLUE_CANDLE_ID,
@@ -84,6 +209,41 @@ public class SnailLootTableMod {
     public static void modifyLootTables() {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
+            if (STONE_ID.equals(registryKey.getValue()) || DEEPSLATE_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1f))
+                        .conditionally(SurvivesExplosionLootCondition.builder().build())
+                        .with(ItemEntry.builder(SnailItems.ROCK))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f, 3f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+
+            for (Identifier id : logs){
+                if (id.equals(registryKey.getValue())){
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1f))
+                            .conditionally(SurvivesExplosionLootCondition.builder().build())
+                            .with(ItemEntry.builder(Items.STICK))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f, 5f)).build());
+
+                    LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                    return tableBuilder.build();
+                }
+            }
+
+            if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1f))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_DIRT.asItem()))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+
             if (CHEST_ID.equals(registryKey.getValue()) || BARREL_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))

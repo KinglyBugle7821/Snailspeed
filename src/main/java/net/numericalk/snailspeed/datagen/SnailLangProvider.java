@@ -74,6 +74,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.SHOVEL_CLAY_MOLD, "Shovel Clay Mold");
         translationBuilder.add(SnailItems.HOE_CLAY_MOLD, "Hoe Clay Mold");
         translationBuilder.add(SnailItems.INGOT_CLAY_MOLD, "Ingot Clay Mold");
+        translationBuilder.add(SnailItems.PLATE_CLAY_MOLD, "Plate Clay Mold");
 
         translationBuilder.add(SnailItems.BLANK_GRAPHITE_MOLD, "Blank Graphite Mold");
         translationBuilder.add(SnailItems.SWORD_GRAPHITE_MOLD, "Sword Graphite Mold");
@@ -82,6 +83,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.SHOVEL_GRAPHITE_MOLD, "Shovel Graphite Mold");
         translationBuilder.add(SnailItems.HOE_GRAPHITE_MOLD, "Hoe Graphite Mold");
         translationBuilder.add(SnailItems.INGOT_GRAPHITE_MOLD, "Ingot Graphite Mold");
+        translationBuilder.add(SnailItems.PLATE_GRAPHITE_MOLD, "Plate Graphite Mold");
 
         translationBuilder.add(SnailItems.COPPER_SWORD_BLADE, "Copper Sword Blade");
         translationBuilder.add(SnailItems.COPPER_AXE_HEAD, "Copper Axe Head");
@@ -106,6 +108,18 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.BRONZE_PICKAXE_HEAD, "Bronze Pickaxe Head");
         translationBuilder.add(SnailItems.BRONZE_SHOVEL_HEAD, "Bronze Shovel Head");
         translationBuilder.add(SnailItems.BRONZE_HOE_HEAD, "Bronze Hoe Head");
+
+        translationBuilder.add(SnailItems.STEEL_SWORD_BLADE, "Steel Sword Blade");
+        translationBuilder.add(SnailItems.STEEL_AXE_HEAD, "Steel Axe Head");
+        translationBuilder.add(SnailItems.STEEL_PICKAXE_HEAD, "Steel Pickaxe Head");
+        translationBuilder.add(SnailItems.STEEL_SHOVEL_HEAD, "Steel Shovel Head");
+        translationBuilder.add(SnailItems.STEEL_HOE_HEAD, "Steel Hoe Head");
+
+        translationBuilder.add(SnailItems.STEEL_SWORD, "Steel Sword");
+        translationBuilder.add(SnailItems.STEEL_AXE, "Steel Axe");
+        translationBuilder.add(SnailItems.STEEL_PICKAXE, "Steel Pickaxe");
+        translationBuilder.add(SnailItems.STEEL_SHOVEL, "Steel Shovel");
+        translationBuilder.add(SnailItems.STEEL_HOE, "Steel Hoe");
 
         translationBuilder.add(SnailItems.BRONZE_SWORD, "Bronze Sword");
         translationBuilder.add(SnailItems.BRONZE_AXE, "Bronze Axe");
@@ -132,6 +146,15 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.BRONZE_NUGGET, "Bronze Nugget");
         translationBuilder.add(SnailItems.BRONZE_INGOT, "Bronze Ingot");
+        translationBuilder.add(SnailItems.BRONZE_PLATE, "Bronze Plate");
+
+        translationBuilder.add(SnailItems.STEEL_CHUNK, "Steel Chunk");
+        translationBuilder.add(SnailItems.STEEL_INGOT, "Steel Ingot");
+        translationBuilder.add(SnailItems.STEEL_PLATE, "Steel Plate");
+
+        translationBuilder.add(SnailItems.COPPER_PLATE, "Copper Plate");
+        translationBuilder.add(SnailItems.IRON_PLATE, "Iron Plate");
+        translationBuilder.add(SnailItems.GOLDEN_PLATE, "Golden Plate");
 
         translationBuilder.add(SnailItems.FIBER_FILTER, "Fiber Filter");
 

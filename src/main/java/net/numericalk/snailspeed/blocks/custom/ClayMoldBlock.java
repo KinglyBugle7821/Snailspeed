@@ -33,7 +33,8 @@ public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvide
     //4 SHOVEL
     //5 HOE
     //6 INGOT
-    public static final IntProperty MOLD_SHAPE = IntProperty.of("mold_shape", 0, 6);
+    //7 PLATE
+    public static final IntProperty MOLD_SHAPE = IntProperty.of("mold_shape", 0, 7);
 
     public ClayMoldBlock(Settings settings) {
         super(settings);

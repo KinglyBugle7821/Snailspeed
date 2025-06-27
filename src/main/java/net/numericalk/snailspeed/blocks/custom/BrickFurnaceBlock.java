@@ -30,7 +30,10 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.BrickFurnaceBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.utils.SnailMoldType;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final MapCodec<BrickFurnaceBlock> CODEC = BrickFurnaceBlock.createCodec(BrickFurnaceBlock::new);
@@ -118,10 +121,11 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     Item[][] moldingRecipe = {
-            {SnailItems.MOLTEN_COPPER, SnailItems.COPPER_SWORD_BLADE, SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_PICKAXE_HEAD, SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_HOE_HEAD, Items.COPPER_INGOT},
-            {SnailItems.MOLTEN_IRON, SnailItems.IRON_SWORD_BLADE, SnailItems.IRON_AXE_HEAD, SnailItems.IRON_PICKAXE_HEAD, SnailItems.IRON_SHOVEL_HEAD, SnailItems.IRON_HOE_HEAD, Items.IRON_INGOT},
-            {SnailItems.MOLTEN_GOLD, SnailItems.GOLDEN_SWORD_BLADE, SnailItems.GOLDEN_AXE_HEAD, SnailItems.GOLDEN_PICKAXE_HEAD, SnailItems.GOLDEN_SHOVEL_HEAD, SnailItems.GOLDEN_HOE_HEAD, Items.GOLD_INGOT},
-            {SnailItems.MOLTEN_BRONZE, SnailItems.BRONZE_SWORD_BLADE, SnailItems.BRONZE_AXE_HEAD, SnailItems.BRONZE_PICKAXE_HEAD, SnailItems.BRONZE_SHOVEL_HEAD, SnailItems.BRONZE_HOE_HEAD, SnailItems.BRONZE_INGOT}
+            {SnailItems.MOLTEN_COPPER, SnailItems.COPPER_SWORD_BLADE, SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_PICKAXE_HEAD, SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_HOE_HEAD, Items.COPPER_INGOT, SnailItems.COPPER_PLATE},
+            {SnailItems.MOLTEN_IRON, SnailItems.IRON_SWORD_BLADE, SnailItems.IRON_AXE_HEAD, SnailItems.IRON_PICKAXE_HEAD, SnailItems.IRON_SHOVEL_HEAD, SnailItems.IRON_HOE_HEAD, Items.IRON_INGOT, SnailItems.IRON_PLATE},
+            {SnailItems.MOLTEN_GOLD, SnailItems.GOLDEN_SWORD_BLADE, SnailItems.GOLDEN_AXE_HEAD, SnailItems.GOLDEN_PICKAXE_HEAD, SnailItems.GOLDEN_SHOVEL_HEAD, SnailItems.GOLDEN_HOE_HEAD, Items.GOLD_INGOT, SnailItems.GOLDEN_PLATE},
+            {SnailItems.MOLTEN_BRONZE, SnailItems.BRONZE_SWORD_BLADE, SnailItems.BRONZE_AXE_HEAD, SnailItems.BRONZE_PICKAXE_HEAD, SnailItems.BRONZE_SHOVEL_HEAD, SnailItems.BRONZE_HOE_HEAD, SnailItems.BRONZE_INGOT, SnailItems.BRONZE_PLATE},
+            {SnailItems.MOLTEN_STEEL, SnailItems.STEEL_SWORD_BLADE, SnailItems.STEEL_AXE_HEAD, SnailItems.STEEL_PICKAXE_HEAD, SnailItems.STEEL_SHOVEL_HEAD, SnailItems.STEEL_HOE_HEAD, SnailItems.STEEL_INGOT, SnailItems.STEEL_PLATE}
     };
     Item[][] moldingRecipeOnlyIngot = {
             {SnailItems.MOLTEN_TIN, SnailItems.TIN_INGOT}
@@ -186,46 +190,12 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                     return ActionResult.SUCCESS;
                 }
-                ActionResult result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.SWORD_CLAY_MOLD, 1, moldingRecipe, false, null, true);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.AXE_CLAY_MOLD, 2, moldingRecipe, false, null, true);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.PICKAXE_CLAY_MOLD, 3, moldingRecipe, false, null, true);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.SHOVEL_CLAY_MOLD, 4, moldingRecipe, false, null, true);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.HOE_CLAY_MOLD, 5, moldingRecipe, false, null, true);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.INGOT_CLAY_MOLD, 6, moldingRecipe, true, moldingRecipeOnlyIngot, true);
-                if (result != ActionResult.PASS) return result;
+                for (SnailMoldType moldType : MOLD_TYPES) {
+                    ActionResult result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
+                            moldType, moldingRecipe, moldingRecipeOnlyIngot);
+                    if (result != ActionResult.PASS) return result;
+                }
 
-
-
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.SWORD_GRAPHITE_MOLD, 1, moldingRecipe, false, null, false);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.AXE_GRAPHITE_MOLD, 2, moldingRecipe, false, null, false);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.PICKAXE_GRAPHITE_MOLD, 3, moldingRecipe, false, null, false);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.SHOVEL_GRAPHITE_MOLD, 4, moldingRecipe, false, null, false);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.HOE_GRAPHITE_MOLD, 5, moldingRecipe, false, null, false);
-                if (result != ActionResult.PASS) return result;
-                result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
-                        SnailItems.INGOT_GRAPHITE_MOLD, 6, moldingRecipe, true, moldingRecipeOnlyIngot, false);
-                if (result != ActionResult.PASS) return result;
 
 
             } else {
@@ -260,46 +230,57 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     private ActionResult castTool(World world, BlockPos pos, BlockState state, PlayerEntity player,
-                                       ItemStack stack, BrickFurnaceBlockEntity brickFurnaceBlockEntity,
-                                       Item moldItem, int moldIndex, Item[][] recipe,
-                                       boolean includeExtraRecipe, Item[][] extraRecipe,
-                                       boolean consumeMold) {
+                                       ItemStack stack, BrickFurnaceBlockEntity be,
+                                       SnailMoldType moldType, Item[][] recipe, Item[][] extraRecipe) {
+        if (!stack.isOf(moldType.item)) return ActionResult.PASS;
 
-        if (!stack.isOf(moldItem)) return ActionResult.PASS;
+        boolean matched = false;
 
         for (Item[] entry : recipe) {
-            world.updateListeners(pos, state, state, 3);
-            if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])) {
-                player.giveOrDropStack(entry[moldIndex].getDefaultStack());
+            Item input = entry[0];
+            Item result = entry[moldType.moldIndex];
+
+            if (!moldType.canCastHighSmelting && (result.toString().contains("iron") || result.toString().contains("steel"))) continue;
+
+            if (be.getStack(0).isOf(input)) {
+                player.giveOrDropStack(result.getDefaultStack());
+                be.setStack(0, Items.AIR.getDefaultStack());
+                matched = true;
+                break;
             }
         }
 
-        if (includeExtraRecipe && extraRecipe != null) {
+        if (!matched && moldType.moldIndex == 6 && extraRecipe != null) {
             for (Item[] entry : extraRecipe) {
-                world.updateListeners(pos, state, state, 3);
-                if (brickFurnaceBlockEntity.getStack(0).isOf(entry[0])) {
-                    player.giveOrDropStack(entry[1].getDefaultStack());
+                Item input = entry[0];
+                Item result = entry[1];
+
+                if (!moldType.canCastHighSmelting && (result.toString().contains("iron") || result.toString().contains("steel"))) continue;
+
+                if (be.getStack(0).isOf(input)) {
+                    player.giveOrDropStack(result.getDefaultStack());
+                    be.setStack(0, Items.AIR.getDefaultStack());
+                    matched = true;
+                    break;
                 }
             }
         }
 
-        for (int i = 0; i < 5; i++) {
-            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+        if (matched) {
+            if (moldType.consumeMold) {
+                stack.decrement(1);
+            }
+
+            for (int i = 1; i < 5; i++) {
+                be.setStack(i, Items.AIR.getDefaultStack());
+            }
+
+            world.updateListeners(pos, state, state, 3);
+            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
+            return ActionResult.SUCCESS;
         }
 
-        if (consumeMold) {
-            stack.decrement(1);
-        }
-
-        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);
-        return ActionResult.SUCCESS;
-    }
-
-    private boolean canCastToolWith(TagKey<Item> mold, ItemStack stack, BlockState state, BrickFurnaceBlockEntity brickFurnaceBlockEntity) {
-        if (brickFurnaceBlockEntity.getStack(0).isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
-            return stack.isIn(mold) && state.get(CRUCIBLE).equals(true) && state.get(LID).equals(false);
-        }
-        return false;
+        return ActionResult.PASS;
     }
 
     private boolean canTakeLid(ItemStack stack, BlockState state) {
@@ -379,4 +360,20 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                 && !player.isSneaking()
                 && brickFurnaceBlockEntity.getFireTime() < brickFurnaceBlockEntity.getMaxFireTime();
     }
+    private static final List<SnailMoldType> MOLD_TYPES = List.of(
+            new SnailMoldType(SnailItems.SWORD_CLAY_MOLD, 1, false, true),
+            new SnailMoldType(SnailItems.SWORD_GRAPHITE_MOLD, 1, true, false),
+            new SnailMoldType(SnailItems.AXE_CLAY_MOLD, 2, false, true),
+            new SnailMoldType(SnailItems.AXE_GRAPHITE_MOLD, 2, true, false),
+            new SnailMoldType(SnailItems.PICKAXE_CLAY_MOLD, 3, false, true),
+            new SnailMoldType(SnailItems.PICKAXE_GRAPHITE_MOLD, 3, true, false),
+            new SnailMoldType(SnailItems.SHOVEL_CLAY_MOLD, 4, false, true),
+            new SnailMoldType(SnailItems.SHOVEL_GRAPHITE_MOLD, 4, true, false),
+            new SnailMoldType(SnailItems.HOE_CLAY_MOLD, 5, false, true),
+            new SnailMoldType(SnailItems.HOE_GRAPHITE_MOLD, 5, true, false),
+            new SnailMoldType(SnailItems.INGOT_CLAY_MOLD, 6, false, true),
+            new SnailMoldType(SnailItems.INGOT_GRAPHITE_MOLD, 6, true, false),
+            new SnailMoldType(SnailItems.PLATE_CLAY_MOLD, 7, false, true),
+            new SnailMoldType(SnailItems.PLATE_GRAPHITE_MOLD, 7, true, false)
+    );
 }

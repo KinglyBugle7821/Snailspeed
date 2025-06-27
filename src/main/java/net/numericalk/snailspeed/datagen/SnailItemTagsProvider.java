@@ -22,6 +22,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "flint_flake_repairable"));
     public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "copper_tool_repairable"));
+    public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "steel_tool_repairable"));
     public static final TagKey<Item> CAMPFIRE_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "campfire_fuel"));
     public static final TagKey<Item> LOG_BARKS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks"));
     public static final TagKey<Item> LOG_BARKS_THAT_BURN = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks_that_burn"));
@@ -55,7 +56,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.PICKAXE_CLAY_MOLD)
                 .add(SnailItems.SHOVEL_CLAY_MOLD)
                 .add(SnailItems.HOE_CLAY_MOLD)
-                .add(SnailItems.INGOT_CLAY_MOLD);
+                .add(SnailItems.INGOT_CLAY_MOLD)
+                .add(SnailItems.PLATE_CLAY_MOLD);
         getOrCreateTagBuilder(GRAPHITE_MOLD)
                 .add(SnailItems.BLANK_GRAPHITE_MOLD)
                 .add(SnailItems.SWORD_GRAPHITE_MOLD)
@@ -63,7 +65,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.PICKAXE_GRAPHITE_MOLD)
                 .add(SnailItems.SHOVEL_GRAPHITE_MOLD)
                 .add(SnailItems.HOE_GRAPHITE_MOLD)
-                .add(SnailItems.INGOT_GRAPHITE_MOLD);
+                .add(SnailItems.INGOT_GRAPHITE_MOLD)
+                .add(SnailItems.PLATE_GRAPHITE_MOLD);
         getOrCreateTagBuilder(MOLD)
                 .add(SnailItems.BLANK_CLAY_MOLD)
                 .add(SnailItems.SWORD_CLAY_MOLD)
@@ -84,13 +87,16 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_GOLD)
                 .add(SnailItems.MOLTEN_TIN)
-                .add(SnailItems.MOLTEN_BRONZE);
+                .add(SnailItems.MOLTEN_BRONZE)
+                .add(SnailItems.MOLTEN_STEEL);
         getOrCreateTagBuilder(OVEN_FUEL)
                 .add(Items.CHARCOAL)
                 .add(Items.COAL);
         getOrCreateTagBuilder(STRING)
                 .add(Items.STRING)
                 .add(SnailItems.GRASS_TWINE);
+        getOrCreateTagBuilder(STEEL_TOOL_REPAIRABLE)
+                .add(SnailItems.STEEL_INGOT);
         getOrCreateTagBuilder(COPPER_TOOL_REPAIRABLE)
                 .add(Items.COPPER_INGOT);
         getOrCreateTagBuilder(FLINT_FLAKE_REPAIRABLE)
@@ -100,12 +106,14 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.FLINT_HATCHET)
 
                 .add(SnailItems.COPPER_AXE)
-                .add(SnailItems.BRONZE_AXE);
+                .add(SnailItems.BRONZE_AXE)
+                .add(SnailItems.STEEL_AXE);
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(SnailItems.FLINT_PICKAXE)
 
                 .add(SnailItems.COPPER_PICKAXE)
-                .add(SnailItems.BRONZE_PICKAXE);
+                .add(SnailItems.BRONZE_PICKAXE)
+                .add(SnailItems.STEEL_PICKAXE);
         getOrCreateTagBuilder(WOODEN_TOOLS)
                 .add(SnailItems.FLINT_FLAKE)
                 .add(SnailItems.FLINT_HATCHET)
@@ -147,7 +155,12 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(Items.DIAMOND_AXE)
                 .add(Items.DIAMOND_PICKAXE)
                 .add(Items.DIAMOND_SHOVEL)
-                .add(Items.DIAMOND_HOE);
+                .add(Items.DIAMOND_HOE)
+                .add(SnailItems.STEEL_SWORD)
+                .add(SnailItems.STEEL_AXE)
+                .add(SnailItems.STEEL_PICKAXE)
+                .add(SnailItems.STEEL_SHOVEL)
+                .add(SnailItems.STEEL_HOE);
         getOrCreateTagBuilder(NETHERITE_TOOLS)
                 .add(Items.NETHERITE_SWORD)
                 .add(Items.NETHERITE_AXE)

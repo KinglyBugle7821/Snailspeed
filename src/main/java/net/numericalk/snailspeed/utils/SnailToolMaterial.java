@@ -11,7 +11,7 @@ public class SnailToolMaterial {
             10,
             1.0F,
             1.0F,
-            7,
+            15,
             SnailItemTagsProvider.FLINT_FLAKE_REPAIRABLE
     );
     public static final ToolMaterial FLINT_TOOL_MATERIAL = new ToolMaterial(
@@ -19,7 +19,7 @@ public class SnailToolMaterial {
             32,
             2.0F,
             1.0F,
-            10,
+            15,
             SnailItemTagsProvider.FLINT_FLAKE_REPAIRABLE
     );
     public static final ToolMaterial COPPER_TOOL_MATERIAL = new ToolMaterial(
@@ -27,7 +27,7 @@ public class SnailToolMaterial {
             67,
             1.0F,
             2.0F,
-            20,
+            5,
             SnailItemTagsProvider.COPPER_TOOL_REPAIRABLE
     );
 
@@ -36,7 +36,16 @@ public class SnailToolMaterial {
             131,
             2.0F,
             3.0F,
-            20,
+            14,
             SnailItemTagsProvider.COPPER_TOOL_REPAIRABLE
+    );
+
+    public static final ToolMaterial STEEL_TOOL_MATERIAL = new ToolMaterial(
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            1561,
+            8.0F,
+            3.0F,
+            10,
+            SnailItemTagsProvider.STEEL_TOOL_REPAIRABLE
     );
 }

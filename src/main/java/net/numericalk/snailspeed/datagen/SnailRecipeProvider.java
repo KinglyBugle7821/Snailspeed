@@ -60,6 +60,12 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.IRON_SHOVEL_HEAD, Items.IRON_SHOVEL},
                     {SnailItems.IRON_HOE_HEAD, Items.IRON_HOE},
 
+                    {SnailItems.STEEL_SWORD_BLADE, SnailItems.STEEL_SWORD},
+                    {SnailItems.STEEL_AXE_HEAD, SnailItems.STEEL_AXE},
+                    {SnailItems.STEEL_PICKAXE_HEAD, SnailItems.STEEL_PICKAXE},
+                    {SnailItems.STEEL_SHOVEL_HEAD, SnailItems.STEEL_SHOVEL},
+                    {SnailItems.STEEL_HOE_HEAD, SnailItems.STEEL_HOE},
+
                     {SnailItems.GOLDEN_SWORD_BLADE, Items.GOLDEN_SWORD},
                     {SnailItems.GOLDEN_AXE_HEAD, Items.GOLDEN_AXE},
                     {SnailItems.GOLDEN_PICKAXE_HEAD, Items.GOLDEN_PICKAXE},
@@ -74,7 +80,8 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.PICKAXE_CLAY_MOLD, SnailItems.PICKAXE_GRAPHITE_MOLD},
                     {SnailItems.SHOVEL_CLAY_MOLD, SnailItems.SHOVEL_GRAPHITE_MOLD},
                     {SnailItems.HOE_CLAY_MOLD, SnailItems.HOE_GRAPHITE_MOLD},
-                    {SnailItems.INGOT_CLAY_MOLD, SnailItems.INGOT_GRAPHITE_MOLD}
+                    {SnailItems.INGOT_CLAY_MOLD, SnailItems.INGOT_GRAPHITE_MOLD},
+                    {SnailItems.PLATE_CLAY_MOLD, SnailItems.PLATE_GRAPHITE_MOLD}
             };
 
             @Override
@@ -251,8 +258,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
 
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.BRONZE_NUGGET, 5)
                         .input(SnailItems.BRONZE_INGOT)
-                        .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                        .criterion(hasItem(SnailItems.BRONZE_INGOT), conditionsFromItem(SnailItems.BRONZE_INGOT))
                         .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.STEEL_CHUNK, 3)
+                        .input(SnailItems.STEEL_INGOT)
+                        .criterion(hasItem(SnailItems.STEEL_CHUNK), conditionsFromItem(SnailItems.STEEL_CHUNK))
+                        .offerTo(exporter);
+
 
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.FILTERING_TRAY_BASE)
                         .input(SnailBlocks.UNTIED_STICK_BUNDLE, 4)

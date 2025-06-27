@@ -4,6 +4,11 @@
     "minecraft:diamond_axe",
     "minecraft:diamond_pickaxe",
     "minecraft:diamond_shovel",
-    "minecraft:diamond_hoe"
+    "minecraft:diamond_hoe",
+    "snailspeed:steel_sword",
+    "snailspeed:steel_axe",
+    "snailspeed:steel_pickaxe",
+    "snailspeed:steel_shovel",
+    "snailspeed:steel_hoe"
   ]
 }

@@ -139,13 +139,16 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             {Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, Items.GOLD_NUGGET, SnailItems.MOLTEN_GOLD},
             {SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.TIN_NUGGET, SnailItems.MOLTEN_TIN},
             {SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.BRONZE_NUGGET, SnailItems.MOLTEN_BRONZE},
+            {SnailItems.STEEL_CHUNK, SnailItems.STEEL_CHUNK, SnailItems.STEEL_CHUNK, Items.AIR, Items.AIR, SnailItems.MOLTEN_STEEL},
             {SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.COPPER_NUGGET, SnailItems.TIN_NUGGET, SnailItems.MOLTEN_BRONZE},
+            {Items.IRON_INGOT, Items.IRON_INGOT, Items.IRON_INGOT, Items.DIAMOND, Items.DIAMOND, SnailItems.MOLTEN_STEEL},
 
             {Items.COPPER_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_COPPER},
             {Items.IRON_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_IRON},
             {Items.GOLD_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_GOLD},
             {SnailItems.TIN_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_TIN},
-            {SnailItems.BRONZE_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_BRONZE}
+            {SnailItems.BRONZE_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_BRONZE},
+            {SnailItems.STEEL_INGOT, Items.AIR, Items.AIR, Items.AIR, Items.AIR, SnailItems.MOLTEN_STEEL}
     };
 
     private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {

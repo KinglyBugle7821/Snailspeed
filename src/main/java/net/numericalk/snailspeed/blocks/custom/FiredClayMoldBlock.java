@@ -74,6 +74,7 @@ public class FiredClayMoldBlock extends HorizontalFacingBlock {
                 case 4 -> ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.SHOVEL_CLAY_MOLD.getDefaultStack());
                 case 5 -> ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.HOE_CLAY_MOLD.getDefaultStack());
                 case 6 -> ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.INGOT_CLAY_MOLD.getDefaultStack());
+                case 7 -> ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.PLATE_CLAY_MOLD.getDefaultStack());
             }
             world.updateComparators(pos, this);
             super.onStateReplaced(state, world, pos, newState, moved);

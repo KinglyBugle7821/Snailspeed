@@ -129,6 +129,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.SHOVEL_CLAY_MOLD);
                         entries.add(SnailItems.HOE_CLAY_MOLD);
                         entries.add(SnailItems.INGOT_CLAY_MOLD);
+                        entries.add(SnailItems.PLATE_CLAY_MOLD);
 
                         entries.add(SnailItems.BLANK_GRAPHITE_MOLD);
                         entries.add(SnailItems.SWORD_GRAPHITE_MOLD);
@@ -137,6 +138,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.SHOVEL_GRAPHITE_MOLD);
                         entries.add(SnailItems.HOE_GRAPHITE_MOLD);
                         entries.add(SnailItems.INGOT_GRAPHITE_MOLD);
+                        entries.add(SnailItems.PLATE_GRAPHITE_MOLD);
 
                         entries.add(SnailItems.COPPER_SWORD_BLADE);
                         entries.add(SnailItems.COPPER_AXE_HEAD);
@@ -162,6 +164,12 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BRONZE_SHOVEL_HEAD);
                         entries.add(SnailItems.BRONZE_HOE_HEAD);
 
+                        entries.add(SnailItems.STEEL_SWORD_BLADE);
+                        entries.add(SnailItems.STEEL_AXE_HEAD);
+                        entries.add(SnailItems.STEEL_PICKAXE_HEAD);
+                        entries.add(SnailItems.STEEL_SHOVEL_HEAD);
+                        entries.add(SnailItems.STEEL_HOE_HEAD);
+
                         entries.add(SnailItems.COPPER_SWORD);
                         entries.add(SnailItems.COPPER_AXE);
                         entries.add(SnailItems.COPPER_PICKAXE);
@@ -173,6 +181,12 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BRONZE_PICKAXE);
                         entries.add(SnailItems.BRONZE_SHOVEL);
                         entries.add(SnailItems.BRONZE_HOE);
+
+                        entries.add(SnailItems.STEEL_SWORD);
+                        entries.add(SnailItems.STEEL_AXE);
+                        entries.add(SnailItems.STEEL_PICKAXE);
+                        entries.add(SnailItems.STEEL_SHOVEL);
+                        entries.add(SnailItems.STEEL_HOE);
 
                         entries.add(SnailBlocks.TIN_ORE);
                         entries.add(SnailBlocks.DEEPSLATE_TIN_ORE);
@@ -189,6 +203,15 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.BRONZE_NUGGET);
                         entries.add(SnailItems.BRONZE_INGOT);
+                        entries.add(SnailItems.BRONZE_PLATE);
+
+                        entries.add(SnailItems.STEEL_CHUNK);
+                        entries.add(SnailItems.STEEL_INGOT);
+                        entries.add(SnailItems.STEEL_PLATE);
+
+                        entries.add(SnailItems.COPPER_PLATE);
+                        entries.add(SnailItems.IRON_PLATE);
+                        entries.add(SnailItems.GOLDEN_PLATE);
 
                     }).build());
     public static void initialize() {}

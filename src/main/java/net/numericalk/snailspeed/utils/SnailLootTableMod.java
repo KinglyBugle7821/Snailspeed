@@ -40,6 +40,7 @@ public class SnailLootTableMod {
     private static final Identifier PODZOL_ID = Identifier.of("minecraft", "blocks/podzol_id");
     private static final Identifier ROOTED_DIRT_ID = Identifier.of("minecraft", "blocks/farmland");
     private static final Identifier MOSS_BLOCK_ID = Identifier.of("minecraft", "blocks/moss_block");
+    private static final Identifier PALE_MOSS_BLOCK_ID = Identifier.of("minecraft", "blocks/pale_moss_block");
 
     private static final Identifier TORCH_ID = Identifier.of("minecraft", "blocks/torch");
     private static final Identifier SOUL_TORCH_ID = Identifier.of("minecraft", "blocks/soul_torch");
@@ -149,6 +150,16 @@ public class SnailLootTableMod {
                 return tableBuilder.build();
             }
             if (MOSS_BLOCK_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1f))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .with(ItemEntry.builder(Items.VINE))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+            if (PALE_MOSS_BLOCK_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))

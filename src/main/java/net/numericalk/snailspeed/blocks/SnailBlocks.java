@@ -2,8 +2,10 @@ package net.numericalk.snailspeed.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.client.gui.screen.ingame.StonecutterScreen;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.recipe.display.StonecutterRecipeDisplay;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -371,7 +373,6 @@ public class SnailBlocks {
     public static final Block SMALL_BARREL = registerBlock("small_barrel",
             properties -> new SmallBarrelBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
-
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

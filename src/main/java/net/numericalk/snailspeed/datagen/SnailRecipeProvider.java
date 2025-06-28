@@ -306,6 +306,70 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .criterion(hasItem(clay), conditionsFromItem(clay))
                             .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "graphite_mold_from" + idPath)));
                 }
+                createShaped(RecipeCategory.MISC, SnailItems.ARMOR_FORGE_PLATE, 1)
+                        .pattern("##")
+                        .input('#', SnailItemTagsProvider.PLATES)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.COPPER_PLATE), conditionsFromItem(SnailItems.COPPER_PLATE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.COPPER_HAMMER, 1)
+                        .pattern("hg")
+                        .pattern("s ")
+                        .input('s', Items.STICK)
+                        .input('g', SnailItemTagsProvider.GLUES)
+                        .input('h', Items.COPPER_INGOT)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.IRON_HAMMER, 1)
+                        .pattern("hg")
+                        .pattern("s ")
+                        .input('s', Items.STICK)
+                        .input('g', SnailItemTagsProvider.GLUES)
+                        .input('h', Items.IRON_INGOT)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.STEEL_HAMMER, 1)
+                        .pattern("hg")
+                        .pattern("s ")
+                        .input('s', Items.STICK)
+                        .input('g', SnailItemTagsProvider.GLUES)
+                        .input('h', SnailItems.STEEL_INGOT)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.STEEL_INGOT), conditionsFromItem(SnailItems.STEEL_INGOT))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.LEATHER_STRIP, 1)
+                        .pattern("##")
+                        .input('#', Items.LEATHER)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.COPPER_RIVET, 2)
+                        .pattern("#")
+                        .pattern("#")
+                        .input('#', SnailItems.COPPER_NUGGET)
+                        .group("multi_bench")
+                        .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.CHAIN_LINKS, 2)
+                        .pattern("$#")
+                        .pattern("#$")
+                        .input('#', Items.IRON_INGOT)
+                        .input('$', Items.IRON_NUGGET)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.IRON_BOLT, 2)
+                        .pattern("#")
+                        .pattern("#")
+                        .input('#', Items.IRON_NUGGET)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                        .offerTo(exporter);
             }
         };
     }

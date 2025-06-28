@@ -238,6 +238,9 @@ public class SnailItemGroup {
                         entries.add(SnailItems.CHAIN_LINKS);
                         entries.add(SnailItems.IRON_BOLT);
 
+                        entries.add(SnailItems.ARMOR_FORGE_PLATE);
+                        entries.add(SnailBlocks.ARMOR_FORGE);
+
                     }).build());
     public static void initialize() {}
 

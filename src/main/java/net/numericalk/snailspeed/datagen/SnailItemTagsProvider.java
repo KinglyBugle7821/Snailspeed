@@ -35,6 +35,11 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "mold"));
     public static final TagKey<Item> GLUES = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "glues"));
 
+    public static final TagKey<Item> PLATES = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "plates"));
+    public static final TagKey<Item> BINDERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "binders"));
+    public static final TagKey<Item> FASTENERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "fasteners"));
+    public static final TagKey<Item> HAMMERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "hammers"));
+
     public static final TagKey<Item> FILTERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "filters"));
 
     public static final TagKey<Item> WOODEN_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "wooden_tools"));
@@ -45,6 +50,22 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(HAMMERS)
+                .add(SnailItems.COPPER_HAMMER)
+                .add(SnailItems.IRON_HAMMER)
+                .add(SnailItems.STEEL_HAMMER);
+        getOrCreateTagBuilder(FASTENERS)
+                .add(SnailItems.COPPER_RIVET)
+                .add(SnailItems.IRON_BOLT);
+        getOrCreateTagBuilder(BINDERS)
+                .add(SnailItems.LEATHER_STRIP)
+                .add(SnailItems.CHAIN_LINKS);
+        getOrCreateTagBuilder(PLATES)
+                .add(SnailItems.BRONZE_PLATE)
+                .add(SnailItems.GOLDEN_PLATE)
+                .add(SnailItems.COPPER_PLATE)
+                .add(SnailItems.IRON_PLATE)
+                .add(SnailItems.STEEL_PLATE);
         getOrCreateTagBuilder(FILTERS)
                 .add(SnailItems.FIBER_FILTER);
         getOrCreateTagBuilder(GLUES)

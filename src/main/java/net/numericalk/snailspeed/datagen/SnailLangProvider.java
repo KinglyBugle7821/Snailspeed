@@ -183,6 +183,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.CHAIN_LINKS, "Chain Links");
         translationBuilder.add(SnailItems.IRON_BOLT, "Iron Bolt");
 
+        translationBuilder.add(SnailItems.ARMOR_FORGE_PLATE, "Armor Forge Plate");
+
 
 
 

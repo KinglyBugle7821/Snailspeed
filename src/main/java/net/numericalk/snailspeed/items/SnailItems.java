@@ -9,6 +9,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.items.custom.AirItem;
+import net.numericalk.snailspeed.items.custom.ArmorForgePlateBaseItem;
 import net.numericalk.snailspeed.items.custom.BarkSpudItem;
 import net.numericalk.snailspeed.items.custom.TinderItem;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
@@ -194,6 +195,8 @@ public class SnailItems {
 
     public static final Item CHAIN_LINKS = register("chain_links", Item::new);
     public static final Item IRON_BOLT = register("iron_bolt", Item::new);
+
+    public static final Item ARMOR_FORGE_PLATE = register("armor_forge_plate", ArmorForgePlateBaseItem::new);
 
     public static final Item AIR = register("air", AirItem::new);
 

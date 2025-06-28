@@ -105,8 +105,6 @@ public class SnailModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.GRAPHITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
-
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.ARMOR_FORGE);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -285,6 +283,8 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.CHAIN_LINKS, Models.GENERATED);
         itemModelGenerator.register(SnailItems.IRON_BOLT, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.ARMOR_FORGE_PLATE, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 

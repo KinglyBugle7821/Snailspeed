@@ -1,0 +1,13 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "snailspeed:steel_ingot",
+    "minecraft:flint"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:flint_and_steel"
+  }
+}

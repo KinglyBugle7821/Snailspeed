@@ -9,6 +9,7 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 import net.numericalk.snailspeed.blocks.entity.custom.ArmorForgeBlockEntity;
+import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 
 public class ArmorForgeScreenHandler extends ScreenHandler {
@@ -25,10 +26,30 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
         this.inv = ((Inventory) blockEntity);
         this.be = ((ArmorForgeBlockEntity) blockEntity);
 
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.PLATE_SLOT, 80, 7));
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.BINDING_SLOT, 53, 34));
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.FASTENER_SLOT, 107, 34));
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.TOOL_SLOT, 80, 61));
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.PLATE_SLOT, 80, 7){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isIn(SnailItemTagsProvider.PLATES);
+            }
+        });
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.BINDING_SLOT, 53, 34) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isIn(SnailItemTagsProvider.BINDERS);
+            }
+        });
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.FASTENER_SLOT, 107, 34){
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isIn(SnailItemTagsProvider.FASTENERS);
+            }
+        });
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.TOOL_SLOT, 80, 61) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isIn(SnailItemTagsProvider.HAMMERS);
+            }
+        });
         this.addSlot(new Slot(inv, ArmorForgeBlockEntity.OUTPUT, 80, 34){
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {

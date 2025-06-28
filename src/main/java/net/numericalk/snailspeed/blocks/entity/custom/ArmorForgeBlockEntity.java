@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -100,6 +101,8 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
     Item[][] armorRecipe = {
             {SnailItems.COPPER_PLATE, SnailItems.LEATHER_STRIP, SnailItems.COPPER_RIVET, SnailItems.COPPER_HAMMER, SnailItems.COPPER_HELMET, SnailItems.COPPER_CHESTPLATE, SnailItems.COPPER_LEGGINGS, SnailItems.COPPER_BOOTS},
             {SnailItems.BRONZE_PLATE, SnailItems.LEATHER_STRIP, SnailItems.IRON_BOLT, SnailItems.COPPER_HAMMER, SnailItems.BRONZE_HELMET, SnailItems.BRONZE_CHESTPLATE, SnailItems.BRONZE_LEGGINGS, SnailItems.BRONZE_BOOTS},
+            {SnailItems.GOLDEN_PLATE, SnailItems.LEATHER_STRIP, SnailItems.IRON_BOLT, SnailItems.COPPER_HAMMER, Items.GOLDEN_HELMET, Items.GOLDEN_CHESTPLATE, Items.GOLDEN_LEGGINGS, Items.GOLDEN_BOOTS},
+            {SnailItems.IRON_PLATE, SnailItems.LEATHER_STRIP, SnailItems.IRON_BOLT, SnailItems.IRON_HAMMER, Items.IRON_HELMET, Items.IRON_CHESTPLATE, Items.IRON_LEGGINGS, Items.IRON_BOOTS},
             {SnailItems.STEEL_PLATE, SnailItems.CHAIN_LINKS, SnailItems.IRON_BOLT, SnailItems.IRON_HAMMER, SnailItems.STEEL_HELMET, SnailItems.STEEL_CHESTPLATE, SnailItems.STEEL_LEGGINGS, SnailItems.STEEL_BOOTS},
     };
 
@@ -212,21 +215,25 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
                 this.getStack(BINDING_SLOT).decrement(binding_helmet);
                 this.getStack(FASTENER_SLOT).decrement(fastener_helmet);
                 this.getStack(TOOL_SLOT).damage(1, player);
+                markDirty();
             } else if (selected.equals(ArmorForgeScreen.ArmorPiece.CHESTPLATE)){
                 this.getStack(PLATE_SLOT).decrement(plate_chestplate);
                 this.getStack(BINDING_SLOT).decrement(binding_chestplate);
                 this.getStack(FASTENER_SLOT).decrement(fastener_chestplate);
                 this.getStack(TOOL_SLOT).damage(1, player);
+                markDirty();
             } else if (selected.equals(ArmorForgeScreen.ArmorPiece.LEGGINGS)){
                 this.getStack(PLATE_SLOT).decrement(plate_leggings);
                 this.getStack(BINDING_SLOT).decrement(binding_leggings);
                 this.getStack(FASTENER_SLOT).decrement(fastener_leggings);
                 this.getStack(TOOL_SLOT).damage(1, player);
+                markDirty();
             } else if (selected.equals(ArmorForgeScreen.ArmorPiece.BOOTS)){
                 this.getStack(PLATE_SLOT).decrement(plate_boots);
                 this.getStack(BINDING_SLOT).decrement(binding_boots);
                 this.getStack(FASTENER_SLOT).decrement(fastener_boots);
                 this.getStack(TOOL_SLOT).damage(1, player);
+                markDirty();
             }
         }
     }

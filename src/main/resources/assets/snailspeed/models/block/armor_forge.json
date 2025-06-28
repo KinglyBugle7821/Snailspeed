@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "snailspeed:block/armor_forge_top",
+    "front": "snailspeed:block/armor_forge_front",
+    "side": "snailspeed:block/armor_forge_side",
+    "bottom": "minecraft:block/stripped_oak_log_top"
+  }
+}

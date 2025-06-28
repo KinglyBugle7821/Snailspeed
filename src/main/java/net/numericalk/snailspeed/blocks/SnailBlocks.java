@@ -325,6 +325,9 @@ public class SnailBlocks {
     public static final Block UNSTEADY_COARSE_DIRT = registerBlock("unsteady_coarse_dirt",
             properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
                     .strength(0.4F).sounds(BlockSoundGroup.GRAVEL)));
+    public static final Block UNSTEADY_ROOTED_DIRT = registerBlock("unsteady_rooted_dirt",
+            properties -> new CustomSoilBlock(properties.mapColor(MapColor.DIRT_BROWN)
+                    .strength(0.4F).sounds(BlockSoundGroup.ROOTED_DIRT)));
 
     public static final Block CLAY_MOLD = registerBlock("clay_mold",
             properties -> new ClayMoldBlock(properties.mapColor(MapColor.LIGHT_BLUE)

@@ -227,6 +227,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.MORTAR);
 
         addDrop(SnailBlocks.UNSTEADY_DIRT);
+        addDrop(SnailBlocks.UNSTEADY_ROOTED_DIRT);
         addDrop(SnailBlocks.UNSTEADY_COARSE_DIRT);
 
         addDrop(SnailBlocks.CLAY_CRUCIBLE);

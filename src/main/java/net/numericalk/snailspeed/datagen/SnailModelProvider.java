@@ -98,6 +98,7 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerAxisRotated(SnailBlocks.THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_ROOTED_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.TIN_ORE);

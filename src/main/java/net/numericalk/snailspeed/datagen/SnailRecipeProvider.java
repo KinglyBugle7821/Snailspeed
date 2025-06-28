@@ -370,6 +370,12 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .group("multi_bench")
                         .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                         .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.FLINT, 1)
+                        .pattern("#")
+                        .input('#', Blocks.GRAVEL)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.GRAVEL), conditionsFromItem(Items.GRAVEL))
+                        .offerTo(exporter);
             }
         };
     }

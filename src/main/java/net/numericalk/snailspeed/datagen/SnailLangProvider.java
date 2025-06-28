@@ -279,6 +279,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.THATCH_BLOCK, "Thatch Block");
 
         translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
+        translationBuilder.add(SnailBlocks.UNSTEADY_ROOTED_DIRT, "Unsteady Rooted Dirt");
         translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
 
         translationBuilder.add(SnailBlocks.CLAY_MOLD, "Clay Mold");

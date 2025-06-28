@@ -246,6 +246,14 @@ public class SnailModifyLog {
     private static float changeFarmlandHardness(float originalHardness) {
         return 3.0f;
     }
+    @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=podzol")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static float changePodzolHardness(float originalHardness) {
+        return 3.0f;
+    }
+    @ModifyArg(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=rooted_dirt")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(F)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static float changeRootedDirtHardness(float originalHardness) {
+        return 3.0f;
+    }
 
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=stone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeStoneStrength(Args args) {
@@ -257,6 +265,14 @@ public class SnailModifyLog {
     }
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=cobblestone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeCobblestoneStrength(Args args) {
+        float hardness = 6.5f;
+        float resistance = 6.0f;
+
+        args.set(0, hardness);
+        args.set(1, resistance);
+    }
+    @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=mossy_cobblestone")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
+    private static void changeMossyCobblestoneStrength(Args args) {
         float hardness = 6.5f;
         float resistance = 6.0f;
 

@@ -172,9 +172,9 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     }
     public void calculatedAddedFireTime(TagKey<Item> fuelType) {
         if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL){
-            fireTime += ((1200f/100f) * 25f);
+            fireTime += ((1200f/100f) * 50f);
         } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL){
-            fireTime += ((2400f/100f) * 25f);
+            fireTime += ((2400f/100f) * 50f);
         }
     }
 

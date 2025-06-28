@@ -256,7 +256,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     public void calculateAddedFireTime() {
-        fireDegradeTime += ((fireDegradeTimeFinal/100f) * 25f);
+        fireDegradeTime += ((fireDegradeTimeFinal/100f) * 50f);
     }
 
     public float getFireDegradeTime() {

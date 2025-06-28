@@ -1,16 +1,13 @@
 package net.numericalk.snailspeed.utils;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.ExplosionDecayLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -39,6 +36,10 @@ public class SnailLootTableMod {
     private static final Identifier GRASS_BLOCK_ID = Identifier.of("minecraft", "blocks/grass_block");
     private static final Identifier DIRT_ID = Identifier.of("minecraft", "blocks/dirt");
     private static final Identifier COARSE_DIRT_ID = Identifier.of("minecraft", "blocks/coarse_dirt");
+    private static final Identifier FARMLAND_ID = Identifier.of("minecraft", "blocks/farmland");
+    private static final Identifier PODZOL_ID = Identifier.of("minecraft", "blocks/podzol_id");
+    private static final Identifier ROOTED_DIRT_ID = Identifier.of("minecraft", "blocks/farmland");
+    private static final Identifier MOSS_BLOCK_ID = Identifier.of("minecraft", "blocks/moss_block");
 
     private static final Identifier TORCH_ID = Identifier.of("minecraft", "blocks/torch");
     private static final Identifier REDSTONE_TORCH_ID = Identifier.of("minecraft", "blocks/redstone_torch");
@@ -124,11 +125,34 @@ public class SnailLootTableMod {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
 
-            if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())){
+            if (GRASS_BLOCK_ID.equals(registryKey.getValue()) ||
+                    DIRT_ID.equals(registryKey.getValue()) ||
+                    PODZOL_ID.equals(registryKey.getValue())
+                    ){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
                         .with(ItemEntry.builder(SnailBlocks.UNSTEADY_DIRT.asItem()))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+            if (ROOTED_DIRT_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1f))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_ROOTED_DIRT.asItem()))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
+                return tableBuilder.build();
+            }
+            if (MOSS_BLOCK_ID.equals(registryKey.getValue())){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1f))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .with(ItemEntry.builder(Items.VINE))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);

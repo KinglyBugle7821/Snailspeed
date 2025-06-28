@@ -100,11 +100,11 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         //RECIPE
 
         if (getLitBlockState(state) == 2){
-            maxProgress = 20 * 60 * 5;
+            maxProgress = 20 * 60 * 4;
             cookItem(world1, pos, maxProgress);
         }
         if (getLitBlockState(state) == 3){
-            maxProgress = 20 * 60 * 3;
+            maxProgress = 20 * 60 * 2;
             cookItem(world1, pos, maxProgress);
         }
         if (getLitBlockState(state) == 4){
@@ -174,6 +174,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         for (int i = 0; i < 3; i++) {
             ItemStack stack = getStack(i);
             if (stack.isEmpty()) continue;
+            System.out.println(progress[i]);
 
             Item cooked = getCookedItem(stack.getItem());
             if (cooked != null) {

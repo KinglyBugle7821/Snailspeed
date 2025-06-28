@@ -22,6 +22,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "flint_flake_repairable"));
     public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "copper_tool_repairable"));
+    public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "copper_tool_repairable"));
     public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "steel_tool_repairable"));
     public static final TagKey<Item> CAMPFIRE_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "campfire_fuel"));
     public static final TagKey<Item> LOG_BARKS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks"));

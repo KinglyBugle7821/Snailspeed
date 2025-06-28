@@ -362,6 +362,9 @@ public class SnailBlocks {
             properties -> new FilteringTrayBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(3.0F).sounds(BlockSoundGroup.WOOD).burnable().nonOpaque()));
 
+    public static final Block ARMOR_FORGE = registerBlock("armor_forge",
+            properties -> new ArmorForgeBlock(properties.mapColor(MapColor.IRON_GRAY)
+                    .strength(6.0F).sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool()));
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));

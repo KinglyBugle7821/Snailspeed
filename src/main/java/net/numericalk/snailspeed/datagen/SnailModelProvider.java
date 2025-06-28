@@ -106,6 +106,7 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.GRAPHITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
 
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.ARMOR_FORGE);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -260,7 +261,34 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.FIBER_FILTER, Models.GENERATED);
 
+        itemModelGenerator.register(SnailItems.COPPER_HELMET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_LEGGINGS, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.COPPER_BOOTS, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.BRONZE_HELMET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_LEGGINGS, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BRONZE_BOOTS, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.STEEL_HELMET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STEEL_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STEEL_LEGGINGS, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STEEL_BOOTS, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.COPPER_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.IRON_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(SnailItems.STEEL_HAMMER, Models.HANDHELD);
+
+        itemModelGenerator.register(SnailItems.COPPER_RIVET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.LEATHER_STRIP, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.CHAIN_LINKS, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.IRON_BOLT, Models.GENERATED);
+
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
+
+
 
 
 

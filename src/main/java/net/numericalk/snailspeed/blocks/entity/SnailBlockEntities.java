@@ -7,6 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.custom.ArmorForgeBlock;
 import net.numericalk.snailspeed.blocks.entity.custom.*;
 
 public class SnailBlockEntities {
@@ -52,8 +53,9 @@ public class SnailBlockEntities {
     public static final BlockEntityType<FilteringTrayBlockEntity>  FILTERING_TRAY_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "filtering_tray_block_entity"),
                     FabricBlockEntityTypeBuilder.create(FilteringTrayBlockEntity::new, SnailBlocks.FILTERING_TRAY).build(null));
+    public static final BlockEntityType<ArmorForgeBlockEntity>  ARMOR_FORGE_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "armor_forge_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(ArmorForgeBlockEntity::new, SnailBlocks.ARMOR_FORGE).build(null));
 
-    public static void initialize() {
-
-    }
+    public static void initialize() {}
 }

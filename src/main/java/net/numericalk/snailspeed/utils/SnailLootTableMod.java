@@ -63,10 +63,28 @@ public class SnailLootTableMod {
     private static final Identifier WHITE_CANDLE_ID = Identifier.of("minecraft", "blocks/white_candle");
     private static final Identifier YELLOW_CANDLE_ID = Identifier.of("minecraft", "blocks/yellow_candle");
 
+    private static final Identifier BLACK_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/black_candle_cake");
+    private static final Identifier BLUE_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/blue_candle_cake");
+    private static final Identifier BROWN_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/brown_candle_cake");
+    private static final Identifier CYAN_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/cyan_candle_cake");
+    private static final Identifier GRAY_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/gray_candle_cake");
+    private static final Identifier GREEN_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/green_candle_cake");
+    private static final Identifier LIGHT_BLUE_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/light_blue_candle_cake");
+    private static final Identifier LIGHT_GRAY_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/light_gray_candle_cake");
+    private static final Identifier LIME_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/lime_candle_cake");
+    private static final Identifier MAGENTA_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/magenta_candle_cake");
+    private static final Identifier ORANGE_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/orange_candle_cake");
+    private static final Identifier PINK_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/pink_candle_cake");
+    private static final Identifier PURPLE_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/purple_candle_cake");
+    private static final Identifier RED_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/red_candle_cake");
+    private static final Identifier WHITE_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/white_candle_cake");
+    private static final Identifier YELLOW_CANDLE_CAKE_ID = Identifier.of("minecraft", "blocks/yellow_candle_cake");
+
+
     private static final Identifier CHEST_ID = Identifier.of("minecraft", "blocks/chest");
     private static final Identifier BARREL_ID = Identifier.of("minecraft", "blocks/barrel");
 
-    static Identifier[] candles = {
+    static final Identifier[] candles = {
             BLACK_CANDLE_ID,
             BLUE_CANDLE_ID,
             BROWN_CANDLE_ID,
@@ -82,8 +100,26 @@ public class SnailLootTableMod {
             PURPLE_CANDLE_ID,
             RED_CANDLE_ID,
             WHITE_CANDLE_ID,
-            YELLOW_CANDLE_ID
+            YELLOW_CANDLE_ID,
+
+            BLACK_CANDLE_CAKE_ID,
+            BLUE_CANDLE_CAKE_ID,
+            BROWN_CANDLE_CAKE_ID,
+            CYAN_CANDLE_CAKE_ID,
+            GRAY_CANDLE_CAKE_ID,
+            GREEN_CANDLE_CAKE_ID,
+            LIGHT_BLUE_CANDLE_CAKE_ID,
+            LIGHT_GRAY_CANDLE_CAKE_ID,
+            LIME_CANDLE_CAKE_ID,
+            MAGENTA_CANDLE_CAKE_ID,
+            ORANGE_CANDLE_CAKE_ID,
+            PINK_CANDLE_CAKE_ID,
+            PURPLE_CANDLE_CAKE_ID,
+            RED_CANDLE_CAKE_ID,
+            WHITE_CANDLE_CAKE_ID,
+            YELLOW_CANDLE_CAKE_ID
     };
+
     public static void modifyLootTables() {
 
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {

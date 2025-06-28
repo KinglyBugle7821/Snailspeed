@@ -2,6 +2,7 @@
 5a046a6ce57367c13d91c107defb546543583ae6 data/minecraft/loot_table/blocks/andesite.json
 5a046a6ce57367c13d91c107defb546543583ae6 data/minecraft/loot_table/blocks/diorite.json
 5a046a6ce57367c13d91c107defb546543583ae6 data/minecraft/loot_table/blocks/granite.json
+fc43d3822fa79c0a7a0ee81efb4909d412f3c997 data/snailspeed/loot_table/blocks/armor_forge.json
 eda468a607e28503d4543cd82644543d470af689 data/snailspeed/loot_table/blocks/brick_furnace.json
 143615467c8a721d63031f954439f563e1e24a86 data/snailspeed/loot_table/blocks/brick_furnace_base.json
 fac07b78c4fd08913163c827266f2569231d3f51 data/snailspeed/loot_table/blocks/brick_oven.json

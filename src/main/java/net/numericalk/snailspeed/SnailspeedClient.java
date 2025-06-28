@@ -2,11 +2,14 @@ package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.renderer.*;
+import net.numericalk.snailspeed.screen.SnailScreenHandlers;
+import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 
 public class SnailspeedClient implements ClientModInitializer {
     @Override
@@ -22,5 +25,8 @@ public class SnailspeedClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR_BLOCK_ENTITY, MortarBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY, BrickFurnaceBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY, FilteringTrayBlockEntityRenderer::new);
+
+        HandledScreens.register(SnailScreenHandlers.ARMOR_FORGE_SCREEN_HANDLER, ArmorForgeScreen::new);
+
     }
 }

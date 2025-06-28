@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "snailspeed:copper"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "snailspeed:copper"
+      }
+    ]
+  }
+}

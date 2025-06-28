@@ -1,6 +1,7 @@
 package net.numericalk.snailspeed.items;
 
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -10,6 +11,7 @@ import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.items.custom.AirItem;
 import net.numericalk.snailspeed.items.custom.BarkSpudItem;
 import net.numericalk.snailspeed.items.custom.TinderItem;
+import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
 
 import java.util.function.Function;
@@ -167,6 +169,31 @@ public class SnailItems {
     public static final Item GOLDEN_PLATE = register("golden_plate", Item::new);
 
     public static final Item BARK_SPUD = register("bark_spud", settings -> new BarkSpudItem(settings.maxCount(1).maxDamage(24)));
+
+    public static final Item COPPER_HELMET = register("copper_helmet", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
+    public static final Item COPPER_CHESTPLATE = register("copper_chestplate", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
+    public static final Item COPPER_LEGGINGS = register("copper_leggings", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
+    public static final Item COPPER_BOOTS = register("copper_boots", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
+
+    public static final Item BRONZE_HELMET = register("bronze_helmet", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
+    public static final Item BRONZE_CHESTPLATE = register("bronze_chestplate", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
+    public static final Item BRONZE_LEGGINGS = register("bronze_leggings", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
+    public static final Item BRONZE_BOOTS = register("bronze_boots", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
+
+    public static final Item STEEL_HELMET = register("steel_helmet", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
+    public static final Item STEEL_CHESTPLATE = register("steel_chestplate", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
+    public static final Item STEEL_LEGGINGS = register("steel_leggings", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
+    public static final Item STEEL_BOOTS = register("steel_boots", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
+
+    public static final Item COPPER_HAMMER = register("copper_hammer", settings -> new Item(settings.maxCount(1).maxDamage(67)));
+    public static final Item IRON_HAMMER = register("iron_hammer", settings -> new Item(settings.maxCount(1).maxDamage(250)));
+    public static final Item STEEL_HAMMER = register("steel_hammer", settings -> new Item(settings.maxCount(1).maxDamage(1561)));
+
+    public static final Item COPPER_RIVET = register("copper_rivet", Item::new);
+    public static final Item LEATHER_STRIP = register("leather_strip", Item::new);
+
+    public static final Item CHAIN_LINKS = register("chain_links", Item::new);
+    public static final Item IRON_BOLT = register("iron_bolt", Item::new);
 
     public static final Item AIR = register("air", AirItem::new);
 

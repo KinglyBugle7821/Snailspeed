@@ -158,7 +158,30 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.FIBER_FILTER, "Fiber Filter");
 
+        translationBuilder.add(SnailItems.COPPER_HELMET, "Copper Helmet");
+        translationBuilder.add(SnailItems.COPPER_CHESTPLATE, "Copper Chestplate");
+        translationBuilder.add(SnailItems.COPPER_LEGGINGS, "Copper Leggings");
+        translationBuilder.add(SnailItems.COPPER_BOOTS, "Copper Boots");
 
+        translationBuilder.add(SnailItems.BRONZE_HELMET, "Bronze Helmet");
+        translationBuilder.add(SnailItems.BRONZE_CHESTPLATE, "Bronze Chestplate");
+        translationBuilder.add(SnailItems.BRONZE_LEGGINGS, "Bronze Leggings");
+        translationBuilder.add(SnailItems.BRONZE_BOOTS, "Bronze Boots");
+
+        translationBuilder.add(SnailItems.STEEL_HELMET, "Steel Helmet");
+        translationBuilder.add(SnailItems.STEEL_CHESTPLATE, "Steel Chestplate");
+        translationBuilder.add(SnailItems.STEEL_LEGGINGS, "Steel Leggings");
+        translationBuilder.add(SnailItems.STEEL_BOOTS, "Steel Boots");
+
+        translationBuilder.add(SnailItems.COPPER_HAMMER, "Copper Hammer");
+        translationBuilder.add(SnailItems.IRON_HAMMER, "Iron Hammer");
+        translationBuilder.add(SnailItems.STEEL_HAMMER, "Steel Hammer");
+
+        translationBuilder.add(SnailItems.COPPER_RIVET, "Copper Rivet");
+        translationBuilder.add(SnailItems.LEATHER_STRIP, "Leather Strip");
+
+        translationBuilder.add(SnailItems.CHAIN_LINKS, "Chain Links");
+        translationBuilder.add(SnailItems.IRON_BOLT, "Iron Bolt");
 
 
 
@@ -268,6 +291,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DEEPSLATE_TIN_ORE, "Deepslate Tin Ore");
         translationBuilder.add(SnailBlocks.GRAPHITE_ORE, "Graphite Ore");
         translationBuilder.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, "Deepslate Graphite Ore");
+
+        translationBuilder.add(SnailBlocks.ARMOR_FORGE, "Armor Forge");
 
         translationBuilder.add("itemgroup.snailspeed", "snailspeed");
     }

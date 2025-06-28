@@ -213,6 +213,31 @@ public class SnailItemGroup {
                         entries.add(SnailItems.IRON_PLATE);
                         entries.add(SnailItems.GOLDEN_PLATE);
 
+                        entries.add(SnailItems.COPPER_HELMET);
+                        entries.add(SnailItems.COPPER_CHESTPLATE);
+                        entries.add(SnailItems.COPPER_LEGGINGS);
+                        entries.add(SnailItems.COPPER_BOOTS);
+
+                        entries.add(SnailItems.BRONZE_HELMET);
+                        entries.add(SnailItems.BRONZE_CHESTPLATE);
+                        entries.add(SnailItems.BRONZE_LEGGINGS);
+                        entries.add(SnailItems.BRONZE_BOOTS);
+
+                        entries.add(SnailItems.STEEL_HELMET);
+                        entries.add(SnailItems.STEEL_CHESTPLATE);
+                        entries.add(SnailItems.STEEL_LEGGINGS);
+                        entries.add(SnailItems.STEEL_BOOTS);
+
+                        entries.add(SnailItems.COPPER_HAMMER);
+                        entries.add(SnailItems.IRON_HAMMER);
+                        entries.add(SnailItems.STEEL_HAMMER);
+
+                        entries.add(SnailItems.COPPER_RIVET);
+                        entries.add(SnailItems.LEATHER_STRIP);
+
+                        entries.add(SnailItems.CHAIN_LINKS);
+                        entries.add(SnailItems.IRON_BOLT);
+
                     }).build());
     public static void initialize() {}
 

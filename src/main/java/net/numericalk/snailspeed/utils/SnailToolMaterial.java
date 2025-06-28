@@ -37,7 +37,7 @@ public class SnailToolMaterial {
             2.0F,
             3.0F,
             14,
-            SnailItemTagsProvider.COPPER_TOOL_REPAIRABLE
+            SnailItemTagsProvider.BRONZE_TOOL_REPAIRABLE
     );
 
     public static final ToolMaterial STEEL_TOOL_MATERIAL = new ToolMaterial(

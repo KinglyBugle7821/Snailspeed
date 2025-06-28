@@ -127,7 +127,8 @@ public class SnailLootTableMod {
 
             if (GRASS_BLOCK_ID.equals(registryKey.getValue()) ||
                     DIRT_ID.equals(registryKey.getValue()) ||
-                    PODZOL_ID.equals(registryKey.getValue())
+                    PODZOL_ID.equals(registryKey.getValue()) ||
+                    FARMLAND_ID.equals(registryKey.getValue())
                     ){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))

@@ -10,6 +10,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.renderer.*;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
+import net.numericalk.snailspeed.screen.custom.SmallBarrelScreen;
 
 public class SnailspeedClient implements ClientModInitializer {
     @Override
@@ -27,6 +28,7 @@ public class SnailspeedClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY, FilteringTrayBlockEntityRenderer::new);
 
         HandledScreens.register(SnailScreenHandlers.ARMOR_FORGE_SCREEN_HANDLER, ArmorForgeScreen::new);
+        HandledScreens.register(SnailScreenHandlers.SMALL_BARREL_SCREEN_HANDLER, SmallBarrelScreen::new);
 
     }
 }

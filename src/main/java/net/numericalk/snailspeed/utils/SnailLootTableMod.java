@@ -42,7 +42,6 @@ public class SnailLootTableMod {
     private static final Identifier MOSS_BLOCK_ID = Identifier.of("minecraft", "blocks/moss_block");
 
     private static final Identifier TORCH_ID = Identifier.of("minecraft", "blocks/torch");
-    private static final Identifier REDSTONE_TORCH_ID = Identifier.of("minecraft", "blocks/redstone_torch");
     private static final Identifier SOUL_TORCH_ID = Identifier.of("minecraft", "blocks/soul_torch");
     private static final Identifier LANTERN_ID = Identifier.of("minecraft", "blocks/lantern");
     private static final Identifier SOUL_LANTERN_ID = Identifier.of("minecraft", "blocks/soul_lantern");
@@ -205,16 +204,6 @@ public class SnailLootTableMod {
             }
 
             if (TORCH_ID.equals(registryKey.getValue())){
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1f))
-                        .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(Items.STICK))
-                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
-
-                LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
-                return tableBuilder.build();
-            }
-            if (REDSTONE_TORCH_ID.equals(registryKey.getValue())){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))

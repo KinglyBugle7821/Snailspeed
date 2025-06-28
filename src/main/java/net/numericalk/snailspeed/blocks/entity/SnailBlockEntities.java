@@ -7,7 +7,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
-import net.numericalk.snailspeed.blocks.custom.ArmorForgeBlock;
 import net.numericalk.snailspeed.blocks.entity.custom.*;
 
 public class SnailBlockEntities {
@@ -56,6 +55,9 @@ public class SnailBlockEntities {
     public static final BlockEntityType<ArmorForgeBlockEntity>  ARMOR_FORGE_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "armor_forge_block_entity"),
                     FabricBlockEntityTypeBuilder.create(ArmorForgeBlockEntity::new, SnailBlocks.ARMOR_FORGE).build(null));
+    public static final BlockEntityType<SmallBarrelBlockEntity> SMALL_BARREL_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, "small_barrel_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(SmallBarrelBlockEntity::new, SnailBlocks.SMALL_BARREL).build(null));
 
     public static void initialize() {}
 }

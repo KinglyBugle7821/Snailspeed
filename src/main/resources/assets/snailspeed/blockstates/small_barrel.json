@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/small_barrel"
+      }
+    }
+  ]
+}

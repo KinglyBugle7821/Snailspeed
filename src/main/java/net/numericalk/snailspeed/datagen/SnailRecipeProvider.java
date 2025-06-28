@@ -376,6 +376,11 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .group("multi_bench")
                         .criterion(hasItem(Items.GRAVEL), conditionsFromItem(Items.GRAVEL))
                         .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.SMALL_BARREL)
+                        .input(SnailBlocks.STICK_BUNDLE, 4)
+                        .criterion(hasItem(SnailBlocks.STICK_BUNDLE), conditionsFromItem(SnailBlocks.STICK_BUNDLE))
+                        .offerTo(exporter);
             }
         };
     }

@@ -240,6 +240,7 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.ARMOR_FORGE_PLATE);
                         entries.add(SnailBlocks.ARMOR_FORGE);
+                        entries.add(SnailBlocks.SMALL_BARREL);
 
                     }).build());
     public static void initialize() {}

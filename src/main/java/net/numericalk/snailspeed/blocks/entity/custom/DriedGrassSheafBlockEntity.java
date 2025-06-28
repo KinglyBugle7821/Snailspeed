@@ -44,7 +44,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
     }
 
     private int burnTimeRemaining = 0;
-    private final int maxBurnTime = 20 * 60 * 4;
+    private final int maxBurnTime = 20 * 60 * 2;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isDriedGrassSheaf(state)){

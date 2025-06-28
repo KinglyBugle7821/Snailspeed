@@ -68,6 +68,7 @@
   "block.snailspeed.resin_bowl": "Resin Bowl",
   "block.snailspeed.scratched_deepslate": "Scratched Deepslate",
   "block.snailspeed.scratched_stone": "Scratched Stone",
+  "block.snailspeed.small_barrel": "Small Barrel",
   "block.snailspeed.stick_bundle": "Stick Bundle",
   "block.snailspeed.tapped_birch_log": "Tapped Birch Log",
   "block.snailspeed.tapped_pale_oak_log": "Tapped Pale Oak Log",
@@ -225,5 +226,5 @@
   "item.snailspeed.tinder": "Tinder",
   "item.snailspeed.warped_stem_bark": "Warped Stem Bark",
   "item.snailspeed.wood_dust": "Wood Dust",
-  "itemgroup.snailspeed": "snailspeed"
+  "itemgroup.snailspeed": "Snailspeed"
 }

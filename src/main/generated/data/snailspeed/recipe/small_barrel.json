@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:stick_bundle",
+    "snailspeed:stick_bundle",
+    "snailspeed:stick_bundle",
+    "snailspeed:stick_bundle"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:small_barrel"
+  }
+}

@@ -296,7 +296,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, "Deepslate Graphite Ore");
 
         translationBuilder.add(SnailBlocks.ARMOR_FORGE, "Armor Forge");
+        translationBuilder.add(SnailBlocks.SMALL_BARREL, "Small Barrel");
 
-        translationBuilder.add("itemgroup.snailspeed", "snailspeed");
+        translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }
 }

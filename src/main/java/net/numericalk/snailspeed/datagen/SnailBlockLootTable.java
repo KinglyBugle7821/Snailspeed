@@ -247,6 +247,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, multipleOreDrops(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, SnailItems.RAW_GRAPHITE, 1f, 1f));
 
         addDrop(SnailBlocks.ARMOR_FORGE);
+        addDrop(SnailBlocks.SMALL_BARREL);
     }
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
         return this.dropsWithSilkTouch(drop,

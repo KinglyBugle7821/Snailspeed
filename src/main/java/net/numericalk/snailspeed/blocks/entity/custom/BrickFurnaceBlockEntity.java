@@ -1,5 +1,6 @@
 package net.numericalk.snailspeed.blocks.entity.custom;
 
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
@@ -13,6 +14,7 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -59,6 +61,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     public float fireTime;
     public float maxFireTime = 20 * 60 * 10;
     public void tick(World world1, BlockPos pos, BlockState state) {
+
         if (hasFuel() && isLit(state)){
             decreaseFireTime();
             if (fireTime <= 0) {
@@ -75,8 +78,6 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
         else {
             resetFireTime();
         }
-
-
 
         if (state.get(BrickFurnaceBlock.LIT).equals(2)){
             maxProgress = 20 * 60 * 3;

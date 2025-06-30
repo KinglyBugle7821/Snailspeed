@@ -58,7 +58,7 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
         return createNbt(registryLookup);
     }
 
-    public void tick(World world1, BlockPos pos, BlockState state) {
+    public void serverTick(World world1, BlockPos pos, BlockState state) {
         filterItem(world1, pos, state);
 
         if (this.getStack(4).isIn(SnailItemTagsProvider.FILTERS)){
@@ -66,6 +66,9 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
         } else {
             world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, false));
         }
+    }
+    public void clientTick(World world1, BlockPos pos, BlockState state1) {
+        filterItem(world1, pos, state1);
     }
     Item[][] filteringRecipe ={
             {SnailItems.GROUND_GRAPHITE, Items.CLAY_BALL, Items.AIR, Items.AIR, SnailItems.REFINED_GRAPHITE}
@@ -100,9 +103,10 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
                 if (progress >= maxProgress) {
                     world1.updateListeners(pos, getCachedState(), getCachedState(), FilteringTrayBlock.NOTIFY_ALL);
                     setStack(INPUT_1, new ItemStack(output));
-                    setStack(INPUT_2, new ItemStack(SnailItems.AIR));
-                    setStack(INPUT_3, new ItemStack(SnailItems.AIR));
-                    setStack(INPUT_4, new ItemStack(SnailItems.AIR));
+
+                    setStack(INPUT_2, ItemStack.EMPTY);
+                    setStack(INPUT_3, ItemStack.EMPTY);
+                    setStack(INPUT_4, ItemStack.EMPTY);
 
                     world1.updateListeners(pos, getCachedState(), getCachedState(), FilteringTrayBlock.NOTIFY_ALL);
 
@@ -128,4 +132,6 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
             );
         }
     }
+
+
 }

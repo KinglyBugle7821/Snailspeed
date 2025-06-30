@@ -1,6 +1,5 @@
 package net.numericalk.snailspeed.networking;
 
-
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -16,6 +15,7 @@ import net.numericalk.snailspeed.utils.enums.SawCraftable;
 public class SnailNetworkingBrain {
     public static final Identifier ARMOR_FORGE_ID = Identifier.of(Snailspeed.MOD_ID, "armor_forge_crafting");
     public static final Identifier SAW_RECIPE_ID = Identifier.of(Snailspeed.MOD_ID, "saw_table_crafting");
+    public static final Identifier FURNACE_SLOT_SYNC = Identifier.of(Snailspeed.MOD_ID, "furnace_slot_sync");
 
     public static void registerC2SPackets() {
         ServerPlayNetworking.registerGlobalReceiver(

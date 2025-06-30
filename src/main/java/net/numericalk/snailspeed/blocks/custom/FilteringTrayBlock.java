@@ -184,10 +184,13 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (world.isClient()){
-            return null;
+            return validateTicker(type, SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY,
+                    (world1, pos, state1, blockEntity) -> {
+                blockEntity.clientTick(world1, pos, state1);
+            });
         }
         return validateTicker(type, SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) ->
-                        blockEntity.tick(world1, pos, state1));
+                        blockEntity.serverTick(world1, pos, state1));
     }
 }

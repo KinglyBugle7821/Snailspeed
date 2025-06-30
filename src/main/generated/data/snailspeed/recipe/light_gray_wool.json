@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:rough_light_gray_wool",
+    "snailspeed:rough_light_gray_wool",
+    "snailspeed:rough_light_gray_wool",
+    "snailspeed:rough_light_gray_wool"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:light_gray_wool"
+  }
+}

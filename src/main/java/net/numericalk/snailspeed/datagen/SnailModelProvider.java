@@ -291,6 +291,23 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.CIRCULAR_SAW, Models.GENERATED);
         itemModelGenerator.register(SnailItems.LONG_STICK, Models.HANDHELD);
 
+        itemModelGenerator.register(SnailItems.ROUGH_WHITE_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_ORANGE_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_MAGENTA_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_LIGHT_BLUE_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_YELLOW_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_LIME_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_PINK_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_GRAY_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_LIGHT_GRAY_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_CYAN_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_PURPLE_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_BLUE_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_BROWN_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_GREEN_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_RED_WOOL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.ROUGH_BLACK_WOOL, Models.GENERATED);
+
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 
 

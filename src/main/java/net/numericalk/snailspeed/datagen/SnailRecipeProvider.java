@@ -84,6 +84,25 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.PLATE_CLAY_MOLD, SnailItems.PLATE_GRAPHITE_MOLD}
             };
 
+            final Item[][] woolProcessing = {
+                    {SnailItems.ROUGH_WHITE_WOOL, Items.WHITE_WOOL},
+                    {SnailItems.ROUGH_ORANGE_WOOL, Items.ORANGE_WOOL},
+                    {SnailItems.ROUGH_MAGENTA_WOOL, Items.MAGENTA_WOOL},
+                    {SnailItems.ROUGH_LIGHT_BLUE_WOOL, Items.LIGHT_BLUE_WOOL},
+                    {SnailItems.ROUGH_YELLOW_WOOL, Items.YELLOW_WOOL},
+                    {SnailItems.ROUGH_LIME_WOOL, Items.LIME_WOOL},
+                    {SnailItems.ROUGH_PINK_WOOL, Items.PINK_WOOL},
+                    {SnailItems.ROUGH_GRAY_WOOL, Items.GRAY_WOOL},
+                    {SnailItems.ROUGH_LIGHT_GRAY_WOOL, Items.LIGHT_GRAY_WOOL},
+                    {SnailItems.ROUGH_CYAN_WOOL, Items.CYAN_WOOL},
+                    {SnailItems.ROUGH_PURPLE_WOOL, Items.PURPLE_WOOL},
+                    {SnailItems.ROUGH_BLUE_WOOL, Items.BLUE_WOOL},
+                    {SnailItems.ROUGH_BROWN_WOOL, Items.BROWN_WOOL},
+                    {SnailItems.ROUGH_GREEN_WOOL, Items.GREEN_WOOL},
+                    {SnailItems.ROUGH_RED_WOOL, Items.RED_WOOL},
+                    {SnailItems.ROUGH_BLACK_WOOL, Items.BLACK_WOOL}
+            };
+
             @Override
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
@@ -392,6 +411,17 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input(SnailItems.IRON_PLATE, 4)
                         .criterion(hasItem(SnailItems.IRON_PLATE), conditionsFromItem(SnailItems.IRON_PLATE))
                         .offerTo(exporter);
+
+                for (Item[] wools : woolProcessing){
+                    Item roughWool = wools[0];
+                    Item wool = wools[1];
+
+                    createShapeless(RecipeCategory.BUILDING_BLOCKS, wool)
+                            .input(roughWool, 4)
+                            .criterion(hasItem(roughWool), conditionsFromItem(roughWool))
+                            .offerTo(exporter);
+                }
+
             }
         };
     }

@@ -197,6 +197,23 @@ public class SnailItems {
     public static final Item CIRCULAR_SAW = register("circular_saw", settings -> new CircularSawItem(settings.maxCount(1).maxDamage(250)));
     public static final Item LONG_STICK = register("long_stick", Item::new);
 
+    public static final Item ROUGH_WHITE_WOOL = register("rough_white_wool", Item::new);
+    public static final Item ROUGH_ORANGE_WOOL = register("rough_orange_wool", Item::new);
+    public static final Item ROUGH_MAGENTA_WOOL = register("rough_magenta_wool", Item::new);
+    public static final Item ROUGH_LIGHT_BLUE_WOOL = register("rough_light_blue_wool", Item::new);
+    public static final Item ROUGH_YELLOW_WOOL = register("rough_yellow_wool", Item::new);
+    public static final Item ROUGH_LIME_WOOL = register("rough_lime_wool", Item::new);
+    public static final Item ROUGH_PINK_WOOL = register("rough_pink_wool", Item::new);
+    public static final Item ROUGH_GRAY_WOOL = register("rough_gray_wool", Item::new);
+    public static final Item ROUGH_LIGHT_GRAY_WOOL = register("rough_light_gray_wool", Item::new);
+    public static final Item ROUGH_CYAN_WOOL = register("rough_cyan_wool", Item::new);
+    public static final Item ROUGH_PURPLE_WOOL = register("rough_purple_wool", Item::new);
+    public static final Item ROUGH_BLUE_WOOL = register("rough_blue_wool", Item::new);
+    public static final Item ROUGH_BROWN_WOOL = register("rough_brown_wool", Item::new);
+    public static final Item ROUGH_GREEN_WOOL = register("rough_green_wool", Item::new);
+    public static final Item ROUGH_RED_WOOL = register("rough_red_wool", Item::new);
+    public static final Item ROUGH_BLACK_WOOL = register("rough_black_wool", Item::new);
+
     public static final Item AIR = register("air", AirItem::new);
 
     private static Item register(String name, Function<Item.Settings, Item> function) {

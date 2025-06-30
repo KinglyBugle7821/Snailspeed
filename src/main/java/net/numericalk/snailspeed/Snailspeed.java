@@ -29,13 +29,11 @@ public class Snailspeed implements ModInitializer {
 
 		SnailWorldGen.generateModdedWorldGen();
 
-
 		SnailLootTableMod.modifyLootTables();
 		SnailLogStripping.logStripping();
 		SnailSetBlockOnFire.SetOnFire();
 		SnailWoodReplace.replaceWood();
 		SnailBreakEvents.playerBreak();
-
 
 		PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
 		PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);

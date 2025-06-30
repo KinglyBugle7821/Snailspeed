@@ -245,6 +245,24 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.SMALL_BARREL);
                         entries.add(SnailBlocks.SAW_TABLE);
 
+                        entries.add(SnailItems.ROUGH_WHITE_WOOL);
+                        entries.add(SnailItems.ROUGH_ORANGE_WOOL);
+                        entries.add(SnailItems.ROUGH_MAGENTA_WOOL);
+                        entries.add(SnailItems.ROUGH_LIGHT_BLUE_WOOL);
+                        entries.add(SnailItems.ROUGH_YELLOW_WOOL);
+                        entries.add(SnailItems.ROUGH_LIME_WOOL);
+                        entries.add(SnailItems.ROUGH_PINK_WOOL);
+                        entries.add(SnailItems.ROUGH_GRAY_WOOL);
+                        entries.add(SnailItems.ROUGH_LIGHT_GRAY_WOOL);
+                        entries.add(SnailItems.ROUGH_CYAN_WOOL);
+                        entries.add(SnailItems.ROUGH_PURPLE_WOOL);
+                        entries.add(SnailItems.ROUGH_BLUE_WOOL);
+                        entries.add(SnailItems.ROUGH_BROWN_WOOL);
+                        entries.add(SnailItems.ROUGH_GREEN_WOOL);
+                        entries.add(SnailItems.ROUGH_RED_WOOL);
+                        entries.add(SnailItems.ROUGH_BLACK_WOOL);
+
+
                     }).build());
     public static void initialize() {}
 

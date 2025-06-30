@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:rough_lime_wool",
+    "snailspeed:rough_lime_wool",
+    "snailspeed:rough_lime_wool",
+    "snailspeed:rough_lime_wool"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:lime_wool"
+  }
+}

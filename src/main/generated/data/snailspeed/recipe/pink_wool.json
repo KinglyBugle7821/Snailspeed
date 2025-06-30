@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:rough_pink_wool",
+    "snailspeed:rough_pink_wool",
+    "snailspeed:rough_pink_wool",
+    "snailspeed:rough_pink_wool"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_wool"
+  }
+}

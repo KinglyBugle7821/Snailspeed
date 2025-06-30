@@ -188,6 +188,24 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.LONG_STICK, "Long Stick");
 
 
+        translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
+        translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");
+        translationBuilder.add(SnailItems.ROUGH_MAGENTA_WOOL, "Rough Magenta Wool");
+        translationBuilder.add(SnailItems.ROUGH_LIGHT_BLUE_WOOL, "Rough Light Blue Wool");
+        translationBuilder.add(SnailItems.ROUGH_YELLOW_WOOL, "Rough Yellow Wool");
+        translationBuilder.add(SnailItems.ROUGH_LIME_WOOL, "Rough Lime Wool");
+        translationBuilder.add(SnailItems.ROUGH_PINK_WOOL, "Rough Pink Wool");
+        translationBuilder.add(SnailItems.ROUGH_GRAY_WOOL, "Rough Gray Wool");
+        translationBuilder.add(SnailItems.ROUGH_LIGHT_GRAY_WOOL, "Rough Light Gray Wool");
+        translationBuilder.add(SnailItems.ROUGH_CYAN_WOOL, "Rough Cyan Wool");
+        translationBuilder.add(SnailItems.ROUGH_PURPLE_WOOL, "Rough Purple Wool");
+        translationBuilder.add(SnailItems.ROUGH_BLUE_WOOL, "Rough Blue Wool");
+        translationBuilder.add(SnailItems.ROUGH_BROWN_WOOL, "Rough Brown Wool");
+        translationBuilder.add(SnailItems.ROUGH_GREEN_WOOL, "Rough Green Wool");
+        translationBuilder.add(SnailItems.ROUGH_RED_WOOL, "Rough Red Wool");
+        translationBuilder.add(SnailItems.ROUGH_BLACK_WOOL, "Rough Black Wool");
+
+
 
 
 

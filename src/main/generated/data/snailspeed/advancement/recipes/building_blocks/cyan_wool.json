@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rough_cyan_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:rough_cyan_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cyan_wool"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rough_cyan_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cyan_wool"
+    ]
+  }
+}

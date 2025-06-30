@@ -10,7 +10,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -203,7 +203,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.CRIMSON_STEM_BARK)
                 .add(SnailItems.WARPED_STEM_BARK)
                 .add(SnailItems.WOOD_DUST)
-                .add(SnailBlocks.DRIED_GRASS_SHEAF.asItem());
+                .add(SnailBlocksBrain.DRIED_GRASS_SHEAF.asItem());
         getOrCreateTagBuilder(LOG_BARKS)
                 .add(SnailItems.OAK_LOG_BARK)
                 .add(SnailItems.SPRUCE_LOG_BARK)

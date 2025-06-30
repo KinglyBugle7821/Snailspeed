@@ -14,15 +14,15 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 
 public class SnailBreakEvents {
     static Block[][] StoneBlockCombo = {
-            {Blocks.STONE, SnailBlocks.SCRATCHED_STONE, SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocks.FRACTURED_STONE, SnailBlocks.CRUMBLED_STONE},
-            {Blocks.DEEPSLATE, SnailBlocks.SCRATCHED_DEEPSLATE, SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocks.FRACTURED_DEEPSLATE, SnailBlocks.CRUMBLED_DEEPSLATE}
+            {Blocks.STONE, SnailBlocksBrain.SCRATCHED_STONE, SnailBlocksBrain.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocksBrain.FRACTURED_STONE, SnailBlocksBrain.CRUMBLED_STONE},
+            {Blocks.DEEPSLATE, SnailBlocksBrain.SCRATCHED_DEEPSLATE, SnailBlocksBrain.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocksBrain.FRACTURED_DEEPSLATE, SnailBlocksBrain.CRUMBLED_DEEPSLATE}
     };
     static final Block[] jsDropRockBro = {
             Blocks.SMOOTH_STONE,
@@ -120,18 +120,18 @@ public class SnailBreakEvents {
     };
 
     static Block[][] PlanksBlockCombo = {
-            {Blocks.OAK_PLANKS, SnailBlocks.DAMAGED_OAK_PLANKS},
-            {Blocks.SPRUCE_PLANKS, SnailBlocks.DAMAGED_SPRUCE_PLANKS},
-            {Blocks.BIRCH_PLANKS, SnailBlocks.DAMAGED_BIRCH_PLANKS},
-            {Blocks.JUNGLE_PLANKS, SnailBlocks.DAMAGED_JUNGLE_PLANKS},
-            {Blocks.ACACIA_PLANKS, SnailBlocks.DAMAGED_ACACIA_PLANKS},
-            {Blocks.DARK_OAK_PLANKS, SnailBlocks.DAMAGED_DARK_OAK_PLANKS},
-            {Blocks.MANGROVE_PLANKS, SnailBlocks.DAMAGED_MANGROVE_PLANKS},
-            {Blocks.CHERRY_PLANKS, SnailBlocks.DAMAGED_CHERRY_PLANKS},
-            {Blocks.PALE_OAK_PLANKS, SnailBlocks.DAMAGED_PALE_OAK_PLANKS},
-            {Blocks.BAMBOO_PLANKS, SnailBlocks.DAMAGED_BAMBOO_PLANKS},
-            {Blocks.CRIMSON_PLANKS, SnailBlocks.DAMAGED_CRIMSON_PLANKS},
-            {Blocks.WARPED_PLANKS, SnailBlocks.DAMAGED_WARPED_PLANKS},
+            {Blocks.OAK_PLANKS, SnailBlocksBrain.DAMAGED_OAK_PLANKS},
+            {Blocks.SPRUCE_PLANKS, SnailBlocksBrain.DAMAGED_SPRUCE_PLANKS},
+            {Blocks.BIRCH_PLANKS, SnailBlocksBrain.DAMAGED_BIRCH_PLANKS},
+            {Blocks.JUNGLE_PLANKS, SnailBlocksBrain.DAMAGED_JUNGLE_PLANKS},
+            {Blocks.ACACIA_PLANKS, SnailBlocksBrain.DAMAGED_ACACIA_PLANKS},
+            {Blocks.DARK_OAK_PLANKS, SnailBlocksBrain.DAMAGED_DARK_OAK_PLANKS},
+            {Blocks.MANGROVE_PLANKS, SnailBlocksBrain.DAMAGED_MANGROVE_PLANKS},
+            {Blocks.CHERRY_PLANKS, SnailBlocksBrain.DAMAGED_CHERRY_PLANKS},
+            {Blocks.PALE_OAK_PLANKS, SnailBlocksBrain.DAMAGED_PALE_OAK_PLANKS},
+            {Blocks.BAMBOO_PLANKS, SnailBlocksBrain.DAMAGED_BAMBOO_PLANKS},
+            {Blocks.CRIMSON_PLANKS, SnailBlocksBrain.DAMAGED_CRIMSON_PLANKS},
+            {Blocks.WARPED_PLANKS, SnailBlocksBrain.DAMAGED_WARPED_PLANKS},
     };
 
     public static void playerBreak(){
@@ -141,7 +141,7 @@ public class SnailBreakEvents {
                 if (playerHas(Items.FLINT, player)) {
                     degradeStoneSmall(world, pos, state, true);
                     damageItem(stack, player, world);
-                    givePlayer(SnailItems.FLINT_FLAKE, player);
+                    givePlayer(SnailItems.FLINT_FLAKE, player, world);
                 }
             }
             if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK, player, state)){
@@ -220,6 +220,7 @@ public class SnailBreakEvents {
 
 
     private static void degradePlanks(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Block[] entry : PlanksBlockCombo){
             Block normal = entry[0];
             Block damaged = entry[1];
@@ -267,17 +268,15 @@ public class SnailBreakEvents {
     }
 
     private static void damageItem(ItemStack stack, PlayerEntity player, World world) {
+        if (world.isClient()) return;
         if (stack.isDamageable()){
             stack.damage(1, player);
         }
         else stack.decrement(1);
     }
 
-    private static void decrementStack(PlayerEntity player, World world) {
-        player.getMainHandStack().decrement(1);
-    }
-
     private static void degradeOreBlock(World world, BlockPos pos, BlockState state){
+        if (world.isClient()) return;
         if (state.isIn(SnailBlockTagsProvider.ORES)){
             turnBlockTo(Blocks.STONE, pos, state, world);
         } else if (state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES)){
@@ -288,6 +287,7 @@ public class SnailBreakEvents {
     }
 
     private static void degradeStoneHuge(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -331,6 +331,7 @@ public class SnailBreakEvents {
     }
 
     private static void degradeStoneBig(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -370,6 +371,7 @@ public class SnailBreakEvents {
         }
     }
     private static void degradeStoneSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Block[] stone : StoneBlockCombo){
             Block scratched = stone[1];
             Block cracked = stone[2];
@@ -406,13 +408,16 @@ public class SnailBreakEvents {
     }
 
     private static void turnBlockTo(Block block, BlockPos pos, BlockState state, World world) {
+        if (world.isClient()) return;
         world.setBlockState(pos, block.getStateWithProperties(state));
     }
 
     private static void addDrop(World world, Item item, BlockPos pos) {
+        if (world.isClient()) return;
         ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());
     }
-    private static void givePlayer(Item item, PlayerEntity player){
+    private static void givePlayer(Item item, PlayerEntity player, World world){
+        if (world.isClient()) return;
         player.giveOrDropStack(item.getDefaultStack());
     }
 

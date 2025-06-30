@@ -11,7 +11,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.blocks.custom.ResinBowlBlock;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
@@ -48,9 +48,9 @@ public class ResinBowlBlockEntity extends BlockEntity {
     }
 
     Block[][] decayingLog = {
-            {SnailBlocks.TAPPED_SPRUCE_LOG, SnailBlocks.DECAYED_SPRUCE_LOG},
-            {SnailBlocks.TAPPED_BIRCH_LOG, SnailBlocks.DECAYED_BIRCH_LOG},
-            {SnailBlocks.TAPPED_PALE_OAK_LOG, SnailBlocks.DECAYED_PALE_OAK_LOG}
+            {SnailBlocksBrain.TAPPED_SPRUCE_LOG, SnailBlocksBrain.DECAYED_SPRUCE_LOG},
+            {SnailBlocksBrain.TAPPED_BIRCH_LOG, SnailBlocksBrain.DECAYED_BIRCH_LOG},
+            {SnailBlocksBrain.TAPPED_PALE_OAK_LOG, SnailBlocksBrain.DECAYED_PALE_OAK_LOG}
     };
 
     private void decayLog(World world1, BlockPos pos, BlockState state) {

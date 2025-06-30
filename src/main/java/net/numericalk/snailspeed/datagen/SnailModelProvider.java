@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
 import net.minecraft.util.Identifier;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 
 public class SnailModelProvider extends FabricModelProvider {
@@ -14,98 +14,100 @@ public class SnailModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_SPRUCE_LOG, Identifier.of("snailspeed", "block/trimmed_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_BIRCH_LOG, Identifier.of("snailspeed", "block/trimmed_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_JUNGLE_LOG, Identifier.of("snailspeed", "block/trimmed_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_ACACIA_LOG, Identifier.of("snailspeed", "block/trimmed_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_MANGROVE_LOG, Identifier.of("snailspeed", "block/trimmed_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CHERRY_LOG, Identifier.of("snailspeed", "block/trimmed_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CRIMSON_STEM, Identifier.of("snailspeed", "block/trimmed_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_WARPED_STEM, Identifier.of("snailspeed", "block/trimmed_warped_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_SPRUCE_LOG, Identifier.of("snailspeed", "block/trimmed_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_BIRCH_LOG, Identifier.of("snailspeed", "block/trimmed_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_JUNGLE_LOG, Identifier.of("snailspeed", "block/trimmed_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_ACACIA_LOG, Identifier.of("snailspeed", "block/trimmed_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_MANGROVE_LOG, Identifier.of("snailspeed", "block/trimmed_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_CHERRY_LOG, Identifier.of("snailspeed", "block/trimmed_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_CRIMSON_STEM, Identifier.of("snailspeed", "block/trimmed_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TRIMMED_WARPED_STEM, Identifier.of("snailspeed", "block/trimmed_warped_stem"));
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_OAK_LOG, Identifier.of("snailspeed", "block/cracked_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_SPRUCE_LOG, Identifier.of("snailspeed", "block/cracked_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_BIRCH_LOG, Identifier.of("snailspeed", "block/cracked_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_JUNGLE_LOG, Identifier.of("snailspeed", "block/cracked_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_ACACIA_LOG, Identifier.of("snailspeed", "block/cracked_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/cracked_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_MANGROVE_LOG, Identifier.of("snailspeed", "block/cracked_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CHERRY_LOG, Identifier.of("snailspeed", "block/cracked_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/cracked_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CRIMSON_STEM, Identifier.of("snailspeed", "block/cracked_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_WARPED_STEM, Identifier.of("snailspeed", "block/cracked_warped_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_OAK_LOG, Identifier.of("snailspeed", "block/cracked_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_SPRUCE_LOG, Identifier.of("snailspeed", "block/cracked_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_BIRCH_LOG, Identifier.of("snailspeed", "block/cracked_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_JUNGLE_LOG, Identifier.of("snailspeed", "block/cracked_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_ACACIA_LOG, Identifier.of("snailspeed", "block/cracked_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/cracked_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_MANGROVE_LOG, Identifier.of("snailspeed", "block/cracked_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_CHERRY_LOG, Identifier.of("snailspeed", "block/cracked_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/cracked_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_CRIMSON_STEM, Identifier.of("snailspeed", "block/cracked_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_WARPED_STEM, Identifier.of("snailspeed", "block/cracked_warped_stem"));
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_OAK_LOG, Identifier.of("snailspeed", "block/damaged_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_SPRUCE_LOG, Identifier.of("snailspeed", "block/damaged_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_BIRCH_LOG, Identifier.of("snailspeed", "block/damaged_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_JUNGLE_LOG, Identifier.of("snailspeed", "block/damaged_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_ACACIA_LOG, Identifier.of("snailspeed", "block/damaged_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/damaged_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_MANGROVE_LOG, Identifier.of("snailspeed", "block/damaged_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CHERRY_LOG, Identifier.of("snailspeed", "block/damaged_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/damaged_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_OAK_LOG, Identifier.of("snailspeed", "block/damaged_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_SPRUCE_LOG, Identifier.of("snailspeed", "block/damaged_spruce_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_BIRCH_LOG, Identifier.of("snailspeed", "block/damaged_birch_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_JUNGLE_LOG, Identifier.of("snailspeed", "block/damaged_jungle_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_ACACIA_LOG, Identifier.of("snailspeed", "block/damaged_acacia_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/damaged_dark_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_MANGROVE_LOG, Identifier.of("snailspeed", "block/damaged_mangrove_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_CHERRY_LOG, Identifier.of("snailspeed", "block/damaged_cherry_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/damaged_pale_oak_log"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
 
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_OAK_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_SPRUCE_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BIRCH_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_JUNGLE_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_ACACIA_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_DARK_OAK_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_MANGROVE_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CHERRY_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_PALE_OAK_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_BAMBOO_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_CRIMSON_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_WARPED_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_SPRUCE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_BIRCH_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_JUNGLE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_ACACIA_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_DARK_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_MANGROVE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_CHERRY_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_PALE_OAK_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_BAMBOO_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_CRIMSON_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DAMAGED_WARPED_PLANKS);
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TAPPED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TAPPED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TAPPED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.TAPPED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DECAYED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DECAYED_SPRUCE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DECAYED_BIRCH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.DECAYED_PALE_OAK_LOG, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.GRASS_SHEAF);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_GRASS_SHEAF);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_BRICK);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.DRIED_GRASS_SHEAF);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.CLAY_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.DRIED_CLAY_BRICK);
 
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.FIRED_BRICK);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.MORTAR);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.FIRED_BRICK);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.MORTAR);
 
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CLAY_CRUCIBLE);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.DRIED_CLAY_CRUCIBLE);
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocks.CRUCIBLE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.CLAY_CRUCIBLE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.DRIED_CLAY_CRUCIBLE);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.CRUCIBLE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.SCRATCHED_STONE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRACKED_STONE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.FRACTURED_STONE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRUMBLED_STONE);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.SCRATCHED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.FRACTURED_DEEPSLATE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.CRUMBLED_DEEPSLATE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.SCRATCHED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.CRACKED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.FRACTURED_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.CRUMBLED_STONE);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.SCRATCHED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.CRACKED_DEEPSLATE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.FRACTURED_DEEPSLATE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.CRUMBLED_DEEPSLATE);
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.UNTIED_THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.UNTIED_STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.STICK_BUNDLE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.UNTIED_THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(SnailBlocksBrain.THATCH_BLOCK, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_ROOTED_DIRT);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.UNSTEADY_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.UNSTEADY_ROOTED_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.UNSTEADY_COARSE_DIRT);
 
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.TIN_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DEEPSLATE_TIN_ORE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.GRAPHITE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.GRAPHITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocksBrain.DEEPSLATE_GRAPHITE_ORE);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(SnailBlocksBrain.SAW_TABLE);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -128,7 +130,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.FLINT_HATCHET, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.FLINT_PICKAXE, Models.HANDHELD);
 
-        itemModelGenerator.register(SnailBlocks.CAMPFIRE_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.CAMPFIRE_BASE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.TINDER, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.BURNING_TINDER, Models.HANDHELD);
@@ -286,6 +288,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.IRON_BOLT, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.ARMOR_FORGE_PLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.LONG_STICK, Models.HANDHELD);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 
@@ -295,26 +298,26 @@ public class SnailModelProvider extends FabricModelProvider {
 
 
 
-        itemModelGenerator.register(SnailBlocks.GRASS_SHEAF.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.CLAY_BRICK.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_BRICK.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.FIRED_BRICK.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.CLAY_CRUCIBLE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_CRUCIBLE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.CRUCIBLE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.DRIED_GRASS_SHEAF.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.DRIED_CLAY_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.FIRED_BRICK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.CLAY_CRUCIBLE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.DRIED_CLAY_CRUCIBLE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.CRUCIBLE.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(SnailBlocks.MORTAR.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.MORTAR.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(SnailBlocks.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.BRICK_FURNACE_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.BRICK_OVEN_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.BRICK_FURNACE_BASE.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(SnailBlocks.CLAY_MOLD.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.DRIED_CLAY_MOLD.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.FIRED_CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.DRIED_CLAY_MOLD.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.FIRED_CLAY_MOLD.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
-        itemModelGenerator.register(SnailBlocks.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.RESIN_BOWL.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocksBrain.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
     }
     @Override
     public String getName() {

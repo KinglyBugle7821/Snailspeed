@@ -17,6 +17,8 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -26,6 +28,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItems;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreenHandler;
+import net.numericalk.snailspeed.utils.enums.ArmorPiece;
 import org.jetbrains.annotations.Nullable;
 
 public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
@@ -73,11 +76,10 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
         return new ArmorForgeScreenHandler(syncId, playerInventory, this);
     }
 
-
-
     public void tick(World world1, BlockPos pos, BlockState state) {
+        System.out.println(hasRecipe());
         if (hasRecipe()){
-            askToCreateArmor();
+            askToCreateArmor(world1);
         } else {
             removeStack(OUTPUT);
         }
@@ -106,135 +108,106 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
             {SnailItems.STEEL_PLATE, SnailItems.CHAIN_LINKS, SnailItems.IRON_BOLT, SnailItems.IRON_HAMMER, SnailItems.STEEL_HELMET, SnailItems.STEEL_CHESTPLATE, SnailItems.STEEL_LEGGINGS, SnailItems.STEEL_BOOTS},
     };
 
-    private void askToCreateArmor() {
-        var screen = MinecraftClient.getInstance().currentScreen;
-        if (screen instanceof ArmorForgeScreen forgeScreen) {
-            ArmorForgeScreen.ArmorPiece selected = forgeScreen.getSelectedPiece();
-            for (Item[] armorPiece : armorRecipe){
-                Item plate = armorPiece[0];
-                Item binding = armorPiece[1];
-                Item fastener = armorPiece[2];
-                Item tool = armorPiece[3];
-                Item helmet = armorPiece[4];
-                Item chestplate = armorPiece[5];
-                Item leggings = armorPiece[6];
-                Item boots = armorPiece[7];
+    ArmorPiece selected = ArmorPiece.HELMET;
 
-                ItemStack plateSlot = this.getStack(PLATE_SLOT);
-                ItemStack bindingSlot = this.getStack(BINDING_SLOT);
-                ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
-                ItemStack toolSlot = this.getStack(TOOL_SLOT);
-                if (selected.equals(ArmorForgeScreen.ArmorPiece.HELMET)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_helmet) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_helmet) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_helmet) &&
-                            (toolSlot.isOf(tool))){
-                        setStack(OUTPUT, helmet.getDefaultStack());
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.CHESTPLATE)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_chestplate) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_chestplate) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_chestplate) &&
-                            (toolSlot.isOf(tool))){
-                        setStack(OUTPUT, chestplate.getDefaultStack());
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.LEGGINGS)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_leggings) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_leggings) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_leggings) &&
-                            (toolSlot.isOf(tool))){
-                        setStack(OUTPUT, leggings.getDefaultStack());
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.BOOTS)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_boots) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_boots) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_boots) &&
-                            (toolSlot.isOf(tool))){
-                        setStack(OUTPUT, boots.getDefaultStack());
-                    }
-                }
-            }
-        }
+    public void setSelectedPiece(ArmorPiece selected) {
+        this.selected = selected;
     }
-
     private boolean hasRecipe() {
-        var screen = MinecraftClient.getInstance().currentScreen;
-        if (screen instanceof ArmorForgeScreen forgeScreen) {
-            ArmorForgeScreen.ArmorPiece selected = forgeScreen.getSelectedPiece();
-            for (Item[] armorPiece : armorRecipe){
-                Item plate = armorPiece[0];
-                Item binding = armorPiece[1];
-                Item fastener = armorPiece[2];
-                Item tool = armorPiece[3];
+        for (Item[] armorPiece : armorRecipe) {
+            Item plate = armorPiece[0];
+            Item binding = armorPiece[1];
+            Item fastener = armorPiece[2];
+            Item tool = armorPiece[3];
 
-                ItemStack plateSlot = this.getStack(PLATE_SLOT);
-                ItemStack bindingSlot = this.getStack(BINDING_SLOT);
-                ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
-                ItemStack toolSlot = this.getStack(TOOL_SLOT);
-                if (selected.equals(ArmorForgeScreen.ArmorPiece.HELMET)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_helmet) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_helmet) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_helmet) &&
-                            (toolSlot.isOf(tool))){
-                        return true;
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.CHESTPLATE)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_chestplate) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_chestplate) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_chestplate) &&
-                            (toolSlot.isOf(tool))){
-                        return true;
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.LEGGINGS)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_leggings) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_leggings) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_leggings) &&
-                            (toolSlot.isOf(tool))){
-                        return true;
-                    }
-                } else if (selected.equals(ArmorForgeScreen.ArmorPiece.BOOTS)){
-                    if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plate_boots) &&
-                            (bindingSlot.isOf(binding) && bindingSlot.getCount() >= binding_boots) &&
-                            (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastener_boots) &&
-                            (toolSlot.isOf(tool))){
-                        return true;
-                    }
+            if (selected == ArmorPiece.HELMET) {
+                if (getOutputOf(plate, binding, fastener, tool, plate_helmet, binding_helmet, fastener_helmet)) {
+                    return true;
+                }
+            } else if (selected == ArmorPiece.CHESTPLATE) {
+                if (getOutputOf(plate, binding, fastener, tool, plate_chestplate, binding_chestplate, fastener_chestplate)) {
+                    return true;
+                }
+            } else if (selected == ArmorPiece.LEGGINGS) {
+                if (getOutputOf(plate, binding, fastener, tool, plate_leggings, binding_leggings, fastener_leggings)) {
+                    return true;
+                }
+            } else if (selected == ArmorPiece.BOOTS) {
+                if (getOutputOf(plate, binding, fastener, tool, plate_boots, binding_boots, fastener_boots)) {
+                    return true;
                 }
             }
         }
         return false;
     }
 
-    public void decrementInput(PlayerEntity player) {
-        var screen = MinecraftClient.getInstance().currentScreen;
+    public void askToCreateArmor(World world) {
+        for (Item[] armorPiece : armorRecipe){
+            Item plate = armorPiece[0];
+            Item binding = armorPiece[1];
+            Item fastener = armorPiece[2];
+            Item tool = armorPiece[3];
+            Item helmet = armorPiece[4];
+            Item chestplate = armorPiece[5];
+            Item leggings = armorPiece[6];
+            Item boots = armorPiece[7];
 
-        if (screen instanceof ArmorForgeScreen forgeScreen) {
-            ArmorForgeScreen.ArmorPiece selected = forgeScreen.getSelectedPiece();
-            if (selected.equals(ArmorForgeScreen.ArmorPiece.HELMET)){
-                this.getStack(PLATE_SLOT).decrement(plate_helmet);
-                this.getStack(BINDING_SLOT).decrement(binding_helmet);
-                this.getStack(FASTENER_SLOT).decrement(fastener_helmet);
-                this.getStack(TOOL_SLOT).damage(1, player);
-                markDirty();
-            } else if (selected.equals(ArmorForgeScreen.ArmorPiece.CHESTPLATE)){
-                this.getStack(PLATE_SLOT).decrement(plate_chestplate);
-                this.getStack(BINDING_SLOT).decrement(binding_chestplate);
-                this.getStack(FASTENER_SLOT).decrement(fastener_chestplate);
-                this.getStack(TOOL_SLOT).damage(1, player);
-                markDirty();
-            } else if (selected.equals(ArmorForgeScreen.ArmorPiece.LEGGINGS)){
-                this.getStack(PLATE_SLOT).decrement(plate_leggings);
-                this.getStack(BINDING_SLOT).decrement(binding_leggings);
-                this.getStack(FASTENER_SLOT).decrement(fastener_leggings);
-                this.getStack(TOOL_SLOT).damage(1, player);
-                markDirty();
-            } else if (selected.equals(ArmorForgeScreen.ArmorPiece.BOOTS)){
-                this.getStack(PLATE_SLOT).decrement(plate_boots);
-                this.getStack(BINDING_SLOT).decrement(binding_boots);
-                this.getStack(FASTENER_SLOT).decrement(fastener_boots);
-                this.getStack(TOOL_SLOT).damage(1, player);
-                markDirty();
+            switch (selected){
+                case HELMET -> setOutputOf(helmet, plate, binding, fastener, tool, plate_helmet, binding_helmet, fastener_helmet, world);
+                case CHESTPLATE -> setOutputOf(chestplate, plate, binding, fastener, tool, plate_chestplate, binding_chestplate, fastener_chestplate, world);
+                case LEGGINGS -> setOutputOf(leggings, plate, binding, fastener, tool, plate_leggings, binding_leggings, fastener_leggings, world);
+                case BOOTS -> setOutputOf(boots, plate, binding, fastener, tool, plate_boots, binding_boots, fastener_boots, world);
             }
+        }
+    }
+
+    private void setOutputOf(Item item, Item plate, Item binding, Item fastener, Item tool, int plateCount, int bindingCount, int fastenerCount, World world) {
+        ItemStack plateSlot = this.getStack(PLATE_SLOT);
+        ItemStack bindingSlot = this.getStack(BINDING_SLOT);
+        ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
+        ItemStack toolSlot = this.getStack(TOOL_SLOT);
+        if ((plateSlot.isOf(plate) && plateSlot.getCount() >= plateCount) &&
+                (bindingSlot.isOf(binding) && bindingSlot.getCount() >= bindingCount) &&
+                (fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastenerCount) &&
+                (toolSlot.isOf(tool))){
+            this.setStack(OUTPUT, item.getDefaultStack());
+        }
+    }
+    private boolean getOutputOf(Item plate, Item binding, Item fastener, Item tool, int plateCount, int bindingCount, int fastenerCount) {
+        ItemStack plateSlot = this.getStack(PLATE_SLOT);
+        ItemStack bindingSlot = this.getStack(BINDING_SLOT);
+        ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
+        ItemStack toolSlot = this.getStack(TOOL_SLOT);
+        return (plateSlot.isOf(plate) && (plateSlot.getCount() >= plateCount)) &&
+                (bindingSlot.isOf(binding) && (bindingSlot.getCount() >= bindingCount)) &&
+                (fastenerSlot.isOf(fastener) && (fastenerSlot.getCount() >= fastenerCount)) && (toolSlot.isOf(tool));
+    }
+
+    public void decrementInput(PlayerEntity player) {
+        if (selected.equals(ArmorPiece.HELMET)){
+            this.getStack(PLATE_SLOT).decrement(plate_helmet);
+            this.getStack(BINDING_SLOT).decrement(binding_helmet);
+            this.getStack(FASTENER_SLOT).decrement(fastener_helmet);
+            this.getStack(TOOL_SLOT).damage(1, player);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.CHESTPLATE)){
+            this.getStack(PLATE_SLOT).decrement(plate_chestplate);
+            this.getStack(BINDING_SLOT).decrement(binding_chestplate);
+            this.getStack(FASTENER_SLOT).decrement(fastener_chestplate);
+            this.getStack(TOOL_SLOT).damage(1, player);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.LEGGINGS)){
+            this.getStack(PLATE_SLOT).decrement(plate_leggings);
+            this.getStack(BINDING_SLOT).decrement(binding_leggings);
+            this.getStack(FASTENER_SLOT).decrement(fastener_leggings);
+            this.getStack(TOOL_SLOT).damage(1, player);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.BOOTS)){
+            this.getStack(PLATE_SLOT).decrement(plate_boots);
+            this.getStack(BINDING_SLOT).decrement(binding_boots);
+            this.getStack(FASTENER_SLOT).decrement(fastener_boots);
+            this.getStack(TOOL_SLOT).damage(1, player);
+            markDirty();
         }
     }
 
@@ -247,5 +220,11 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         return createNbt(registryLookup);
+    }
+
+    public void playForgingSound(PlayerEntity player) {
+        World world1 = player.getWorld();
+        BlockPos pos = player.getBlockPos();
+        world1.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);
     }
 }

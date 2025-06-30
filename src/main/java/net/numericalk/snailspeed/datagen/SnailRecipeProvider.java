@@ -13,7 +13,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -107,7 +107,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     Item bark = (Item) entry;
                     String idPath = Registries.ITEM.getId(bark).getPath();
 
-                    createShaped(RecipeCategory.MISC, SnailBlocks.CAMPFIRE_BASE, 1)
+                    createShaped(RecipeCategory.MISC, SnailBlocksBrain.CAMPFIRE_BASE, 1)
                             .pattern("bb")
                             .pattern("bb")
                             .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
@@ -123,9 +123,9 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                 createShaped(RecipeCategory.MISC, SnailItems.GRASS_TWINE, 1)
                         .pattern(" g")
                         .pattern("g ")
-                        .input('g', SnailBlocks.DRIED_GRASS_SHEAF)
+                        .input('g', SnailBlocksBrain.DRIED_GRASS_SHEAF)
                         .group("multi_bench")
-                        .criterion(hasItem(SnailBlocks.DRIED_GRASS_SHEAF), conditionsFromItem(SnailBlocks.DRIED_GRASS_SHEAF))
+                        .criterion(hasItem(SnailBlocksBrain.DRIED_GRASS_SHEAF), conditionsFromItem(SnailBlocksBrain.DRIED_GRASS_SHEAF))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailItems.FLINT_HATCHET, 1)
@@ -147,57 +147,57 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.FLINT_FLAKE), conditionsFromItem(SnailItems.FLINT_FLAKE))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.UNTIED_STICK_BUNDLE)
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.UNTIED_STICK_BUNDLE)
                         .input(Items.STICK, 4)
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.STICK_BUNDLE)
-                        .input(SnailBlocks.UNTIED_STICK_BUNDLE)
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.STICK_BUNDLE)
+                        .input(SnailBlocksBrain.UNTIED_STICK_BUNDLE)
                         .input(SnailItems.GRASS_TWINE)
-                        .criterion(hasItem(SnailBlocks.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocks.UNTIED_STICK_BUNDLE))
+                        .criterion(hasItem(SnailBlocksBrain.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocksBrain.UNTIED_STICK_BUNDLE))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.UNTIED_THATCH_BLOCK)
-                        .input(SnailBlocks.DRIED_GRASS_SHEAF, 4)
-                        .criterion(hasItem(SnailBlocks.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocks.UNTIED_THATCH_BLOCK))
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.UNTIED_THATCH_BLOCK)
+                        .input(SnailBlocksBrain.DRIED_GRASS_SHEAF, 4)
+                        .criterion(hasItem(SnailBlocksBrain.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocksBrain.UNTIED_THATCH_BLOCK))
                         .offerTo(exporter);
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.THATCH_BLOCK)
-                        .input(SnailBlocks.UNTIED_THATCH_BLOCK)
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.THATCH_BLOCK)
+                        .input(SnailBlocksBrain.UNTIED_THATCH_BLOCK)
                         .input(SnailItems.GRASS_TWINE)
-                        .criterion(hasItem(SnailBlocks.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocks.UNTIED_THATCH_BLOCK))
+                        .criterion(hasItem(SnailBlocksBrain.UNTIED_THATCH_BLOCK), conditionsFromItem(SnailBlocksBrain.UNTIED_THATCH_BLOCK))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailBlocks.UNSTEADY_COARSE_DIRT, 4)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.UNSTEADY_COARSE_DIRT, 4)
                         .pattern("dg")
                         .pattern("gd")
-                        .input('d', SnailBlocks.UNSTEADY_DIRT)
+                        .input('d', SnailBlocksBrain.UNSTEADY_DIRT)
                         .input('g', Blocks.GRAVEL)
                         .group("multi_bench")
-                        .criterion(hasItem(SnailBlocks.UNSTEADY_DIRT), conditionsFromItem(SnailBlocks.UNSTEADY_DIRT))
+                        .criterion(hasItem(SnailBlocksBrain.UNSTEADY_DIRT), conditionsFromItem(SnailBlocksBrain.UNSTEADY_DIRT))
                         .offerTo(exporter);
-                createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_OVEN_BASE)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.BRICK_OVEN_BASE)
                         .pattern("##")
                         .input('#', Items.BRICK)
                         .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
-                createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_FURNACE_BASE)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.BRICK_FURNACE_BASE)
                         .pattern("#O")
                         .pattern("O#")
                         .input('#', Items.BRICK)
-                        .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
+                        .input('O', SnailBlocksBrain.BRICK_OVEN_BASE.asItem())
                         .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.FURNACE_LID)
                         .pattern("#O")
                         .input('#', Items.BRICK)
-                        .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
+                        .input('O', SnailBlocksBrain.BRICK_OVEN_BASE.asItem())
                         .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailBlocks.MORTAR)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.MORTAR)
                         .pattern("##")
                         .input('#', SnailItems.ROCK)
                         .group("multi_bench")
@@ -211,13 +211,13 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.CLAY_BRICK, 4)
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.CLAY_BRICK, 4)
                         .input(Items.CLAY_BALL, 4)
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
 
-                createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_CRUCIBLE)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.CLAY_CRUCIBLE)
                         .pattern("##")
                         .pattern("##")
                         .input('#', SnailItems.CLAY_SAND)
@@ -234,14 +234,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_MOLD)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.CLAY_MOLD)
                         .pattern("##")
                         .input('#', Items.CLAY_BALL)
                         .group("multi_bench")
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailBlocks.RESIN_BOWL)
+                createShaped(RecipeCategory.MISC, SnailBlocksBrain.RESIN_BOWL)
                         .pattern("SC")
                         .pattern("##")
                         .input('#', SnailItemTagsProvider.LOG_BARKS)
@@ -267,9 +267,9 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter);
 
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.FILTERING_TRAY_BASE)
-                        .input(SnailBlocks.UNTIED_STICK_BUNDLE, 4)
-                        .criterion(hasItem(SnailBlocks.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocks.UNTIED_STICK_BUNDLE))
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.FILTERING_TRAY_BASE)
+                        .input(SnailBlocksBrain.UNTIED_STICK_BUNDLE, 4)
+                        .criterion(hasItem(SnailBlocksBrain.UNTIED_STICK_BUNDLE), conditionsFromItem(SnailBlocksBrain.UNTIED_STICK_BUNDLE))
                         .offerTo(exporter);
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.FIBER_FILTER)
                         .input(SnailItems.GRASS_TWINE, 4)
@@ -377,9 +377,16 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.GRAVEL), conditionsFromItem(Items.GRAVEL))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.SMALL_BARREL)
-                        .input(SnailBlocks.STICK_BUNDLE, 4)
-                        .criterion(hasItem(SnailBlocks.STICK_BUNDLE), conditionsFromItem(SnailBlocks.STICK_BUNDLE))
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocksBrain.SMALL_BARREL)
+                        .input(SnailBlocksBrain.STICK_BUNDLE, 4)
+                        .criterion(hasItem(SnailBlocksBrain.STICK_BUNDLE), conditionsFromItem(SnailBlocksBrain.STICK_BUNDLE))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, SnailItems.LONG_STICK, 1)
+                        .pattern("#")
+                        .pattern("#")
+                        .input('#', Items.STICK)
+                        .group("multi_bench")
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
             }
         };

@@ -1,5 +1,6 @@
 package net.numericalk.snailspeed.screen.custom;
 
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
@@ -9,6 +10,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
+import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
+import net.numericalk.snailspeed.utils.enums.ArmorPiece;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public class ArmorForgeScreen extends HandledScreen<ArmorForgeScreenHandler> {
-    private ArmorPiece selectedPiece = ArmorPiece.HELMET;
+    private ArmorPiece defaultSelectedPiece = ArmorPiece.HELMET;
     private List<ArmorSelectButtonWidget> pieceButtons = new ArrayList<>();
 
     private static final Identifier GUI_TEXTURE =
@@ -44,7 +47,7 @@ public class ArmorForgeScreen extends HandledScreen<ArmorForgeScreenHandler> {
             int x = (i < splitIndex) ? x1 : x2;
             int y = startY + (i < splitIndex ? i : i - splitIndex) * 18;
             ArmorSelectButtonWidget button = new ArmorSelectButtonWidget(x, y, piece, (selected) -> {
-                this.selectedPiece = selected;
+                this.defaultSelectedPiece = selected;
                 updateSelection();
             });
             pieceButtons.add(button);
@@ -57,7 +60,7 @@ public class ArmorForgeScreen extends HandledScreen<ArmorForgeScreenHandler> {
 
     private void updateSelection() {
         for (ArmorSelectButtonWidget button : pieceButtons) {
-            button.setSelected(button.getPiece() == selectedPiece);
+            button.setSelected(button.getPiece() == defaultSelectedPiece);
         }
     }
 
@@ -76,16 +79,10 @@ public class ArmorForgeScreen extends HandledScreen<ArmorForgeScreenHandler> {
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
 
-    public ArmorPiece getSelectedPiece() {
-        return selectedPiece;
+    public ArmorPiece getDefaultSelectedPiece() {
+        return defaultSelectedPiece;
     }
 
-    public enum ArmorPiece {
-        HELMET,
-        CHESTPLATE,
-        LEGGINGS,
-        BOOTS;
-    }
     public class ArmorSelectButtonWidget extends PressableWidget {
         private static final Identifier DEFAULT_FRAME = Identifier.of(Snailspeed.MOD_ID, "container/button");
         private static final Identifier SELECTED_FRAME = Identifier.of(Snailspeed.MOD_ID, "container/button_selected");
@@ -109,6 +106,9 @@ public class ArmorForgeScreen extends HandledScreen<ArmorForgeScreenHandler> {
         @Override
         public void onPress() {
             this.onClick.accept(piece);
+            updateSelection();
+
+            ClientPlayNetworking.send(new ArmorSelectPayload(handler.getBlockPos(), getDefaultSelectedPiece()));
         }
 
         @Override

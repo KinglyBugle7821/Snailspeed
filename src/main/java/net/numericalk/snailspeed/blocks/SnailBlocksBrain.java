@@ -2,10 +2,8 @@ package net.numericalk.snailspeed.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
-import net.minecraft.client.gui.screen.ingame.StonecutterScreen;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.recipe.display.StonecutterRecipeDisplay;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,7 +16,7 @@ import net.numericalk.snailspeed.blocks.custom.CampfireBlock;
 
 import java.util.function.Function;
 
-public class SnailBlocks {
+public class SnailBlocksBrain {
 
     public static final Block TRIMMED_OAK_LOG = registerBlock("trimmed_oak_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.OAK_TAN)
@@ -373,6 +371,10 @@ public class SnailBlocks {
     public static final Block SMALL_BARREL = registerBlock("small_barrel",
             properties -> new SmallBarrelBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+    public static final Block SAW_TABLE = registerBlock("saw_table",
+            properties -> new SawTableBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

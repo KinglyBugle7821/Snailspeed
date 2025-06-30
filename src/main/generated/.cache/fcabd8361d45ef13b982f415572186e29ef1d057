@@ -69,6 +69,7 @@ ceb4a11bd684a01ffcc24160914227feb5b217b2 data/snailspeed/advancement/recipes/mis
 b8a51c809b3bc0d1bc0ff0a47b6d223469d6ccdf data/snailspeed/advancement/recipes/misc/iron_shovel.json
 05d634cee159a17e229c8df5256f42126ac38600 data/snailspeed/advancement/recipes/misc/iron_sword.json
 6482b97f43b96867a0eee9537722f850265e26e2 data/snailspeed/advancement/recipes/misc/leather_strip.json
+fb532cbed5758ce01845f677fd3dc8e757669c1c data/snailspeed/advancement/recipes/misc/long_stick.json
 71d57022f9adecdeacb655d26530cdc4ae8453bb data/snailspeed/advancement/recipes/misc/mortar.json
 540bc1cff99e9fc765eac5ac4ac93ef11cffcbea data/snailspeed/advancement/recipes/misc/pestle.json
 aa4918475d2588c2c13e1cca002843f2f4898be8 data/snailspeed/advancement/recipes/misc/resin_bowl.json
@@ -142,6 +143,7 @@ a59ea63b506216bc53b64432db4f8ffebfac61f6 data/snailspeed/recipe/iron_axe.json
 df4404c374f90324a0a3d1a940708cf5f2f417de data/snailspeed/recipe/iron_shovel.json
 1e1e25b6acc302a1a1f86ae93a1c5051c6a5c8b5 data/snailspeed/recipe/iron_sword.json
 f7afe7f31482d392c8353b8296eefa638e3dc2b9 data/snailspeed/recipe/leather_strip.json
+1f6c7d9a3f613d2f4938c455d5202a2069a9ae27 data/snailspeed/recipe/long_stick.json
 749c994142247f7015f7d2491eaf3018f3ad7358 data/snailspeed/recipe/mortar.json
 7f147ddb6d2d009c99205487b4b8f9f4913b6d75 data/snailspeed/recipe/pestle.json
 7e8e78071910c352a3a2b457345efcb96a3240af data/snailspeed/recipe/resin_bowl.json

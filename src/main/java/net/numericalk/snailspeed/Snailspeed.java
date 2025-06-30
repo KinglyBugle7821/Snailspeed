@@ -1,10 +1,16 @@
 package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ModInitializer;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItemGroup;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
+import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
+import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.utils.*;
 import net.numericalk.snailspeed.world.gen.SnailWorldGen;
@@ -18,12 +24,13 @@ public class Snailspeed implements ModInitializer {
 	public void onInitialize() {
 
 		SnailItems.initialize();
-		SnailBlocks.initialize();
 		SnailItemGroup.initialize();
+		SnailBlocksBrain.initialize();
 		SnailBlockEntities.initialize();
 		SnailScreenHandlers.initialize();
 
 		SnailWorldGen.generateModdedWorldGen();
+
 
 		SnailLootTableMod.modifyLootTables();
 		SnailLogStripping.logStripping();
@@ -31,5 +38,13 @@ public class Snailspeed implements ModInitializer {
 		SnailWoodReplace.replaceWood();
 		SnailBreakEvents.playerBreak();
 
+
+		PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
+		PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
+
+		PayloadTypeRegistry.playC2S().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
+		PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
+
+		SnailNetworkingBrain.registerC2SPackets();
 	}
 }

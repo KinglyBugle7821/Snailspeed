@@ -3,7 +3,7 @@ package net.numericalk.snailspeed.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -184,119 +184,122 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.IRON_BOLT, "Iron Bolt");
 
         translationBuilder.add(SnailItems.ARMOR_FORGE_PLATE, "Armor Forge Plate");
+        translationBuilder.add(SnailItems.LONG_STICK, "Long Stick");
 
 
 
 
-        translationBuilder.add(SnailBlocks.GRASS_SHEAF, "Grass Sheaf");
-        translationBuilder.add(SnailBlocks.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
-        translationBuilder.add(SnailBlocks.CLAY_BRICK, "Clay Brick");
-        translationBuilder.add(SnailBlocks.DRIED_CLAY_BRICK, "Dried Clay Brick");
 
-        translationBuilder.add(SnailBlocks.FIRED_BRICK, "Fired Brick");
+        translationBuilder.add(SnailBlocksBrain.GRASS_SHEAF, "Grass Sheaf");
+        translationBuilder.add(SnailBlocksBrain.DRIED_GRASS_SHEAF, "Dried Grass Sheaf");
+        translationBuilder.add(SnailBlocksBrain.CLAY_BRICK, "Clay Brick");
+        translationBuilder.add(SnailBlocksBrain.DRIED_CLAY_BRICK, "Dried Clay Brick");
 
-        translationBuilder.add(SnailBlocks.MORTAR, "Mortar");
+        translationBuilder.add(SnailBlocksBrain.FIRED_BRICK, "Fired Brick");
 
-        translationBuilder.add(SnailBlocks.TRIMMED_OAK_LOG, "Trimmed Oak Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_SPRUCE_LOG, "Trimmed Spruce Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_BIRCH_LOG, "Trimmed Birch Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_JUNGLE_LOG, "Trimmed Jungle Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_ACACIA_LOG, "Trimmed Acacia Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_DARK_OAK_LOG, "Trimmed Dark Oak Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_MANGROVE_LOG, "Trimmed Mangrove Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_CHERRY_LOG, "Trimmed Cherry Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_PALE_OAK_LOG, "Trimmed Pale Oak Log");
-        translationBuilder.add(SnailBlocks.TRIMMED_CRIMSON_STEM, "Trimmed Crimson Stem");
-        translationBuilder.add(SnailBlocks.TRIMMED_WARPED_STEM, "Trimmed Warped Stem");
+        translationBuilder.add(SnailBlocksBrain.MORTAR, "Mortar");
 
-        translationBuilder.add(SnailBlocks.CRACKED_OAK_LOG, "Cracked Oak Log");
-        translationBuilder.add(SnailBlocks.CRACKED_SPRUCE_LOG, "Cracked Spruce Log");
-        translationBuilder.add(SnailBlocks.CRACKED_BIRCH_LOG, "Cracked Birch Log");
-        translationBuilder.add(SnailBlocks.CRACKED_JUNGLE_LOG, "Cracked Jungle Log");
-        translationBuilder.add(SnailBlocks.CRACKED_ACACIA_LOG, "Cracked Acacia Log");
-        translationBuilder.add(SnailBlocks.CRACKED_DARK_OAK_LOG, "Cracked Dark Oak Log");
-        translationBuilder.add(SnailBlocks.CRACKED_MANGROVE_LOG, "Cracked Mangrove Log");
-        translationBuilder.add(SnailBlocks.CRACKED_CHERRY_LOG, "Cracked Cherry Log");
-        translationBuilder.add(SnailBlocks.CRACKED_PALE_OAK_LOG, "Cracked Pale Oak Log");
-        translationBuilder.add(SnailBlocks.CRACKED_CRIMSON_STEM, "Cracked Crimson Stem");
-        translationBuilder.add(SnailBlocks.CRACKED_WARPED_STEM, "Cracked Warped Stem");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_OAK_LOG, "Trimmed Oak Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_SPRUCE_LOG, "Trimmed Spruce Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_BIRCH_LOG, "Trimmed Birch Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_JUNGLE_LOG, "Trimmed Jungle Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_ACACIA_LOG, "Trimmed Acacia Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_DARK_OAK_LOG, "Trimmed Dark Oak Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_MANGROVE_LOG, "Trimmed Mangrove Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_CHERRY_LOG, "Trimmed Cherry Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_PALE_OAK_LOG, "Trimmed Pale Oak Log");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_CRIMSON_STEM, "Trimmed Crimson Stem");
+        translationBuilder.add(SnailBlocksBrain.TRIMMED_WARPED_STEM, "Trimmed Warped Stem");
 
-        translationBuilder.add(SnailBlocks.DAMAGED_OAK_LOG, "Damaged Oak Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_SPRUCE_LOG, "Damaged Spruce Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_BIRCH_LOG, "Damaged Birch Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_JUNGLE_LOG, "Damaged Jungle Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_ACACIA_LOG, "Damaged Acacia Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_DARK_OAK_LOG, "Damaged Dark Oak Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_MANGROVE_LOG, "Damaged Mangrove Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_CHERRY_LOG, "Damaged Cherry Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_PALE_OAK_LOG, "Damaged Pale Oak Log");
-        translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_STEM, "Damaged Crimson Stem");
-        translationBuilder.add(SnailBlocks.DAMAGED_WARPED_STEM, "Damaged Warped Stem");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_OAK_LOG, "Cracked Oak Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_SPRUCE_LOG, "Cracked Spruce Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_BIRCH_LOG, "Cracked Birch Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_JUNGLE_LOG, "Cracked Jungle Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_ACACIA_LOG, "Cracked Acacia Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_DARK_OAK_LOG, "Cracked Dark Oak Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_MANGROVE_LOG, "Cracked Mangrove Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_CHERRY_LOG, "Cracked Cherry Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_PALE_OAK_LOG, "Cracked Pale Oak Log");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_CRIMSON_STEM, "Cracked Crimson Stem");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_WARPED_STEM, "Cracked Warped Stem");
 
-        translationBuilder.add(SnailBlocks.DAMAGED_OAK_PLANKS, "Damaged Oak Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_SPRUCE_PLANKS, "Damaged Spruce Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_BIRCH_PLANKS, "Damaged Birch Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_JUNGLE_PLANKS, "Damaged Jungle Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_ACACIA_PLANKS, "Damaged Acacia Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_DARK_OAK_PLANKS, "Damaged Dark Oak Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_MANGROVE_PLANKS, "Damaged Mangrove Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_CHERRY_PLANKS, "Damaged Cherry Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_PALE_OAK_PLANKS, "Damaged Pale Oak Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_BAMBOO_PLANKS, "Damaged Bamboo Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_CRIMSON_PLANKS, "Damaged Crimson Planks");
-        translationBuilder.add(SnailBlocks.DAMAGED_WARPED_PLANKS, "Damaged Warped Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_OAK_LOG, "Damaged Oak Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_SPRUCE_LOG, "Damaged Spruce Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_BIRCH_LOG, "Damaged Birch Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_JUNGLE_LOG, "Damaged Jungle Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_ACACIA_LOG, "Damaged Acacia Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_DARK_OAK_LOG, "Damaged Dark Oak Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_MANGROVE_LOG, "Damaged Mangrove Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_CHERRY_LOG, "Damaged Cherry Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_PALE_OAK_LOG, "Damaged Pale Oak Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_CRIMSON_STEM, "Damaged Crimson Stem");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_WARPED_STEM, "Damaged Warped Stem");
 
-        translationBuilder.add(SnailBlocks.TAPPED_SPRUCE_LOG, "Tapped Spruce Log");
-        translationBuilder.add(SnailBlocks.TAPPED_BIRCH_LOG, "Tapped Birch Log");
-        translationBuilder.add(SnailBlocks.TAPPED_PALE_OAK_LOG, "Tapped Pale Oak Log");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_OAK_PLANKS, "Damaged Oak Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_SPRUCE_PLANKS, "Damaged Spruce Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_BIRCH_PLANKS, "Damaged Birch Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_JUNGLE_PLANKS, "Damaged Jungle Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_ACACIA_PLANKS, "Damaged Acacia Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_DARK_OAK_PLANKS, "Damaged Dark Oak Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_MANGROVE_PLANKS, "Damaged Mangrove Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_CHERRY_PLANKS, "Damaged Cherry Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_PALE_OAK_PLANKS, "Damaged Pale Oak Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_BAMBOO_PLANKS, "Damaged Bamboo Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_CRIMSON_PLANKS, "Damaged Crimson Planks");
+        translationBuilder.add(SnailBlocksBrain.DAMAGED_WARPED_PLANKS, "Damaged Warped Planks");
 
-        translationBuilder.add(SnailBlocks.DECAYED_SPRUCE_LOG, "Decayed Spruce Log");
-        translationBuilder.add(SnailBlocks.DECAYED_BIRCH_LOG, "Decayed Birch Log");
-        translationBuilder.add(SnailBlocks.DECAYED_PALE_OAK_LOG, "Decayed Pale Oak Log");
+        translationBuilder.add(SnailBlocksBrain.TAPPED_SPRUCE_LOG, "Tapped Spruce Log");
+        translationBuilder.add(SnailBlocksBrain.TAPPED_BIRCH_LOG, "Tapped Birch Log");
+        translationBuilder.add(SnailBlocksBrain.TAPPED_PALE_OAK_LOG, "Tapped Pale Oak Log");
 
-        translationBuilder.add(SnailBlocks.CAMPFIRE_BASE, "Campfire Base");
-        translationBuilder.add(SnailBlocks.BRICK_OVEN_BASE, "Brick Oven Base");
-        translationBuilder.add(SnailBlocks.BRICK_OVEN, "Brick Oven");
+        translationBuilder.add(SnailBlocksBrain.DECAYED_SPRUCE_LOG, "Decayed Spruce Log");
+        translationBuilder.add(SnailBlocksBrain.DECAYED_BIRCH_LOG, "Decayed Birch Log");
+        translationBuilder.add(SnailBlocksBrain.DECAYED_PALE_OAK_LOG, "Decayed Pale Oak Log");
 
-        translationBuilder.add(SnailBlocks.BRICK_FURNACE_BASE, "Brick Furnace Base");
-        translationBuilder.add(SnailBlocks.BRICK_FURNACE, "Brick Furnace");
-        translationBuilder.add(SnailBlocks.CLAY_CRUCIBLE, "Clay Crucible");
-        translationBuilder.add(SnailBlocks.DRIED_CLAY_CRUCIBLE, "Dried Clay Crucible");
-        translationBuilder.add(SnailBlocks.CRUCIBLE, "Crucible");
+        translationBuilder.add(SnailBlocksBrain.CAMPFIRE_BASE, "Campfire Base");
+        translationBuilder.add(SnailBlocksBrain.BRICK_OVEN_BASE, "Brick Oven Base");
+        translationBuilder.add(SnailBlocksBrain.BRICK_OVEN, "Brick Oven");
 
-        translationBuilder.add(SnailBlocks.SCRATCHED_STONE, "Scratched Stone");
-        translationBuilder.add(SnailBlocks.CRACKED_STONE, "Cracked Stone");
-        translationBuilder.add(SnailBlocks.FRACTURED_STONE, "Fractured Stone");
-        translationBuilder.add(SnailBlocks.CRUMBLED_STONE, "Crumbled Stone");
-        translationBuilder.add(SnailBlocks.SCRATCHED_DEEPSLATE, "Scratched Deepslate");
-        translationBuilder.add(SnailBlocks.CRACKED_DEEPSLATE, "Cracked Deepslate");
-        translationBuilder.add(SnailBlocks.FRACTURED_DEEPSLATE, "Fractured Deepslate");
-        translationBuilder.add(SnailBlocks.CRUMBLED_DEEPSLATE, "Crumbled Deepslate");
+        translationBuilder.add(SnailBlocksBrain.BRICK_FURNACE_BASE, "Brick Furnace Base");
+        translationBuilder.add(SnailBlocksBrain.BRICK_FURNACE, "Brick Furnace");
+        translationBuilder.add(SnailBlocksBrain.CLAY_CRUCIBLE, "Clay Crucible");
+        translationBuilder.add(SnailBlocksBrain.DRIED_CLAY_CRUCIBLE, "Dried Clay Crucible");
+        translationBuilder.add(SnailBlocksBrain.CRUCIBLE, "Crucible");
 
-        translationBuilder.add(SnailBlocks.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
-        translationBuilder.add(SnailBlocks.STICK_BUNDLE, "Stick Bundle");
-        translationBuilder.add(SnailBlocks.UNTIED_THATCH_BLOCK, "Untied Thatch Block");
-        translationBuilder.add(SnailBlocks.THATCH_BLOCK, "Thatch Block");
+        translationBuilder.add(SnailBlocksBrain.SCRATCHED_STONE, "Scratched Stone");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_STONE, "Cracked Stone");
+        translationBuilder.add(SnailBlocksBrain.FRACTURED_STONE, "Fractured Stone");
+        translationBuilder.add(SnailBlocksBrain.CRUMBLED_STONE, "Crumbled Stone");
+        translationBuilder.add(SnailBlocksBrain.SCRATCHED_DEEPSLATE, "Scratched Deepslate");
+        translationBuilder.add(SnailBlocksBrain.CRACKED_DEEPSLATE, "Cracked Deepslate");
+        translationBuilder.add(SnailBlocksBrain.FRACTURED_DEEPSLATE, "Fractured Deepslate");
+        translationBuilder.add(SnailBlocksBrain.CRUMBLED_DEEPSLATE, "Crumbled Deepslate");
 
-        translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
-        translationBuilder.add(SnailBlocks.UNSTEADY_ROOTED_DIRT, "Unsteady Rooted Dirt");
-        translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
+        translationBuilder.add(SnailBlocksBrain.UNTIED_STICK_BUNDLE, "Untied Stick Bundle");
+        translationBuilder.add(SnailBlocksBrain.STICK_BUNDLE, "Stick Bundle");
+        translationBuilder.add(SnailBlocksBrain.UNTIED_THATCH_BLOCK, "Untied Thatch Block");
+        translationBuilder.add(SnailBlocksBrain.THATCH_BLOCK, "Thatch Block");
 
-        translationBuilder.add(SnailBlocks.CLAY_MOLD, "Clay Mold");
-        translationBuilder.add(SnailBlocks.DRIED_CLAY_MOLD, "Dried Clay Mold");
-        translationBuilder.add(SnailBlocks.FIRED_CLAY_MOLD, "Fired Clay Mold");
+        translationBuilder.add(SnailBlocksBrain.UNSTEADY_DIRT, "Unsteady Dirt");
+        translationBuilder.add(SnailBlocksBrain.UNSTEADY_ROOTED_DIRT, "Unsteady Rooted Dirt");
+        translationBuilder.add(SnailBlocksBrain.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
 
-        translationBuilder.add(SnailBlocks.RESIN_BOWL, "Resin Bowl");
-        translationBuilder.add(SnailBlocks.FILTERING_TRAY, "Filtering Tray");
-        translationBuilder.add(SnailBlocks.FILTERING_TRAY_BASE, "Filtering Tray Base");
+        translationBuilder.add(SnailBlocksBrain.CLAY_MOLD, "Clay Mold");
+        translationBuilder.add(SnailBlocksBrain.DRIED_CLAY_MOLD, "Dried Clay Mold");
+        translationBuilder.add(SnailBlocksBrain.FIRED_CLAY_MOLD, "Fired Clay Mold");
 
-        translationBuilder.add(SnailBlocks.TIN_ORE, "Tin Ore");
-        translationBuilder.add(SnailBlocks.DEEPSLATE_TIN_ORE, "Deepslate Tin Ore");
-        translationBuilder.add(SnailBlocks.GRAPHITE_ORE, "Graphite Ore");
-        translationBuilder.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE, "Deepslate Graphite Ore");
+        translationBuilder.add(SnailBlocksBrain.RESIN_BOWL, "Resin Bowl");
+        translationBuilder.add(SnailBlocksBrain.FILTERING_TRAY, "Filtering Tray");
+        translationBuilder.add(SnailBlocksBrain.FILTERING_TRAY_BASE, "Filtering Tray Base");
 
-        translationBuilder.add(SnailBlocks.ARMOR_FORGE, "Armor Forge");
-        translationBuilder.add(SnailBlocks.SMALL_BARREL, "Small Barrel");
+        translationBuilder.add(SnailBlocksBrain.TIN_ORE, "Tin Ore");
+        translationBuilder.add(SnailBlocksBrain.DEEPSLATE_TIN_ORE, "Deepslate Tin Ore");
+        translationBuilder.add(SnailBlocksBrain.GRAPHITE_ORE, "Graphite Ore");
+        translationBuilder.add(SnailBlocksBrain.DEEPSLATE_GRAPHITE_ORE, "Deepslate Graphite Ore");
+
+        translationBuilder.add(SnailBlocksBrain.ARMOR_FORGE, "Armor Forge");
+        translationBuilder.add(SnailBlocksBrain.SMALL_BARREL, "Small Barrel");
+        translationBuilder.add(SnailBlocksBrain.SAW_TABLE, "Saw Table");
 
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
     }

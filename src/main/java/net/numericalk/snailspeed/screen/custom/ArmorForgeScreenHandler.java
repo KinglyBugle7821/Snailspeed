@@ -12,18 +12,24 @@ import net.numericalk.snailspeed.blocks.entity.custom.ArmorForgeBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 
+import java.util.Objects;
+
 public class ArmorForgeScreenHandler extends ScreenHandler {
     private final Inventory inv;
     private final ArmorForgeBlockEntity be;
+    private final BlockPos pos;
 
     public ArmorForgeScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos));
+        this(syncId, inventory, Objects.requireNonNull(inventory.player.getWorld().getBlockEntity(pos)));
     }
-
+    public BlockPos getBlockPos() {
+        return pos;
+    }
     public ArmorForgeScreenHandler(int syncId, PlayerInventory playerInventory,
                                    BlockEntity blockEntity) {
         super(SnailScreenHandlers.ARMOR_FORGE_SCREEN_HANDLER, syncId);
         this.inv = ((Inventory) blockEntity);
+        this.pos = blockEntity.getPos();
         this.be = ((ArmorForgeBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inv, ArmorForgeBlockEntity.PLATE_SLOT, 80, 7){
@@ -54,6 +60,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 be.decrementInput(player);
+                be.playForgingSound(player);
             }
 
             @Override
@@ -81,6 +88,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
 
             if (invSlot == ArmorForgeBlockEntity.OUTPUT) {
                 be.decrementInput(player);
+                be.playForgingSound(player);
 
                 if (!this.insertItem(originalStack, this.inv.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;

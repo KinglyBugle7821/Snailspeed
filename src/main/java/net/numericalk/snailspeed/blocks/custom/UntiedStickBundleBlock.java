@@ -17,7 +17,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -49,7 +49,7 @@ public class UntiedStickBundleBlock extends FallingBlock {
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.isOf(SnailItems.GRASS_TWINE)){
-            world.setBlockState(pos, SnailBlocks.STICK_BUNDLE.getStateWithProperties(state));
+            world.setBlockState(pos, SnailBlocksBrain.STICK_BUNDLE.getStateWithProperties(state));
             if (!player.isCreative()){
                 stack.decrement(1);
             }

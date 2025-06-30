@@ -19,7 +19,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -137,19 +137,23 @@ public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (stack.isOf(Items.BRICK) && state.get(STAGES) < 4){
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-            world.setBlockState(pos, state.cycle(STAGES));
-            if (!player.isCreative()){
-                stack.decrement(1);
+            if (!world.isClient()){
+                world.setBlockState(pos, state.cycle(STAGES));
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
             }
         }
         if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 4){
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
-            world.setBlockState(pos, SnailBlocks.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
-            if (!player.isCreative()){
-                stack.decrement(1);
+            if (!world.isClient()){
+                world.setBlockState(pos, SnailBlocksBrain.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
             }
         }
-        return ActionResult.SUCCESS;
+        return ActionResult.PASS;
     }
 
     @Nullable

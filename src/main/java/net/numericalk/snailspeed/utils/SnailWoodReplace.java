@@ -12,24 +12,24 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 
 public class SnailWoodReplace {
     static Object[][] logBlocksCombo = {
-            {Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG, Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD, Blocks.OAK_LOG, Blocks.OAK_LOG, SnailBlocks.TRIMMED_OAK_LOG, SnailBlocks.CRACKED_OAK_LOG, SnailBlocks.DAMAGED_OAK_LOG, SnailItems.OAK_LOG_BARK},
-            {Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG, Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD, SnailBlocks.TAPPED_SPRUCE_LOG, SnailBlocks.DECAYED_SPRUCE_LOG, SnailBlocks.TRIMMED_SPRUCE_LOG, SnailBlocks.CRACKED_SPRUCE_LOG, SnailBlocks.DAMAGED_SPRUCE_LOG, SnailItems.SPRUCE_LOG_BARK},
-            {Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG, Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD, SnailBlocks.TAPPED_BIRCH_LOG, SnailBlocks.DECAYED_BIRCH_LOG, SnailBlocks.TRIMMED_BIRCH_LOG, SnailBlocks.CRACKED_BIRCH_LOG, SnailBlocks.DAMAGED_BIRCH_LOG, SnailItems.BIRCH_LOG_BARK},
-            {Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG, Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD, Blocks.JUNGLE_LOG, Blocks.JUNGLE_LOG, SnailBlocks.TRIMMED_JUNGLE_LOG, SnailBlocks.CRACKED_JUNGLE_LOG, SnailBlocks.DAMAGED_JUNGLE_LOG, SnailItems.JUNGLE_LOG_BARK},
-            {Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG, Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD, Blocks.ACACIA_LOG, Blocks.ACACIA_LOG, SnailBlocks.TRIMMED_ACACIA_LOG, SnailBlocks.CRACKED_ACACIA_LOG, SnailBlocks.DAMAGED_ACACIA_LOG, SnailItems.ACACIA_LOG_BARK},
-            {Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG, Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_LOG, SnailBlocks.TRIMMED_DARK_OAK_LOG, SnailBlocks.CRACKED_DARK_OAK_LOG, SnailBlocks.DAMAGED_DARK_OAK_LOG, SnailItems.DARK_OAK_LOG_BARK},
-            {Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG, Blocks.MANGROVE_WOOD, Blocks.STRIPPED_MANGROVE_WOOD, Blocks.MANGROVE_LOG, Blocks.MANGROVE_LOG, SnailBlocks.TRIMMED_MANGROVE_LOG, SnailBlocks.CRACKED_MANGROVE_LOG, SnailBlocks.DAMAGED_MANGROVE_LOG, SnailItems.MANGROVE_LOG_BARK},
-            {Blocks.CHERRY_LOG, Blocks.STRIPPED_CHERRY_LOG, Blocks.CHERRY_WOOD, Blocks.STRIPPED_CHERRY_WOOD, Blocks.CHERRY_LOG, Blocks.CHERRY_LOG, SnailBlocks.TRIMMED_CHERRY_LOG, SnailBlocks.CRACKED_CHERRY_LOG, SnailBlocks.DAMAGED_CHERRY_LOG, SnailItems.CHERRY_LOG_BARK},
-            {Blocks.PALE_OAK_LOG, Blocks.STRIPPED_PALE_OAK_LOG, Blocks.PALE_OAK_WOOD, Blocks.STRIPPED_PALE_OAK_WOOD, SnailBlocks.TAPPED_PALE_OAK_LOG, SnailBlocks.DAMAGED_PALE_OAK_LOG, SnailBlocks.TRIMMED_PALE_OAK_LOG, SnailBlocks.CRACKED_PALE_OAK_LOG, SnailBlocks.DAMAGED_PALE_OAK_LOG, SnailItems.PALE_OAK_LOG_BARK},
-            {Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM, Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.CRIMSON_STEM, Blocks.CRIMSON_STEM, SnailBlocks.TRIMMED_CRIMSON_STEM, SnailBlocks.CRACKED_CRIMSON_STEM, SnailBlocks.DAMAGED_CRIMSON_STEM, SnailItems.CRIMSON_STEM_BARK},
-            {Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM, Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE, Blocks.WARPED_STEM, Blocks.WARPED_STEM, SnailBlocks.TRIMMED_WARPED_STEM, SnailBlocks.CRACKED_WARPED_STEM, SnailBlocks.DAMAGED_WARPED_STEM, SnailItems.WARPED_STEM_BARK},
+            {Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG, Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD, Blocks.OAK_LOG, Blocks.OAK_LOG, SnailBlocksBrain.TRIMMED_OAK_LOG, SnailBlocksBrain.CRACKED_OAK_LOG, SnailBlocksBrain.DAMAGED_OAK_LOG, SnailItems.OAK_LOG_BARK},
+            {Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG, Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD, SnailBlocksBrain.TAPPED_SPRUCE_LOG, SnailBlocksBrain.DECAYED_SPRUCE_LOG, SnailBlocksBrain.TRIMMED_SPRUCE_LOG, SnailBlocksBrain.CRACKED_SPRUCE_LOG, SnailBlocksBrain.DAMAGED_SPRUCE_LOG, SnailItems.SPRUCE_LOG_BARK},
+            {Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG, Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD, SnailBlocksBrain.TAPPED_BIRCH_LOG, SnailBlocksBrain.DECAYED_BIRCH_LOG, SnailBlocksBrain.TRIMMED_BIRCH_LOG, SnailBlocksBrain.CRACKED_BIRCH_LOG, SnailBlocksBrain.DAMAGED_BIRCH_LOG, SnailItems.BIRCH_LOG_BARK},
+            {Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG, Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD, Blocks.JUNGLE_LOG, Blocks.JUNGLE_LOG, SnailBlocksBrain.TRIMMED_JUNGLE_LOG, SnailBlocksBrain.CRACKED_JUNGLE_LOG, SnailBlocksBrain.DAMAGED_JUNGLE_LOG, SnailItems.JUNGLE_LOG_BARK},
+            {Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG, Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD, Blocks.ACACIA_LOG, Blocks.ACACIA_LOG, SnailBlocksBrain.TRIMMED_ACACIA_LOG, SnailBlocksBrain.CRACKED_ACACIA_LOG, SnailBlocksBrain.DAMAGED_ACACIA_LOG, SnailItems.ACACIA_LOG_BARK},
+            {Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG, Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_LOG, SnailBlocksBrain.TRIMMED_DARK_OAK_LOG, SnailBlocksBrain.CRACKED_DARK_OAK_LOG, SnailBlocksBrain.DAMAGED_DARK_OAK_LOG, SnailItems.DARK_OAK_LOG_BARK},
+            {Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG, Blocks.MANGROVE_WOOD, Blocks.STRIPPED_MANGROVE_WOOD, Blocks.MANGROVE_LOG, Blocks.MANGROVE_LOG, SnailBlocksBrain.TRIMMED_MANGROVE_LOG, SnailBlocksBrain.CRACKED_MANGROVE_LOG, SnailBlocksBrain.DAMAGED_MANGROVE_LOG, SnailItems.MANGROVE_LOG_BARK},
+            {Blocks.CHERRY_LOG, Blocks.STRIPPED_CHERRY_LOG, Blocks.CHERRY_WOOD, Blocks.STRIPPED_CHERRY_WOOD, Blocks.CHERRY_LOG, Blocks.CHERRY_LOG, SnailBlocksBrain.TRIMMED_CHERRY_LOG, SnailBlocksBrain.CRACKED_CHERRY_LOG, SnailBlocksBrain.DAMAGED_CHERRY_LOG, SnailItems.CHERRY_LOG_BARK},
+            {Blocks.PALE_OAK_LOG, Blocks.STRIPPED_PALE_OAK_LOG, Blocks.PALE_OAK_WOOD, Blocks.STRIPPED_PALE_OAK_WOOD, SnailBlocksBrain.TAPPED_PALE_OAK_LOG, SnailBlocksBrain.DAMAGED_PALE_OAK_LOG, SnailBlocksBrain.TRIMMED_PALE_OAK_LOG, SnailBlocksBrain.CRACKED_PALE_OAK_LOG, SnailBlocksBrain.DAMAGED_PALE_OAK_LOG, SnailItems.PALE_OAK_LOG_BARK},
+            {Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM, Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.CRIMSON_STEM, Blocks.CRIMSON_STEM, SnailBlocksBrain.TRIMMED_CRIMSON_STEM, SnailBlocksBrain.CRACKED_CRIMSON_STEM, SnailBlocksBrain.DAMAGED_CRIMSON_STEM, SnailItems.CRIMSON_STEM_BARK},
+            {Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM, Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE, Blocks.WARPED_STEM, Blocks.WARPED_STEM, SnailBlocksBrain.TRIMMED_WARPED_STEM, SnailBlocksBrain.CRACKED_WARPED_STEM, SnailBlocksBrain.DAMAGED_WARPED_STEM, SnailItems.WARPED_STEM_BARK},
     };
 
     public static void replaceWood(){
@@ -95,6 +95,7 @@ public class SnailWoodReplace {
     }
 
     private static void degradeLogSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Object[] log : logBlocksCombo){
             Block trimmed = (Block) log[6];
             Block cracked = (Block) log[7];
@@ -123,6 +124,7 @@ public class SnailWoodReplace {
         }
     }
     private static void degradeLogBig(World world, BlockPos pos, BlockState state, boolean canDrop) {
+        if (world.isClient()) return;
         for (Object[] log : logBlocksCombo){
             Block trimmed = (Block) log[6];
             Block cracked = (Block) log[7];

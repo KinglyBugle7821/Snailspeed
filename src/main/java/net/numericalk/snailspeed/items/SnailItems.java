@@ -197,6 +197,7 @@ public class SnailItems {
     public static final Item IRON_BOLT = register("iron_bolt", Item::new);
 
     public static final Item ARMOR_FORGE_PLATE = register("armor_forge_plate", ArmorForgePlateBaseItem::new);
+    public static final Item LONG_STICK = register("long_stick", Item::new);
 
     public static final Item AIR = register("air", AirItem::new);
 

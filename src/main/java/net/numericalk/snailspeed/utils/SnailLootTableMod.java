@@ -15,7 +15,7 @@ import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
 import net.numericalk.snailspeed.items.SnailItems;
 
 public class SnailLootTableMod {
@@ -133,7 +133,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_DIRT.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.UNSTEADY_DIRT.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
@@ -143,7 +143,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_ROOTED_DIRT.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.UNSTEADY_ROOTED_DIRT.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
@@ -197,7 +197,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_DIRT.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.UNSTEADY_DIRT.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
@@ -207,7 +207,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(SnailBlocks.UNSTEADY_COARSE_DIRT.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.UNSTEADY_COARSE_DIRT.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
@@ -265,7 +265,7 @@ public class SnailLootTableMod {
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(0.35f))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(itemRegistry, SnailItems.FLINT_FLAKE)))
-                        .with(ItemEntry.builder(SnailBlocks.GRASS_SHEAF.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.GRASS_SHEAF.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 builder.pool(poolBuilder.build());
@@ -275,7 +275,7 @@ public class SnailLootTableMod {
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(0.85f))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(itemRegistry, SnailItems.FLINT_FLAKE)))
-                        .with(ItemEntry.builder(SnailBlocks.GRASS_SHEAF.asItem()))
+                        .with(ItemEntry.builder(SnailBlocksBrain.GRASS_SHEAF.asItem()))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)).build());
 
                 builder.pool(poolBuilder.build());

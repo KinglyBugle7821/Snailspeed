@@ -14,15 +14,17 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 
+import static net.numericalk.snailspeed.utils.SnailWoodReplace.planksLog;
+
 public class SnailBreakEvents {
     static Block[][] StoneBlockCombo = {
-            {Blocks.STONE, SnailBlocksBrain.SCRATCHED_STONE, SnailBlocksBrain.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocksBrain.FRACTURED_STONE, SnailBlocksBrain.CRUMBLED_STONE},
-            {Blocks.DEEPSLATE, SnailBlocksBrain.SCRATCHED_DEEPSLATE, SnailBlocksBrain.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocksBrain.FRACTURED_DEEPSLATE, SnailBlocksBrain.CRUMBLED_DEEPSLATE}
+            {Blocks.STONE, SnailBlocks.SCRATCHED_STONE, SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocks.FRACTURED_STONE, SnailBlocks.CRUMBLED_STONE},
+            {Blocks.DEEPSLATE, SnailBlocks.SCRATCHED_DEEPSLATE, SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocks.FRACTURED_DEEPSLATE, SnailBlocks.CRUMBLED_DEEPSLATE}
     };
     static final Block[] jsDropRockBro = {
             Blocks.SMOOTH_STONE,
@@ -120,18 +122,18 @@ public class SnailBreakEvents {
     };
 
     static Block[][] PlanksBlockCombo = {
-            {Blocks.OAK_PLANKS, SnailBlocksBrain.DAMAGED_OAK_PLANKS},
-            {Blocks.SPRUCE_PLANKS, SnailBlocksBrain.DAMAGED_SPRUCE_PLANKS},
-            {Blocks.BIRCH_PLANKS, SnailBlocksBrain.DAMAGED_BIRCH_PLANKS},
-            {Blocks.JUNGLE_PLANKS, SnailBlocksBrain.DAMAGED_JUNGLE_PLANKS},
-            {Blocks.ACACIA_PLANKS, SnailBlocksBrain.DAMAGED_ACACIA_PLANKS},
-            {Blocks.DARK_OAK_PLANKS, SnailBlocksBrain.DAMAGED_DARK_OAK_PLANKS},
-            {Blocks.MANGROVE_PLANKS, SnailBlocksBrain.DAMAGED_MANGROVE_PLANKS},
-            {Blocks.CHERRY_PLANKS, SnailBlocksBrain.DAMAGED_CHERRY_PLANKS},
-            {Blocks.PALE_OAK_PLANKS, SnailBlocksBrain.DAMAGED_PALE_OAK_PLANKS},
-            {Blocks.BAMBOO_PLANKS, SnailBlocksBrain.DAMAGED_BAMBOO_PLANKS},
-            {Blocks.CRIMSON_PLANKS, SnailBlocksBrain.DAMAGED_CRIMSON_PLANKS},
-            {Blocks.WARPED_PLANKS, SnailBlocksBrain.DAMAGED_WARPED_PLANKS},
+            {Blocks.OAK_PLANKS, SnailBlocks.DAMAGED_OAK_PLANKS, Blocks.OAK_SLAB, Blocks.OAK_LOG},
+            {Blocks.SPRUCE_PLANKS, SnailBlocks.DAMAGED_SPRUCE_PLANKS, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_LOG},
+            {Blocks.BIRCH_PLANKS, SnailBlocks.DAMAGED_BIRCH_PLANKS, Blocks.BIRCH_SLAB, Blocks.BIRCH_LOG},
+            {Blocks.JUNGLE_PLANKS, SnailBlocks.DAMAGED_JUNGLE_PLANKS, Blocks.JUNGLE_SLAB, Blocks.JUNGLE_LOG},
+            {Blocks.ACACIA_PLANKS, SnailBlocks.DAMAGED_ACACIA_PLANKS, Blocks.ACACIA_SLAB, Blocks.ACACIA_LOG},
+            {Blocks.DARK_OAK_PLANKS, SnailBlocks.DAMAGED_DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB, Blocks.DARK_OAK_LOG},
+            {Blocks.MANGROVE_PLANKS, SnailBlocks.DAMAGED_MANGROVE_PLANKS, Blocks.MANGROVE_SLAB, Blocks.MANGROVE_LOG},
+            {Blocks.CHERRY_PLANKS, SnailBlocks.DAMAGED_CHERRY_PLANKS, Blocks.CHERRY_SLAB, Blocks.CHERRY_LOG},
+            {Blocks.PALE_OAK_PLANKS, SnailBlocks.DAMAGED_PALE_OAK_PLANKS, Blocks.PALE_OAK_SLAB, Blocks.PALE_OAK_LOG},
+            {Blocks.CRIMSON_PLANKS, SnailBlocks.DAMAGED_CRIMSON_PLANKS, Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STEM},
+            {Blocks.WARPED_PLANKS, SnailBlocks.DAMAGED_WARPED_PLANKS, Blocks.WARPED_SLAB, Blocks.WARPED_STEM},
+            {Blocks.BAMBOO_PLANKS, SnailBlocks.DAMAGED_BAMBOO_PLANKS, Blocks.BAMBOO_SLAB, Blocks.BAMBOO_BLOCK}
     };
 
     public static void playerBreak(){
@@ -140,7 +142,7 @@ public class SnailBreakEvents {
                 ItemStack stack = player.getMainHandStack();
                 if (playerHas(Items.FLINT, player)) {
                     degradeStoneSmall(world, pos, state, true);
-                    damageItem(stack, player, world);
+                    damageItem(stack, player, world, true);
                     givePlayer(SnailItems.FLINT_FLAKE, player, world);
                 }
             }
@@ -151,7 +153,7 @@ public class SnailBreakEvents {
                 } else if (hasIronPickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
                         degradeStoneHuge(world, pos, state, true);
-                        damageItem(stack, player, world);
+                        damageItem(stack, player, world, true);
                         return false;
                     } else {
                         return true;
@@ -159,7 +161,7 @@ public class SnailBreakEvents {
                 } else if(hasStonePickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
                         degradeStoneBig(world, pos, state, true);
-                        damageItem(stack, player, world);
+                        damageItem(stack, player, world, true);
                         return false;
                     } else {
                         return true;
@@ -167,7 +169,7 @@ public class SnailBreakEvents {
                 } else if (hasWoodenPickaxe(stack)){
                     if (!hasReachedCrumbled(state)) {
                         degradeStoneSmall(world, pos, state, true);
-                        damageItem(stack, player, world);
+                        damageItem(stack, player, world, true);
                         return false;
                     } else {
                         return true;
@@ -175,27 +177,40 @@ public class SnailBreakEvents {
                 } else {
                     if (!hasReachedCrumbled(state)) {
                         degradeStoneSmall(world, pos, state, false);
+                        damageItem(stack, player, world, false);
                         return false;
                     } else {
                         return true;
                     }
                 }
             }
+//            if (wgatIsTarget(BlockTags.LOGS, player, state)){
+//                ItemStack stack = player.getMainHandStack();
+//                if (stack.isOf(SnailItems.CIRCULAR_SAW)){
+//                    planksLog(world, pos, state);
+//                }
+//            }
+
             if (wgatIsTarget(BlockTags.PLANKS, player, state)){
                 ItemStack stack = player.getMainHandStack();
+
                 if (hasBetterAxe(stack)){
                     return true;
                 } else if (hasWoodenAxe(stack) || hasStoneAxe(stack)){
                     if (!hasReachedDamaged(state)) {
                         degradePlanks(world, pos, state, true);
-                        damageItem(stack, player, world);
+                        damageItem(stack, player, world, true);
                         return false;
                     } else {
                         return true;
                     }
+                } else if (stack.isOf(SnailItems.CIRCULAR_SAW)){
+                    halfSlab(world, pos, state);
+                    return false;
                 } else {
                     if (!hasReachedDamaged(state)) {
                         degradePlanks(world, pos, state, false);
+                        damageItem(stack, player, world, false);
                         return false;
                     } else {
                         return true;
@@ -212,6 +227,20 @@ public class SnailBreakEvents {
                 degradeOreBlock(world, pos, state);
             }
         });
+    }
+
+
+
+    private static void halfSlab(World world, BlockPos pos, BlockState state) {
+        for (Block[] blocks : PlanksBlockCombo) {
+            Block inputLog = blocks[0];
+            Block outputPlanks = blocks[2];
+
+            if (state.isOf(inputLog)) {
+                world.setBlockState(pos, outputPlanks.getDefaultState());
+                return;
+            }
+        }
     }
 
     private static boolean hasReachedDamaged(BlockState state) {
@@ -267,12 +296,14 @@ public class SnailBreakEvents {
         return state.isIn(SnailBlockTagsProvider.CRUMBLED_STONE_BLOCK);
     }
 
-    private static void damageItem(ItemStack stack, PlayerEntity player, World world) {
+    private static void damageItem(ItemStack stack, PlayerEntity player, World world, boolean canDecrement) {
         if (world.isClient()) return;
         if (stack.isDamageable()){
             stack.damage(1, player);
         }
-        else stack.decrement(1);
+        if (canDecrement){
+            stack.decrement(1);
+        }
     }
 
     private static void degradeOreBlock(World world, BlockPos pos, BlockState state){

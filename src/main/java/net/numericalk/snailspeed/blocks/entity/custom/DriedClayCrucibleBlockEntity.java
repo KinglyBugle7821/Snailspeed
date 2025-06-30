@@ -12,7 +12,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -70,7 +70,7 @@ public class DriedClayCrucibleBlockEntity extends BlockEntity {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             BlockPos offsetPos = pos.offset(direction);
             BlockState neighborState = world.getBlockState(offsetPos);
-            if (neighborState.isOf(SnailBlocksBrain.CAMPFIRE_BASE) && neighborState.get(LIT).equals(4)) {
+            if (neighborState.isOf(SnailBlocks.CAMPFIRE_BASE) && neighborState.get(LIT).equals(4)) {
                 return true;
             }
         }
@@ -105,7 +105,7 @@ public class DriedClayCrucibleBlockEntity extends BlockEntity {
         if (world1.isClient()){
             return;
         }
-        world1.setBlockState(pos, SnailBlocksBrain.CRUCIBLE.getStateWithProperties(state));
+        world1.setBlockState(pos, SnailBlocks.CRUCIBLE.getStateWithProperties(state));
     }
 
     private boolean hasProgressComplete() {
@@ -117,6 +117,6 @@ public class DriedClayCrucibleBlockEntity extends BlockEntity {
     }
 
     private boolean isDriedClayCrucible(BlockState state1) {
-        return state1.isOf(SnailBlocksBrain.DRIED_CLAY_CRUCIBLE);
+        return state1.isOf(SnailBlocks.DRIED_CLAY_CRUCIBLE);
     }
 }

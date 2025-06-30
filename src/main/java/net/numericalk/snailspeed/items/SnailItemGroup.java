@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 
 public class SnailItemGroup {
     public static final ItemGroup SNAILSPEED_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -36,52 +36,52 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.FIBER_FILTER);
 
-                        entries.add(SnailBlocksBrain.CAMPFIRE_BASE);
-                        entries.add(SnailBlocksBrain.BRICK_OVEN_BASE);
-                        entries.add(SnailBlocksBrain.BRICK_OVEN);
+                        entries.add(SnailBlocks.CAMPFIRE_BASE);
+                        entries.add(SnailBlocks.BRICK_OVEN_BASE);
+                        entries.add(SnailBlocks.BRICK_OVEN);
 
-                        entries.add(SnailBlocksBrain.BRICK_FURNACE_BASE);
-                        entries.add(SnailBlocksBrain.BRICK_FURNACE);
-                        entries.add(SnailBlocksBrain.CLAY_CRUCIBLE);
-                        entries.add(SnailBlocksBrain.DRIED_CLAY_CRUCIBLE);
-                        entries.add(SnailBlocksBrain.CRUCIBLE);
+                        entries.add(SnailBlocks.BRICK_FURNACE_BASE);
+                        entries.add(SnailBlocks.BRICK_FURNACE);
+                        entries.add(SnailBlocks.CLAY_CRUCIBLE);
+                        entries.add(SnailBlocks.DRIED_CLAY_CRUCIBLE);
+                        entries.add(SnailBlocks.CRUCIBLE);
 
-                        entries.add(SnailBlocksBrain.GRASS_SHEAF);
-                        entries.add(SnailBlocksBrain.DRIED_GRASS_SHEAF);
-                        entries.add(SnailBlocksBrain.CLAY_BRICK);
-                        entries.add(SnailBlocksBrain.DRIED_CLAY_BRICK);
+                        entries.add(SnailBlocks.GRASS_SHEAF);
+                        entries.add(SnailBlocks.DRIED_GRASS_SHEAF);
+                        entries.add(SnailBlocks.CLAY_BRICK);
+                        entries.add(SnailBlocks.DRIED_CLAY_BRICK);
 
-                        entries.add(SnailBlocksBrain.FIRED_BRICK);
-                        entries.add(SnailBlocksBrain.MORTAR);
+                        entries.add(SnailBlocks.FIRED_BRICK);
+                        entries.add(SnailBlocks.MORTAR);
 
-                        entries.add(SnailBlocksBrain.UNTIED_STICK_BUNDLE);
-                        entries.add(SnailBlocksBrain.STICK_BUNDLE);
-                        entries.add(SnailBlocksBrain.UNTIED_THATCH_BLOCK);
-                        entries.add(SnailBlocksBrain.THATCH_BLOCK);
+                        entries.add(SnailBlocks.UNTIED_STICK_BUNDLE);
+                        entries.add(SnailBlocks.STICK_BUNDLE);
+                        entries.add(SnailBlocks.UNTIED_THATCH_BLOCK);
+                        entries.add(SnailBlocks.THATCH_BLOCK);
 
-                        entries.add(SnailBlocksBrain.UNSTEADY_DIRT);
-                        entries.add(SnailBlocksBrain.UNSTEADY_COARSE_DIRT);
+                        entries.add(SnailBlocks.UNSTEADY_DIRT);
+                        entries.add(SnailBlocks.UNSTEADY_COARSE_DIRT);
 
-                        entries.add(SnailBlocksBrain.SCRATCHED_STONE);
-                        entries.add(SnailBlocksBrain.CRACKED_STONE);
-                        entries.add(SnailBlocksBrain.FRACTURED_STONE);
-                        entries.add(SnailBlocksBrain.CRUMBLED_STONE);
-                        entries.add(SnailBlocksBrain.SCRATCHED_DEEPSLATE);
-                        entries.add(SnailBlocksBrain.CRACKED_DEEPSLATE);
-                        entries.add(SnailBlocksBrain.FRACTURED_DEEPSLATE);
-                        entries.add(SnailBlocksBrain.CRUMBLED_DEEPSLATE);
+                        entries.add(SnailBlocks.SCRATCHED_STONE);
+                        entries.add(SnailBlocks.CRACKED_STONE);
+                        entries.add(SnailBlocks.FRACTURED_STONE);
+                        entries.add(SnailBlocks.CRUMBLED_STONE);
+                        entries.add(SnailBlocks.SCRATCHED_DEEPSLATE);
+                        entries.add(SnailBlocks.CRACKED_DEEPSLATE);
+                        entries.add(SnailBlocks.FRACTURED_DEEPSLATE);
+                        entries.add(SnailBlocks.CRUMBLED_DEEPSLATE);
 
-                        entries.add(SnailBlocksBrain.RESIN_BOWL);
-                        entries.add(SnailBlocksBrain.FILTERING_TRAY_BASE);
-                        entries.add(SnailBlocksBrain.FILTERING_TRAY);
+                        entries.add(SnailBlocks.RESIN_BOWL);
+                        entries.add(SnailBlocks.FILTERING_TRAY_BASE);
+                        entries.add(SnailBlocks.FILTERING_TRAY);
 
-                        entries.add(SnailBlocksBrain.TAPPED_SPRUCE_LOG);
-                        entries.add(SnailBlocksBrain.TAPPED_BIRCH_LOG);
-                        entries.add(SnailBlocksBrain.TAPPED_PALE_OAK_LOG);
+                        entries.add(SnailBlocks.TAPPED_SPRUCE_LOG);
+                        entries.add(SnailBlocks.TAPPED_BIRCH_LOG);
+                        entries.add(SnailBlocks.TAPPED_PALE_OAK_LOG);
 
-                        entries.add(SnailBlocksBrain.DECAYED_SPRUCE_LOG);
-                        entries.add(SnailBlocksBrain.DECAYED_BIRCH_LOG);
-                        entries.add(SnailBlocksBrain.DECAYED_PALE_OAK_LOG);
+                        entries.add(SnailBlocks.DECAYED_SPRUCE_LOG);
+                        entries.add(SnailBlocks.DECAYED_BIRCH_LOG);
+                        entries.add(SnailBlocks.DECAYED_PALE_OAK_LOG);
 
                         entries.add(SnailItems.TINDER);
                         entries.add(SnailItems.BURNING_TINDER);
@@ -118,9 +118,9 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.RESIN_BALL);
 
-                        entries.add(SnailBlocksBrain.CLAY_MOLD);
-                        entries.add(SnailBlocksBrain.DRIED_CLAY_MOLD);
-                        entries.add(SnailBlocksBrain.FIRED_CLAY_MOLD);
+                        entries.add(SnailBlocks.CLAY_MOLD);
+                        entries.add(SnailBlocks.DRIED_CLAY_MOLD);
+                        entries.add(SnailBlocks.FIRED_CLAY_MOLD);
 
                         entries.add(SnailItems.BLANK_CLAY_MOLD);
                         entries.add(SnailItems.SWORD_CLAY_MOLD);
@@ -188,15 +188,15 @@ public class SnailItemGroup {
                         entries.add(SnailItems.STEEL_SHOVEL);
                         entries.add(SnailItems.STEEL_HOE);
 
-                        entries.add(SnailBlocksBrain.TIN_ORE);
-                        entries.add(SnailBlocksBrain.DEEPSLATE_TIN_ORE);
+                        entries.add(SnailBlocks.TIN_ORE);
+                        entries.add(SnailBlocks.DEEPSLATE_TIN_ORE);
                         entries.add(SnailItems.RAW_TIN);
                         entries.add(SnailItems.TIN_DUST);
                         entries.add(SnailItems.TIN_NUGGET);
                         entries.add(SnailItems.TIN_INGOT);
 
-                        entries.add(SnailBlocksBrain.GRAPHITE_ORE);
-                        entries.add(SnailBlocksBrain.DEEPSLATE_GRAPHITE_ORE);
+                        entries.add(SnailBlocks.GRAPHITE_ORE);
+                        entries.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
                         entries.add(SnailItems.RAW_GRAPHITE);
                         entries.add(SnailItems.GROUND_GRAPHITE);
                         entries.add(SnailItems.REFINED_GRAPHITE);
@@ -237,11 +237,13 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.CHAIN_LINKS);
                         entries.add(SnailItems.IRON_BOLT);
+                        entries.add(SnailItems.LONG_STICK);
+                        entries.add(SnailItems.CIRCULAR_SAW);
 
                         entries.add(SnailItems.ARMOR_FORGE_PLATE);
-                        entries.add(SnailBlocksBrain.ARMOR_FORGE);
-                        entries.add(SnailBlocksBrain.SMALL_BARREL);
-                        entries.add(SnailBlocksBrain.SAW_TABLE);
+                        entries.add(SnailBlocks.ARMOR_FORGE);
+                        entries.add(SnailBlocks.SMALL_BARREL);
+                        entries.add(SnailBlocks.SAW_TABLE);
 
                     }).build());
     public static void initialize() {}

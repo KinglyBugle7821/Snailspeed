@@ -16,7 +16,7 @@ import net.numericalk.snailspeed.blocks.custom.CampfireBlock;
 
 import java.util.function.Function;
 
-public class SnailBlocksBrain {
+public class SnailBlocks {
 
     public static final Block TRIMMED_OAK_LOG = registerBlock("trimmed_oak_log",
             properties -> new TrimmedLogBlock(properties.mapColor(MapColor.OAK_TAN)

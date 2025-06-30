@@ -9,7 +9,7 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 
 import java.util.List;
 
@@ -23,11 +23,11 @@ public class SnailConfiguredFeatures {
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreFeatureConfig.Target> tinOres =
-                List.of(OreFeatureConfig.createTarget(stoneReplaceables, SnailBlocksBrain.TIN_ORE.getDefaultState()),
-                        OreFeatureConfig.createTarget(deepslateReplaceables, SnailBlocksBrain.DEEPSLATE_TIN_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables, SnailBlocks.TIN_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables, SnailBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> graphiteOres =
-                List.of(OreFeatureConfig.createTarget(stoneReplaceables, SnailBlocksBrain.GRAPHITE_ORE.getDefaultState()),
-                        OreFeatureConfig.createTarget(deepslateReplaceables, SnailBlocksBrain.DEEPSLATE_GRAPHITE_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables, SnailBlocks.GRAPHITE_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables, SnailBlocks.DEEPSLATE_GRAPHITE_ORE.getDefaultState()));
 
         register(ctx, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tinOres, 12));
         register(ctx, GRAPHITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(graphiteOres, 8));

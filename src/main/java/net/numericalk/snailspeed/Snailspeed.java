@@ -2,9 +2,7 @@ package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItemGroup;
 import net.numericalk.snailspeed.items.SnailItems;
@@ -25,7 +23,7 @@ public class Snailspeed implements ModInitializer {
 
 		SnailItems.initialize();
 		SnailItemGroup.initialize();
-		SnailBlocksBrain.initialize();
+		SnailBlocks.initialize();
 		SnailBlockEntities.initialize();
 		SnailScreenHandlers.initialize();
 

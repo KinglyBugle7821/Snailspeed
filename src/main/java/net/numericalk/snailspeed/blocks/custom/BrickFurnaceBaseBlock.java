@@ -19,7 +19,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -147,7 +147,7 @@ public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
         if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 4){
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
             if (!world.isClient()){
-                world.setBlockState(pos, SnailBlocksBrain.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
+                world.setBlockState(pos, SnailBlocks.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
                 if (!player.isCreative()){
                     stack.decrement(1);
                 }

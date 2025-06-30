@@ -18,7 +18,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 
 import java.util.stream.Stream;
@@ -101,7 +101,7 @@ public class FilteringTrayBaseBlock extends Block {
             if (!player.isCreative()) {
                 stack.decrement(1);
             }
-            world.setBlockState(pos, SnailBlocksBrain.FILTERING_TRAY.getDefaultState().with(FilteringTrayBlock.HAS_FILTER, false));
+            world.setBlockState(pos, SnailBlocks.FILTERING_TRAY.getDefaultState().with(FilteringTrayBlock.HAS_FILTER, false));
             return ActionResult.SUCCESS;
         }
 

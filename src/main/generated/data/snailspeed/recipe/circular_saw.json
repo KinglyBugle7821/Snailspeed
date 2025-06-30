@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:iron_plate",
+    "snailspeed:iron_plate",
+    "snailspeed:iron_plate",
+    "snailspeed:iron_plate"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:circular_saw"
+  }
+}

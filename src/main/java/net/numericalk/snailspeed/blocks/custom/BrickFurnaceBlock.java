@@ -24,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.BrickFurnaceBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
@@ -72,7 +72,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                     ItemScatterer.spawn(world, pos, ((BrickFurnaceBlockEntity) blockEntity));
                 }
                 if (state.get(CRUCIBLE)){
-                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailBlocksBrain.CRUCIBLE.asItem().getDefaultStack());
+                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailBlocks.CRUCIBLE.asItem().getDefaultStack());
                 }
                 if (state.get(LID)){
                     ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.FURNACE_LID.getDefaultStack());
@@ -189,7 +189,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                 if (canTakeCrucible(stack, state) && brickFurnaceBlockEntity.isEmpty()){
                     if (!world.isClient()){
                         world.setBlockState(pos, state.with(CRUCIBLE, false));
-                        player.giveOrDropStack(SnailBlocksBrain.CRUCIBLE.asItem().getDefaultStack());
+                        player.giveOrDropStack(SnailBlocks.CRUCIBLE.asItem().getDefaultStack());
                     }
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                     return ActionResult.SUCCESS;
@@ -314,7 +314,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     private boolean canPutCrucible(ItemStack stack, BlockState state) {
-        return stack.isOf(SnailBlocksBrain.CRUCIBLE.asItem()) && state.get(CRUCIBLE).equals(false) && state.get(LID).equals(false);
+        return stack.isOf(SnailBlocks.CRUCIBLE.asItem()) && state.get(CRUCIBLE).equals(false) && state.get(LID).equals(false);
     }
 
     private boolean canPutItem(ItemStack stack, BlockState state) {

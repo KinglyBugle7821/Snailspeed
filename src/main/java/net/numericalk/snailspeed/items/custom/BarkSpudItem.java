@@ -12,7 +12,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 
 public class BarkSpudItem extends Item {
     //Bark Blud😂😂😂😂
@@ -21,9 +21,9 @@ public class BarkSpudItem extends Item {
     }
 
     Block[][] tappedLog = {
-            {Blocks.SPRUCE_LOG, SnailBlocksBrain.TAPPED_SPRUCE_LOG},
-            {Blocks.BIRCH_LOG, SnailBlocksBrain.TAPPED_BIRCH_LOG},
-            {Blocks.PALE_OAK_LOG, SnailBlocksBrain.TAPPED_PALE_OAK_LOG}
+            {Blocks.SPRUCE_LOG, SnailBlocks.TAPPED_SPRUCE_LOG},
+            {Blocks.BIRCH_LOG, SnailBlocks.TAPPED_BIRCH_LOG},
+            {Blocks.PALE_OAK_LOG, SnailBlocks.TAPPED_PALE_OAK_LOG}
     };
 
     @Override

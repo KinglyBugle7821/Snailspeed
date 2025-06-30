@@ -12,7 +12,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -90,7 +90,7 @@ public class ClayBrickBlockEntity extends BlockEntity {
         if (world1.isClient()){
             return;
         }
-        world1.setBlockState(pos, SnailBlocksBrain.DRIED_CLAY_BRICK.getStateWithProperties(state));
+        world1.setBlockState(pos, SnailBlocks.DRIED_CLAY_BRICK.getStateWithProperties(state));
     }
 
     private boolean hasProgressComplete() {
@@ -106,6 +106,6 @@ public class ClayBrickBlockEntity extends BlockEntity {
     }
 
     private boolean isClayBrick(BlockState state1) {
-        return state1.isOf(SnailBlocksBrain.CLAY_BRICK);
+        return state1.isOf(SnailBlocks.CLAY_BRICK);
     }
 }

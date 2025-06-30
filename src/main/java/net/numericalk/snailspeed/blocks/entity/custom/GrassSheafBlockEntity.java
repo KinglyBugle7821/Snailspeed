@@ -12,7 +12,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
-import net.numericalk.snailspeed.blocks.SnailBlocksBrain;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -91,7 +91,7 @@ public class GrassSheafBlockEntity extends BlockEntity {
         if (world1.isClient()){
             return;
         }
-        world1.setBlockState(pos, SnailBlocksBrain.DRIED_GRASS_SHEAF.getStateWithProperties(state));
+        world1.setBlockState(pos, SnailBlocks.DRIED_GRASS_SHEAF.getStateWithProperties(state));
     }
 
     private boolean hasProgressComplete() {
@@ -107,6 +107,6 @@ public class GrassSheafBlockEntity extends BlockEntity {
     }
 
     private boolean isGrassSheaf(BlockState state1) {
-        return state1.isOf(SnailBlocksBrain.GRASS_SHEAF);
+        return state1.isOf(SnailBlocks.GRASS_SHEAF);
     }
 }

@@ -32,6 +32,7 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
     public static final TagKey<Block> UNSTRIPPED_LOGS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "unstripped_logs"));
 
     public static final TagKey<Block> STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stone_block"));
+    public static final TagKey<Block> STONE_BLOCK_VARIANTS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "stone_block_variants"));
     public static final TagKey<Block> CRUMBLED_STONE_BLOCK = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "crumbled_stone_block"));
 
     public static final TagKey<Block> ORES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, "ores"));
@@ -63,20 +64,7 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.TAPPED_SPRUCE_LOG)
                 .add(SnailBlocks.TAPPED_BIRCH_LOG)
                 .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
-        getOrCreateTagBuilder(STONE_BLOCK)
-                .add(Blocks.STONE)
-                .add(SnailBlocks.SCRATCHED_STONE)
-                .add(SnailBlocks.CRACKED_STONE)
-                .add(Blocks.COBBLESTONE)
-                .add(SnailBlocks.FRACTURED_STONE)
-                .add(SnailBlocks.CRUMBLED_STONE)
-                .add(Blocks.DEEPSLATE)
-                .add(SnailBlocks.SCRATCHED_DEEPSLATE)
-                .add(SnailBlocks.CRACKED_DEEPSLATE)
-                .add(Blocks.COBBLED_DEEPSLATE)
-                .add(SnailBlocks.FRACTURED_DEEPSLATE)
-                .add(SnailBlocks.CRUMBLED_DEEPSLATE)
-
+        getOrCreateTagBuilder(STONE_BLOCK_VARIANTS)
                 .add(Blocks.SMOOTH_STONE)
                 .add(Blocks.STONE_SLAB)
                 .add(Blocks.SMOOTH_STONE_SLAB)
@@ -170,6 +158,19 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(Blocks.RED_SANDSTONE_STAIRS)
                 .add(Blocks.SMOOTH_RED_SANDSTONE_STAIRS)
                 .add(Blocks.RED_SANDSTONE_WALL);
+        getOrCreateTagBuilder(STONE_BLOCK)
+                .add(Blocks.STONE)
+                .add(SnailBlocks.SCRATCHED_STONE)
+                .add(SnailBlocks.CRACKED_STONE)
+                .add(Blocks.COBBLESTONE)
+                .add(SnailBlocks.FRACTURED_STONE)
+                .add(SnailBlocks.CRUMBLED_STONE)
+                .add(Blocks.DEEPSLATE)
+                .add(SnailBlocks.SCRATCHED_DEEPSLATE)
+                .add(SnailBlocks.CRACKED_DEEPSLATE)
+                .add(Blocks.COBBLED_DEEPSLATE)
+                .add(SnailBlocks.FRACTURED_DEEPSLATE)
+                .add(SnailBlocks.CRUMBLED_DEEPSLATE);
         getOrCreateTagBuilder(CRUMBLED_STONE_BLOCK)
                 .add(SnailBlocks.CRUMBLED_STONE)
                 .add(SnailBlocks.CRUMBLED_DEEPSLATE);

@@ -184,6 +184,9 @@ public class SnailBreakEvents {
                     }
                 }
             }
+            if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK_VARIANTS, player, state)){
+                return true;
+            }
 //            if (wgatIsTarget(BlockTags.LOGS, player, state)){
 //                ItemStack stack = player.getMainHandStack();
 //                if (stack.isOf(SnailItems.CIRCULAR_SAW)){

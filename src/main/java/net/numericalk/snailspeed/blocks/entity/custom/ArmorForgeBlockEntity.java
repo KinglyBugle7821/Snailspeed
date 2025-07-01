@@ -14,9 +14,12 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -26,10 +29,15 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
+import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
+import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipeInput;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreenHandler;
 import net.numericalk.snailspeed.utils.enums.ArmorPiece;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
@@ -79,7 +87,7 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
     public void tick(World world1, BlockPos pos, BlockState state) {
         System.out.println(hasRecipe());
         if (hasRecipe()){
-            askToCreateArmor(world1);
+            askToCreateArmor();
         } else {
             removeStack(OUTPUT);
         }
@@ -114,50 +122,114 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
         this.selected = selected;
     }
     private boolean hasRecipe() {
-        for (Item[] armorPiece : armorRecipe) {
-            Item plate = armorPiece[0];
-            Item binding = armorPiece[1];
-            Item fastener = armorPiece[2];
-            Item tool = armorPiece[3];
 
-            if (selected == ArmorPiece.HELMET) {
-                if (getOutputOf(plate, binding, fastener, tool, plate_helmet, binding_helmet, fastener_helmet)) {
-                    return true;
+        Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()){
+            return false;
+        }
+
+        Ingredient inputPlate = recipe.get().value().inputPlate();
+        Ingredient inputBinding = recipe.get().value().inputBinding();
+        Ingredient inputFastener = recipe.get().value().inputFastener();
+        Ingredient inputTool = recipe.get().value().inputTool();
+        switch (selected){
+            case HELMET -> {
+                if (getOutputOf(inputPlate, inputBinding, inputFastener, inputTool, plate_helmet, binding_helmet, fastener_helmet)){
+                    ItemStack output = recipe.get().value().outputHelmet();
+                    return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
                 }
-            } else if (selected == ArmorPiece.CHESTPLATE) {
-                if (getOutputOf(plate, binding, fastener, tool, plate_chestplate, binding_chestplate, fastener_chestplate)) {
-                    return true;
+            }
+            case CHESTPLATE -> {
+                if (getOutputOf(inputPlate, inputBinding, inputFastener, inputTool, plate_chestplate, binding_chestplate, fastener_chestplate)){
+                    ItemStack output = recipe.get().value().outputChestplate();
+                    return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
                 }
-            } else if (selected == ArmorPiece.LEGGINGS) {
-                if (getOutputOf(plate, binding, fastener, tool, plate_leggings, binding_leggings, fastener_leggings)) {
-                    return true;
+            }
+            case LEGGINGS -> {
+                if (getOutputOf(inputPlate, inputBinding, inputFastener, inputTool, plate_leggings, binding_leggings, fastener_leggings)){
+                    ItemStack output = recipe.get().value().outputLeggings();
+                    return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
                 }
-            } else if (selected == ArmorPiece.BOOTS) {
-                if (getOutputOf(plate, binding, fastener, tool, plate_boots, binding_boots, fastener_boots)) {
-                    return true;
+            }
+            case BOOTS -> {
+                if (getOutputOf(inputPlate, inputBinding, inputFastener, inputTool, plate_boots, binding_boots, fastener_boots)){
+                    ItemStack output = recipe.get().value().outputBoots();
+                    return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
                 }
             }
         }
         return false;
     }
 
-    public void askToCreateArmor(World world) {
-        for (Item[] armorPiece : armorRecipe){
-            Item plate = armorPiece[0];
-            Item binding = armorPiece[1];
-            Item fastener = armorPiece[2];
-            Item tool = armorPiece[3];
-            Item helmet = armorPiece[4];
-            Item chestplate = armorPiece[5];
-            Item leggings = armorPiece[6];
-            Item boots = armorPiece[7];
+    private Optional<RecipeEntry<ArmorForgeRecipe>> getCurrentRecipe() {
 
-            switch (selected){
-                case HELMET -> setOutputOf(helmet, plate, binding, fastener, tool, plate_helmet, binding_helmet, fastener_helmet, world);
-                case CHESTPLATE -> setOutputOf(chestplate, plate, binding, fastener, tool, plate_chestplate, binding_chestplate, fastener_chestplate, world);
-                case LEGGINGS -> setOutputOf(leggings, plate, binding, fastener, tool, plate_leggings, binding_leggings, fastener_leggings, world);
-                case BOOTS -> setOutputOf(boots, plate, binding, fastener, tool, plate_boots, binding_boots, fastener_boots, world);
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
+                .getFirstMatch(SnailRecipe.ARMOR_FORGE_RECIPE_TYPE, new ArmorForgeRecipeInput(inventory.get(PLATE_SLOT), inventory.get(BINDING_SLOT), inventory.get(FASTENER_SLOT), inventory.get(TOOL_SLOT), selected), this.getWorld());
+    }
+
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT).isEmpty() || this.getStack(OUTPUT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        int maxCount = this.getStack(OUTPUT).isEmpty() ? 1 : this.getStack(OUTPUT).getMaxCount();
+        int currentCount = this.getStack(OUTPUT).getCount();
+
+        return maxCount >= currentCount + count;
+    }
+    public void askToCreateArmor() {
+        Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
+
+        ItemStack output;
+        switch (selected){
+            case HELMET -> {
+                output = recipe.get().value().outputHelmet();
+                decrementInputNoPlayer();
+                this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                        this.getStack(OUTPUT).getCount() + output.getCount()));
             }
+            case CHESTPLATE -> {
+                output = recipe.get().value().outputChestplate();
+                decrementInputNoPlayer();
+                this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                        this.getStack(OUTPUT).getCount() + output.getCount()));
+            }
+            case LEGGINGS -> {
+                output = recipe.get().value().outputLeggings();
+                decrementInputNoPlayer();
+                this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                        this.getStack(OUTPUT).getCount() + output.getCount()));
+            }
+            case BOOTS -> {
+                output = recipe.get().value().outputBoots();
+                decrementInputNoPlayer();
+                this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                        this.getStack(OUTPUT).getCount() + output.getCount()));
+            }
+        }
+    }
+
+    private void decrementInputNoPlayer() {
+        if (selected.equals(ArmorPiece.HELMET)){
+            this.getStack(PLATE_SLOT).decrement(plate_helmet);
+            this.getStack(BINDING_SLOT).decrement(binding_helmet);
+            this.getStack(FASTENER_SLOT).decrement(fastener_helmet);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.CHESTPLATE)){
+            this.getStack(PLATE_SLOT).decrement(plate_chestplate);
+            this.getStack(BINDING_SLOT).decrement(binding_chestplate);
+            this.getStack(FASTENER_SLOT).decrement(fastener_chestplate);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.LEGGINGS)){
+            this.getStack(PLATE_SLOT).decrement(plate_leggings);
+            this.getStack(BINDING_SLOT).decrement(binding_leggings);
+            this.getStack(FASTENER_SLOT).decrement(fastener_leggings);
+            markDirty();
+        } else if (selected.equals(ArmorPiece.BOOTS)){
+            this.getStack(PLATE_SLOT).decrement(plate_boots);
+            this.getStack(BINDING_SLOT).decrement(binding_boots);
+            this.getStack(FASTENER_SLOT).decrement(fastener_boots);
+            markDirty();
         }
     }
 
@@ -173,14 +245,16 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
             this.setStack(OUTPUT, item.getDefaultStack());
         }
     }
-    private boolean getOutputOf(Item plate, Item binding, Item fastener, Item tool, int plateCount, int bindingCount, int fastenerCount) {
+    private boolean getOutputOf(Ingredient plate, Ingredient binding, Ingredient fastener, Ingredient tool, int plateCount, int bindingCount, int fastenerCount) {
         ItemStack plateSlot = this.getStack(PLATE_SLOT);
         ItemStack bindingSlot = this.getStack(BINDING_SLOT);
         ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
         ItemStack toolSlot = this.getStack(TOOL_SLOT);
-        return (plateSlot.isOf(plate) && (plateSlot.getCount() >= plateCount)) &&
-                (bindingSlot.isOf(binding) && (bindingSlot.getCount() >= bindingCount)) &&
-                (fastenerSlot.isOf(fastener) && (fastenerSlot.getCount() >= fastenerCount)) && (toolSlot.isOf(tool));
+
+        return plate.test(plateSlot) && plateSlot.getCount() >= plateCount &&
+                binding.test(bindingSlot) && bindingSlot.getCount() >= bindingCount &&
+                fastener.test(fastenerSlot) && fastenerSlot.getCount() >= fastenerCount &&
+                tool.test(toolSlot);
     }
 
     public void decrementInput(PlayerEntity player) {

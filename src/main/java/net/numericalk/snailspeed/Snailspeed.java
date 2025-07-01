@@ -9,6 +9,7 @@ import net.numericalk.snailspeed.items.SnailItems;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.utils.*;
 import net.numericalk.snailspeed.world.gen.SnailWorldGen;
@@ -23,9 +24,11 @@ public class Snailspeed implements ModInitializer {
 
 		SnailItems.initialize();
 		SnailBlocks.initialize();
+		SnailRecipe.initialize();
 		SnailItemGroup.initialize();
 		SnailBlockEntities.initialize();
 		SnailScreenHandlers.initialize();
+
 
 		SnailWorldGen.generateModdedWorldGen();
 

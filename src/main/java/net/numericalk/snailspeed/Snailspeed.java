@@ -42,6 +42,5 @@ public class Snailspeed implements ModInitializer {
 		PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
 
 		SnailNetworkingBrain.registerC2SPackets();
-
 	}
 }

@@ -95,7 +95,7 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                             world.updateListeners(pos, state, state, 0);
                             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                             player.giveOrDropStack(brickOvenBlockEntity.getStack(i));
-                            brickOvenBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                            brickOvenBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
                             return ActionResult.SUCCESS;
                         }
                     }

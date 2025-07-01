@@ -167,7 +167,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                     for (int i = 4; i > -1; i--) {
                         if (!brickFurnaceBlockEntity.getStack(i).isEmpty() && !brickFurnaceBlockEntity.getStack(i).isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
                             player.giveOrDropStack(brickFurnaceBlockEntity.getStack(i));
-                            brickFurnaceBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                            brickFurnaceBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
                             world.updateListeners(pos, state, state,  3);
                             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                             return ActionResult.SUCCESS;
@@ -240,7 +240,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
 
             if (be.getStack(0).isOf(input)) {
                 player.giveOrDropStack(result.getDefaultStack());
-                be.setStack(0, Items.AIR.getDefaultStack());
+                be.setStack(0, SnailItems.AIR.getDefaultStack());
                 matched = true;
                 break;
             }
@@ -255,7 +255,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
 
                 if (be.getStack(0).isOf(input)) {
                     player.giveOrDropStack(result.getDefaultStack());
-                    be.setStack(0, Items.AIR.getDefaultStack());
+                    be.setStack(0, SnailItems.AIR.getDefaultStack());
                     matched = true;
                     break;
                 }
@@ -268,7 +268,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             }
 
             for (int i = 1; i < 5; i++) {
-                be.setStack(i, Items.AIR.getDefaultStack());
+                be.setStack(i, SnailItems.AIR.getDefaultStack());
             }
             world.updateListeners(pos, state, state, 3);
             world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 1f);

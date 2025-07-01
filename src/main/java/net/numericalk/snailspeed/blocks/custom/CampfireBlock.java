@@ -207,13 +207,13 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                 case STAGES_THREE_STICKS -> dropItem(world, pos, Items.STICK, 2);
                 case STAGES_FULL_STICK -> dropItem(world, pos, Items.STICK, 3);
                 case STAGES_BURNT -> dropItem(world, pos, Items.CHARCOAL, 1);
-                default -> dropItem(world, pos, Items.AIR, 1);
+                default -> dropItem(world, pos, SnailItems.AIR, 1);
             }
             switch (state.get(COOKING)){
                 case COOKING_ONE_SUPPORT -> dropItem(world, pos, Items.STICK, 1);
                 case COOKING_TWO_SUPPORTS -> dropItem(world, pos, Items.STICK, 2);
                 case COOKING_FULL_SUPPORT -> dropItem(world, pos, Items.STICK, 3);
-                default -> dropItem(world, pos, Items.AIR, 1);
+                default -> dropItem(world, pos, SnailItems.AIR, 1);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
@@ -270,7 +270,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                         world.updateListeners(pos, state, state, 0);
                         world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                         player.giveOrDropStack(campfireBlockEntity.getStack(i));
-                        campfireBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        campfireBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
                         return ActionResult.SUCCESS;
                     }
                 }

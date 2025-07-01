@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.FilteringTrayBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
+import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -102,7 +103,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
                         world.updateListeners(pos, state, state,  3);
                         world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                         player.giveOrDropStack(filteringTrayBlockEntity.getStack(i));
-                        filteringTrayBlockEntity.setStack(i, Items.AIR.getDefaultStack());
+                        filteringTrayBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
                         return ActionResult.SUCCESS;
                     }
                 }
@@ -122,7 +123,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
             world.updateListeners(pos, state, state,  3);
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
             player.giveOrDropStack(filteringTrayBlockEntity.getStack(4));
-            filteringTrayBlockEntity.setStack(4, Items.AIR.getDefaultStack());
+            filteringTrayBlockEntity.setStack(4, SnailItems.AIR.getDefaultStack());
         }
     }
 

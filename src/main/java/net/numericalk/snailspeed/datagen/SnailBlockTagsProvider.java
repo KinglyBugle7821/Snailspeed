@@ -326,7 +326,11 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
 
                 .add(SnailBlocks.TAPPED_SPRUCE_LOG)
                 .add(SnailBlocks.TAPPED_BIRCH_LOG)
-                .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG)
+
+                .add(SnailBlocks.DECAYED_SPRUCE_LOG)
+                .add(SnailBlocks.DECAYED_BIRCH_LOG)
+                .add(SnailBlocks.DECAYED_PALE_OAK_LOG);
         getOrCreateTagBuilder(BlockTags.SNAPS_GOAT_HORN)
                 .add(SnailBlocks.TRIMMED_OAK_LOG)
                 .add(SnailBlocks.TRIMMED_SPRUCE_LOG)

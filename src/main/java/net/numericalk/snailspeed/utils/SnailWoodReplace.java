@@ -105,8 +105,7 @@ public class SnailWoodReplace {
         if (!world.isClient()){
             if (stack.isDamageable()){
                 stack.damage(1, player);
-            }
-            if (canDecrement){
+            } else if (canDecrement){
                 stack.decrement(1);
             }
         }

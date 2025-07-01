@@ -28,7 +28,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
 
     public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.BRICK_OVEN, pos, state);
     }
 
     @Override
@@ -51,9 +51,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         fireTime = nbt.getFloat("FireTime");
 
         int[] savedProgress = nbt.getIntArray("CookTime");
-        for (int i = 0; i < Math.min(savedProgress.length, progress.length); i++) {
-            progress[i] = savedProgress[i];
-        }
+        System.arraycopy(savedProgress, 0, progress, 0, Math.min(savedProgress.length, progress.length));
     }
 
     public float fireTime;
@@ -61,22 +59,23 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
 
     private final int[] progress = new int[5];
     private int maxProgress;
+
     public void tick(World world1, BlockPos pos, BlockState state) {
-        for (int i = 0; i < 5; i++){
-            if (this.getStack(i).isOf(SnailItems.AIR)){
+        for (int i = 0; i < 5; i++) {
+            if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
         }
-        if (hasFuel() && isLit(state)){
+        if (hasFuel() && isLit(state)) {
             decreaseFireTime();
-            if (fireTime <= 0){
+            if (fireTime <= 0) {
                 fireTime = 0;
                 setLitState(0, world1, pos, state);
                 this.getStack(5).decrement(1);
-            } else if (fireTime <= 20 * 60 * 3 && state.get(BrickOvenBlock.LIT).equals(3)){
+            } else if (fireTime <= 20 * 60 * 3 && state.get(BrickOvenBlock.LIT).equals(3)) {
                 setLitState(2, world1, pos, state);
             }
-        } else if (hasFuel()){
+        } else if (hasFuel()) {
             displayHasFuel(world1, pos, state);
             resetFireTime();
         }
@@ -84,18 +83,18 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             resetFireTime();
         }
 
-        if (state.get(BrickOvenBlock.LIT).equals(2)){
+        if (state.get(BrickOvenBlock.LIT).equals(2)) {
             maxProgress = 20 * 60 * 2;
             cookItem(state, world1, pos, maxProgress);
-        } else if (state.get(BrickOvenBlock.LIT).equals(3)){
+        } else if (state.get(BrickOvenBlock.LIT).equals(3)) {
             maxProgress = 20 * 60;
             smeltItem(state, world1, pos, maxProgress);
         }
     }
 
-    private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient){
-            ((ServerWorld) world1).spawnParticles(
+    private void spawnSmokeParticle(World world, BlockPos pos, BlockState state) {
+        if (world instanceof ServerWorld serverWorld) {
+            serverWorld.spawnParticles(
                     ParticleTypes.SMOKE,
                     pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
                     1,
@@ -106,17 +105,19 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     }
 
     private Item getCookedItem(Item raw) {
-        for (Object[] entry : cookingRecipe) {
-            if (entry[0] == raw) return (Item) entry[1];
+        for (Item[] entry : COOKING_RECIPES) {
+            if (entry[0] == raw) return entry[1];
         }
         return null;
     }
+
     private Item getSmeltedItem(Item raw) {
-        for (Object[] entry : smeltingRecipe) {
-            if (entry[0] == raw) return (Item) entry[1];
+        for (Item[] entry : SMELTING_RECIPES) {
+            if (entry[0] == raw) return entry[1];
         }
         return null;
     }
+
     private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
         for (int i = 0; i < 5; i++) {
             ItemStack stack = getStack(i);
@@ -140,6 +141,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             }
         }
     }
+
     private void cookItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
         for (int i = 0; i < 5; i++) {
             ItemStack stack = getStack(i);
@@ -175,18 +177,19 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     private void decreaseFireTime() {
         fireTime = Math.max(0, fireTime - 1);
     }
+
     public void calculatedAddedFireTime(TagKey<Item> fuelType) {
-        if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL){
+        if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL) {
             fireTime += ((1200f/100f) * 50f);
-        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL){
+        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL) {
             fireTime += ((2400f/100f) * 50f);
         }
     }
 
     private void resetFireTime() {
-        if (this.getStack(5).isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)){
+        if (this.getStack(5).isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)) {
             fireTime = 20 * 30;
-        } else if (this.getStack(5).isIn(SnailItemTagsProvider.OVEN_FUEL)){
+        } else if (this.getStack(5).isIn(SnailItemTagsProvider.OVEN_FUEL)) {
             fireTime = 20 * 60;
         }
     }
@@ -218,7 +221,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         return createNbt(registryLookup);
     }
 
-    Object[][] cookingRecipe = {
+    private static final Item[][] COOKING_RECIPES = {
             {Items.POTATO, Items.BAKED_POTATO},
             {Items.CHORUS_FRUIT, Items.POPPED_CHORUS_FRUIT},
             {Items.CHICKEN, Items.COOKED_CHICKEN},
@@ -230,7 +233,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             {Items.KELP, Items.DRIED_KELP},
             {Items.BEEF, Items.COOKED_BEEF},
     };
-    Object[][] smeltingRecipe = {
+    private static final Item[][] SMELTING_RECIPES = {
             {Items.POTATO, SnailItems.BURNT_POTATO},
             {Items.CHORUS_FRUIT, SnailItems.BURNT_POPPED_CHORUS_FRUIT},
             {Items.CHICKEN, SnailItems.BURNT_CHICKEN},

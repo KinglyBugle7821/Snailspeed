@@ -7,7 +7,10 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 
@@ -18,7 +21,7 @@ public class SnailConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GRAPHITE_ORE_KEY = registerKey("graphite_ore");
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> ctx){
+    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> ctx) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 

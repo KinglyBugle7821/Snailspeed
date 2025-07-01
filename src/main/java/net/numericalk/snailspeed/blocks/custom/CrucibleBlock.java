@@ -1,7 +1,10 @@
 package net.numericalk.snailspeed.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -25,7 +28,6 @@ import java.util.stream.Stream;
 
 public class CrucibleBlock extends Block {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    public static final MapCodec<CrucibleBlock> CODEC = CrucibleBlock.createCodec(CrucibleBlock::new);
     public static final VoxelShape SHAPE = Stream.of(
             Block.createCuboidShape(6, 1, 5, 10, 2, 6),
             Block.createCuboidShape(6, 1, 10, 10, 2, 11),
@@ -41,6 +43,7 @@ public class CrucibleBlock extends Block {
             Block.createCuboidShape(6, 0, 6, 10, 1, 10),
             Block.createCuboidShape(10, 2, 5, 11, 10, 6)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    private static final MapCodec<CrucibleBlock> CODEC = CrucibleBlock.createCodec(CrucibleBlock::new);
 
     public CrucibleBlock(Settings settings) {
         super(settings);
@@ -55,6 +58,7 @@ public class CrucibleBlock extends Block {
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
+
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
@@ -72,14 +76,14 @@ public class CrucibleBlock extends Block {
     }
 
     private void checkSupport(BlockState state, World world, BlockPos pos) {
-        if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP)) {
+        if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP)) {
             world.breakBlock(pos, true);
         }
     }
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP);
+        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP);
     }
 
     @Override
@@ -91,6 +95,7 @@ public class CrucibleBlock extends Block {
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
+
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation) {
         return state.with(FACING, rotation.rotate(state.get(FACING)));

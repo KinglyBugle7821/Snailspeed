@@ -19,7 +19,7 @@ public class TiedStickBundleBlock extends PillarBlock {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (player.getMainHandStack().isEmpty()){
+        if (player.getMainHandStack().isEmpty()) {
             world.setBlockState(pos, SnailBlocks.UNTIED_STICK_BUNDLE.getStateWithProperties(state));
             ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.GRASS_TWINE.getDefaultStack());
             return ActionResult.SUCCESS;

@@ -1,7 +1,6 @@
 package net.numericalk.snailspeed.items.custom;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.item.AirBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

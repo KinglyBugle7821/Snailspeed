@@ -21,5 +21,7 @@ public class SnailRecipe {
                 }
             });
 
-    public static void initialize(){}
+    public static void initialize() {
+
+    }
 }

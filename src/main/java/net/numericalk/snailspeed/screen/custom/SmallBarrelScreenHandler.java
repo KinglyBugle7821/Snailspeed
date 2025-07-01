@@ -20,7 +20,7 @@ public class SmallBarrelScreenHandler extends ScreenHandler {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos));
     }
 
-    public SmallBarrelScreenHandler(int syncId, PlayerInventory inventory, BlockEntity blockEntity){
+    public SmallBarrelScreenHandler(int syncId, PlayerInventory inventory, BlockEntity blockEntity) {
         super(SnailScreenHandlers.SMALL_BARREL_SCREEN_HANDLER, syncId);
         this.inv = ((Inventory) blockEntity);
         this.be = ((SmallBarrelBlockEntity) blockEntity);

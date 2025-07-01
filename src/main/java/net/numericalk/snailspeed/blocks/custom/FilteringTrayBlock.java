@@ -8,7 +8,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -76,17 +75,17 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity be = world.getBlockEntity(pos);
-        if (be instanceof FilteringTrayBlockEntity filteringTrayBlockEntity){
-            if (canInsertFilter(stack, state)){
+        if (be instanceof FilteringTrayBlockEntity filteringTrayBlockEntity) {
+            if (canInsertFilter(stack, state)) {
                 applyFilter(player, world, pos, stack, state, filteringTrayBlockEntity);
                 return ActionResult.SUCCESS;
-            } if (canTakeFilter(stack, state, filteringTrayBlockEntity)){
+            } if (canTakeFilter(stack, state, filteringTrayBlockEntity)) {
                 takeFilter(player, world, pos, stack, state, filteringTrayBlockEntity);
                 return ActionResult.SUCCESS;
             }
-            if (canInsertItem(stack, state)){
-                for (int i = 0; i < 4; i++){
-                    if (filteringTrayBlockEntity.getStack(i).isEmpty()){
+            if (canInsertItem(stack, state)) {
+                for (int i = 0; i < 4; i++) {
+                    if (filteringTrayBlockEntity.getStack(i).isEmpty()) {
                         world.updateListeners(pos, state, state, 3);
                         filteringTrayBlockEntity.setStack(i, stack.copyWithCount(1));
                         if (!player.isCreative()) {
@@ -97,9 +96,9 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
                     }
                 }
                 return ActionResult.SUCCESS;
-            } if (canTakeItem(stack, state)){
+            } if (canTakeItem(stack, state)) {
                 for (int i = 3; i > -1; i--) {
-                    if (!filteringTrayBlockEntity.getStack(i).isEmpty()){
+                    if (!filteringTrayBlockEntity.getStack(i).isEmpty()) {
                         world.updateListeners(pos, state, state,  3);
                         world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                         player.giveOrDropStack(filteringTrayBlockEntity.getStack(i));
@@ -118,7 +117,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     private void takeFilter(PlayerEntity player, World world, BlockPos pos, ItemStack stack, BlockState state, FilteringTrayBlockEntity filteringTrayBlockEntity) {
-        if (!filteringTrayBlockEntity.getStack(4).isEmpty()){
+        if (!filteringTrayBlockEntity.getStack(4).isEmpty()) {
             world.setBlockState(pos, state.with(HAS_FILTER, false));
             world.updateListeners(pos, state, state,  3);
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
@@ -140,7 +139,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     private void applyFilter(PlayerEntity player, World world, BlockPos pos, ItemStack stack, BlockState state, FilteringTrayBlockEntity filteringTrayBlockEntity) {
-        if (filteringTrayBlockEntity.getStack(4).isEmpty()){
+        if (filteringTrayBlockEntity.getStack(4).isEmpty()) {
             world.updateListeners(pos, state, state, 3);
             filteringTrayBlockEntity.setStack(4, stack.copyWithCount(1));
             if (!player.isCreative()) {
@@ -171,7 +170,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(HAS_FILTER)){
+        if (state.get(HAS_FILTER)) {
             return SHAPE_FILTERED;
         }
         return SHAPE_UNFILTERED;
@@ -183,7 +182,7 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.FILTERING_TRAY,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

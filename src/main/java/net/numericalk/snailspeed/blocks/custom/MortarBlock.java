@@ -1,8 +1,6 @@
 package net.numericalk.snailspeed.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -12,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -21,7 +18,6 @@ import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -42,7 +38,6 @@ import java.util.stream.Stream;
 
 public class MortarBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    public static final MapCodec<MortarBlock> CODEC = MortarBlock.createCodec(MortarBlock::new);
     public static final VoxelShape SHAPE = Stream.of(
             Block.createCuboidShape(6, 0, 3, 10, 1, 13),
             Block.createCuboidShape(10, 0, 4, 12, 1, 12),
@@ -86,6 +81,7 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
             Block.createCuboidShape(13, 2, 3, 14, 3, 5),
             Block.createCuboidShape(11, 2, 2, 13, 3, 3)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    private static final MapCodec<MortarBlock> CODEC = MortarBlock.createCodec(MortarBlock::new);
 
     public MortarBlock(Settings settings) {
         super(settings);
@@ -93,8 +89,7 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        BlockEntity be = world.getBlockEntity(pos);
-        if (be instanceof MortarBlockEntity mortarBlockEntity){
+        if (world.getBlockEntity(pos) instanceof MortarBlockEntity mortarBlockEntity) {
             if (canPutItem(stack)) {
                 if (mortarBlockEntity.getStack(0).isEmpty()) {
                     mortarBlockEntity.setStack(0, stack.copyWithCount(1));
@@ -107,17 +102,17 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
                     return ActionResult.SUCCESS;
                 }
             }
-            if (HasPestle(stack)){
+            if (hasPestle(stack)) {
                 Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
-                if (hasRecipe(mortarBlockEntity)){
+                if (hasRecipe(mortarBlockEntity)) {
                     mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
                     world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
                 }
                 stack.damage(1, player);
                 return ActionResult.SUCCESS;
             }
-            if (canTakeItem(stack, state)){
-                if (!mortarBlockEntity.getStack(0).isEmpty()){
+            if (canTakeItem(stack, state)) {
+                if (!mortarBlockEntity.getStack(0).isEmpty()) {
                     world.updateListeners(pos, state, state, 0);
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                     player.giveOrDropStack(mortarBlockEntity.getStack(0));
@@ -131,36 +126,38 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
     }
 
     private boolean hasRecipe(MortarBlockEntity mortarBlockEntity) {
-        for (Object[] entry : crushingRecipe) {
-            if  (mortarBlockEntity.getStack(0).isOf((Item) entry[0])){
+        for (Item[] entry : CRUSHING_RECIPE) {
+            if (mortarBlockEntity.getStack(0).isOf(entry[0])) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean HasPestle(ItemStack stack) {
+    private static boolean hasPestle(ItemStack stack) {
         return stack.isOf(SnailItems.PESTLE);
     }
 
     private Item getCrushedRecipe(Item raw) {
-        for (Object[] entry : crushingRecipe) {
-            if (entry[0] == raw) return (Item) entry[1];
+        for (Item[] entry : CRUSHING_RECIPE) {
+            if (entry[0] == raw) return entry[1];
         }
         return null;
     }
-    Object[][] crushingRecipe = {
+
+    private static final Item[][] CRUSHING_RECIPE = {
             {Items.RAW_COPPER, SnailItems.COPPER_DUST},
             {Items.RAW_IRON, SnailItems.IRON_DUST},
             {Items.RAW_GOLD, SnailItems.GOLD_DUST},
             {SnailItems.RAW_TIN, SnailItems.TIN_DUST},
             {SnailItems.RAW_GRAPHITE, SnailItems.GROUND_GRAPHITE}
     };
-    private boolean canTakeItem(ItemStack stack, BlockState state) {
+
+    private static boolean canTakeItem(ItemStack stack, BlockState state) {
         return stack.isEmpty();
     }
 
-    private boolean canPutItem(ItemStack stack) {
+    private static boolean canPutItem(ItemStack stack) {
         return !stack.isEmpty();
     }
 
@@ -176,7 +173,7 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, SnailBlockEntities.MORTAR_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.MORTAR,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

@@ -30,7 +30,6 @@ import java.util.stream.Stream;
 
 public class DriedClayCrucibleBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    public static final MapCodec<DriedClayCrucibleBlock> CODEC = DriedClayCrucibleBlock.createCodec(DriedClayCrucibleBlock::new);
     public static final VoxelShape SHAPE = Stream.of(
             Block.createCuboidShape(6, 1, 5, 10, 2, 6),
             Block.createCuboidShape(6, 1, 10, 10, 2, 11),
@@ -46,6 +45,7 @@ public class DriedClayCrucibleBlock extends BlockWithEntity implements BlockEnti
             Block.createCuboidShape(6, 0, 6, 10, 1, 10),
             Block.createCuboidShape(10, 2, 5, 11, 10, 6)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    private static final MapCodec<DriedClayCrucibleBlock> CODEC = DriedClayCrucibleBlock.createCodec(DriedClayCrucibleBlock::new);
 
     public DriedClayCrucibleBlock(Settings settings) {
         super(settings);
@@ -89,10 +89,10 @@ public class DriedClayCrucibleBlock extends BlockWithEntity implements BlockEnti
     }
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.DRIED_CLAY_CRUCIBLE_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.DRIED_CLAY_CRUCIBLE,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

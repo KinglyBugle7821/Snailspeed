@@ -1,7 +1,6 @@
 package net.numericalk.snailspeed.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -11,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -34,9 +32,8 @@ import org.jetbrains.annotations.Nullable;
 public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    public static final MapCodec<BrickOvenBlock> CODEC = BrickOvenBlock.createCodec(BrickOvenBlock::new);
-
     public static final IntProperty LIT = IntProperty.of("lit", 0, 3);
+    private static final MapCodec<BrickOvenBlock> CODEC = BrickOvenBlock.createCodec(BrickOvenBlock::new);
 
     public BrickOvenBlock(Settings settings) {
         super(settings);
@@ -74,11 +71,11 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
         Vec3d hitPos = hit.getPos();
         double relativeY = hitPos.y - pos.getY();
 
-        if (world.getBlockEntity(pos) instanceof BrickOvenBlockEntity brickOvenBlockEntity){
+        if (world.getBlockEntity(pos) instanceof BrickOvenBlockEntity brickOvenBlockEntity) {
             if (relativeY > 0.5) {
-                if (canPutItem(stack)){
-                    for (int i = 0; i < 5; i++){
-                        if (brickOvenBlockEntity.getStack(i).isEmpty()){
+                if (canPutItem(stack)) {
+                    for (int i = 0; i < 5; i++) {
+                        if (brickOvenBlockEntity.getStack(i).isEmpty()) {
                             world.updateListeners(pos, state, state, 0);
                             brickOvenBlockEntity.setStack(i, stack.copyWithCount(1));
                             if (!player.isCreative()) {
@@ -89,9 +86,9 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                         }
                     }
                 }
-                if (canTakeItem(stack)){
+                if (canTakeItem(stack)) {
                     for (int i = 0; i < 5; i++) {
-                        if (!brickOvenBlockEntity.getStack(i).isEmpty()){
+                        if (!brickOvenBlockEntity.getStack(i).isEmpty()) {
                             world.updateListeners(pos, state, state, 0);
                             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                             player.giveOrDropStack(brickOvenBlockEntity.getStack(i));
@@ -101,7 +98,7 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                     }
                 }
             } else {
-                if (brickOvenBlockEntity.getStack(5).isEmpty() && isFuel(stack)){
+                if (brickOvenBlockEntity.getStack(5).isEmpty() && isFuel(stack)) {
                     world.updateListeners(pos, state, state, 0);
                     brickOvenBlockEntity.setStack(5, stack.copyWithCount(1));
                     if (!player.isCreative()) {
@@ -110,19 +107,19 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                     return ActionResult.SUCCESS;
                 }
-                if (canLitOvenWith(Items.FLINT_AND_STEEL, stack, state)){
+                if (canLitOvenWith(Items.FLINT_AND_STEEL, stack, state)) {
                     litOvenWith(SoundEvents.ITEM_FLINTANDSTEEL_USE, stack, player, state, world, pos);
                     return ActionResult.SUCCESS;
                 } else if (canLitOvenWith(Items.FIRE_CHARGE, stack, state) ||
-                            canLitOvenWith(SnailItems.BURNING_TINDER, stack, state)){
+                            canLitOvenWith(SnailItems.BURNING_TINDER, stack, state)) {
                     litOvenWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
                     return ActionResult.SUCCESS;
-                } else if (canLitBlueFire(SnailItems.SOUL, stack, state, world, pos)){
+                } else if (canLitBlueFire(SnailItems.SOUL, stack, state, world, pos)) {
                     litBlueFire(stack, player, state, world, pos);
                     return ActionResult.SUCCESS;
                 }
 
-                if (canFeedFire(stack, state, player, pos, world)){
+                if (canFeedFire(stack, state, player, pos, world)) {
                     feedFire(world, pos, player, stack);
                     return ActionResult.SUCCESS;
                 }
@@ -133,9 +130,9 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
 
     private void litBlueFire(ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.with(LIT, 3));
-        if (stack.isDamageable() && !player.isCreative()){
+        if (stack.isDamageable() && !player.isCreative()) {
             stack.damage(1, player);
-        } else if (!player.isCreative()){
+        } else if (!player.isCreative()) {
             stack.decrement(1);
         }
         world.playSound(player, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1f, 1f);
@@ -159,9 +156,9 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
 
     private void litOvenWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.with(LIT, 2));
-        if (stack.isDamageable() && !player.isCreative()){
+        if (stack.isDamageable() && !player.isCreative()) {
             stack.damage(1, player);
-        }else if (!player.isCreative()){
+        }else if (!player.isCreative()) {
             stack.decrement(1);
         }
         world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1f, 1f);
@@ -174,12 +171,12 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
     private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
         BlockEntity be = world.getBlockEntity(pos);
         if (be instanceof BrickOvenBlockEntity brickOvenBlockEntity) {
-            if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)){
+            if (stack.isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)) {
                 brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.CAMPFIRE_FUEL);
-            } else if (stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
+            } else if (stack.isIn(SnailItemTagsProvider.OVEN_FUEL)) {
                 brickOvenBlockEntity.calculatedAddedFireTime(SnailItemTagsProvider.OVEN_FUEL);
             }
-            if (!player.isCreative()){
+            if (!player.isCreative()) {
                 stack.decrement(1);
             }
         }
@@ -196,7 +193,7 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.BRICK_OVEN,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }
@@ -222,9 +219,9 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
     public static int getLuminance(BlockState state) {
-        if (state.get(LIT).equals(2)){
+        if (state.get(LIT).equals(2)) {
             return 15;
-        } else if (state.get(LIT).equals(3)){
+        } else if (state.get(LIT).equals(3)) {
             return 10;
         }
         return 0;

@@ -26,22 +26,12 @@ import org.jetbrains.annotations.Nullable;
 
 public class ClayBrickBlock extends BlockWithEntity implements BlockEntityProvider{
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    private static final VoxelShape SHAPE_NORTH = Block.createCuboidShape(5, 0, 2, 11, 2, 14);
-    private static final VoxelShape SHAPE_EAST = Block.createCuboidShape(2, 0, 5, 14, 2, 11);
-    public static final MapCodec<ClayBrickBlock> CODEC = ClayBrickBlock.createCodec(ClayBrickBlock::new);
+    private static final VoxelShape SHAPE_Z = Block.createCuboidShape(5, 0, 2, 11, 2, 14);
+    private static final VoxelShape SHAPE_X = Block.createCuboidShape(2, 0, 5, 14, 2, 11);
+    private static final MapCodec<ClayBrickBlock> CODEC = ClayBrickBlock.createCodec(ClayBrickBlock::new);
 
     public ClayBrickBlock(AbstractBlock.Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FACING) == Direction.WEST ||
-            state.get(FACING) == Direction.EAST){
-            return SHAPE_EAST;
-        } else {
-            return SHAPE_NORTH;
-        }
     }
 
     @Override
@@ -50,11 +40,16 @@ public class ClayBrickBlock extends BlockWithEntity implements BlockEntityProvid
     }
 
     @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return state.get(FACING).getAxis() == Direction.Axis.X ? SHAPE_X : SHAPE_Z;
+    }
+
+    @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.CLAY_BRICK_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.CLAY_BRICK,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

@@ -1,6 +1,9 @@
 package net.numericalk.snailspeed.mixin;
 
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.Direction;
@@ -205,7 +208,7 @@ public class SnailModifyLog {
         cir.setReturnValue(modified);
     }
     @Inject(method = "createNetherStemSettings", at = @At("RETURN"), cancellable = true)
-    private static void init(MapColor mapColor, CallbackInfoReturnable<AbstractBlock.Settings> cir){
+    private static void init(MapColor mapColor, CallbackInfoReturnable<AbstractBlock.Settings> cir) {
         AbstractBlock.Settings original = cir.getReturnValue();
         AbstractBlock.Settings modified = AbstractBlock.Settings.create()
                 .mapColor((state) -> mapColor)

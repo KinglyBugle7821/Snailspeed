@@ -3,10 +3,9 @@
   "package": "net.numericalk.snailspeed.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin",
     "SnailModifyLog"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

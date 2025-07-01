@@ -2,8 +2,8 @@ package net.numericalk.snailspeed.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.block.Block;
 import net.minecraft.client.data.*;
-import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.SnailItems;
 
@@ -14,41 +14,46 @@ public class SnailModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_SPRUCE_LOG, Identifier.of("snailspeed", "block/trimmed_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_BIRCH_LOG, Identifier.of("snailspeed", "block/trimmed_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_JUNGLE_LOG, Identifier.of("snailspeed", "block/trimmed_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_ACACIA_LOG, Identifier.of("snailspeed", "block/trimmed_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_MANGROVE_LOG, Identifier.of("snailspeed", "block/trimmed_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CHERRY_LOG, Identifier.of("snailspeed", "block/trimmed_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/trimmed_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_CRIMSON_STEM, Identifier.of("snailspeed", "block/trimmed_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.TRIMMED_WARPED_STEM, Identifier.of("snailspeed", "block/trimmed_warped_stem"));
+        Block[] axisRotatedBlocks = {
+                SnailBlocks.TRIMMED_OAK_LOG,
+                SnailBlocks.TRIMMED_SPRUCE_LOG,
+                SnailBlocks.TRIMMED_BIRCH_LOG,
+                SnailBlocks.TRIMMED_JUNGLE_LOG,
+                SnailBlocks.TRIMMED_ACACIA_LOG,
+                SnailBlocks.TRIMMED_DARK_OAK_LOG,
+                SnailBlocks.TRIMMED_MANGROVE_LOG,
+                SnailBlocks.TRIMMED_CHERRY_LOG,
+                SnailBlocks.TRIMMED_PALE_OAK_LOG,
+                SnailBlocks.TRIMMED_CRIMSON_STEM,
+                SnailBlocks.TRIMMED_WARPED_STEM,
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_OAK_LOG, Identifier.of("snailspeed", "block/cracked_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_SPRUCE_LOG, Identifier.of("snailspeed", "block/cracked_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_BIRCH_LOG, Identifier.of("snailspeed", "block/cracked_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_JUNGLE_LOG, Identifier.of("snailspeed", "block/cracked_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_ACACIA_LOG, Identifier.of("snailspeed", "block/cracked_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/cracked_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_MANGROVE_LOG, Identifier.of("snailspeed", "block/cracked_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CHERRY_LOG, Identifier.of("snailspeed", "block/cracked_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/cracked_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_CRIMSON_STEM, Identifier.of("snailspeed", "block/cracked_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.CRACKED_WARPED_STEM, Identifier.of("snailspeed", "block/cracked_warped_stem"));
+                SnailBlocks.CRACKED_OAK_LOG,
+                SnailBlocks.CRACKED_SPRUCE_LOG,
+                SnailBlocks.CRACKED_BIRCH_LOG,
+                SnailBlocks.CRACKED_JUNGLE_LOG,
+                SnailBlocks.CRACKED_ACACIA_LOG,
+                SnailBlocks.CRACKED_DARK_OAK_LOG,
+                SnailBlocks.CRACKED_MANGROVE_LOG,
+                SnailBlocks.CRACKED_CHERRY_LOG,
+                SnailBlocks.CRACKED_PALE_OAK_LOG,
+                SnailBlocks.CRACKED_CRIMSON_STEM,
+                SnailBlocks.CRACKED_WARPED_STEM,
 
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_OAK_LOG, Identifier.of("snailspeed", "block/damaged_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_SPRUCE_LOG, Identifier.of("snailspeed", "block/damaged_spruce_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_BIRCH_LOG, Identifier.of("snailspeed", "block/damaged_birch_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_JUNGLE_LOG, Identifier.of("snailspeed", "block/damaged_jungle_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_ACACIA_LOG, Identifier.of("snailspeed", "block/damaged_acacia_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_DARK_OAK_LOG, Identifier.of("snailspeed", "block/damaged_dark_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_MANGROVE_LOG, Identifier.of("snailspeed", "block/damaged_mangrove_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CHERRY_LOG, Identifier.of("snailspeed", "block/damaged_cherry_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_PALE_OAK_LOG, Identifier.of("snailspeed", "block/damaged_pale_oak_log"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_CRIMSON_STEM, Identifier.of("snailspeed", "block/damaged_crimson_stem"));
-        blockStateModelGenerator.registerAxisRotated(SnailBlocks.DAMAGED_WARPED_STEM, Identifier.of("snailspeed", "block/damaged_warped_stem"));
+                SnailBlocks.DAMAGED_OAK_LOG,
+                SnailBlocks.DAMAGED_SPRUCE_LOG,
+                SnailBlocks.DAMAGED_BIRCH_LOG,
+                SnailBlocks.DAMAGED_JUNGLE_LOG,
+                SnailBlocks.DAMAGED_ACACIA_LOG,
+                SnailBlocks.DAMAGED_DARK_OAK_LOG,
+                SnailBlocks.DAMAGED_MANGROVE_LOG,
+                SnailBlocks.DAMAGED_CHERRY_LOG,
+                SnailBlocks.DAMAGED_PALE_OAK_LOG,
+                SnailBlocks.DAMAGED_CRIMSON_STEM,
+                SnailBlocks.DAMAGED_WARPED_STEM
+        };
+        for (Block axisRotatedBlock : axisRotatedBlocks) {
+            blockStateModelGenerator.registerAxisRotated(axisRotatedBlock, ModelIds.getBlockModelId(axisRotatedBlock));
+        }
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_OAK_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DAMAGED_SPRUCE_PLANKS);
@@ -336,9 +341,5 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
-    }
-    @Override
-    public String getName() {
-        return "snailspeed Model Provider";
     }
 }

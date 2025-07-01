@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -20,21 +21,24 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.block.WireOrientation;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.ClayMoldBlockEntity;
+import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
-    public static final MapCodec<ClayMoldBlock> CODEC = ClayMoldBlock.createCodec(ClayMoldBlock::new);
 
-    //0 NONE
-    //1 SWORD
-    //2 AXE
-    //3 PICKAXE
-    //4 SHOVEL
-    //5 HOE
-    //6 INGOT
-    //7 PLATE
+    public static final Item[] MOLD_ITEMS = {
+            SnailItems.BLANK_CLAY_MOLD,
+            SnailItems.SWORD_CLAY_MOLD,
+            SnailItems.AXE_CLAY_MOLD,
+            SnailItems.PICKAXE_CLAY_MOLD,
+            SnailItems.SHOVEL_CLAY_MOLD,
+            SnailItems.HOE_CLAY_MOLD,
+            SnailItems.INGOT_CLAY_MOLD,
+            SnailItems.PLATE_CLAY_MOLD
+    };
     public static final IntProperty MOLD_SHAPE = IntProperty.of("mold_shape", 0, 7);
+    private static final MapCodec<ClayMoldBlock> CODEC = ClayMoldBlock.createCodec(ClayMoldBlock::new);
 
     public ClayMoldBlock(Settings settings) {
         super(settings);
@@ -57,10 +61,10 @@ public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvide
     }
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.CLAY_MOLD_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.CLAY_MOLD,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

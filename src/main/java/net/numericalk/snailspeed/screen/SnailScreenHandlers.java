@@ -23,5 +23,5 @@ public class SnailScreenHandlers {
                     new ExtendedScreenHandlerType<>(SawTableScreenHandler::new, BlockPos.PACKET_CODEC));
 
 
-    public static void initialize(){}
+    public static void initialize() {}
 }

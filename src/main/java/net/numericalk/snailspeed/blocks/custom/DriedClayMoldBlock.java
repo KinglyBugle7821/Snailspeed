@@ -21,8 +21,8 @@ import org.jetbrains.annotations.Nullable;
 import static net.numericalk.snailspeed.blocks.custom.ClayMoldBlock.MOLD_SHAPE;
 
 public class DriedClayMoldBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final MapCodec<DriedClayMoldBlock> CODEC = DriedClayMoldBlock.createCodec(DriedClayMoldBlock::new);
     public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
+    private static final MapCodec<DriedClayMoldBlock> CODEC = DriedClayMoldBlock.createCodec(DriedClayMoldBlock::new);
 
     public DriedClayMoldBlock(Settings settings) {
         super(settings);
@@ -45,10 +45,10 @@ public class DriedClayMoldBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.DRIED_CLAY_MOLD_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.DRIED_CLAY_MOLD,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

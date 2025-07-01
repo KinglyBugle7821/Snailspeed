@@ -31,9 +31,9 @@ public class SnailItems {
 
     public static final Item WOOD_DUST = register("wood_dust", Item::new);
 
-    public static final Item FLINT_FLAKE = register("flint_flake", settings -> new AxeItem(SnailToolMaterial.FLINT_MATERIAL, -1f, -2.0f, settings), new Item.Settings());
-    public static final Item FLINT_HATCHET = register("flint_hatchet", settings -> new AxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 1f, -3.2f, settings), new Item.Settings());
-    public static final Item FLINT_PICKAXE = register("flint_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 0f, -2.8f, settings), new Item.Settings());
+    public static final Item FLINT_FLAKE = register("flint_flake", settings -> new AxeItem(SnailToolMaterial.FLINT_MATERIAL, -1f, -2.0f, settings));
+    public static final Item FLINT_HATCHET = register("flint_hatchet", settings -> new AxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 1f, -3.2f, settings));
+    public static final Item FLINT_PICKAXE = register("flint_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 0f, -2.8f, settings));
 
     public static final Item TINDER = register("tinder", settings -> new TinderItem(settings.maxCount(1)));
     public static final Item BURNING_TINDER = register("burning_tinder", settings -> new TinderItem(settings.maxCount(1)));
@@ -123,23 +123,23 @@ public class SnailItems {
     public static final Item STEEL_SHOVEL_HEAD = register("steel_shovel_head", Item::new);
     public static final Item STEEL_HOE_HEAD = register("steel_hoe_head", Item::new);
 
-    public static final Item COPPER_SWORD = register("copper_sword", settings -> new SwordItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 1f, -2.4f, settings), new Item.Settings());
-    public static final Item COPPER_AXE = register("copper_axe", settings -> new AxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 2.5f, -3.3f, settings), new Item.Settings());
-    public static final Item COPPER_PICKAXE = register("copper_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -1f, -2.8f, settings), new Item.Settings());
-    public static final Item COPPER_SHOVEL = register("copper_shovel", settings -> new ShovelItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 0f, -3f, settings), new Item.Settings());
-    public static final Item COPPER_HOE = register("copper_hoe", settings -> new HoeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -2f, -2.5f, settings), new Item.Settings());
+    public static final Item COPPER_SWORD = register("copper_sword", settings -> new SwordItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 1f, -2.4f, settings));
+    public static final Item COPPER_AXE = register("copper_axe", settings -> new AxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 2.5f, -3.3f, settings));
+    public static final Item COPPER_PICKAXE = register("copper_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -1f, -2.8f, settings));
+    public static final Item COPPER_SHOVEL = register("copper_shovel", settings -> new ShovelItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, 0f, -3f, settings));
+    public static final Item COPPER_HOE = register("copper_hoe", settings -> new HoeItem(SnailToolMaterial.COPPER_TOOL_MATERIAL, -2f, -2.5f, settings));
 
-    public static final Item BRONZE_SWORD = register("bronze_sword", settings -> new SwordItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 1f, -2.4f, settings), new Item.Settings());
-    public static final Item BRONZE_AXE = register("bronze_axe", settings -> new AxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 2.5f, -3.3f, settings), new Item.Settings());
-    public static final Item BRONZE_PICKAXE = register("bronze_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -1f, -2.8f, settings), new Item.Settings());
-    public static final Item BRONZE_SHOVEL = register("bronze_shovel", settings -> new ShovelItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 0f, -3f, settings), new Item.Settings());
-    public static final Item BRONZE_HOE = register("bronze_hoe", settings -> new HoeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -2f, -2.5f, settings), new Item.Settings());
+    public static final Item BRONZE_SWORD = register("bronze_sword", settings -> new SwordItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 1f, -2.4f, settings));
+    public static final Item BRONZE_AXE = register("bronze_axe", settings -> new AxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 2.5f, -3.3f, settings));
+    public static final Item BRONZE_PICKAXE = register("bronze_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -1f, -2.8f, settings));
+    public static final Item BRONZE_SHOVEL = register("bronze_shovel", settings -> new ShovelItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, 0f, -3f, settings));
+    public static final Item BRONZE_HOE = register("bronze_hoe", settings -> new HoeItem(SnailToolMaterial.BRONZE_TOOL_MATERIAL, -2f, -2.5f, settings));
 
-    public static final Item STEEL_SWORD = register("steel_sword", settings -> new SwordItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 3f, -2.4f, settings), new Item.Settings());
-    public static final Item STEEL_AXE = register("steel_axe", settings -> new AxeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 5f, -3.0f, settings), new Item.Settings());
-    public static final Item STEEL_PICKAXE = register("steel_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 1f, -2.8f, settings), new Item.Settings());
-    public static final Item STEEL_SHOVEL = register("steel_shovel", settings -> new ShovelItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 1.5f, -3f, settings), new Item.Settings());
-    public static final Item STEEL_HOE = register("steel_hoe", settings -> new HoeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, -3f, 0f, settings), new Item.Settings());
+    public static final Item STEEL_SWORD = register("steel_sword", settings -> new SwordItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 3f, -2.4f, settings));
+    public static final Item STEEL_AXE = register("steel_axe", settings -> new AxeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 5f, -3.0f, settings));
+    public static final Item STEEL_PICKAXE = register("steel_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 1f, -2.8f, settings));
+    public static final Item STEEL_SHOVEL = register("steel_shovel", settings -> new ShovelItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 1.5f, -3f, settings));
+    public static final Item STEEL_HOE = register("steel_hoe", settings -> new HoeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, -3f, 0f, settings));
 
     public static final Item RESIN_BALL = register("resin_ball", Item::new);
 
@@ -168,20 +168,20 @@ public class SnailItems {
 
     public static final Item BARK_SPUD = register("bark_spud", settings -> new BarkSpudItem(settings.maxCount(1).maxDamage(24)));
 
-    public static final Item COPPER_HELMET = register("copper_helmet", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
-    public static final Item COPPER_CHESTPLATE = register("copper_chestplate", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
-    public static final Item COPPER_LEGGINGS = register("copper_leggings", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
-    public static final Item COPPER_BOOTS = register("copper_boots", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.COPPER_DURABILITY)));
+    public static final Item COPPER_HELMET = register("copper_helmet", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.HELMET, settings));
+    public static final Item COPPER_CHESTPLATE = register("copper_chestplate", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.CHESTPLATE, settings));
+    public static final Item COPPER_LEGGINGS = register("copper_leggings", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.LEGGINGS, settings));
+    public static final Item COPPER_BOOTS = register("copper_boots", settings -> new ArmorItem(SnailArmorMaterial.COPPER_ARMOR, EquipmentType.BOOTS, settings));
 
-    public static final Item BRONZE_HELMET = register("bronze_helmet", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
-    public static final Item BRONZE_CHESTPLATE = register("bronze_chestplate", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
-    public static final Item BRONZE_LEGGINGS = register("bronze_leggings", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
-    public static final Item BRONZE_BOOTS = register("bronze_boots", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.BRONZE_DURABILITY)));
+    public static final Item BRONZE_HELMET = register("bronze_helmet", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.HELMET, settings));
+    public static final Item BRONZE_CHESTPLATE = register("bronze_chestplate", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.CHESTPLATE, settings));
+    public static final Item BRONZE_LEGGINGS = register("bronze_leggings", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.LEGGINGS, settings));
+    public static final Item BRONZE_BOOTS = register("bronze_boots", settings -> new ArmorItem(SnailArmorMaterial.BRONZE_ARMOR, EquipmentType.BOOTS, settings));
 
-    public static final Item STEEL_HELMET = register("steel_helmet", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.HELMET, settings), new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
-    public static final Item STEEL_CHESTPLATE = register("steel_chestplate", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.CHESTPLATE, settings), new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
-    public static final Item STEEL_LEGGINGS = register("steel_leggings", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.LEGGINGS, settings), new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
-    public static final Item STEEL_BOOTS = register("steel_boots", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.BOOTS, settings), new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(SnailArmorMaterial.STEEL_DURABILITY)));
+    public static final Item STEEL_HELMET = register("steel_helmet", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.HELMET, settings));
+    public static final Item STEEL_CHESTPLATE = register("steel_chestplate", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.CHESTPLATE, settings));
+    public static final Item STEEL_LEGGINGS = register("steel_leggings", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.LEGGINGS, settings));
+    public static final Item STEEL_BOOTS = register("steel_boots", settings -> new ArmorItem(SnailArmorMaterial.STEEL_ARMOR, EquipmentType.BOOTS, settings));
 
     public static final Item COPPER_HAMMER = register("copper_hammer", settings -> new Item(settings.maxCount(1).maxDamage(67)));
     public static final Item IRON_HAMMER = register("iron_hammer", settings -> new Item(settings.maxCount(1).maxDamage(250)));
@@ -220,11 +220,11 @@ public class SnailItems {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name)))));
     }
+
     private static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
         Registry.register(Registries.ITEM, itemKey, item);
-
         return item;
     }
 

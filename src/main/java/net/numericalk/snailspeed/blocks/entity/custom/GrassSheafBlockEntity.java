@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class GrassSheafBlockEntity extends BlockEntity {
     public GrassSheafBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.GRASS_SHEAF_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.GRASS_SHEAF, pos, state);
     }
 
     @Override
@@ -47,16 +47,16 @@ public class GrassSheafBlockEntity extends BlockEntity {
     private final int maxDryTime = 20 * 60;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (isGrassSheaf(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
-                if (hasProgressComplete()){
+        if (isGrassSheaf(state)) {
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()) {
+                if (hasProgressComplete()) {
                     dryGrassSheaf(world1, pos, state);
                 }
                 spawnSmokeParticle(world1, pos);
                 increaseProgress();
-            } else if (!hasDaylight(world1, pos)){
+            } else if (!hasDaylight(world1, pos)) {
                 pauseProgress();
-            } else if (isRaining(world1)){
+            } else if (isRaining(world1)) {
                 resetProgress();
             }
         } else {
@@ -65,7 +65,7 @@ public class GrassSheafBlockEntity extends BlockEntity {
     }
 
     private void spawnSmokeParticle(World world1, BlockPos pos) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
@@ -88,7 +88,7 @@ public class GrassSheafBlockEntity extends BlockEntity {
     }
 
     private void dryGrassSheaf(World world1, BlockPos pos, BlockState state) {
-        if (world1.isClient()){
+        if (world1.isClient()) {
             return;
         }
         world1.setBlockState(pos, SnailBlocks.DRIED_GRASS_SHEAF.getStateWithProperties(state));

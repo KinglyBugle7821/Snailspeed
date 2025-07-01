@@ -2,7 +2,6 @@ package net.numericalk.snailspeed.recipe.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -21,7 +20,7 @@ import java.util.Optional;
 public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, Ingredient inputFastener, Ingredient inputTool,
                                 ItemStack outputHelmet, ItemStack outputChestplate, ItemStack outputLeggings, ItemStack outputBoots) implements Recipe<ArmorForgeRecipeInput> {
 
-    public DefaultedList<Ingredient> getIngredients(){
+    public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputPlate);
         list.add(this.inputBinding);
@@ -30,9 +29,18 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
         return list;
     }
 
+    public ItemStack getOutput(ArmorPiece armorPiece) {
+        return switch (armorPiece) {
+            case HELMET -> outputHelmet;
+            case CHESTPLATE -> outputChestplate;
+            case LEGGINGS -> outputLeggings;
+            case BOOTS -> outputBoots;
+        };
+    }
+
     @Override
     public boolean matches(ArmorForgeRecipeInput input, World world) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return false;
         }
 
@@ -44,7 +52,7 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
 
     @Override
     public ItemStack craft(ArmorForgeRecipeInput input, RegistryWrapper.WrapperLookup registries) {
-        return switch (input.getSelectedPiece()){
+        return switch (input.selectedPiece()) {
             case HELMET -> outputHelmet.copy();
             case CHESTPLATE -> outputChestplate.copy();
             case LEGGINGS -> outputLeggings.copy();
@@ -80,7 +88,7 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
     }
 
     public static class Serializer implements RecipeSerializer<ArmorForgeRecipe> {
-        public static final MapCodec<ArmorForgeRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+        public static final MapCodec<ArmorForgeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Ingredient.CODEC.fieldOf("inputPlate").forGetter(ArmorForgeRecipe::inputPlate),
                 Ingredient.CODEC.fieldOf("inputBinding").forGetter(ArmorForgeRecipe::inputBinding),
                 Ingredient.CODEC.fieldOf("inputFastener").forGetter(ArmorForgeRecipe::inputFastener),
@@ -89,9 +97,9 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
                 ItemStack.CODEC.fieldOf("outputChestplate").forGetter(ArmorForgeRecipe::outputChestplate),
                 ItemStack.CODEC.fieldOf("outputLeggings").forGetter(ArmorForgeRecipe::outputLeggings),
                 ItemStack.CODEC.fieldOf("outputBoots").forGetter(ArmorForgeRecipe::outputBoots)
-        ).apply(inst, ArmorForgeRecipe::new));
+        ).apply(instance, ArmorForgeRecipe::new));
 
-        public static final PacketCodec<RegistryByteBuf, ArmorForgeRecipe> STREAM_CODEC =
+        public static final PacketCodec<RegistryByteBuf, ArmorForgeRecipe> PACKET_CODEC =
                 PacketCodec.tuple(
                         Ingredient.PACKET_CODEC, ArmorForgeRecipe::inputPlate,
                         Ingredient.PACKET_CODEC, ArmorForgeRecipe::inputBinding,
@@ -110,7 +118,7 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
 
         @Override
         public PacketCodec<RegistryByteBuf, ArmorForgeRecipe> packetCodec() {
-            return STREAM_CODEC;
+            return PACKET_CODEC;
         }
     }
 }

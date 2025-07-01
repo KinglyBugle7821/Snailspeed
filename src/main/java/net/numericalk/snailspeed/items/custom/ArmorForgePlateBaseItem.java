@@ -25,7 +25,7 @@ public class ArmorForgePlateBaseItem extends Item {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
         BlockState state = context.getWorld().getBlockState(pos);
-        if (state.isIn(SnailBlockTagsProvider.STRIPPED_LOGS)){
+        if (state.isIn(SnailBlockTagsProvider.STRIPPED_LOGS)) {
             world.setBlockState(pos, SnailBlocks.ARMOR_FORGE.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);

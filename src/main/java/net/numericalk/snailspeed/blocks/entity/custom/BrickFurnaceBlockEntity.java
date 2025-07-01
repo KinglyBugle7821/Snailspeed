@@ -28,7 +28,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
 
     public BrickFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.BRICK_FURNACE, pos, state);
     }
 
     @Override
@@ -60,22 +60,22 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     public float maxFireTime = 20 * 60 * 10;
     public void tick(World world1, BlockPos pos, BlockState state) {
 
-        for (int i = 0; i < 5; i++){
-            if (this.getStack(i).isOf(SnailItems.AIR)){
+        for (int i = 0; i < 5; i++) {
+            if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
         }
 
-        if (hasFuel() && isLit(state)){
+        if (hasFuel() && isLit(state)) {
             decreaseFireTime();
             if (fireTime <= 0) {
                 fireTime = 0;
                 setLitState(0, world1, pos, state);
                 this.getStack(5).decrement(1);
-            } else if (fireTime <= 20 * 60 * 3 && state.get(BrickFurnaceBlock.LIT).equals(3)){
+            } else if (fireTime <= 20 * 60 * 3 && state.get(BrickFurnaceBlock.LIT).equals(3)) {
                 setLitState(2, world1, pos, state);
             }
-        } else if (hasFuel()){
+        } else if (hasFuel()) {
             displayHasFuel(world1, pos, state);
             resetFireTime();
         }
@@ -83,10 +83,10 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             resetFireTime();
         }
 
-        if (state.get(BrickFurnaceBlock.LIT).equals(2)){
+        if (state.get(BrickFurnaceBlock.LIT).equals(2)) {
             maxProgress = 20 * 60 * 3;
             smeltItem(state, world1, pos, maxProgress);
-        } else if (state.get(BrickFurnaceBlock.LIT).equals(3)){
+        } else if (state.get(BrickFurnaceBlock.LIT).equals(3)) {
             maxProgress = 20 * 60;
             smeltItem(state, world1, pos, maxProgress);
         }
@@ -95,7 +95,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
         boolean matchedRecipe = false;
 
-        for (Item[] items : smeltingRecipe){
+        for (Item[] items : smeltingRecipe) {
             Item input1 = items[0];
             Item input2 = items[1];
             Item input3 = items[2];
@@ -157,7 +157,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     };
 
     private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.SMOKE,
                     pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
@@ -169,9 +169,9 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     }
 
     private void resetFireTime() {
-        if (this.getStack(5).isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)){
+        if (this.getStack(5).isIn(SnailItemTagsProvider.CAMPFIRE_FUEL)) {
             fireTime = 20 * 30;
-        } else if (this.getStack(5).isIn(SnailItemTagsProvider.OVEN_FUEL)){
+        } else if (this.getStack(5).isIn(SnailItemTagsProvider.OVEN_FUEL)) {
             fireTime = 20 * 60;
         }
     }
@@ -202,9 +202,9 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
     }
 
     public void calculatedAddedFireTime(TagKey<Item> fuelType) {
-        if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL){
+        if (fuelType == SnailItemTagsProvider.CAMPFIRE_FUEL) {
             fireTime += ((1200f/100f) * 50f);
-        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL){
+        } else if (fuelType == SnailItemTagsProvider.OVEN_FUEL) {
             fireTime += ((2400f/100f) * 50f);
         }
     }

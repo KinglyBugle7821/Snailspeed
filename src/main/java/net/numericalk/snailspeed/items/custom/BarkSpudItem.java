@@ -33,8 +33,8 @@ public class BarkSpudItem extends Item {
         World world = context.getWorld();
         ItemStack stack = context.getStack();
         PlayerEntity player = context.getPlayer();
-        for (Block[] blocks : tappedLog){
-            if (state.isOf(blocks[0])){
+        for (Block[] blocks : tappedLog) {
+            if (state.isOf(blocks[0])) {
                 world.setBlockState(pos, blocks[1].getStateWithProperties(state));
                 world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1f, 1f);
                 stack.damage(1, player);

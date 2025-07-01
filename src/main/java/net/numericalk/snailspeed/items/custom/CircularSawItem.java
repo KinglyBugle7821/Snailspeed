@@ -26,7 +26,7 @@ public class CircularSawItem extends Item {
         BlockState state = context.getWorld().getBlockState(pos);
         ItemStack stack = context.getPlayer().getMainHandStack();
 
-        if (state.isIn(BlockTags.WOODEN_SLABS)){
+        if (state.isIn(BlockTags.WOODEN_SLABS)) {
             world.setBlockState(pos, SnailBlocks.SAW_TABLE.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);

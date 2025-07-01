@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -19,14 +18,12 @@ import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 
-import static net.numericalk.snailspeed.utils.SnailWoodReplace.planksLog;
-
 public class SnailBreakEvents {
-    static Block[][] StoneBlockCombo = {
+    private static final Block[][] STONE_BLOCK_COMBO = {
             {Blocks.STONE, SnailBlocks.SCRATCHED_STONE, SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocks.FRACTURED_STONE, SnailBlocks.CRUMBLED_STONE},
             {Blocks.DEEPSLATE, SnailBlocks.SCRATCHED_DEEPSLATE, SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocks.FRACTURED_DEEPSLATE, SnailBlocks.CRUMBLED_DEEPSLATE}
     };
-    static final Block[] jsDropRockBro = {
+    private static final Block[] JS_DROP_ROCK_BRO = {
             Blocks.SMOOTH_STONE,
             Blocks.STONE_SLAB,
             Blocks.SMOOTH_STONE_SLAB,
@@ -121,7 +118,7 @@ public class SnailBreakEvents {
             Blocks.RED_SANDSTONE_WALL
     };
 
-    static Block[][] PlanksBlockCombo = {
+    public static final Block[][] PLANKS_BLOCK_COMBO = {
             {Blocks.OAK_PLANKS, SnailBlocks.DAMAGED_OAK_PLANKS, Blocks.OAK_SLAB, Blocks.OAK_LOG},
             {Blocks.SPRUCE_PLANKS, SnailBlocks.DAMAGED_SPRUCE_PLANKS, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_LOG},
             {Blocks.BIRCH_PLANKS, SnailBlocks.DAMAGED_BIRCH_PLANKS, Blocks.BIRCH_SLAB, Blocks.BIRCH_LOG},
@@ -136,70 +133,57 @@ public class SnailBreakEvents {
             {Blocks.BAMBOO_PLANKS, SnailBlocks.DAMAGED_BAMBOO_PLANKS, Blocks.BAMBOO_SLAB, Blocks.BAMBOO_BLOCK}
     };
 
-    public static void playerBreak(){
+    public static void playerBreak() {
         PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
-            if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK, player, state)) {
+            if (player.isCreative()) return true;
+            if (state.isIn(SnailBlockTagsProvider.STONE_BLOCK)) {
                 ItemStack stack = player.getMainHandStack();
                 if (playerHas(Items.FLINT, player)) {
-                    degradeStoneSmall(world, pos, state, true);
+                    degradeStone(world, pos, state, true, 1);
                     damageItem(stack, player, world, true);
                     givePlayer(SnailItems.FLINT_FLAKE, player, world);
                 }
             }
-            if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK, player, state)){
+            if (state.isIn(SnailBlockTagsProvider.STONE_BLOCK)) {
                 ItemStack stack = player.getMainHandStack();
-                if (hasBetterPickaxe(stack)){
-                    return true;
-                } else if (hasIronPickaxe(stack)){
-                    if (!hasReachedCrumbled(state)) {
-                        degradeStoneHuge(world, pos, state, true);
-                        damageItem(stack, player, world, true);
-                        return false;
-                    } else {
-                        return true;
-                    }
-                } else if(hasStonePickaxe(stack)){
-                    if (!hasReachedCrumbled(state)) {
-                        degradeStoneBig(world, pos, state, true);
-                        damageItem(stack, player, world, true);
-                        return false;
-                    } else {
-                        return true;
-                    }
-                } else if (hasWoodenPickaxe(stack)){
-                    if (!hasReachedCrumbled(state)) {
-                        degradeStoneSmall(world, pos, state, true);
-                        damageItem(stack, player, world, true);
-                        return false;
-                    } else {
-                        return true;
-                    }
-                } else {
-                    if (!hasReachedCrumbled(state)) {
-                        degradeStoneSmall(world, pos, state, false);
-                        damageItem(stack, player, world, false);
-                        return false;
-                    } else {
-                        return true;
-                    }
+                if (hasBetterPickaxe(stack)) return true;
+                if (isCrumbled(state)) return true;
+
+                if (hasIronPickaxe(stack)) {
+                    degradeStone(world, pos, state, true, 3);
+                    damageItem(stack, player, world, true);
+                    return false;
                 }
+                if (hasStonePickaxe(stack)) {
+                    degradeStone(world, pos, state, true, 2);
+                    damageItem(stack, player, world, true);
+                    return false;
+                }
+                if (hasWoodenPickaxe(stack)) {
+                    degradeStone(world, pos, state, true, 1);
+                    damageItem(stack, player, world, true);
+                    return false;
+                }
+                degradeStone(world, pos, state, false, 1);
+                damageItem(stack, player, world, false);
+                return false;
             }
-            if (wgatIsTarget(SnailBlockTagsProvider.STONE_BLOCK_VARIANTS, player, state)){
+            if (state.isIn(SnailBlockTagsProvider.STONE_BLOCK_VARIANTS)) {
                 return true;
             }
-//            if (wgatIsTarget(BlockTags.LOGS, player, state)){
+//            if (state.isIn(BlockTags.LOGS)) {
 //                ItemStack stack = player.getMainHandStack();
-//                if (stack.isOf(SnailItems.CIRCULAR_SAW)){
+//                if (stack.isOf(SnailItems.CIRCULAR_SAW)) {
 //                    planksLog(world, pos, state);
 //                }
 //            }
 
-            if (wgatIsTarget(BlockTags.PLANKS, player, state)){
+            if (state.isIn(BlockTags.PLANKS)) {
                 ItemStack stack = player.getMainHandStack();
 
-                if (hasBetterAxe(stack)){
+                if (hasBetterAxe(stack)) {
                     return true;
-                } else if (hasWoodenAxe(stack) || hasStoneAxe(stack)){
+                } else if (hasWoodenAxe(stack) || hasStoneAxe(stack)) {
                     if (!hasReachedDamaged(state)) {
                         degradePlanks(world, pos, state, true);
                         damageItem(stack, player, world, true);
@@ -207,7 +191,7 @@ public class SnailBreakEvents {
                     } else {
                         return true;
                     }
-                } else if (stack.isOf(SnailItems.CIRCULAR_SAW)){
+                } else if (stack.isOf(SnailItems.CIRCULAR_SAW)) {
                     halfSlab(world, pos, state);
                     return false;
                 } else {
@@ -224,9 +208,9 @@ public class SnailBreakEvents {
         });
 
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
-            if (wgatIsTarget(SnailBlockTagsProvider.ORES, player, state) ||
-                wgatIsTarget(SnailBlockTagsProvider.DEEPSLATE_ORES, player, state) ||
-                whatIsTarget(Blocks.NETHER_GOLD_ORE, player, state)){
+            if (state.isIn(SnailBlockTagsProvider.ORES) ||
+                    state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES) ||
+                    !player.isCreative() && state.isOf(Blocks.NETHER_GOLD_ORE)) {
                 degradeOreBlock(world, pos, state);
             }
         });
@@ -235,7 +219,7 @@ public class SnailBreakEvents {
 
 
     private static void halfSlab(World world, BlockPos pos, BlockState state) {
-        for (Block[] blocks : PlanksBlockCombo) {
+        for (Block[] blocks : PLANKS_BLOCK_COMBO) {
             Block inputLog = blocks[0];
             Block outputPlanks = blocks[2];
 
@@ -253,12 +237,12 @@ public class SnailBreakEvents {
 
     private static void degradePlanks(World world, BlockPos pos, BlockState state, boolean canDrop) {
         if (world.isClient()) return;
-        for (Block[] entry : PlanksBlockCombo){
+        for (Block[] entry : PLANKS_BLOCK_COMBO) {
             Block normal = entry[0];
             Block damaged = entry[1];
-            if (state.isOf(normal)){
+            if (state.isOf(normal)) {
                 turnBlockTo(damaged, pos, state, world);
-                if (canDrop){
+                if (canDrop) {
                     addDrop(world, SnailItems.WOOD_DUST, pos);
                     addDrop(world, SnailItems.WOOD_DUST, pos);
                 }
@@ -274,14 +258,16 @@ public class SnailBreakEvents {
     }
 
     private static boolean hasBetterAxe(ItemStack stack) {
-        return  (stack.isIn(SnailItemTagsProvider.IRON_TOOLS) && stack.isIn(ItemTags.AXES)) ||
-                (stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) && stack.isIn(ItemTags.AXES)) ||
-                (stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS) && stack.isIn(ItemTags.AXES));
+        return stack.isIn(ItemTags.AXES) && (
+                stack.isIn(SnailItemTagsProvider.IRON_TOOLS) ||
+                stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) ||
+                stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS));
     }
 
     private static boolean hasBetterPickaxe(ItemStack stack) {
-        return (stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) && stack.isIn(ItemTags.PICKAXES)) ||
-                (stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS) && stack.isIn(ItemTags.PICKAXES));
+        return stack.isIn(ItemTags.PICKAXES) && (
+                stack.isIn(SnailItemTagsProvider.DIAMOND_TOOLS) ||
+                stack.isIn(SnailItemTagsProvider.NETHERITE_TOOLS));
     }
 
     private static boolean hasWoodenPickaxe(ItemStack stack) {
@@ -295,146 +281,54 @@ public class SnailBreakEvents {
         return stack.isIn(SnailItemTagsProvider.IRON_TOOLS) && stack.isIn(ItemTags.PICKAXES);
     }
 
-    private static boolean hasReachedCrumbled(BlockState state) {
+    private static boolean isCrumbled(BlockState state) {
         return state.isIn(SnailBlockTagsProvider.CRUMBLED_STONE_BLOCK);
     }
 
     private static void damageItem(ItemStack stack, PlayerEntity player, World world, boolean canDecrement) {
         if (world.isClient()) return;
-        if (stack.isDamageable()){
+        if (stack.isDamageable()) {
             stack.damage(1, player);
-        } else if (canDecrement){
+        } else if (canDecrement) {
             stack.decrement(1);
         }
     }
 
-    private static void degradeOreBlock(World world, BlockPos pos, BlockState state){
+    private static void degradeOreBlock(World world, BlockPos pos, BlockState state) {
         if (world.isClient()) return;
-        if (state.isIn(SnailBlockTagsProvider.ORES)){
+        if (state.isIn(SnailBlockTagsProvider.ORES)) {
             turnBlockTo(Blocks.STONE, pos, state, world);
-        } else if (state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES)){
+        } else if (state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES)) {
             turnBlockTo(Blocks.DEEPSLATE, pos, state, world);
-        } else if (state.isOf(Blocks.NETHER_GOLD_ORE)){
+        } else if (state.isOf(Blocks.NETHER_GOLD_ORE)) {
             turnBlockTo(Blocks.NETHERRACK, pos, state, world);
         }
     }
 
-    private static void degradeStoneHuge(World world, BlockPos pos, BlockState state, boolean canDrop) {
-        if (world.isClient()) return;
-        for (Block[] stone : StoneBlockCombo){
-            Block scratched = stone[1];
-            Block cracked = stone[2];
-            Block cobbled = stone[3];
-            Block fractured = stone[4];
-            Block crumbled = stone[5];
-            if (state.isOf(stone[0])){
-                turnBlockTo(cobbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(scratched)){
-                turnBlockTo(fractured, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                }
-            } else if (state.isOf(cracked)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                }
-            } else if (state.isOf(cobbled)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(fractured)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            }
-        }
-    }
+    private static final Item[] DROP_FOR_DEGRADING_STONE = {
+            SnailItems.STONE_DUST,
+            SnailItems.PEBBLE,
+            SnailItems.PEBBLE,
+            SnailItems.STONE_DUST,
+            SnailItems.PEBBLE
+    };
 
-    private static void degradeStoneBig(World world, BlockPos pos, BlockState state, boolean canDrop) {
+    private static void degradeStone(World world, BlockPos pos, BlockState state, boolean canDrop, int degradeAmount) {
         if (world.isClient()) return;
-        for (Block[] stone : StoneBlockCombo){
-            Block scratched = stone[1];
-            Block cracked = stone[2];
-            Block cobbled = stone[3];
-            Block fractured = stone[4];
-            Block crumbled = stone[5];
-            if (state.isOf(stone[0])){
-                turnBlockTo(cracked, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(scratched)){
-                turnBlockTo(cobbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(cracked)){
-                turnBlockTo(fractured, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(cobbled)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(fractured)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
+        for (Block[] stone : STONE_BLOCK_COMBO) {
+            int i;
+            for (i = 0; i < stone.length - 1; i++) {
+                Block block = stone[i];
+                if (state.isOf(block)) {
+                    Block newBlock = stone[Math.min(stone.length - 1, i + degradeAmount)];
+                    turnBlockTo(newBlock, pos, state, world);
+                    break;
                 }
             }
-        }
-    }
-    private static void degradeStoneSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
-        if (world.isClient()) return;
-        for (Block[] stone : StoneBlockCombo){
-            Block scratched = stone[1];
-            Block cracked = stone[2];
-            Block cobbled = stone[3];
-            Block fractured = stone[4];
-            Block crumbled = stone[5];
-            if (state.isOf(stone[0])){
-                turnBlockTo(scratched, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                }
-            } else if (state.isOf(scratched)){
-                turnBlockTo(cracked, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(cracked)){
-                turnBlockTo(cobbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
-                }
-            } else if (state.isOf(cobbled)){
-                turnBlockTo(fractured, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.STONE_DUST, pos);
-                }
-            } else if (state.isOf(fractured)){
-                turnBlockTo(crumbled, pos, state, world);
-                if (canDrop){
-                    addDrop(world, SnailItems.PEBBLE, pos);
+            if (canDrop) {
+                int endIndex = Math.min(i + degradeAmount, stone.length - 1);
+                for (; i < endIndex; i++) {
+                    addDrop(world, DROP_FOR_DEGRADING_STONE[i], pos);
                 }
             }
         }
@@ -449,16 +343,10 @@ public class SnailBreakEvents {
         if (world.isClient()) return;
         ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());
     }
-    private static void givePlayer(Item item, PlayerEntity player, World world){
+
+    private static void givePlayer(Item item, PlayerEntity player, World world) {
         if (world.isClient()) return;
         player.giveOrDropStack(item.getDefaultStack());
-    }
-
-    private static boolean wgatIsTarget(TagKey<Block> targetBlockTag, PlayerEntity player, BlockState state) {
-        return !player.isCreative() && state.isIn(targetBlockTag);
-    }
-    private static boolean whatIsTarget(Block block, PlayerEntity player, BlockState state) {
-        return !player.isCreative() && state.isOf(block);
     }
 
     private static boolean playerHas(Item item, PlayerEntity player) {

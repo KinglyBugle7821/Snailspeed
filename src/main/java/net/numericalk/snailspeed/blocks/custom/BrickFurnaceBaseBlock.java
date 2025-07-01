@@ -25,7 +25,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
-    public static final MapCodec<BrickFurnaceBaseBlock> CODEC = BrickFurnaceBaseBlock.createCodec(BrickFurnaceBaseBlock::new);
     public static final IntProperty STAGES = IntProperty.of("stages", 0, 4);
 
     public static final VoxelShape SHAPE_BASE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
@@ -96,34 +95,9 @@ public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
             Block.createCuboidShape(14, 2, 0, 16, 14, 16)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    public static final VoxelShape SHAPE_FULL = Block.createCuboidShape(0,0,0,16,16,16);
+    public static final VoxelShape SHAPE_FULL = Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+    private static final MapCodec<BrickFurnaceBaseBlock> CODEC = BrickFurnaceBaseBlock.createCodec(BrickFurnaceBaseBlock::new);
 
-
-    @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(STAGES)){
-            case 0 -> SHAPE_BASE;
-            case 1 -> switch (state.get(FACING)){
-                case SOUTH -> SHAPE_LEFT_WALL_SOUTH;
-                case WEST -> SHAPE_LEFT_WALL_WEST;
-                case EAST -> SHAPE_LEFT_WALL_EAST;
-                default -> SHAPE_LEFT_WALL_NORTH;
-            };
-            case 2 -> switch (state.get(FACING)){
-                case SOUTH -> SHAPE_SIDE_WALL_SOUTH;
-                case WEST -> SHAPE_SIDE_WALL_WEST;
-                case EAST -> SHAPE_SIDE_WALL_EAST;
-                default -> SHAPE_SIDE_WALL_NORTH;
-            };
-            case 3 -> switch (state.get(FACING)){
-                case SOUTH -> SHAPE_WALL_SOUTH;
-                case WEST -> SHAPE_WALL_WEST;
-                case EAST -> SHAPE_WALL_EAST;
-                default -> SHAPE_WALL_NORTH;
-            };
-            default -> SHAPE_FULL;
-        };
-    }
     public BrickFurnaceBaseBlock(Settings settings) {
         super(settings);
     }
@@ -134,18 +108,44 @@ public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
     }
 
     @Override
+    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return switch (state.get(STAGES)) {
+            case 0 -> SHAPE_BASE;
+            case 1 -> switch (state.get(FACING)) {
+                case SOUTH -> SHAPE_LEFT_WALL_SOUTH;
+                case WEST -> SHAPE_LEFT_WALL_WEST;
+                case EAST -> SHAPE_LEFT_WALL_EAST;
+                default -> SHAPE_LEFT_WALL_NORTH;
+            };
+            case 2 -> switch (state.get(FACING)) {
+                case SOUTH -> SHAPE_SIDE_WALL_SOUTH;
+                case WEST -> SHAPE_SIDE_WALL_WEST;
+                case EAST -> SHAPE_SIDE_WALL_EAST;
+                default -> SHAPE_SIDE_WALL_NORTH;
+            };
+            case 3 -> switch (state.get(FACING)) {
+                case SOUTH -> SHAPE_WALL_SOUTH;
+                case WEST -> SHAPE_WALL_WEST;
+                case EAST -> SHAPE_WALL_EAST;
+                default -> SHAPE_WALL_NORTH;
+            };
+            default -> SHAPE_FULL;
+        };
+    }
+
+    @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (stack.isOf(Items.BRICK) && state.get(STAGES) < 4){
+        if (stack.isOf(Items.BRICK) && state.get(STAGES) < 4) {
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, state.cycle(STAGES));
-            if (!player.isCreative()){
+            if (!player.isCreative()) {
                 stack.decrement(1);
             }
         }
-        if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 4){
+        if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 4) {
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, SnailBlocks.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
-            if (!player.isCreative()){
+            if (!player.isCreative()) {
                 stack.decrement(1);
             }
         }

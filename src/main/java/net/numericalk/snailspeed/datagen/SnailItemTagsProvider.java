@@ -20,33 +20,37 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
         super(output, RegistryKeys.ITEM, registriesFuture);
     }
 
-    public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "flint_flake_repairable"));
-    public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "copper_tool_repairable"));
-    public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "copper_tool_repairable"));
-    public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "steel_tool_repairable"));
-    public static final TagKey<Item> CAMPFIRE_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "campfire_fuel"));
-    public static final TagKey<Item> LOG_BARKS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks"));
-    public static final TagKey<Item> LOG_BARKS_THAT_BURN = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "log_barks_that_burn"));
-    public static final TagKey<Item> STRING = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "string"));
-    public static final TagKey<Item> OVEN_FUEL = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "oven_fuel"));
-    public static final TagKey<Item> MOLTEN_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "molten_items"));
-    public static final TagKey<Item> CLAY_MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "clay_mold"));
-    public static final TagKey<Item> GRAPHITE_MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "graphite_mold"));
-    public static final TagKey<Item> MOLD = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "mold"));
-    public static final TagKey<Item> GLUES = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "glues"));
+    public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = of("flint_flake_repairable");
+    public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = of("copper_tool_repairable");
+    public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = of("copper_tool_repairable");
+    public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = of("steel_tool_repairable");
+    public static final TagKey<Item> CAMPFIRE_FUEL = of("campfire_fuel");
+    public static final TagKey<Item> LOG_BARKS = of("log_barks");
+    public static final TagKey<Item> LOG_BARKS_THAT_BURN = of("log_barks_that_burn");
+    public static final TagKey<Item> STRING = of("string");
+    public static final TagKey<Item> OVEN_FUEL = of("oven_fuel");
+    public static final TagKey<Item> MOLTEN_ITEMS = of("molten_items");
+    public static final TagKey<Item> CLAY_MOLD = of("clay_mold");
+    public static final TagKey<Item> GRAPHITE_MOLD = of("graphite_mold");
+    public static final TagKey<Item> MOLD = of("mold");
+    public static final TagKey<Item> GLUES = of("glues");
 
-    public static final TagKey<Item> PLATES = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "plates"));
-    public static final TagKey<Item> BINDERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "binders"));
-    public static final TagKey<Item> FASTENERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "fasteners"));
-    public static final TagKey<Item> HAMMERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "hammers"));
+    public static final TagKey<Item> PLATES = of("plates");
+    public static final TagKey<Item> BINDERS = of("binders");
+    public static final TagKey<Item> FASTENERS = of("fasteners");
+    public static final TagKey<Item> HAMMERS = of("hammers");
 
-    public static final TagKey<Item> FILTERS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "filters"));
+    public static final TagKey<Item> FILTERS = of("filters");
 
-    public static final TagKey<Item> WOODEN_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "wooden_tools"));
-    public static final TagKey<Item> STONE_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "stone_tools"));
-    public static final TagKey<Item> IRON_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "iron_tools"));
-    public static final TagKey<Item> DIAMOND_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "diamond_tools"));
-    public static final TagKey<Item> NETHERITE_TOOLS = TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, "netherite_tools"));
+    public static final TagKey<Item> WOODEN_TOOLS = of("wooden_tools");
+    public static final TagKey<Item> STONE_TOOLS = of("stone_tools");
+    public static final TagKey<Item> IRON_TOOLS = of("iron_tools");
+    public static final TagKey<Item> DIAMOND_TOOLS = of("diamond_tools");
+    public static final TagKey<Item> NETHERITE_TOOLS = of("netherite_tools");
+
+    private static TagKey<Item> of(String name) {
+        return TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name));
+    }
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {

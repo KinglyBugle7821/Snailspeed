@@ -3,15 +3,11 @@ package net.numericalk.snailspeed;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.block.Block;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.world.ClientWorld;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
-import net.numericalk.snailspeed.blocks.entity.custom.MortarBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.renderer.*;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
@@ -31,11 +27,11 @@ public class SnailspeedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.FIRED_CLAY_MOLD, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.SAW_TABLE, RenderLayer.getCutout());
 
-        BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY, CampfireBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN_BLOCK_ENTITY, BrickOvenBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR_BLOCK_ENTITY, MortarBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY, BrickFurnaceBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY, FilteringTrayBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE, CampfireBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN, BrickOvenBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(SnailBlockEntities.MORTAR, MortarBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_FURNACE, BrickFurnaceBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(SnailBlockEntities.FILTERING_TRAY, FilteringTrayBlockEntityRenderer::new);
 
         HandledScreens.register(SnailScreenHandlers.ARMOR_FORGE_SCREEN_HANDLER, ArmorForgeScreen::new);
         HandledScreens.register(SnailScreenHandlers.SMALL_BARREL_SCREEN_HANDLER, SmallBarrelScreen::new);
@@ -57,5 +53,5 @@ public class SnailspeedClient implements ClientModInitializer {
                 }
         );
 
-        }
+    }
 }

@@ -42,7 +42,7 @@ public class TinderItem extends Item{
         if (user instanceof PlayerEntity player) {
             Random random = new Random();
             int randomNumber = random.nextInt(1, 3);
-            if (randomNumber == 1){
+            if (randomNumber == 1) {
                 if (player.getOffHandStack().isOf(Items.STICK) && stack.isOf(SnailItems.TINDER)) {
                     if (!world.isClient) {
                         player.setStackInHand(Hand.MAIN_HAND, SnailItems.BURNING_TINDER.getDefaultStack());

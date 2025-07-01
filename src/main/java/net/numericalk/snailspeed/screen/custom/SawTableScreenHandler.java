@@ -33,7 +33,7 @@ public class SawTableScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 15, 15));
         this.addSlot(new Slot(inventory, 1, 15, 53));
-        this.addSlot(new Slot(inventory, 2, 143, 33){
+        this.addSlot(new Slot(inventory, 2, 143, 33) {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 ((SawTableBlockEntity) blockEntity).decrementInput();

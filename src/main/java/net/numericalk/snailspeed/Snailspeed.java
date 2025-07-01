@@ -2,6 +2,10 @@ package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.minecraft.client.render.LightmapTextureManager;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.LightType;
+import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItemGroup;
@@ -15,35 +19,43 @@ import net.numericalk.snailspeed.utils.*;
 import net.numericalk.snailspeed.world.gen.SnailWorldGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 public class Snailspeed implements ModInitializer {
-	public static final String MOD_ID = "snailspeed";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID = "snailspeed";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	@Override
-	public void onInitialize() {
+    @Override
+    public void onInitialize() {
 
-		SnailItems.initialize();
-		SnailBlocks.initialize();
-		SnailRecipe.initialize();
-		SnailItemGroup.initialize();
-		SnailBlockEntities.initialize();
-		SnailScreenHandlers.initialize();
+        SnailItems.initialize();
+        SnailBlocks.initialize();
+        SnailRecipe.initialize();
+        SnailItemGroup.initialize();
+        SnailBlockEntities.initialize();
+        SnailScreenHandlers.initialize();
+        SnailRecipe.initialize();
 
 
-		SnailWorldGen.generateModdedWorldGen();
+        SnailWorldGen.generateModdedWorldGen();
 
-		SnailLootTableMod.modifyLootTables();
-		SnailLogStripping.logStripping();
-		SnailSetBlockOnFire.SetOnFire();
-		SnailWoodReplace.replaceWood();
-		SnailBreakEvents.playerBreak();
+        SnailLootTableMod.modifyLootTables();
+        SnailLogStripping.logStripping();
+        SnailSetBlockOnFire.SetOnFire();
+        SnailWoodReplace.replaceWood();
+        SnailBreakEvents.playerBreak();
 
-		PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
-		PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
 
-		PayloadTypeRegistry.playC2S().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
-		PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
 
-		SnailNetworkingBrain.registerC2SPackets();
-	}
+        SnailNetworkingBrain.registerC2SPackets();
+    }
+
+    public static int getLightLevel(World world, BlockPos pos) {
+        int blockLight = world.getLightLevel(LightType.BLOCK, pos);
+        int skyLight = world.getLightLevel(LightType.SKY, pos);
+        return LightmapTextureManager.pack(blockLight, skyLight);
+    }
 }

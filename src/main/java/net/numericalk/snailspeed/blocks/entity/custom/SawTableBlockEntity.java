@@ -3,7 +3,6 @@ package net.numericalk.snailspeed.blocks.entity.custom;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -26,25 +25,23 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItems;
-import net.numericalk.snailspeed.screen.custom.SawTableScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreenHandler;
 import net.numericalk.snailspeed.utils.enums.SawCraftable;
 import net.numericalk.snailspeed.utils.records.SawTableRecipe;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
-    private static final int INPUT = 0;
-    private static final int INPUT_ADDITIONAL = 1;
+    public static final int INPUT = 0;
+    public static final int INPUT_ADDITIONAL = 1;
     public static final int OUTPUT = 2;
 
     public SawTableBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.SAW_TABLE_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.SAW_TABLE, pos, state);
     }
 
     @Override
@@ -62,6 +59,7 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
         Inventories.readNbt(nbt, inventory, registryLookup);
         super.readNbt(nbt, registryLookup);
     }
+
     @Override
     public BlockPos getScreenOpeningData(ServerPlayerEntity serverPlayerEntity) {
         return this.pos;
@@ -77,7 +75,7 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
         return new SawTableScreenHandler(syncId, playerInventory, this);
     }
 
-    Map<Item, SawTableRecipe> sawRecipe = Map.ofEntries(
+    private static final Map<Item, SawTableRecipe> SAW_RECIPES = Map.ofEntries(
             Map.entry(Items.OAK_LOG, new SawTableRecipe(Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.OAK_PLANKS, Items.AIR, Items.AIR, Items.AIR)),
             Map.entry(Items.STRIPPED_OAK_LOG, new SawTableRecipe(Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.OAK_PLANKS, Items.AIR, Items.AIR, Items.AIR)),
             Map.entry(Items.OAK_WOOD, new SawTableRecipe(Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.AIR, Items.OAK_PLANKS, Items.AIR, Items.AIR, Items.AIR)),
@@ -150,7 +148,7 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (hasRecipe()) {
-            askToCraftItem();
+            tryToCraftItem();
         } else {
             removeStack(OUTPUT);
         }
@@ -158,11 +156,11 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
 
 
 
-    public void askToCraftItem() {
+    public void tryToCraftItem() {
         Item inputs = this.getStack(INPUT).getItem();
-        SawTableRecipe recipe = sawRecipe.get(inputs);
-        Set<Item> keys = sawRecipe.keySet();
-        for (Item input : keys){
+        SawTableRecipe recipe = SAW_RECIPES.get(inputs);
+        Set<Item> keys = SAW_RECIPES.keySet();
+        for (Item input : keys) {
             Item stairs = recipe.stairs();
             Item slab = recipe.slab();
             Item door = recipe.door();
@@ -175,9 +173,9 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
             Item bed = recipe.bed();
             Item hangingSign = recipe.hangingSign();
             Item sign = recipe.sign();
-            if (this.getStack(INPUT).isOf(input)){
-                if (!hasAdditionalInput()){
-                    switch (selected){
+            if (this.getStack(INPUT).isOf(input)) {
+                if (!hasAdditionalInput()) {
+                    switch (selected) {
                         case STAIRS -> this.setStack(OUTPUT, stairs.getDefaultStack().copyWithCount(1));
                         case SLAB -> this.setStack(OUTPUT, slab.getDefaultStack().copyWithCount(2));
                         case DOOR -> this.setStack(OUTPUT, door.getDefaultStack().copyWithCount(1));
@@ -185,20 +183,20 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
                         case TRAPDOOR -> this.setStack(OUTPUT, trapdoor.getDefaultStack().copyWithCount(1));
                         default -> this.setStack(OUTPUT, ItemStack.EMPTY);
                     }
-                } else if (hasAdditionalInputOf(Items.COPPER_INGOT.getDefaultStack())){
-                    switch (selected){
+                } else if (hasAdditionalInputOf(Items.COPPER_INGOT.getDefaultStack())) {
+                    switch (selected) {
                         case BARREL -> this.setStack(OUTPUT, barrel.getDefaultStack().copyWithCount(1));
                         case CHEST -> this.setStack(OUTPUT, chest.getDefaultStack().copyWithCount(1));
                         default -> this.setStack(OUTPUT, ItemStack.EMPTY);
                     }
-                } else if (hasAdditionalInputIn(ItemTags.WOOL)){
-                    if (selected.equals(SawCraftable.BED)){
+                } else if (hasAdditionalInputIn(ItemTags.WOOL)) {
+                    if (selected.equals(SawCraftable.BED)) {
                         this.setStack(OUTPUT, bed.getDefaultStack().copyWithCount(1));
                     } else {
                         this.setStack(OUTPUT, ItemStack.EMPTY);
                     }
-                } else if (hasAdditionalInputOf(SnailItems.LONG_STICK.getDefaultStack())){
-                    switch (selected){
+                } else if (hasAdditionalInputOf(SnailItems.LONG_STICK.getDefaultStack())) {
+                    switch (selected) {
                         case FENCE -> this.setStack(OUTPUT, fence.getDefaultStack().copyWithCount(2));
                         case FENCE_GATE -> this.setStack(OUTPUT, fenceGate.getDefaultStack().copyWithCount(1));
                         case HANGING_SIGN -> this.setStack(OUTPUT, hangingSign.getDefaultStack().copyWithCount(1));
@@ -211,20 +209,20 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private boolean hasRecipe() {
-        Set<Item> keys = sawRecipe.keySet();
-        for (Item input : keys){
-            if (this.getStack(INPUT).isOf(input)){
-                if (!hasAdditionalInput()){
-                    switch (selected){
+        Set<Item> keys = SAW_RECIPES.keySet();
+        for (Item input : keys) {
+            if (this.getStack(INPUT).isOf(input)) {
+                if (!hasAdditionalInput()) {
+                    switch (selected) {
                         case STAIRS, SLAB, DOOR, PLANKS, TRAPDOOR -> {
                             return true;
                         }
                     }
-                } else if (hasAdditionalInputOf(Items.COPPER_INGOT.getDefaultStack())){
+                } else if (hasAdditionalInputOf(Items.COPPER_INGOT.getDefaultStack())) {
                     return true;
-                } else if (hasAdditionalInputIn(ItemTags.WOOL)){
+                } else if (hasAdditionalInputIn(ItemTags.WOOL)) {
                     return true;
-                } else if (hasAdditionalInputOf(SnailItems.LONG_STICK.getDefaultStack())){
+                } else if (hasAdditionalInputOf(SnailItems.LONG_STICK.getDefaultStack())) {
                     return true;
                 }
             }
@@ -232,11 +230,11 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
         return false;
     }
 
-    private boolean hasAdditionalInputIn(TagKey<Item> itemTag){
+    private boolean hasAdditionalInputIn(TagKey<Item> itemTag) {
         return this.getStack(INPUT_ADDITIONAL).isIn(itemTag);
     }
 
-    private boolean hasAdditionalInputOf(ItemStack stack){
+    private boolean hasAdditionalInputOf(ItemStack stack) {
         return this.getStack(INPUT_ADDITIONAL).isOf(stack.getItem());
     }
 
@@ -244,7 +242,7 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
         return !this.getStack(INPUT_ADDITIONAL).isEmpty();
     }
 
-    public void decrementInput(){
+    public void decrementInput() {
         this.getStack(INPUT).decrement(1);
         this.getStack(INPUT_ADDITIONAL).decrement(1);
     }

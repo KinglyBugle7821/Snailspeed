@@ -129,7 +129,7 @@ public class SnailLootTableMod {
                     DIRT_ID.equals(registryKey.getValue()) ||
                     PODZOL_ID.equals(registryKey.getValue()) ||
                     FARMLAND_ID.equals(registryKey.getValue())
-                    ){
+                    ) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -139,7 +139,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (ROOTED_DIRT_ID.equals(registryKey.getValue())){
+            if (ROOTED_DIRT_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -149,7 +149,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (MOSS_BLOCK_ID.equals(registryKey.getValue())){
+            if (MOSS_BLOCK_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -159,7 +159,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (PALE_MOSS_BLOCK_ID.equals(registryKey.getValue())){
+            if (PALE_MOSS_BLOCK_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -170,7 +170,7 @@ public class SnailLootTableMod {
                 return tableBuilder.build();
             }
 
-            if (CHEST_ID.equals(registryKey.getValue()) || BARREL_ID.equals(registryKey.getValue())){
+            if (CHEST_ID.equals(registryKey.getValue()) || BARREL_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -180,8 +180,8 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            for (Identifier id : candles){
-                if (id.equals(registryKey.getValue())){
+            for (Identifier id : candles) {
+                if (id.equals(registryKey.getValue())) {
                     LootPool.Builder poolBuilder = LootPool.builder()
                             .rolls(ConstantLootNumberProvider.create(1f))
                             .conditionally(RandomChanceLootCondition.builder(1f))
@@ -193,7 +193,7 @@ public class SnailLootTableMod {
                 }
             }
 
-            if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())){
+            if (GRASS_BLOCK_ID.equals(registryKey.getValue()) || DIRT_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -203,7 +203,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (COARSE_DIRT_ID.equals(registryKey.getValue())){
+            if (COARSE_DIRT_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -214,7 +214,7 @@ public class SnailLootTableMod {
                 return tableBuilder.build();
             }
 
-            if (TORCH_ID.equals(registryKey.getValue())){
+            if (TORCH_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -224,7 +224,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (SOUL_TORCH_ID.equals(registryKey.getValue())){
+            if (SOUL_TORCH_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -234,7 +234,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (LANTERN_ID.equals(registryKey.getValue())){
+            if (LANTERN_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -244,7 +244,7 @@ public class SnailLootTableMod {
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
                 return tableBuilder.build();
             }
-            if (SOUL_LANTERN_ID.equals(registryKey.getValue())){
+            if (SOUL_LANTERN_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
@@ -260,7 +260,7 @@ public class SnailLootTableMod {
         LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
             RegistryEntryLookup<Item> itemRegistry = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
 
-            if (SHORT_GRASS_ID.equals(registryKey.getValue())){
+            if (SHORT_GRASS_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(0.35f))
@@ -270,7 +270,7 @@ public class SnailLootTableMod {
 
                 builder.pool(poolBuilder.build());
             }
-            if (TALL_GRASS_ID.equals(registryKey.getValue())){
+            if (TALL_GRASS_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(0.85f))

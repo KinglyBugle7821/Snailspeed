@@ -26,8 +26,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class DriedGrassSheafBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,1,16);
-    public static final MapCodec<GrassSheafBlock> CODEC = GrassSheafBlock.createCodec(GrassSheafBlock::new);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 1, 16);
+    private static final MapCodec<GrassSheafBlock> CODEC = GrassSheafBlock.createCodec(GrassSheafBlock::new);
 
     public DriedGrassSheafBlock(Settings settings) {
         super(settings);
@@ -50,10 +50,10 @@ public class DriedGrassSheafBlock extends BlockWithEntity implements BlockEntity
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.DRIED_GRASS_SHEAF_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.DRIED_GRASS_SHEAF,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }

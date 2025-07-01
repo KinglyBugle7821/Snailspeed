@@ -168,37 +168,43 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
             Block.createCuboidShape(5, 14, 0, 11, 15, 5)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    public static final VoxelShape SHAPE_FULL = Block.createCuboidShape(0,0,0,16,16,16);
+    public static final VoxelShape SHAPE_FULL = Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+    public static final IntProperty STAGES = IntProperty.of("stages", 0, 6);
+    private static final MapCodec<BrickOvenBaseBlock> CODEC = BrickOvenBaseBlock.createCodec(BrickOvenBaseBlock::new);
+
+    public BrickOvenBaseBlock(Settings settings) {
+        super(settings);
+    }
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(STAGES)){
+        return switch (state.get(STAGES)) {
             case 0 -> SHAPE_BASE;
-            case 1 -> switch (state.get(FACING)){
+            case 1 -> switch (state.get(FACING)) {
                 case SOUTH -> SHAPE_LEFT_WALL_SOUTH;
                 case WEST -> SHAPE_LEFT_WALL_WEST;
                 case EAST -> SHAPE_LEFT_WALL_EAST;
                 default -> SHAPE_LEFT_WALL_NORTH;
             };
-            case 2 -> switch (state.get(FACING)){
+            case 2 -> switch (state.get(FACING)) {
                 case SOUTH -> SHAPE_SIDE_WALL_SOUTH;
                 case WEST -> SHAPE_SIDE_WALL_WEST;
                 case EAST -> SHAPE_SIDE_WALL_EAST;
                 default -> SHAPE_SIDE_WALL_NORTH;
             };
-            case 3 -> switch (state.get(FACING)){
+            case 3 -> switch (state.get(FACING)) {
                 case SOUTH -> SHAPE_WALL_SOUTH;
                 case WEST -> SHAPE_WALL_WEST;
                 case EAST -> SHAPE_WALL_EAST;
                 default -> SHAPE_WALL_NORTH;
             };
-            case 4 -> switch (state.get(FACING)){
+            case 4 -> switch (state.get(FACING)) {
                 case SOUTH -> SHAPE_TRAY_SOUTH;
                 case WEST -> SHAPE_TRAY_WEST;
                 case EAST -> SHAPE_TRAY_EAST;
                 default -> SHAPE_TRAY_NORTH;
             };
-            case 5 -> switch (state.get(FACING)){
+            case 5 -> switch (state.get(FACING)) {
                 case SOUTH -> SHAPE_LID_SOUTH;
                 case WEST -> SHAPE_LID_WEST;
                 case EAST -> SHAPE_LID_EAST;
@@ -208,14 +214,6 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
         };
     }
 
-    public static final MapCodec<BrickOvenBaseBlock> CODEC = BrickOvenBaseBlock.createCodec(BrickOvenBaseBlock::new);
-
-    public static final IntProperty STAGES = IntProperty.of("stages", 0, 6);
-
-    public BrickOvenBaseBlock(Settings settings) {
-        super(settings);
-    }
-
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
         return CODEC;
@@ -223,14 +221,14 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (stack.isOf(Items.BRICK) && state.get(STAGES) < 6){
+        if (stack.isOf(Items.BRICK) && state.get(STAGES) < 6) {
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, state.cycle(STAGES));
             if (!player.isCreative()) {
                 stack.decrement(1);
             }
         }
-        if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 6){
+        if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 6) {
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, SnailBlocks.BRICK_OVEN.getStateWithProperties(state));
             if (!player.isCreative()) {

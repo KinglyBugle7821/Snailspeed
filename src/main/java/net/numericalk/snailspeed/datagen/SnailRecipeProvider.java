@@ -27,7 +27,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
 
         return new RecipeGenerator(wrapperLookup, recipeExporter) {
-            final Object[] logBark = {
+            final Item[] logBark = {
                     SnailItems.OAK_LOG_BARK,
                     SnailItems.SPRUCE_LOG_BARK,
                     SnailItems.BIRCH_LOG_BARK,
@@ -107,7 +107,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
 
-                for (Item[] entry : toolRecipe){
+                for (Item[] entry : toolRecipe) {
                     Item head = entry[0];
                     Item tool = entry[1];
 
@@ -122,8 +122,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .offerTo(exporter);
                 }
 
-                for (Object entry : logBark) {
-                    Item bark = (Item) entry;
+                for (Item bark : logBark) {
                     String idPath = Registries.ITEM.getId(bark).getPath();
 
                     createShaped(RecipeCategory.MISC, SnailBlocks.CAMPFIRE_BASE, 1)
@@ -132,7 +131,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
                             .group("multi_bench")
                             .criterion(hasItem(bark), conditionsFromItem(bark))
-                            .offerTo(exporter, String.valueOf(Identifier.of("snailspeed", "campfire_base_from_" + idPath)));
+                            .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "campfire_base_from_" + idPath)));
                 }
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.TINDER)
                         .input(SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
@@ -312,7 +311,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.REFINED_GRAPHITE), conditionsFromItem(SnailItems.REFINED_GRAPHITE))
                         .offerTo(exporter);
 
-                for (Item[] entry : graphiteMoldRecipe){
+                for (Item[] entry : graphiteMoldRecipe) {
                     Item clay = entry[0];
                     Item graphite = entry[1];
                     String idPath = Registries.ITEM.getId(clay).getPath();
@@ -412,7 +411,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.IRON_PLATE), conditionsFromItem(SnailItems.IRON_PLATE))
                         .offerTo(exporter);
 
-                for (Item[] wools : woolProcessing){
+                for (Item[] wools : woolProcessing) {
                     Item roughWool = wools[0];
                     Item wool = wools[1];
 

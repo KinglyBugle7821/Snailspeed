@@ -32,7 +32,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
         this.pos = blockEntity.getPos();
         this.be = ((ArmorForgeBlockEntity) blockEntity);
 
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.PLATE_SLOT, 80, 7){
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.PLATE_SLOT, 80, 7) {
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.isIn(SnailItemTagsProvider.PLATES);
@@ -44,7 +44,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
                 return stack.isIn(SnailItemTagsProvider.BINDERS);
             }
         });
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.FASTENER_SLOT, 107, 34){
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.FASTENER_SLOT, 107, 34) {
             @Override
             public boolean canInsert(ItemStack stack) {
                 return stack.isIn(SnailItemTagsProvider.FASTENERS);
@@ -56,7 +56,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
                 return stack.isIn(SnailItemTagsProvider.HAMMERS);
             }
         });
-        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.OUTPUT, 80, 34){
+        this.addSlot(new Slot(inv, ArmorForgeBlockEntity.OUTPUT, 80, 34) {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 be.decrementInput(player);

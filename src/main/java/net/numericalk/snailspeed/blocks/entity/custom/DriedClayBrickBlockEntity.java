@@ -20,7 +20,7 @@ import static net.numericalk.snailspeed.blocks.custom.CampfireBlock.LIT;
 
 public class DriedClayBrickBlockEntity extends BlockEntity {
     public DriedClayBrickBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.DRIED_CLAY_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.DRIED_CLAY, pos, state);
     }
 
     @Override
@@ -49,18 +49,18 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
     private final int maxDryTime = 20 * 60 * 2;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (isDriedClayBrick(state)){
-            if (isBesideCampfire(world1, pos) && !isRaining(world1)){
-                if (hasProgressComplete()){
+        if (isDriedClayBrick(state)) {
+            if (isBesideCampfire(world1, pos) && !isRaining(world1)) {
+                if (hasProgressComplete()) {
                     fireClayBrick(world1, pos, state);
                 }
                 increaseProgress();
                 spawnSmokeParticle(world1, pos);
             }
-            else if (!isBesideCampfire(world1, pos)){
+            else if (!isBesideCampfire(world1, pos)) {
                 pauseProgress();
             }
-            else if (isRaining(world1)){
+            else if (isRaining(world1)) {
                 resetProgress();
             }
         } else {
@@ -81,7 +81,7 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
 
 
     private void spawnSmokeParticle(World world1, BlockPos pos) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
@@ -104,7 +104,7 @@ public class DriedClayBrickBlockEntity extends BlockEntity {
     }
 
     private void fireClayBrick(World world1, BlockPos pos, BlockState state) {
-        if (world1.isClient()){
+        if (world1.isClient()) {
             return;
         }
         world1.setBlockState(pos, SnailBlocks.FIRED_BRICK.getStateWithProperties(state));

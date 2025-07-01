@@ -31,7 +31,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     public CampfireBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.CAMPFIRE, pos, state);
     }
 
     @Override
@@ -73,52 +73,52 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     private final int[] progress = new int[3];
     private int maxProgress;
     public void tick(World world1, BlockPos pos, BlockState state) {
-        for (int i = 0; i < 3; i++){
-            if (this.getStack(i).isOf(SnailItems.AIR)){
+        for (int i = 0; i < 3; i++) {
+            if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
         }
-        if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT){
+        if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT) {
             spawnSmokeParticle(world1, pos, state);
             fireDegradeTime --;
-        } else if (canExtinguishFire(state)){
+        } else if (canExtinguishFire(state)) {
             extinguishFire(world1, pos, state);
         }
 
-        if (isWorldRaining(state, world1) && isSkyVisible(world1, pos)){
+        if (isWorldRaining(state, world1) && isSkyVisible(world1, pos)) {
             extinguishFireWithoutBeingBurnt(world1, pos, state);
         }
-        if (canUpgradeFire(state, LIT_SMALL, 200f)){
+        if (canUpgradeFire(state, LIT_SMALL, 200f)) {
             upgradeFire(world1, pos, state, LIT_SMALL);
         }
-        if (canDegradeFire(state, LIT_MEDIUM)){
+        if (canDegradeFire(state, LIT_MEDIUM)) {
             degradeFire(world1, pos, state, LIT_MEDIUM);
         }
-        if (canUpgradeFire(state, LIT_MEDIUM, 400f)){
+        if (canUpgradeFire(state, LIT_MEDIUM, 400f)) {
             upgradeFire(world1, pos, state, LIT_MEDIUM);
         }
-        if (canDegradeFire(state, LIT_LARGE)){
+        if (canDegradeFire(state, LIT_LARGE)) {
             degradeFire(world1, pos, state, LIT_LARGE);
         }
 
         //RECIPE
 
-        if (getLitBlockState(state) == 2){
+        if (getLitBlockState(state) == 2) {
             maxProgress = 20 * 60 * 4;
             cookItem(world1, pos, maxProgress);
         }
-        if (getLitBlockState(state) == 3){
+        if (getLitBlockState(state) == 3) {
             maxProgress = 20 * 60 * 2;
             cookItem(world1, pos, maxProgress);
         }
-        if (getLitBlockState(state) == 4){
+        if (getLitBlockState(state) == 4) {
             maxProgress = 20 * 60;
             burnItem(world1, pos, maxProgress);
         }
     }
 
     private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
@@ -227,10 +227,10 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
 
 
 
-    private boolean canExtinguishFire(BlockState state){
+    private boolean canExtinguishFire(BlockState state) {
         return state.get(CampfireBlock.LIT) == 2 && fireDegradeTime <= 0;
     }
-    private void extinguishFire(World world1, BlockPos pos, BlockState state){
+    private void extinguishFire(World world1, BlockPos pos, BlockState state) {
         world1.setBlockState(pos, state.with(CampfireBlock.LIT, 1).with(CampfireBlock.STAGES, 6));
         setFireDegradeTime(fireDegradeTimeFinal);
     }
@@ -238,24 +238,24 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     private boolean canDegradeFire(BlockState state, int currentLitState) {
         return getLitBlockState(state) == currentLitState && fireDegradeTime <= fireDegradeTimeFinal;
     }
-    private void degradeFire(World world1, BlockPos pos, BlockState state, int currentLitState){
+    private void degradeFire(World world1, BlockPos pos, BlockState state, int currentLitState) {
         world1.setBlockState(pos, state.with(CampfireBlock.LIT, currentLitState - 1));
     }
 
-    private boolean canUpgradeFire(BlockState state, int currentLitState, float timeNeededToUpgrade){
+    private boolean canUpgradeFire(BlockState state, int currentLitState, float timeNeededToUpgrade) {
         return getLitBlockState(state) == currentLitState && timeNeededToUpgradeFire(timeNeededToUpgrade);
     }
-    private void upgradeFire(World world1, BlockPos pos, BlockState state, int currentLitState){
+    private void upgradeFire(World world1, BlockPos pos, BlockState state, int currentLitState) {
         world1.setBlockState(pos, state.with(CampfireBlock.LIT, currentLitState + 1));
     }
-    public int getLitBlockState(BlockState state){
+    public int getLitBlockState(BlockState state) {
         return state.get(CampfireBlock.LIT);
     }
-    public int getStagesBlockState(BlockState state){
+    public int getStagesBlockState(BlockState state) {
         return state.get(CampfireBlock.STAGES);
     }
 
-    private boolean timeNeededToUpgradeFire(float upgradeFirePercentage){
+    private boolean timeNeededToUpgradeFire(float upgradeFirePercentage) {
         return fireDegradeTime >= (upgradeFirePercentage / 100f) * fireDegradeTimeFinal;
     }
 

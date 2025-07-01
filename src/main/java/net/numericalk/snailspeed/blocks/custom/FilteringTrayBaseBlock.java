@@ -71,15 +71,15 @@ public class FilteringTrayBaseBlock extends Block {
         super(settings);
     }
 
-    private void addDrop(ItemStack item, int count, World world, BlockPos pos){
-        for (int i = 0; i < count; i++){
+    private void addDrop(ItemStack item, int count, World world, BlockPos pos) {
+        for (int i = 0; i < count; i++) {
             ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item);
         }
     }
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(STAGES)){
+        return switch (state.get(STAGES)) {
             case 0 -> SHAPE_BASE;
             case 1 -> SHAPE_1;
             case 2 -> SHAPE_2;
@@ -90,14 +90,14 @@ public class FilteringTrayBaseBlock extends Block {
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (stack.isOf(Items.STICK) && state.get(STAGES) < 4){
+        if (stack.isOf(Items.STICK) && state.get(STAGES) < 4) {
             if (!player.isCreative()) {
                 stack.decrement(1);
             }
             world.setBlockState(pos, state.cycle(STAGES));
             return ActionResult.SUCCESS;
         }
-        if (stack.isIn(SnailItemTagsProvider.STRING) && state.get(STAGES).equals(4)){
+        if (stack.isIn(SnailItemTagsProvider.STRING) && state.get(STAGES).equals(4)) {
             if (!player.isCreative()) {
                 stack.decrement(1);
             }

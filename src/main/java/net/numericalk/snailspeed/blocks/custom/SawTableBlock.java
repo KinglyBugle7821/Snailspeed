@@ -8,7 +8,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
@@ -28,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class SawTableBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final MapCodec<SawTableBlock> CODEC = SawTableBlock.createCodec(SawTableBlock::new);
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final VoxelShape SHAPE = Stream.of(
             Block.createCuboidShape(0, 0, 0, 2, 4, 2),
@@ -38,6 +36,12 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
             Block.createCuboidShape(0, 4, 0, 16, 9, 16),
             Block.createCuboidShape(1, 9, 8, 15, 16, 8)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+    private static final MapCodec<SawTableBlock> CODEC = SawTableBlock.createCodec(SawTableBlock::new);
+
+    public SawTableBlock(Settings settings) {
+        super(settings);
+    }
+
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation) {
         return state.with(FACING, rotation.rotate(state.get(FACING)));
@@ -47,6 +51,7 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
     protected BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
+
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState()
@@ -56,9 +61,6 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
-    }
-    public SawTableBlock(Settings settings) {
-        super(settings);
     }
 
     @Override
@@ -83,10 +85,9 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if(state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if(blockEntity instanceof SawTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, ((SawTableBlockEntity) blockEntity));
+        if (state.getBlock() != newState.getBlock()) {
+            if (world.getBlockEntity(pos) instanceof SawTableBlockEntity sawTableBlockEntity) {
+                ItemScatterer.spawn(world, pos, sawTableBlockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -96,11 +97,8 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
                                          PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((SawTableBlockEntity) world.getBlockEntity(pos));
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
-            }
+        if (!world.isClient && world.getBlockEntity(pos) instanceof SawTableBlockEntity sawTableBlockEntity) {
+            player.openHandledScreen(sawTableBlockEntity);
         }
         return ActionResult.SUCCESS;
     }
@@ -108,11 +106,11 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if(world.isClient()) {
+        if (world.isClient()) {
             return null;
         }
 
-        return validateTicker(type, SnailBlockEntities.SAW_TABLE_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.SAW_TABLE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

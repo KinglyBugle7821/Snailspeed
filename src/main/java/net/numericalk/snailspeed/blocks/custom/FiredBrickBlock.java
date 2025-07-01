@@ -19,16 +19,12 @@ import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 
 public class FiredBrickBlock extends HorizontalFacingBlock {
-    public static final MapCodec<FiredBrickBlock> CODEC = FiredBrickBlock.createCodec(FiredBrickBlock::new);
-    private static final VoxelShape SHAPE_NORTH = Block.createCuboidShape(5, 0, 2, 11, 2, 14);
-    private static final VoxelShape SHAPE_EAST = Block.createCuboidShape(2, 0, 5, 14, 2, 11);
+    private static final VoxelShape SHAPE_Z = Block.createCuboidShape(5, 0, 2, 11, 2, 14);
+    private static final VoxelShape SHAPE_X = Block.createCuboidShape(2, 0, 5, 14, 2, 11);
+    private static final MapCodec<FiredBrickBlock> CODEC = FiredBrickBlock.createCodec(FiredBrickBlock::new);
 
     public FiredBrickBlock(Settings settings) {
         super(settings);
-    }
-    @Override
-    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -37,13 +33,13 @@ public class FiredBrickBlock extends HorizontalFacingBlock {
     }
 
     @Override
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    }
+
+    @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FACING) == Direction.WEST ||
-                state.get(FACING) == Direction.EAST){
-            return SHAPE_EAST;
-        } else {
-            return SHAPE_NORTH;
-        }
+        return state.get(FACING).getAxis() == Direction.Axis.X ? SHAPE_X : SHAPE_Z;
     }
 
     @Override
@@ -63,13 +59,13 @@ public class FiredBrickBlock extends HorizontalFacingBlock {
     }
 
     private void checkSupport(BlockState state, World world, BlockPos pos) {
-        if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP)) {
+        if (!world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP)) {
             world.breakBlock(pos, true);
         }
     }
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP);
+        return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP);
     }
 }

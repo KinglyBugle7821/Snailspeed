@@ -21,22 +21,29 @@ import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 public class UntiedThatchBlock extends FallingBlock {
-    public static final MapCodec<UntiedThatchBlock> CODEC = UntiedThatchBlock.createCodec(UntiedThatchBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = Properties.AXIS;
+    private static final MapCodec<UntiedThatchBlock> CODEC = UntiedThatchBlock.createCodec(UntiedThatchBlock::new);
 
     public UntiedThatchBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
     }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return CODEC;
+    }
+
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(AXIS, ctx.getSide().getAxis());
     }
+
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (stack.isOf(SnailItems.GRASS_TWINE)){
+        if (stack.isOf(SnailItems.GRASS_TWINE)) {
             world.setBlockState(pos, SnailBlocks.THATCH_BLOCK.getStateWithProperties(state));
-            if (!player.isCreative()){
+            if (!player.isCreative()) {
                 stack.decrement(1);
             }
             return ActionResult.SUCCESS;
@@ -45,12 +52,7 @@ public class UntiedThatchBlock extends FallingBlock {
     }
 
     @Override
-    protected MapCodec<? extends FallingBlock> getCodec() {
-        return CODEC;
-    }
-    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AXIS);
     }
-
 }

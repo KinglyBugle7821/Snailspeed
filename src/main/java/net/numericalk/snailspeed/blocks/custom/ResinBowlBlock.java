@@ -32,16 +32,22 @@ import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 public class ResinBowlBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final MapCodec<ResinBowlBlock> CODEC = ResinBowlBlock.createCodec(ResinBowlBlock::new);
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty HAS_RESIN = BooleanProperty.of("has_resin");
 
     public static final VoxelShape SHAPE_NORTH = Block.createCuboidShape(5, 4, 9, 12, 7, 16);
-    public static final VoxelShape SHAPE_EAST  = Block.createCuboidShape(0, 4, 5, 7, 7, 12);
+    public static final VoxelShape SHAPE_EAST = Block.createCuboidShape(0, 4, 5, 7, 7, 12);
     public static final VoxelShape SHAPE_SOUTH = Block.createCuboidShape(4, 4, 0, 11, 7, 7);
-    public static final VoxelShape SHAPE_WEST  = Block.createCuboidShape(9, 4, 4, 16, 7, 11);
+    public static final VoxelShape SHAPE_WEST = Block.createCuboidShape(9, 4, 4, 16, 7, 11);
+    private static final MapCodec<ResinBowlBlock> CODEC = ResinBowlBlock.createCodec(ResinBowlBlock::new);
+
     public ResinBowlBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -59,10 +65,6 @@ public class ResinBowlBlock extends BlockWithEntity implements BlockEntityProvid
     protected BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
-    }
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
@@ -76,26 +78,27 @@ public class ResinBowlBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(FACING)){
+        return switch (state.get(FACING)) {
             case SOUTH -> SHAPE_SOUTH;
             case EAST -> SHAPE_EAST;
             case WEST -> SHAPE_WEST;
             default -> SHAPE_NORTH;
         };
     }
+
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
+        if (world.isClient()) {
             return null;
         }
-        return validateTicker(type, SnailBlockEntities.RESIN_BOWL_BLOCK_ENTITY,
+        return validateTicker(type, SnailBlockEntities.RESIN_BOWL,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (state.get(HAS_RESIN)){
+        if (state.get(HAS_RESIN)) {
             player.giveOrDropStack(SnailItems.RESIN_BALL.getDefaultStack());
             world.setBlockState(pos, state.with(HAS_RESIN, false));
             world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);

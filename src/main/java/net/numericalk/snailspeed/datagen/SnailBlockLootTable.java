@@ -11,7 +11,6 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -30,7 +29,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        Object[] trimmedLogs = {
+        Block[] trimmedLogs = {
                 SnailBlocks.TRIMMED_OAK_LOG,
                 SnailBlocks.TRIMMED_SPRUCE_LOG,
                 SnailBlocks.TRIMMED_BIRCH_LOG,
@@ -43,7 +42,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 SnailBlocks.TRIMMED_CRIMSON_STEM,
                 SnailBlocks.TRIMMED_WARPED_STEM
         };
-        Object[] crackedLogs = {
+        Block[] crackedLogs = {
                 SnailBlocks.CRACKED_OAK_LOG,
                 SnailBlocks.CRACKED_SPRUCE_LOG,
                 SnailBlocks.CRACKED_BIRCH_LOG,
@@ -56,7 +55,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 SnailBlocks.CRACKED_CRIMSON_STEM,
                 SnailBlocks.CRACKED_WARPED_STEM
         };
-        Object[] damagedLogs = {
+        Block[] damagedLogs = {
                 SnailBlocks.DAMAGED_OAK_LOG,
                 SnailBlocks.DAMAGED_SPRUCE_LOG,
                 SnailBlocks.DAMAGED_BIRCH_LOG,
@@ -69,7 +68,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 SnailBlocks.DAMAGED_CRIMSON_STEM,
                 SnailBlocks.DAMAGED_WARPED_STEM
         };
-        Object[] damagedPlanks = {
+        Block[] damagedPlanks = {
                 SnailBlocks.DAMAGED_OAK_PLANKS,
                 SnailBlocks.DAMAGED_SPRUCE_PLANKS,
                 SnailBlocks.DAMAGED_BIRCH_PLANKS,
@@ -154,34 +153,30 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
 
 
-        for (Object entry : trimmedLogs) {
-            Block trimmed = (Block) entry;
+        for (Block trimmedLog : trimmedLogs) {
 
-            addDrop(trimmed, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
+            addDrop(trimmedLog, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
                     .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
                     .with(ItemEntry.builder(SnailItems.WOOD_DUST))))
             );
         }
-        for (Object entry : crackedLogs) {
-            Block cracked = (Block) entry;
+        for (Block crackedLog : crackedLogs) {
 
-            addDrop(cracked, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
+            addDrop(crackedLog, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
                     .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(1)))
                     .with(ItemEntry.builder(SnailItems.WOOD_DUST))))
             );
         }
-        for (Object entry : damagedLogs) {
-            Block damaged = (Block) entry;
+        for (Block damagedLog : damagedLogs) {
 
-            addDrop(damaged, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
+            addDrop(damagedLog, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
                     .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
                     .with(ItemEntry.builder(Items.STICK))))
             );
         }
-        for (Object entry : damagedPlanks) {
-            Block damaged = (Block) entry;
+        for (Block damagedPlank : damagedPlanks) {
 
-            addDrop(damaged, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
+            addDrop(damagedPlank, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.WOOD_DUST, LootPool.builder()
                     .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(2)))
                     .with(ItemEntry.builder(SnailItems.WOOD_DUST))))
             );
@@ -244,15 +239,17 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.SMALL_BARREL);
         addDrop(SnailBlocks.SAW_TABLE);
     }
+
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
         return this.dropsWithSilkTouch(drop,
                 this.applyExplosionDecay(drop, ItemEntry.builder(drop2)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));
     }
+
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
         RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
-        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ((LeafEntry.Builder<?>)
-                ItemEntry.builder(item).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops))))
+        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ItemEntry.builder(item)
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
                 .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
     }
 }

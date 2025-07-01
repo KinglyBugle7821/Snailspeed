@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 
 public class SawTableScreen extends HandledScreen<SawTableScreenHandler> {
     private SawCraftable defaultSelectedPiece = SawCraftable.STAIRS;
-    private List<SawCraftableSelectButtonWidget> pieceButtons = new ArrayList<>();
+    private final List<SawCraftableSelectButtonWidget> pieceButtons = new ArrayList<>();
     
     private static final Identifier GUI_TEXTURE = Identifier.of(Snailspeed.MOD_ID, "textures/gui/container/saw_table_gui.png");
 
@@ -72,6 +72,7 @@ public class SawTableScreen extends HandledScreen<SawTableScreenHandler> {
             button.setSelected(button.getPiece() == defaultSelectedPiece);
         }
     }
+
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         int x = (width - backgroundWidth) / 2;

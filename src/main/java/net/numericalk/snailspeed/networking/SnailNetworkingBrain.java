@@ -5,7 +5,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.blocks.entity.custom.*;
+import net.numericalk.snailspeed.blocks.entity.custom.ArmorForgeBlockEntity;
+import net.numericalk.snailspeed.blocks.entity.custom.SawTableBlockEntity;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
 import net.numericalk.snailspeed.utils.enums.ArmorPiece;
@@ -47,7 +48,7 @@ public class SnailNetworkingBrain {
         );
 
     }
-    public static void registerS2CPacket(){
+    public static void registerS2CPacket() {
 
     }
 }

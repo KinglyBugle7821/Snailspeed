@@ -27,7 +27,7 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
 
     public FilteringTrayBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.FILTERING_TRAY_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.FILTERING_TRAY, pos, state);
     }
 
     @Override
@@ -59,14 +59,14 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
     }
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        for (int i = 0; i < 4; i++){
-            if (this.getStack(i).isOf(SnailItems.AIR)){
+        for (int i = 0; i < 4; i++) {
+            if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
         }
         filterItem(world1, pos, state);
 
-        if (this.getStack(4).isIn(SnailItemTagsProvider.FILTERS)){
+        if (this.getStack(4).isIn(SnailItemTagsProvider.FILTERS)) {
             world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, true));
         } else {
             world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, false));
@@ -85,7 +85,7 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
     private void filterItem(World world1, BlockPos pos, BlockState state) {
         boolean matchedRecipe = false;
 
-        for (Item[] items : filteringRecipe){
+        for (Item[] items : filteringRecipe) {
             Item input1 = items[0];
             Item input2 = items[1];
             Item input3 = items[2];
@@ -124,7 +124,7 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
     }
 
     private void spawnWaterParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.DRIPPING_WATER,
                     pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,

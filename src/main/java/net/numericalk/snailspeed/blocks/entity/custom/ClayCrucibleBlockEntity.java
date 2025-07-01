@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ClayCrucibleBlockEntity extends BlockEntity {
     public ClayCrucibleBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.CLAY_CRUCIBLE_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.CLAY_CRUCIBLE, pos, state);
     }
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
@@ -45,16 +45,16 @@ public class ClayCrucibleBlockEntity extends BlockEntity {
     private final int maxDryTime = 20 * 60 * 3;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (isClayCrucible(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
-                if (hasProgressComplete()){
+        if (isClayCrucible(state)) {
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()) {
+                if (hasProgressComplete()) {
                     dryClayCrucible(world1, pos, state);
                 }
                 increaseProgress();
                 spawnSmokeParticle(world1, pos);
-            } else if (!hasDaylight(world1, pos)){
+            } else if (!hasDaylight(world1, pos)) {
                 pauseProgress();
-            } else if (isRaining(world1)){
+            } else if (isRaining(world1)) {
                 resetProgress();
             }
         } else {
@@ -62,7 +62,7 @@ public class ClayCrucibleBlockEntity extends BlockEntity {
         }
     }
     private void spawnSmokeParticle(World world1, BlockPos pos) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.WHITE_SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
@@ -85,7 +85,7 @@ public class ClayCrucibleBlockEntity extends BlockEntity {
     }
 
     private void dryClayCrucible(World world1, BlockPos pos, BlockState state) {
-        if (world1.isClient()){
+        if (world1.isClient()) {
             return;
         }
         world1.setBlockState(pos, SnailBlocks.DRIED_CLAY_CRUCIBLE.getStateWithProperties(state));

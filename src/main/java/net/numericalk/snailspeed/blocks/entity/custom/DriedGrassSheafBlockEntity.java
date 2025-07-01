@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class DriedGrassSheafBlockEntity extends BlockEntity {
     public DriedGrassSheafBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.DRIED_GRASS_SHEAF_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.DRIED_GRASS_SHEAF, pos, state);
     }
 
     @Override
@@ -47,16 +47,16 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
     private final int maxBurnTime = 20 * 60 * 2;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (isDriedGrassSheaf(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
-                if (hasProgressComplete()){
+        if (isDriedGrassSheaf(state)) {
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()) {
+                if (hasProgressComplete()) {
                     dryGrassSheaf(world1, pos, state);
                 }
                 spawnSmokeParticle(world1, pos);
                 increaseProgress();
-            } else if (!hasDaylight(world1, pos)){
+            } else if (!hasDaylight(world1, pos)) {
                 pauseProgress();
-            } else if (isRaining(world1)){
+            } else if (isRaining(world1)) {
                 resetProgress();
             }
         } else {
@@ -64,7 +64,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
         }
     }
     private void spawnSmokeParticle(World world1, BlockPos pos) {
-        if (!world1.isClient){
+        if (!world1.isClient) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.SMOKE,
                     pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5,
@@ -87,7 +87,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
     }
 
     private void dryGrassSheaf(World world1, BlockPos pos, BlockState state) {
-        if (world1.isClient()){
+        if (world1.isClient()) {
             return;
         }
         world1.setBlockState(pos, SnailBlocks.DRIED_GRASS_SHEAF.getStateWithProperties(state));

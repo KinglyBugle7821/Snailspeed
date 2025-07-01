@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class SnailLangProvider extends FabricLanguageProvider {
     public SnailLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, "en_us", registryLookup);
+        super(dataOutput, registryLookup);
     }
 
     @Override

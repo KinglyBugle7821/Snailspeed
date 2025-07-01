@@ -18,9 +18,13 @@ import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import org.jetbrains.annotations.Nullable;
 
 public class ResinBowlBlockEntity extends BlockEntity {
+    private static final int MAX_PROGRESS = 20 * 60 * 5;
+    private int progress = 0;
+
     public ResinBowlBlockEntity(BlockPos pos, BlockState state) {
-        super(SnailBlockEntities.RESIN_BOWL_BLOCK_ENTITY, pos, state);
+        super(SnailBlockEntities.RESIN_BOWL, pos, state);
     }
+
     @Nullable
     @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
@@ -32,12 +36,10 @@ public class ResinBowlBlockEntity extends BlockEntity {
         return createNbt(registryLookup);
     }
 
-    private int progress = 0;
-    private final int maxProgress = 20 * 60 * 5;
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (hasTappedLog(world1, state, pos)){
+        if (hasTappedLog(world1, state, pos)) {
             increaseProgress();
-            if (hasProgressComplete()){
+            if (hasProgressComplete()) {
                 world1.setBlockState(pos, state.with(ResinBowlBlock.HAS_RESIN, true));
                 decayLog(world1, pos, state);
                 resetProgress();
@@ -47,36 +49,26 @@ public class ResinBowlBlockEntity extends BlockEntity {
         }
     }
 
-    Block[][] decayingLog = {
+    private static final Block[][] decayingLog = {
             {SnailBlocks.TAPPED_SPRUCE_LOG, SnailBlocks.DECAYED_SPRUCE_LOG},
             {SnailBlocks.TAPPED_BIRCH_LOG, SnailBlocks.DECAYED_BIRCH_LOG},
             {SnailBlocks.TAPPED_PALE_OAK_LOG, SnailBlocks.DECAYED_PALE_OAK_LOG}
     };
 
-    private void decayLog(World world1, BlockPos pos, BlockState state) {
-        for (Block[] block : decayingLog){
+    private void decayLog(World world, BlockPos pos, BlockState state) {
+        for (Block[] block : decayingLog) {
             System.out.println("Decaying Log");
-            if (state.get(ResinBowlBlock.FACING) == Direction.NORTH && world1.getBlockState(pos.south()).isOf(block[0])){
-                world1.setBlockState(pos.south(), block[1].getStateWithProperties(state));
-                System.out.println("Log Decayed");
-            }
-            if (state.get(ResinBowlBlock.FACING) == Direction.EAST && world1.getBlockState(pos.west()).isOf(block[0])){
-                world1.setBlockState(pos.west(), block[1].getStateWithProperties(state));
-                System.out.println("Log Decayed");
-            }
-            if (state.get(ResinBowlBlock.FACING) == Direction.SOUTH && world1.getBlockState(pos.north()).isOf(block[0])){
-                world1.setBlockState(pos.north(), block[1].getStateWithProperties(state));
-                System.out.println("Log Decayed");
-            }
-            if (state.get(ResinBowlBlock.FACING) == Direction.WEST && world1.getBlockState(pos.east()).isOf(block[0])){
-                world1.setBlockState(pos.east(), block[1].getStateWithProperties(state));
+            Direction facing = state.get(ResinBowlBlock.FACING);
+            BlockPos oppositeOffset = pos.offset(facing.getOpposite());
+            if (world.getBlockState(oppositeOffset).isOf(block[0])) {
+                world.setBlockState(oppositeOffset, block[1].getStateWithProperties(state));
                 System.out.println("Log Decayed");
             }
         }
     }
 
     private boolean hasProgressComplete() {
-        return progress >= maxProgress;
+        return progress >= MAX_PROGRESS;
     }
 
     private void resetProgress() {
@@ -88,15 +80,8 @@ public class ResinBowlBlockEntity extends BlockEntity {
     }
 
     private boolean hasTappedLog(World world1, BlockState state, BlockPos pos) {
-        if (state.get(ResinBowlBlock.FACING) == Direction.NORTH){
-            return world1.getBlockState(pos.south()).isIn(SnailBlockTagsProvider.TAPPED_LOGS);
-        } else if (state.get(ResinBowlBlock.FACING) == Direction.EAST){
-            return world1.getBlockState(pos.west()).isIn(SnailBlockTagsProvider.TAPPED_LOGS);
-        } else if (state.get(ResinBowlBlock.FACING) == Direction.SOUTH){
-            return world1.getBlockState(pos.north()).isIn(SnailBlockTagsProvider.TAPPED_LOGS);
-        } else if (state.get(ResinBowlBlock.FACING) == Direction.WEST){
-            return world1.getBlockState(pos.east()).isIn(SnailBlockTagsProvider.TAPPED_LOGS);
-        }
-        return false;
+        Direction facing = state.get(ResinBowlBlock.FACING);
+        BlockPos oppositeOffset = pos.offset(facing.getOpposite());
+        return world1.getBlockState(oppositeOffset).isIn(SnailBlockTagsProvider.TAPPED_LOGS);
     }
 }

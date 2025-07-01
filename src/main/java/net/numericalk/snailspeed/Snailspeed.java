@@ -22,8 +22,8 @@ public class Snailspeed implements ModInitializer {
 	public void onInitialize() {
 
 		SnailItems.initialize();
-		SnailItemGroup.initialize();
 		SnailBlocks.initialize();
+		SnailItemGroup.initialize();
 		SnailBlockEntities.initialize();
 		SnailScreenHandlers.initialize();
 
@@ -42,5 +42,6 @@ public class Snailspeed implements ModInitializer {
 		PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
 
 		SnailNetworkingBrain.registerC2SPackets();
+
 	}
 }

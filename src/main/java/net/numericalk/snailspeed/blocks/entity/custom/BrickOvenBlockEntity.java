@@ -62,6 +62,11 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     private final int[] progress = new int[5];
     private int maxProgress;
     public void tick(World world1, BlockPos pos, BlockState state) {
+        for (int i = 0; i < 5; i++){
+            if (this.getStack(i).isOf(SnailItems.AIR)){
+                this.setStack(i, ItemStack.EMPTY);
+            }
+        }
         if (hasFuel() && isLit(state)){
             decreaseFireTime();
             if (fireTime <= 0){

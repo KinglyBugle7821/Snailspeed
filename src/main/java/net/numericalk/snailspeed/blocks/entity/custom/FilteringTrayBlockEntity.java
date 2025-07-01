@@ -58,7 +58,12 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
         return createNbt(registryLookup);
     }
 
-    public void serverTick(World world1, BlockPos pos, BlockState state) {
+    public void tick(World world1, BlockPos pos, BlockState state) {
+        for (int i = 0; i < 4; i++){
+            if (this.getStack(i).isOf(SnailItems.AIR)){
+                this.setStack(i, ItemStack.EMPTY);
+            }
+        }
         filterItem(world1, pos, state);
 
         if (this.getStack(4).isIn(SnailItemTagsProvider.FILTERS)){
@@ -66,9 +71,6 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
         } else {
             world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, false));
         }
-    }
-    public void clientTick(World world1, BlockPos pos, BlockState state1) {
-        filterItem(world1, pos, state1);
     }
     Item[][] filteringRecipe ={
             {SnailItems.GROUND_GRAPHITE, Items.CLAY_BALL, Items.AIR, Items.AIR, SnailItems.REFINED_GRAPHITE}

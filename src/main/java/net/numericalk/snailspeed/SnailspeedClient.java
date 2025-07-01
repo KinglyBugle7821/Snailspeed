@@ -3,11 +3,15 @@ package net.numericalk.snailspeed;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.world.ClientWorld;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
+import net.numericalk.snailspeed.blocks.entity.custom.MortarBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.renderer.*;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
@@ -47,11 +51,11 @@ public class SnailspeedClient implements ClientModInitializer {
                 }
         );
 
-        ClientPlayNetworking.registerGlobalReceiver(
-                SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD,
+        ClientPlayNetworking.registerGlobalReceiver(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD,
                 (payload, context) -> {
 
                 }
         );
-    }
+
+        }
 }

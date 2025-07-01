@@ -1,6 +1,7 @@
 package net.numericalk.snailspeed.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -10,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -361,9 +363,6 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
-            return null;
-        }
         return validateTicker(type, SnailBlockEntities.CAMPFIRE_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) ->
                 blockEntity.tick(world1, pos, state1));

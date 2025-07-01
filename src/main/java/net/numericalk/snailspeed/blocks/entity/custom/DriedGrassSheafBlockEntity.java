@@ -48,7 +48,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isDriedGrassSheaf(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos)){
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
                 if (hasProgressComplete()){
                     dryGrassSheaf(world1, pos, state);
                 }

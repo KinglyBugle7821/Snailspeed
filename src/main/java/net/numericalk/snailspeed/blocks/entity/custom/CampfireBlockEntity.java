@@ -73,7 +73,11 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     private final int[] progress = new int[3];
     private int maxProgress;
     public void tick(World world1, BlockPos pos, BlockState state) {
-
+        for (int i = 0; i < 3; i++){
+            if (this.getStack(i).isOf(SnailItems.AIR)){
+                this.setStack(i, ItemStack.EMPTY);
+            }
+        }
         if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT){
             spawnSmokeParticle(world1, pos, state);
             fireDegradeTime --;

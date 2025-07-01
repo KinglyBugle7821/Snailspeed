@@ -46,7 +46,7 @@ public class ClayCrucibleBlockEntity extends BlockEntity {
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isClayCrucible(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos)){
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
                 if (hasProgressComplete()){
                     dryClayCrucible(world1, pos, state);
                 }

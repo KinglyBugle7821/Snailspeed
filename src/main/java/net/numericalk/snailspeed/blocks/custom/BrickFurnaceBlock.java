@@ -83,9 +83,6 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (world.isClient()){
-            return null;
-        }
         return validateTicker(type, SnailBlockEntities.BRICK_FURNACE_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));

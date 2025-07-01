@@ -48,7 +48,7 @@ public class ClayBrickBlockEntity extends BlockEntity {
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isClayBrick(state)){
-            if (!isRaining(world1) && hasDaylight(world1, pos)){
+            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()){
                 if (hasProgressComplete()){
                     dryClay(world1, pos, state);
                 }

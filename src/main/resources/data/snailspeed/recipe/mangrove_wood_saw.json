@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:mangrove_wood",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:mangrove_planks"
+  }
+}

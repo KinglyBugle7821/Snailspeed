@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:birch_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:birch_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:birch_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:birch_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:birch_sign"
+  }
+}

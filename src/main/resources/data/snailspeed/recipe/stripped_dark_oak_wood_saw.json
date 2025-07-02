@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_dark_oak_wood",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:dark_oak_planks"
+  }
+}

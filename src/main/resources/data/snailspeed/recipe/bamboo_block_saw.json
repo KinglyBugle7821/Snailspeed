@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:bamboo_block",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:bamboo_planks"
+  }
+}

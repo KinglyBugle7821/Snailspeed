@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "#minecraft:planks",
+  "additionalInput": "minecraft:copper_ingot",
+
+  "chest": {
+    "id": "minecraft:chest"
+  },
+  "barrel": {
+    "id": "minecraft:barrel"
+  }
+}

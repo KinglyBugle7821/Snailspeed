@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:warped_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:warped_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:warped_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:warped_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:warped_sign"
+  }
+}

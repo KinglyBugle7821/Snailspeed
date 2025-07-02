@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:jungle_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:jungle_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:jungle_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:jungle_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:jungle_sign"
+  }
+}

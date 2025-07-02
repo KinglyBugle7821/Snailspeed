@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:cherry_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:cherry_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:cherry_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:cherry_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:cherry_sign"
+  }
+}

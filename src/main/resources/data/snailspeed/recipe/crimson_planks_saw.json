@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:crimson_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:crimson_stairs"
+  },
+  "slab": {
+    "id": "minecraft:crimson_slab"
+  },
+  "door": {
+    "id": "minecraft:crimson_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:crimson_trapdoor"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:cherry_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:cherry_stairs"
+  },
+  "slab": {
+    "id": "minecraft:cherry_slab"
+  },
+  "door": {
+    "id": "minecraft:cherry_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:cherry_trapdoor"
+  }
+}

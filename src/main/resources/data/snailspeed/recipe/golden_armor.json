@@ -8,18 +8,18 @@
 
   "outputHelmet": {
     "count": 1,
-    "id": "snailspeed:golden_helmet"
+    "id": "minecraft:golden_helmet"
   },
   "outputChestplate": {
     "count": 1,
-    "id": "snailspeed:golden_chestplate"
+    "id": "minecraft:golden_chestplate"
   },
   "outputLeggings": {
     "count": 1,
-    "id": "snailspeed:golden_leggings"
+    "id": "minecraft:golden_leggings"
   },
   "outputBoots": {
     "count": 1,
-    "id": "snailspeed:golden_boots"
+    "id": "minecraft:golden_boots"
   }
 }

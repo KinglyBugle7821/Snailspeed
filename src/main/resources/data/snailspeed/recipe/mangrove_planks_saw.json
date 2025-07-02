@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:mangrove_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:mangrove_stairs"
+  },
+  "slab": {
+    "id": "minecraft:mangrove_slab"
+  },
+  "door": {
+    "id": "minecraft:mangrove_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:mangrove_trapdoor"
+  }
+}

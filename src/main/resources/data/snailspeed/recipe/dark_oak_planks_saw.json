@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:dark_oak_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:dark_oak_stairs"
+  },
+  "slab": {
+    "id": "minecraft:dark_oak_slab"
+  },
+  "door": {
+    "id": "minecraft:dark_oak_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:dark_oak_trapdoor"
+  }
+}

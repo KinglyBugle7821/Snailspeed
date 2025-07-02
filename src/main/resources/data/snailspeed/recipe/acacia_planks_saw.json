@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:acacia_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:acacia_stairs"
+  },
+  "slab": {
+    "id": "minecraft:acacia_slab"
+  },
+  "door": {
+    "id": "minecraft:acacia_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:acacia_trapdoor"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:birch_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:birch_stairs"
+  },
+  "slab": {
+    "id": "minecraft:birch_slab"
+  },
+  "door": {
+    "id": "minecraft:birch_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:birch_trapdoor"
+  }
+}

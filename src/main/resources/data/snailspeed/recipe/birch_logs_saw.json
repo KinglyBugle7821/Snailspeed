@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:birch_log",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:birch_planks"
+  }
+}

@@ -63,12 +63,10 @@ public class SawTableScreenHandler extends ScreenHandler {
             newStack = originalStack.copy();
 
             if (invSlot == SawTableBlockEntity.OUTPUT) {
-                blockEntity.decrementInput();
-
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-
+                blockEntity.decrementInput();
                 slot.onQuickTransfer(originalStack, newStack);
             } else if (invSlot < this.inventory.size()) {
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {

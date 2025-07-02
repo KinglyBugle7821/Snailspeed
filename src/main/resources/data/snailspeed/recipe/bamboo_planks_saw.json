@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:bamboo_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:bamboo_stairs"
+  },
+  "slab": {
+    "id": "minecraft:bamboo_slab"
+  },
+  "door": {
+    "id": "minecraft:bamboo_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:bamboo_trapdoor"
+  }
+}

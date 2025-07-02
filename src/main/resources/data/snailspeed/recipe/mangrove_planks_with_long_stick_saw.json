@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:mangrove_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:mangrove_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:mangrove_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:mangrove_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:mangrove_sign"
+  }
+}

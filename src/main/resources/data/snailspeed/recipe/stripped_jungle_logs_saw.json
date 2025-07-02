@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_jungle_log",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:jungle_planks"
+  }
+}

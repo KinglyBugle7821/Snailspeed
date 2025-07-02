@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:crimson_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:crimson_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:crimson_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:crimson_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:crimson_sign"
+  }
+}

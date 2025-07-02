@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:oak_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:oak_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:oak_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:oak_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:oak_sign"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:spruce_planks",
+  "additionalInput": "snailspeed:long_stick",
+
+  "fence": {
+    "id": "minecraft:spruce_fence"
+  },
+  "fenceGate": {
+    "id": "minecraft:spruce_fence_gate"
+  },
+  "hangingSign": {
+    "id": "minecraft:spruce_hanging_sign"
+  },
+  "sign": {
+    "id": "minecraft:spruce_sign"
+  }
+}

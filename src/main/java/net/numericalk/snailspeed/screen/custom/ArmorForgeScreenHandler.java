@@ -87,13 +87,12 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
             newStack = originalStack.copy();
 
             if (invSlot == ArmorForgeBlockEntity.OUTPUT) {
-                be.decrementInputNoPlayer();
-                be.playForgingSound(player);
-
                 if (!this.insertItem(originalStack, this.inv.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
 
+                be.decrementInputNoPlayer();
+                be.playForgingSound(player);
                 slot.onQuickTransfer(originalStack, newStack);
             } else if (invSlot < this.inv.size()) {
                 if (!this.insertItem(originalStack, this.inv.size(), this.slots.size(), true)) {

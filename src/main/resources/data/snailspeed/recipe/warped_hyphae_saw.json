@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:warped_hyphae",
+  "additionalInput": "#minecraft:axes",
+
+  "planks": {
+    "id": "minecraft:warped_planks"
+  }
+}

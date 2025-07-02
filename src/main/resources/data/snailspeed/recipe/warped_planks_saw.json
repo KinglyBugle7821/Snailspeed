@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:warped_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:warped_stairs"
+  },
+  "slab": {
+    "id": "minecraft:warped_slab"
+  },
+  "door": {
+    "id": "minecraft:warped_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:warped_trapdoor"
+  }
+}

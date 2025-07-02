@@ -1,0 +1,19 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:spruce_planks",
+  "additionalInput": "#minecraft:axes",
+
+  "stairs": {
+    "id": "minecraft:spruce_stairs"
+  },
+  "slab": {
+    "id": "minecraft:spruce_slab"
+  },
+  "door": {
+    "id": "minecraft:spruce_door"
+  },
+  "trapdoor": {
+    "id": "minecraft:spruce_trapdoor"
+  }
+}

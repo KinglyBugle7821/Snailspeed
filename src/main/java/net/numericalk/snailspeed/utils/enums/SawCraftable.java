@@ -1,5 +1,6 @@
 package net.numericalk.snailspeed.utils.enums;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 
@@ -16,6 +17,12 @@ public enum SawCraftable {
     HANGING_SIGN,
     SIGN,
     TRAPDOOR;
+
+    public static final Codec<SawCraftable> CODEC = Codec.STRING.xmap(
+            SawCraftable::valueOf,
+            SawCraftable::name
+    );
+
 
     public static final PacketCodec<RegistryByteBuf, SawCraftable> PACKET_CODEC = new PacketCodec<>() {
         @Override

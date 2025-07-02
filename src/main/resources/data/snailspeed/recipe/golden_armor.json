@@ -1,25 +1,25 @@
 {
   "type": "snailspeed:armor_forge",
 
-  "inputPlate": "snailspeed:copper_plate",
+  "inputPlate": "snailspeed:golden_plate",
   "inputBinding": "snailspeed:leather_strip",
-  "inputFastener": "snailspeed:copper_rivet",
+  "inputFastener": "snailspeed:iron_bolt",
   "inputTool": "snailspeed:copper_hammer",
 
   "outputHelmet": {
     "count": 1,
-    "id": "snailspeed:copper_helmet"
+    "id": "snailspeed:golden_helmet"
   },
   "outputChestplate": {
     "count": 1,
-    "id": "snailspeed:copper_chestplate"
+    "id": "snailspeed:golden_chestplate"
   },
   "outputLeggings": {
     "count": 1,
-    "id": "snailspeed:copper_leggings"
+    "id": "snailspeed:golden_leggings"
   },
   "outputBoots": {
     "count": 1,
-    "id": "snailspeed:copper_boots"
+    "id": "snailspeed:golden_boots"
   }
 }

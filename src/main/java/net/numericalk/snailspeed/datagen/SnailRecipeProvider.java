@@ -117,7 +117,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .input('s', Items.STICK)
                             .input('g', SnailItemTagsProvider.GLUES)
                             .input('h', head)
-                            .group("multi_bench")
                             .criterion(hasItem(head), conditionsFromItem(head))
                             .offerTo(exporter);
                 }
@@ -129,7 +128,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .pattern("bb")
                             .pattern("bb")
                             .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
-                            .group("multi_bench")
                             .criterion(hasItem(bark), conditionsFromItem(bark))
                             .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "campfire_base_from_" + idPath)));
                 }
@@ -142,7 +140,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern(" g")
                         .pattern("g ")
                         .input('g', SnailBlocks.DRIED_GRASS_SHEAF)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailBlocks.DRIED_GRASS_SHEAF), conditionsFromItem(SnailBlocks.DRIED_GRASS_SHEAF))
                         .offerTo(exporter);
 
@@ -152,7 +149,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('g', SnailItemTagsProvider.STRING)
                         .input('s', Items.STICK)
                         .input('f', SnailItems.FLINT_FLAKE)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.FLINT_FLAKE), conditionsFromItem(SnailItems.FLINT_FLAKE))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.FLINT_PICKAXE, 1)
@@ -161,7 +157,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('g', SnailItemTagsProvider.STRING)
                         .input('s', Items.STICK)
                         .input('f', SnailItems.FLINT_FLAKE)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.FLINT_FLAKE), conditionsFromItem(SnailItems.FLINT_FLAKE))
                         .offerTo(exporter);
 
@@ -190,13 +185,11 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("gd")
                         .input('d', SnailBlocks.UNSTEADY_DIRT)
                         .input('g', Blocks.GRAVEL)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailBlocks.UNSTEADY_DIRT), conditionsFromItem(SnailBlocks.UNSTEADY_DIRT))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_OVEN_BASE)
                         .pattern("##")
                         .input('#', Items.BRICK)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailBlocks.BRICK_FURNACE_BASE)
@@ -204,28 +197,24 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("O#")
                         .input('#', Items.BRICK)
                         .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
-                        .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.FURNACE_LID)
                         .pattern("#O")
                         .input('#', Items.BRICK)
                         .input('O', SnailBlocks.BRICK_OVEN_BASE.asItem())
-                        .group("multi_bench")
                         .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailBlocks.MORTAR)
                         .pattern("##")
                         .input('#', SnailItems.ROCK)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.PESTLE)
                         .pattern("#")
                         .pattern("#")
                         .input('#', SnailItems.ROCK)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
                         .offerTo(exporter);
 
@@ -234,12 +223,10 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
-
                 createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_CRUCIBLE)
                         .pattern("##")
                         .pattern("##")
                         .input('#', SnailItems.CLAY_SAND)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.CLAY_SAND), conditionsFromItem(SnailItems.CLAY_SAND))
                         .offerTo(exporter);
 
@@ -248,14 +235,12 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("#S")
                         .input('#', Items.CLAY_BALL)
                         .input('S', Items.SAND)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailBlocks.CLAY_MOLD)
                         .pattern("##")
                         .input('#', Items.CLAY_BALL)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                         .offerTo(exporter);
 
@@ -265,7 +250,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('#', SnailItemTagsProvider.LOG_BARKS)
                         .input('S', Items.STICK)
                         .input('C', SnailItems.COPPER_NUGGET)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
 
@@ -300,14 +284,12 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('#', Items.STICK)
                         .input('S', SnailItems.COPPER_SHOVEL_HEAD)
                         .input('N', SnailItems.TIN_NUGGET)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.COPPER_SHOVEL_HEAD), conditionsFromItem(SnailItems.COPPER_SHOVEL_HEAD))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailItems.BLANK_GRAPHITE_MOLD)
                         .pattern("##")
                         .input('#', SnailItems.REFINED_GRAPHITE)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.REFINED_GRAPHITE), conditionsFromItem(SnailItems.REFINED_GRAPHITE))
                         .offerTo(exporter);
 
@@ -320,14 +302,13 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .pattern("#C")
                             .input('#', graphite)
                             .input('C', clay)
-                            .group("multi_bench")
+                            .group("graphite_mold")
                             .criterion(hasItem(clay), conditionsFromItem(clay))
                             .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "graphite_mold_from" + idPath)));
                 }
                 createShaped(RecipeCategory.MISC, SnailItems.ARMOR_FORGE_PLATE, 1)
                         .pattern("##")
                         .input('#', SnailItemTagsProvider.PLATES)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.COPPER_PLATE), conditionsFromItem(SnailItems.COPPER_PLATE))
                         .offerTo(exporter);
 
@@ -337,7 +318,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('s', Items.STICK)
                         .input('g', SnailItemTagsProvider.GLUES)
                         .input('h', Items.COPPER_INGOT)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.IRON_HAMMER, 1)
@@ -346,7 +326,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('s', Items.STICK)
                         .input('g', SnailItemTagsProvider.GLUES)
                         .input('h', Items.IRON_INGOT)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.STEEL_HAMMER, 1)
@@ -355,20 +334,17 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('s', Items.STICK)
                         .input('g', SnailItemTagsProvider.GLUES)
                         .input('h', SnailItems.STEEL_INGOT)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.STEEL_INGOT), conditionsFromItem(SnailItems.STEEL_INGOT))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.LEATHER_STRIP, 1)
                         .pattern("##")
                         .input('#', Items.LEATHER)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.COPPER_RIVET, 2)
                         .pattern("#")
                         .pattern("#")
                         .input('#', SnailItems.COPPER_NUGGET)
-                        .group("multi_bench")
                         .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
 
@@ -377,7 +353,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("#$")
                         .input('#', Items.IRON_INGOT)
                         .input('$', Items.IRON_NUGGET)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                         .offerTo(exporter);
 
@@ -385,13 +360,11 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("#")
                         .pattern("#")
                         .input('#', Items.IRON_NUGGET)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, Items.FLINT, 1)
                         .pattern("#")
                         .input('#', Blocks.GRAVEL)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.GRAVEL), conditionsFromItem(Items.GRAVEL))
                         .offerTo(exporter);
 
@@ -403,7 +376,6 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern("#")
                         .pattern("#")
                         .input('#', Items.STICK)
-                        .group("multi_bench")
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.CIRCULAR_SAW)
@@ -418,6 +390,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     createShapeless(RecipeCategory.BUILDING_BLOCKS, wool)
                             .input(roughWool, 4)
                             .criterion(hasItem(roughWool), conditionsFromItem(roughWool))
+                            .group("rough_wools")
                             .offerTo(exporter);
                 }
 

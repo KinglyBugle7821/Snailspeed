@@ -36,7 +36,7 @@ public class SnailItems {
     public static final Item FLINT_PICKAXE = register("flint_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 0f, -2.8f, settings));
 
     public static final Item TINDER = register("tinder", settings -> new TinderItem(settings.maxCount(1)));
-    public static final Item BURNING_TINDER = register("burning_tinder", settings -> new TinderItem(settings.maxCount(1)));
+    public static final Item BURNING_TINDER = register("burning_tinder", settings -> new BurningTinderItem(settings.maxCount(1)));
     public static final Item BURNT_TINDER = register("burnt_tinder", Item::new);
 
     public static final Item BURNT_POTATO = register("burnt_potato", Item::new);

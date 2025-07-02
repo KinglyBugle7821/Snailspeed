@@ -171,12 +171,6 @@ public class SnailBreakEvents {
             if (state.isIn(SnailBlockTagsProvider.STONE_BLOCK_VARIANTS)) {
                 return true;
             }
-//            if (state.isIn(BlockTags.LOGS)) {
-//                ItemStack stack = player.getMainHandStack();
-//                if (stack.isOf(SnailItems.CIRCULAR_SAW)) {
-//                    planksLog(world, pos, state);
-//                }
-//            }
 
             if (state.isIn(BlockTags.PLANKS)) {
                 ItemStack stack = player.getMainHandStack();

@@ -1,0 +1,25 @@
+{
+  "type": "snailspeed:armor_forge",
+
+  "inputPlate": "snailspeed:steel_plate",
+  "inputBinding": "snailspeed:chain_links",
+  "inputFastener": "snailspeed:iron_bolt",
+  "inputTool": "snailspeed:steel_hammer",
+
+  "outputHelmet": {
+    "count": 1,
+    "id": "snailspeed:steel_helmet"
+  },
+  "outputChestplate": {
+    "count": 1,
+    "id": "snailspeed:steel_chestplate"
+  },
+  "outputLeggings": {
+    "count": 1,
+    "id": "snailspeed:steel_leggings"
+  },
+  "outputBoots": {
+    "count": 1,
+    "id": "snailspeed:steel_boots"
+  }
+}

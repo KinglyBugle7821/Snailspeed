@@ -59,7 +59,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inv, ArmorForgeBlockEntity.OUTPUT, 80, 34) {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
-                be.decrementInput(player);
+                be.decrementInputNoPlayer();
                 be.playForgingSound(player);
             }
 
@@ -87,7 +87,7 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
             newStack = originalStack.copy();
 
             if (invSlot == ArmorForgeBlockEntity.OUTPUT) {
-                be.decrementInput(player);
+                be.decrementInputNoPlayer();
                 be.playForgingSound(player);
 
                 if (!this.insertItem(originalStack, this.inv.size(), this.slots.size(), true)) {

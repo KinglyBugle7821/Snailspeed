@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -86,11 +87,38 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
 
     public void tick(World world, BlockPos pos, BlockState state) {
         boolean hasRecipe = hasRecipe();
-        Snailspeed.LOGGER.info("hasRecipe: " + hasRecipe);
         if (hasRecipe) {
             tryToCreateArmor();
         } else {
-            removeStack(OUTPUT);
+            ItemStack stack = getStack(OUTPUT);
+            Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
+
+            if (recipe.isEmpty()) {
+                setStack(OUTPUT, ItemStack.EMPTY);
+                return;
+            }
+            switch (selected){
+                case HELMET -> {
+                    if (!stack.isOf(recipe.get().value().outputHelmet().getItem())){
+                        removeStack(OUTPUT);
+                    }
+                }
+                case CHESTPLATE -> {
+                    if (!stack.isOf(recipe.get().value().outputChestplate().getItem())){
+                        removeStack(OUTPUT);
+                    }
+                }
+                case LEGGINGS -> {
+                    if (!stack.isOf(recipe.get().value().outputLeggings().getItem())){
+                        removeStack(OUTPUT);
+                    }
+                }
+                case BOOTS -> {
+                    if (!stack.isOf(recipe.get().value().outputBoots().getItem())){
+                        removeStack(OUTPUT);
+                    }
+                }
+            }
         }
     }
 
@@ -143,31 +171,15 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
         Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
 
         ItemStack output = recipe.get().value().getOutput(selected);
-        decrementInputNoPlayer();
         this.setStack(OUTPUT, new ItemStack(output.getItem(),
                 this.getStack(OUTPUT).getCount() + output.getCount()));
     }
 
-    private void decrementInputNoPlayer() {
+    public void decrementInputNoPlayer() {
         this.getStack(PLATE_SLOT).decrement(selected.plateCount);
         this.getStack(BINDING_SLOT).decrement(selected.bindingCount);
         this.getStack(FASTENER_SLOT).decrement(selected.fastenerCount);
         markDirty();
-    }
-
-    private void setOutputOf(Item item, Item plate, Item binding, Item fastener, Item tool, int plateCount, int bindingCount, int fastenerCount, World world) {
-        ItemStack plateSlot = this.getStack(PLATE_SLOT);
-        ItemStack bindingSlot = this.getStack(BINDING_SLOT);
-        ItemStack fastenerSlot = this.getStack(FASTENER_SLOT);
-        ItemStack toolSlot = this.getStack(TOOL_SLOT);
-        if (
-                plateSlot.isOf(plate) && plateSlot.getCount() >= plateCount &&
-                bindingSlot.isOf(binding) && bindingSlot.getCount() >= bindingCount &&
-                fastenerSlot.isOf(fastener) && fastenerSlot.getCount() >= fastenerCount &&
-                toolSlot.isOf(tool)
-        ) {
-            this.setStack(OUTPUT, item.getDefaultStack());
-        }
     }
 
     private boolean getOutputOf(Ingredient plate, Ingredient binding, Ingredient fastener, Ingredient tool, int plateCount, int bindingCount, int fastenerCount) {
@@ -180,14 +192,6 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
                 binding.test(bindingSlot) && bindingSlot.getCount() >= bindingCount &&
                 fastener.test(fastenerSlot) && fastenerSlot.getCount() >= fastenerCount &&
                 tool.test(toolSlot);
-    }
-
-    public void decrementInput(PlayerEntity player) {
-        this.getStack(PLATE_SLOT).decrement(selected.plateCount);
-        this.getStack(BINDING_SLOT).decrement(selected.bindingCount);
-        this.getStack(FASTENER_SLOT).decrement(selected.fastenerCount);
-        this.getStack(TOOL_SLOT).damage(1, player);
-        markDirty();
     }
 
     @Nullable

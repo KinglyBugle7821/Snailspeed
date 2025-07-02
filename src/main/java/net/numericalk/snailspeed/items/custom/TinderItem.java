@@ -53,26 +53,4 @@ public class TinderItem extends Item{
         }
         return stack;
     }
-
-    private int burningTinderTime = 20 * 3;
-
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient && stack.isOf(SnailItems.BURNING_TINDER)) {
-            if (entity instanceof PlayerEntity player) {
-                if (!stack.isDamaged()) {
-                    stack.setDamage(burningTinderTime); // 3 seconds (60 ticks)
-                }
-
-                burningTinderTime--;
-
-                if (burningTinderTime <= 0) {
-                    player.getInventory().setStack(slot, SnailItems.BURNT_TINDER.getDefaultStack());
-                    burningTinderTime = 20 * 3;
-                }
-            }
-        }
-
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
 }

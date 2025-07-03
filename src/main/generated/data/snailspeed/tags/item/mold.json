@@ -7,12 +7,16 @@
     "snailspeed:shovel_clay_mold",
     "snailspeed:hoe_clay_mold",
     "snailspeed:ingot_clay_mold",
-    "snailspeed:blank_clay_mold",
-    "snailspeed:sword_clay_mold",
-    "snailspeed:axe_clay_mold",
-    "snailspeed:pickaxe_clay_mold",
-    "snailspeed:shovel_clay_mold",
-    "snailspeed:hoe_clay_mold",
-    "snailspeed:ingot_clay_mold"
+    "snailspeed:plate_clay_mold",
+    "snailspeed:block_clay_mold",
+    "snailspeed:blank_graphite_mold",
+    "snailspeed:sword_graphite_mold",
+    "snailspeed:axe_graphite_mold",
+    "snailspeed:pickaxe_graphite_mold",
+    "snailspeed:shovel_graphite_mold",
+    "snailspeed:hoe_graphite_mold",
+    "snailspeed:ingot_graphite_mold",
+    "snailspeed:plate_graphite_mold",
+    "snailspeed:block_graphite_mold"
   ]
 }

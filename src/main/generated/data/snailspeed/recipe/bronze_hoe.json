@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "g": "#snailspeed:glues",
     "h": "snailspeed:bronze_hoe_head",

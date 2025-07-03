@@ -5,6 +5,8 @@ import net.minecraft.recipe.input.RecipeInput;
 import net.numericalk.snailspeed.utils.enums.SawCraftable;
 
 public record SawTableRecipeInput(ItemStack input, ItemStack additionalInput, SawCraftable selected) implements RecipeInput {
+
+
     @Override
     public ItemStack getStackInSlot(int slot) {
         return switch (slot){

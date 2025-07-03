@@ -1,0 +1,13 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "copper_ingot",
+  "ingredients": [
+    "minecraft:copper_block"
+  ],
+  "result": {
+    "count": 5,
+    "id": "minecraft:copper_ingot"
+  }
+}

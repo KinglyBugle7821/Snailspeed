@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "building",
+  "group": "rough_wools",
   "ingredients": [
     "snailspeed:rough_blue_wool",
     "snailspeed:rough_blue_wool",

@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:iron_nugget",
+  "input2": "minecraft:iron_nugget",
+  "input3": "minecraft:iron_nugget",
+  "input4": "minecraft:iron_nugget",
+  "input5": "minecraft:iron_nugget",
+
+  "output": {
+    "id": "snailspeed:molten_iron"
+  }
+}

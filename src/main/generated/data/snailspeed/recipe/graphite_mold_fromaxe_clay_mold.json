@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
+  "group": "graphite_mold",
   "key": {
     "#": "snailspeed:axe_graphite_mold",
     "C": "snailspeed:axe_clay_mold"

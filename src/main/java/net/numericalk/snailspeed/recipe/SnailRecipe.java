@@ -7,6 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
 import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
 
 public class SnailRecipe {
@@ -29,6 +30,17 @@ public class SnailRecipe {
                 @Override
                 public String toString() {
                     return "saw_table";
+                }
+            });
+
+    public static final RecipeSerializer<BrickFurnaceRecipe> BRICK_FURNACE_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "brick_furnace"),
+            new BrickFurnaceRecipe.Serializer());
+    public static final RecipeType<BrickFurnaceRecipe> BRICK_FURNACE_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "brick_furnace"), new RecipeType<BrickFurnaceRecipe>() {
+                @Override
+                public String toString() {
+                    return "brick_furnace";
                 }
             });
 

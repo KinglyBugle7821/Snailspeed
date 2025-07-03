@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:bronze_block"
+  ],
+  "result": {
+    "count": 5,
+    "id": "snailspeed:bronze_ingot"
+  }
+}

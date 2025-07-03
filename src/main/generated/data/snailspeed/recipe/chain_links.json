@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "#": "minecraft:iron_ingot",
     "$": "minecraft:iron_nugget"

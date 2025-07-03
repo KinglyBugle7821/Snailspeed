@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "snailspeed:bronze_nugget",
+  "input2": "snailspeed:bronze_nugget",
+  "input3": "snailspeed:bronze_nugget",
+  "input4": "snailspeed:bronze_nugget",
+  "input5": "snailspeed:bronze_nugget",
+
+  "output": {
+    "id": "snailspeed:molten_bronze"
+  }
+}

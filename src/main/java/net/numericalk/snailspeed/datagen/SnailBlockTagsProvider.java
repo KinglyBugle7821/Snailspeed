@@ -59,11 +59,14 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(Blocks.IRON_BLOCK)
                 .add(SnailBlocks.GRAPHITE_ORE)
                 .add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE)
+                .add(SnailBlocks.BRONZE_BLOCK)
                 .forceAddTag(BlockTags.NEEDS_STONE_TOOL);
         getOrCreateTagBuilder(TAPPED_LOGS)
                 .add(SnailBlocks.TAPPED_SPRUCE_LOG)
                 .add(SnailBlocks.TAPPED_BIRCH_LOG)
                 .add(SnailBlocks.TAPPED_PALE_OAK_LOG);
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(SnailBlocks.STEEL_BLOCK);
         getOrCreateTagBuilder(STONE_BLOCK_VARIANTS)
                 .add(Blocks.SMOOTH_STONE)
                 .add(Blocks.STONE_SLAB)

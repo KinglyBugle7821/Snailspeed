@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "d": "snailspeed:unsteady_dirt",
     "g": "minecraft:gravel"

@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "snailspeed:steel_chunk",
+  "input2": "snailspeed:steel_chunk",
+  "input3": "snailspeed:steel_chunk",
+  "input4": "snailspeed:steel_chunk",
+  "input5": "snailspeed:steel_chunk",
+
+  "output": {
+    "id": "snailspeed:molten_steel"
+  }
+}

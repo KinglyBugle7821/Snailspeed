@@ -1,9 +1,6 @@
 package net.numericalk.snailspeed.blocks;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.PillarBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -15,6 +12,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.custom.*;
+import net.numericalk.snailspeed.blocks.custom.CampfireBlock;
 
 import java.util.function.Function;
 
@@ -341,7 +339,6 @@ public class SnailBlocks {
             properties -> new FiredClayMoldBlock(properties.mapColor(MapColor.DULL_RED)
                     .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
-
     public static final Block RESIN_BOWL = registerBlock("resin_bowl",
             properties -> new ResinBowlBlock(properties.mapColor(MapColor.DULL_RED)
                     .strength(1.0F).breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
@@ -377,6 +374,15 @@ public class SnailBlocks {
             properties -> new SawTableBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
 
+    public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
+            properties -> new Block(properties.mapColor(MapColor.ORANGE)
+                    .strength(4.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.COPPER)));
+    public static final Block STEEL_BLOCK = registerBlock("steel_block",
+            properties -> new Block(properties.mapColor(MapColor.BLACK)
+                    .strength(6.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block TIN_BLOCK = registerBlock("tin_block",
+            properties -> new Block(properties.mapColor(MapColor.TERRACOTTA_WHITE)
+                    .strength(4.5F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL)));
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);

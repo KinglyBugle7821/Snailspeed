@@ -30,6 +30,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> STRING = of("string");
     public static final TagKey<Item> OVEN_FUEL = of("oven_fuel");
     public static final TagKey<Item> MOLTEN_ITEMS = of("molten_items");
+    public static final TagKey<Item> HIGH_MOLTEN_ITEMS = of("high_molten_items");
     public static final TagKey<Item> CLAY_MOLD = of("clay_mold");
     public static final TagKey<Item> GRAPHITE_MOLD = of("graphite_mold");
     public static final TagKey<Item> MOLD = of("mold");
@@ -83,7 +84,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.SHOVEL_CLAY_MOLD)
                 .add(SnailItems.HOE_CLAY_MOLD)
                 .add(SnailItems.INGOT_CLAY_MOLD)
-                .add(SnailItems.PLATE_CLAY_MOLD);
+                .add(SnailItems.PLATE_CLAY_MOLD)
+                .add(SnailItems.BLOCK_CLAY_MOLD);
         getOrCreateTagBuilder(GRAPHITE_MOLD)
                 .add(SnailItems.BLANK_GRAPHITE_MOLD)
                 .add(SnailItems.SWORD_GRAPHITE_MOLD)
@@ -92,7 +94,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.SHOVEL_GRAPHITE_MOLD)
                 .add(SnailItems.HOE_GRAPHITE_MOLD)
                 .add(SnailItems.INGOT_GRAPHITE_MOLD)
-                .add(SnailItems.PLATE_GRAPHITE_MOLD);
+                .add(SnailItems.PLATE_GRAPHITE_MOLD)
+                .add(SnailItems.BLOCK_GRAPHITE_MOLD);
         getOrCreateTagBuilder(MOLD)
                 .add(SnailItems.BLANK_CLAY_MOLD)
                 .add(SnailItems.SWORD_CLAY_MOLD)
@@ -101,20 +104,35 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.SHOVEL_CLAY_MOLD)
                 .add(SnailItems.HOE_CLAY_MOLD)
                 .add(SnailItems.INGOT_CLAY_MOLD)
-                .add(SnailItems.BLANK_CLAY_MOLD)
-                .add(SnailItems.SWORD_CLAY_MOLD)
-                .add(SnailItems.AXE_CLAY_MOLD)
-                .add(SnailItems.PICKAXE_CLAY_MOLD)
-                .add(SnailItems.SHOVEL_CLAY_MOLD)
-                .add(SnailItems.HOE_CLAY_MOLD)
-                .add(SnailItems.INGOT_CLAY_MOLD);
+                .add(SnailItems.PLATE_CLAY_MOLD)
+                .add(SnailItems.BLOCK_CLAY_MOLD)
+                .add(SnailItems.BLANK_GRAPHITE_MOLD)
+                .add(SnailItems.SWORD_GRAPHITE_MOLD)
+                .add(SnailItems.AXE_GRAPHITE_MOLD)
+                .add(SnailItems.PICKAXE_GRAPHITE_MOLD)
+                .add(SnailItems.SHOVEL_GRAPHITE_MOLD)
+                .add(SnailItems.HOE_GRAPHITE_MOLD)
+                .add(SnailItems.INGOT_GRAPHITE_MOLD)
+                .add(SnailItems.PLATE_GRAPHITE_MOLD)
+                .add(SnailItems.BLOCK_GRAPHITE_MOLD);
         getOrCreateTagBuilder(MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_COPPER)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_GOLD)
                 .add(SnailItems.MOLTEN_TIN)
                 .add(SnailItems.MOLTEN_BRONZE)
-                .add(SnailItems.MOLTEN_STEEL);
+                .add(SnailItems.MOLTEN_STEEL)
+                .add(SnailItems.MOLTEN_COPPER_BLOCK)
+                .add(SnailItems.MOLTEN_IRON_BLOCK)
+                .add(SnailItems.MOLTEN_GOLD_BLOCK)
+                .add(SnailItems.MOLTEN_TIN_BLOCK)
+                .add(SnailItems.MOLTEN_BRONZE_BLOCK)
+                .add(SnailItems.MOLTEN_STEEL_BLOCK);
+        getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
+                .add(SnailItems.MOLTEN_IRON)
+                .add(SnailItems.MOLTEN_STEEL)
+                .add(SnailItems.MOLTEN_IRON_BLOCK)
+                .add(SnailItems.MOLTEN_STEEL_BLOCK);
         getOrCreateTagBuilder(OVEN_FUEL)
                 .add(Items.CHARCOAL)
                 .add(Items.COAL);

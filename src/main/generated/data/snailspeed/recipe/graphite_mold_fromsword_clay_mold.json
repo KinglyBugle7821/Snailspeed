@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
+  "group": "graphite_mold",
   "key": {
     "#": "snailspeed:sword_graphite_mold",
     "C": "snailspeed:sword_clay_mold"

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
+  "group": "graphite_mold",
   "key": {
     "#": "snailspeed:blank_graphite_mold",
     "C": "snailspeed:blank_clay_mold"

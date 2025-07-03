@@ -8,6 +8,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
+import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.custom.*;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
@@ -73,6 +74,13 @@ public class SnailItems {
     public static final Item MOLTEN_BRONZE = register("molten_bronze", Item::new);
     public static final Item MOLTEN_STEEL = register("molten_steel", Item::new);
 
+    public static final Item MOLTEN_COPPER_BLOCK = register("molten_copper_block", Item::new);
+    public static final Item MOLTEN_IRON_BLOCK = register("molten_iron_block", Item::new);
+    public static final Item MOLTEN_GOLD_BLOCK = register("molten_gold_block", Item::new);
+    public static final Item MOLTEN_TIN_BLOCK = register("molten_tin_block", Item::new);
+    public static final Item MOLTEN_BRONZE_BLOCK = register("molten_bronze_block", Item::new);
+    public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", Item::new);
+
     public static final Item FURNACE_LID = register("furnace_lid", Item::new);
 
     public static final Item BLANK_CLAY_MOLD = register("blank_clay_mold", Item::new);
@@ -83,6 +91,7 @@ public class SnailItems {
     public static final Item HOE_CLAY_MOLD = register("hoe_clay_mold", Item::new);
     public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", Item::new);
     public static final Item PLATE_CLAY_MOLD = register("plate_clay_mold", Item::new);
+    public static final Item BLOCK_CLAY_MOLD = register("block_clay_mold", Item::new);
 
     public static final Item BLANK_GRAPHITE_MOLD = register("blank_graphite_mold", Item::new);
     public static final Item SWORD_GRAPHITE_MOLD = register("sword_graphite_mold", Item::new);
@@ -92,6 +101,7 @@ public class SnailItems {
     public static final Item HOE_GRAPHITE_MOLD = register("hoe_graphite_mold", Item::new);
     public static final Item INGOT_GRAPHITE_MOLD = register("ingot_graphite_mold", Item::new);
     public static final Item PLATE_GRAPHITE_MOLD = register("plate_graphite_mold", Item::new);
+    public static final Item BLOCK_GRAPHITE_MOLD = register("block_graphite_mold", Item::new);
 
     public static final Item COPPER_SWORD_BLADE = register("copper_sword_blade", Item::new);
     public static final Item COPPER_AXE_HEAD = register("copper_axe_head", Item::new);
@@ -213,6 +223,10 @@ public class SnailItems {
     public static final Item ROUGH_GREEN_WOOL = register("rough_green_wool", Item::new);
     public static final Item ROUGH_RED_WOOL = register("rough_red_wool", Item::new);
     public static final Item ROUGH_BLACK_WOOL = register("rough_black_wool", Item::new);
+
+    public static final Item BRONZE_BLOCK = SnailBlocks.BRONZE_BLOCK.asItem();
+    public static final Item STEEL_BLOCK = SnailBlocks.STEEL_BLOCK.asItem();
+    public static final Item TIN_BLOCK = SnailBlocks.TIN_BLOCK.asItem();
 
     public static final Item AIR = register("air", AirItem::new);
 

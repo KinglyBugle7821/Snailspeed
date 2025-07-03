@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "snailspeed:tin_nugget",
+  "input2": "snailspeed:tin_nugget",
+  "input3": "snailspeed:tin_nugget",
+  "input4": "snailspeed:tin_nugget",
+  "input5": "snailspeed:tin_nugget",
+
+  "output": {
+    "id": "snailspeed:molten_tin"
+  }
+}

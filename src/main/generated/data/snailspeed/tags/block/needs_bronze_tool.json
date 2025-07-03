@@ -6,6 +6,7 @@
     "minecraft:iron_block",
     "snailspeed:graphite_ore",
     "snailspeed:deepslate_graphite_ore",
+    "snailspeed:bronze_block",
     "#minecraft:needs_stone_tool"
   ]
 }

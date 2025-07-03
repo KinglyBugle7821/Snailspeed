@@ -81,7 +81,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.SHOVEL_CLAY_MOLD, SnailItems.SHOVEL_GRAPHITE_MOLD},
                     {SnailItems.HOE_CLAY_MOLD, SnailItems.HOE_GRAPHITE_MOLD},
                     {SnailItems.INGOT_CLAY_MOLD, SnailItems.INGOT_GRAPHITE_MOLD},
-                    {SnailItems.PLATE_CLAY_MOLD, SnailItems.PLATE_GRAPHITE_MOLD}
+                    {SnailItems.PLATE_CLAY_MOLD, SnailItems.PLATE_GRAPHITE_MOLD},
             };
 
             final Item[][] woolProcessing = {
@@ -263,7 +263,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.BRONZE_INGOT), conditionsFromItem(SnailItems.BRONZE_INGOT))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.STEEL_CHUNK, 3)
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.STEEL_CHUNK, 5)
                         .input(SnailItems.STEEL_INGOT)
                         .criterion(hasItem(SnailItems.STEEL_CHUNK), conditionsFromItem(SnailItems.STEEL_CHUNK))
                         .offerTo(exporter);
@@ -394,6 +394,18 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .offerTo(exporter);
                 }
 
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.BRONZE_INGOT, 5)
+                        .input(SnailBlocks.BRONZE_BLOCK, 1)
+                        .criterion(hasItem(SnailBlocks.BRONZE_BLOCK), conditionsFromItem(SnailBlocks.BRONZE_BLOCK))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.STEEL_INGOT, 5)
+                        .input(SnailBlocks.STEEL_BLOCK, 1)
+                        .criterion(hasItem(SnailBlocks.STEEL_BLOCK), conditionsFromItem(SnailBlocks.STEEL_BLOCK))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.TIN_INGOT, 5)
+                        .input(SnailBlocks.TIN_BLOCK, 1)
+                        .criterion(hasItem(SnailBlocks.TIN_BLOCK), conditionsFromItem(SnailBlocks.TIN_BLOCK))
+                        .offerTo(exporter);
             }
         };
     }

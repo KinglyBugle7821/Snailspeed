@@ -87,6 +87,10 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
+        return outputHelmet.copy();
+    }
+
     public static class Serializer implements RecipeSerializer<ArmorForgeRecipe> {
         public static final MapCodec<ArmorForgeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Ingredient.CODEC.fieldOf("inputPlate").forGetter(ArmorForgeRecipe::inputPlate),

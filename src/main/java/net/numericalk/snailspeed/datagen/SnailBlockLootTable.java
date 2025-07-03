@@ -225,7 +225,6 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.CLAY_MOLD);
         addDrop(SnailBlocks.DRIED_CLAY_BRICK);
-
         addDrop(SnailBlocks.RESIN_BOWL);
         addDrop(SnailBlocks.FILTERING_TRAY);
 
@@ -238,6 +237,11 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.ARMOR_FORGE);
         addDrop(SnailBlocks.SMALL_BARREL);
         addDrop(SnailBlocks.SAW_TABLE);
+
+        addDrop(SnailBlocks.BRONZE_BLOCK);
+        addDrop(SnailBlocks.TIN_BLOCK);
+        addDrop(SnailBlocks.STEEL_BLOCK);
+
     }
 
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {

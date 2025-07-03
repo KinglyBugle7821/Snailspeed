@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "g": "#snailspeed:glues",
     "h": "minecraft:copper_ingot",

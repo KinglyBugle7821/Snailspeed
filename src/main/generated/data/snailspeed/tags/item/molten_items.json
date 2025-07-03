@@ -5,6 +5,12 @@
     "snailspeed:molten_gold",
     "snailspeed:molten_tin",
     "snailspeed:molten_bronze",
-    "snailspeed:molten_steel"
+    "snailspeed:molten_steel",
+    "snailspeed:molten_copper_block",
+    "snailspeed:molten_iron_block",
+    "snailspeed:molten_gold_block",
+    "snailspeed:molten_tin_block",
+    "snailspeed:molten_bronze_block",
+    "snailspeed:molten_steel_block"
   ]
 }

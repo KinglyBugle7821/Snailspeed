@@ -6,6 +6,7 @@ b053226a5d534d27a0f58ff188821fc346c29c5b data/minecraft/tags/block/logs.json
 2296d73f01f8c917b9f4e72747c9f108f5947d76 data/minecraft/tags/block/logs_that_burn.json
 36d141946a96bc12921f6ea7e4d6ce057222aa9e data/minecraft/tags/block/mineable/axe.json
 0af5208d4d1eb458ebf73ad4942337474279ddcb data/minecraft/tags/block/mineable/pickaxe.json
+111c5562ead4b555427f31e3bfc321d52130008a data/minecraft/tags/block/needs_diamond_tool.json
 c8cceb2644861b939846ec57c7446d02e5716796 data/minecraft/tags/block/planks.json
 7aa0fb00e1b93af2ec90650326497b902fd8c54d data/minecraft/tags/block/snaps_goat_horn.json
 9ff7005e0d168409def122d318e15569e8f4986e data/snailspeed/tags/block/cracked_logs.json
@@ -14,7 +15,7 @@ d4a1f971f79d217d5b9aa965208e0b574f5463f4 data/snailspeed/tags/block/damaged_logs
 c8cceb2644861b939846ec57c7446d02e5716796 data/snailspeed/tags/block/damaged_planks.json
 0280d5d8b11846a973714cb4b68945bbbae37174 data/snailspeed/tags/block/deepslate_ores.json
 fa78725871a0ded510a6e030fa49b9beccd69e34 data/snailspeed/tags/block/incorrect_for_bronze_tool.json
-f4c4208b2fdc92c6a556ae6dfc098e13953ab969 data/snailspeed/tags/block/needs_bronze_tool.json
+918381239d055ca0e61fbd8280612b39650da7e0 data/snailspeed/tags/block/needs_bronze_tool.json
 c1a253094cd3fb6309320a30807cfc952ffe0bc8 data/snailspeed/tags/block/ores.json
 07e3c229c9a3893a60c10ec3588d0157a46143f9 data/snailspeed/tags/block/stone_block.json
 36998c06864d3008c0909b89e005a57af7a600e5 data/snailspeed/tags/block/stone_block_variants.json

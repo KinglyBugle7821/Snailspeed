@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "snailspeed:steel_ingot",
+  "input2": "snailspeed:steel_ingot",
+  "input3": "snailspeed:steel_ingot",
+  "input4": "snailspeed:steel_ingot",
+  "input5": "snailspeed:steel_ingot",
+
+  "output": {
+    "id": "snailspeed:molten_steel_block"
+  }
+}

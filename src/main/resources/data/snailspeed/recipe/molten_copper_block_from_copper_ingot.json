@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:copper_ingot",
+  "input2": "minecraft:copper_ingot",
+  "input3": "minecraft:copper_ingot",
+  "input4": "minecraft:copper_ingot",
+  "input5": "minecraft:copper_ingot",
+
+  "output": {
+    "id": "snailspeed:molten_copper_block"
+  }
+}

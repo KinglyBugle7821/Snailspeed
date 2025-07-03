@@ -196,6 +196,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.TIN_DUST);
                         entries.add(SnailItems.TIN_NUGGET);
                         entries.add(SnailItems.TIN_INGOT);
+                        entries.add(SnailItems.TIN_BLOCK);
 
                         entries.add(SnailBlocks.GRAPHITE_ORE);
                         entries.add(SnailBlocks.DEEPSLATE_GRAPHITE_ORE);
@@ -206,10 +207,12 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BRONZE_NUGGET);
                         entries.add(SnailItems.BRONZE_INGOT);
                         entries.add(SnailItems.BRONZE_PLATE);
+                        entries.add(SnailItems.BRONZE_BLOCK);
 
                         entries.add(SnailItems.STEEL_CHUNK);
                         entries.add(SnailItems.STEEL_INGOT);
                         entries.add(SnailItems.STEEL_PLATE);
+                        entries.add(SnailItems.STEEL_BLOCK);
 
                         entries.add(SnailItems.COPPER_PLATE);
                         entries.add(SnailItems.IRON_PLATE);

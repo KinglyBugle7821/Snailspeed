@@ -189,6 +189,18 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.CIRCULAR_SAW, "Circular Saw");
         translationBuilder.add(SnailItems.LONG_STICK, "Long Stick");
 
+        translationBuilder.add(SnailItems.MOLTEN_COPPER, "Molten Copper");
+        translationBuilder.add(SnailItems.MOLTEN_IRON, "Molten Iron");
+        translationBuilder.add(SnailItems.MOLTEN_GOLD, "Molten Gold");
+        translationBuilder.add(SnailItems.MOLTEN_TIN, "Molten Tin");
+        translationBuilder.add(SnailItems.MOLTEN_BRONZE, "Molten Bronze");
+        translationBuilder.add(SnailItems.MOLTEN_STEEL, "Molten Steel");
+        translationBuilder.add(SnailItems.MOLTEN_COPPER_BLOCK, "Molten Copper Block");
+        translationBuilder.add(SnailItems.MOLTEN_IRON_BLOCK, "Molten Iron Block");
+        translationBuilder.add(SnailItems.MOLTEN_GOLD_BLOCK, "Molten Gold Block");
+        translationBuilder.add(SnailItems.MOLTEN_TIN_BLOCK, "Molten Tin Block");
+        translationBuilder.add(SnailItems.MOLTEN_BRONZE_BLOCK, "Molten Bronze Block");
+        translationBuilder.add(SnailItems.MOLTEN_STEEL_BLOCK, "Molten Steel Block");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");

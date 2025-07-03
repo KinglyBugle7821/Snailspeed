@@ -96,7 +96,6 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
             Optional<RecipeEntry<SawTableRecipe>> recipe = getCurrentRecipe();
 
             if (recipe.isEmpty()) {
-                System.out.println("Recipe Is Empty");
                 setStack(OUTPUT, ItemStack.EMPTY);
                 return;
             }

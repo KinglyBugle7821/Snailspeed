@@ -23,6 +23,12 @@
 		],
 		"client": [
 			"net.numericalk.snailspeed.SnailspeedClient"
+		],
+		"rei_client": [
+			"net.numericalk.snailspeed.compat.SnailspeedREIClient"
+		],
+		"rei_common": [
+			"net.numericalk.snailspeed.compat.SnailspeedREICommon"
 		]
 	},
 	"mixins": [

@@ -300,7 +300,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
 
                     createShaped(RecipeCategory.MISC, graphite, 1)
                             .pattern("#C")
-                            .input('#', graphite)
+                            .input('#', SnailItemTagsProvider.GRAPHITE_MOLD)
                             .input('C', clay)
                             .group("graphite_mold")
                             .criterion(hasItem(clay), conditionsFromItem(clay))

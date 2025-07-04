@@ -18,11 +18,12 @@ import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
 
+import static net.numericalk.snailspeed.compat.SnailRecipeCategories.ARMOR_FORGE;
+
 public class ArmorForgeRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
             "textures/gui/container/armor_forge_gui.png");
-    public static final CategoryIdentifier<ArmorForgeRecipeDisplay> ARMOR_FORGE =
-            CategoryIdentifier.of(Snailspeed.MOD_ID, "armor_forge");
+
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

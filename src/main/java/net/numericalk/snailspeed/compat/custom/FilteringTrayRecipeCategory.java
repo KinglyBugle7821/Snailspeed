@@ -17,11 +17,11 @@ import net.numericalk.snailspeed.blocks.SnailBlocks;
 import java.util.LinkedList;
 import java.util.List;
 
+import static net.numericalk.snailspeed.compat.SnailRecipeCategories.FILTERING_TRAY;
+
 public class FilteringTrayRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
             "textures/gui/container/filtering_tray_gui.png");
-    public static final CategoryIdentifier<FilteringTrayRecipeDisplay> FILTERING_TRAY =
-            CategoryIdentifier.of(Snailspeed.MOD_ID, "filtering_tray");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

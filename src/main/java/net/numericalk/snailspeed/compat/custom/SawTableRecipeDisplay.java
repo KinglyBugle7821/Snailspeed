@@ -14,6 +14,7 @@ import net.minecraft.item.Items;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.RecipeEntry;
+import net.numericalk.snailspeed.compat.SnailRecipeCategories;
 import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
 import org.jetbrains.annotations.Nullable;
 
@@ -53,7 +54,7 @@ public class SawTableRecipeDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return SawTableRecipeCategory.SAW_TABLE;
+        return SnailRecipeCategories.SAW_TABLE;
     }
 
     @Override

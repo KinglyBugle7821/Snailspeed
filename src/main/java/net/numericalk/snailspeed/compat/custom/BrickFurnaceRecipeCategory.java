@@ -17,11 +17,11 @@ import net.numericalk.snailspeed.blocks.SnailBlocks;
 import java.util.LinkedList;
 import java.util.List;
 
+import static net.numericalk.snailspeed.compat.SnailRecipeCategories.BRICK_FURNACE;
+
 public class BrickFurnaceRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
             "textures/gui/container/brick_furnace_gui.png");
-    public static final CategoryIdentifier<ArmorForgeRecipeDisplay> BRICK_FURNACE =
-            CategoryIdentifier.of(Snailspeed.MOD_ID, "brick_furnace");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

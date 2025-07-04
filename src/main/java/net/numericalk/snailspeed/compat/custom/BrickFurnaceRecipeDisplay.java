@@ -11,6 +11,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.RecipeEntry;
+import net.numericalk.snailspeed.compat.SnailRecipeCategories;
 import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
 import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
 import org.jetbrains.annotations.Nullable;
@@ -39,7 +40,7 @@ public class BrickFurnaceRecipeDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return BrickFurnaceRecipeCategory.BRICK_FURNACE;
+        return SnailRecipeCategories.BRICK_FURNACE;
     }
 
     @Override

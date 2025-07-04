@@ -11,6 +11,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.RecipeEntry;
+import net.numericalk.snailspeed.compat.SnailRecipeCategories;
 import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipe;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,7 +35,7 @@ public class FilteringTrayRecipeDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return FilteringTrayRecipeCategory.FILTERING_TRAY;
+        return SnailRecipeCategories.FILTERING_TRAY;
     }
 
     @Override

@@ -178,7 +178,6 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         for (int i = 0; i < 3; i++) {
             ItemStack stack = getStack(i);
             if (stack.isEmpty()) continue;
-            System.out.println(progress[i]);
 
             Item cooked = getCookedItem(stack.getItem());
             if (cooked != null) {

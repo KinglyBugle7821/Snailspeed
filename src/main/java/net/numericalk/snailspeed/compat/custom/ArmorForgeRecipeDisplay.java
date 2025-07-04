@@ -18,6 +18,7 @@ import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.metadata.ResourceFilter;
 import net.minecraft.util.Identifier;
+import net.numericalk.snailspeed.compat.SnailRecipeCategories;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
 import org.jetbrains.annotations.Nullable;
@@ -51,7 +52,7 @@ public class ArmorForgeRecipeDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return ArmorForgeRecipeCategory.ARMOR_FORGE;
+        return SnailRecipeCategories.ARMOR_FORGE;
     }
 
     @Override

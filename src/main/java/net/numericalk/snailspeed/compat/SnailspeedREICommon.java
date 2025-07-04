@@ -29,9 +29,9 @@ public class SnailspeedREICommon implements REICommonPlugin {
 
     @Override
     public void registerDisplaySerializer(DisplaySerializerRegistry registry) {
-        registry.register(ArmorForgeRecipeCategory.ARMOR_FORGE.getIdentifier(), ArmorForgeRecipeDisplay.SERIALIZER);
-        registry.register(SawTableRecipeCategory.SAW_TABLE.getIdentifier(), SawTableRecipeDisplay.SERIALIZER);
-        registry.register(BrickFurnaceRecipeCategory.BRICK_FURNACE.getIdentifier(), BrickFurnaceRecipeDisplay.SERIALIZER);
-        registry.register(FilteringTrayRecipeCategory.FILTERING_TRAY.getIdentifier(), FilteringTrayRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.ARMOR_FORGE.getIdentifier(), ArmorForgeRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.SAW_TABLE.getIdentifier(), SawTableRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.BRICK_FURNACE.getIdentifier(), BrickFurnaceRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.FILTERING_TRAY.getIdentifier(), FilteringTrayRecipeDisplay.SERIALIZER);
     }
 }

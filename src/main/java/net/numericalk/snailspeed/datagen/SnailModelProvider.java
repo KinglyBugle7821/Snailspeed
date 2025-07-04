@@ -329,6 +329,8 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.ROUGH_RED_WOOL, Models.GENERATED);
         itemModelGenerator.register(SnailItems.ROUGH_BLACK_WOOL, Models.GENERATED);
 
+        itemModelGenerator.register(SnailItems.CONDUIT_SHELL, Models.GENERATED);
+
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 
 

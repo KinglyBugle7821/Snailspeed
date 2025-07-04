@@ -107,6 +107,62 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.ROUGH_BLACK_WOOL, Items.BLACK_WOOL}
             };
 
+            final Item[][] glassColoring = {
+                    { Items.WHITE_DYE, Items.WHITE_STAINED_GLASS },
+                    { Items.ORANGE_DYE, Items.ORANGE_STAINED_GLASS },
+                    { Items.MAGENTA_DYE, Items.MAGENTA_STAINED_GLASS },
+                    { Items.LIGHT_BLUE_DYE, Items.LIGHT_BLUE_STAINED_GLASS },
+                    { Items.YELLOW_DYE, Items.YELLOW_STAINED_GLASS },
+                    { Items.LIME_DYE, Items.LIME_STAINED_GLASS },
+                    { Items.PINK_DYE, Items.PINK_STAINED_GLASS },
+                    { Items.GRAY_DYE, Items.GRAY_STAINED_GLASS },
+                    { Items.LIGHT_GRAY_DYE, Items.LIGHT_GRAY_STAINED_GLASS },
+                    { Items.CYAN_DYE, Items.CYAN_STAINED_GLASS },
+                    { Items.PURPLE_DYE, Items.PURPLE_STAINED_GLASS },
+                    { Items.BLUE_DYE, Items.BLUE_STAINED_GLASS },
+                    { Items.BROWN_DYE, Items.BROWN_STAINED_GLASS },
+                    { Items.GREEN_DYE, Items.GREEN_STAINED_GLASS },
+                    { Items.RED_DYE, Items.RED_STAINED_GLASS },
+                    { Items.BLACK_DYE, Items.BLACK_STAINED_GLASS }
+            };
+            final Item[][] glassPaneColoring = {
+                    { Items.WHITE_DYE, Items.WHITE_STAINED_GLASS_PANE },
+                    { Items.ORANGE_DYE, Items.ORANGE_STAINED_GLASS_PANE },
+                    { Items.MAGENTA_DYE, Items.MAGENTA_STAINED_GLASS_PANE },
+                    { Items.LIGHT_BLUE_DYE, Items.LIGHT_BLUE_STAINED_GLASS_PANE },
+                    { Items.YELLOW_DYE, Items.YELLOW_STAINED_GLASS_PANE },
+                    { Items.LIME_DYE, Items.LIME_STAINED_GLASS_PANE },
+                    { Items.PINK_DYE, Items.PINK_STAINED_GLASS_PANE },
+                    { Items.GRAY_DYE, Items.GRAY_STAINED_GLASS_PANE },
+                    { Items.LIGHT_GRAY_DYE, Items.LIGHT_GRAY_STAINED_GLASS_PANE },
+                    { Items.CYAN_DYE, Items.CYAN_STAINED_GLASS_PANE },
+                    { Items.PURPLE_DYE, Items.PURPLE_STAINED_GLASS_PANE },
+                    { Items.BLUE_DYE, Items.BLUE_STAINED_GLASS_PANE },
+                    { Items.BROWN_DYE, Items.BROWN_STAINED_GLASS_PANE },
+                    { Items.GREEN_DYE, Items.GREEN_STAINED_GLASS_PANE },
+                    { Items.RED_DYE, Items.RED_STAINED_GLASS_PANE },
+                    { Items.BLACK_DYE, Items.BLACK_STAINED_GLASS_PANE }
+            };
+            final Item[][] glassToPane = {
+                    { Items.GLASS, Items.GLASS_PANE },
+                    { Items.WHITE_STAINED_GLASS, Items.WHITE_STAINED_GLASS_PANE },
+                    { Items.ORANGE_STAINED_GLASS, Items.ORANGE_STAINED_GLASS_PANE },
+                    { Items.MAGENTA_STAINED_GLASS, Items.MAGENTA_STAINED_GLASS_PANE },
+                    { Items.LIGHT_BLUE_STAINED_GLASS, Items.LIGHT_BLUE_STAINED_GLASS_PANE },
+                    { Items.YELLOW_STAINED_GLASS, Items.YELLOW_STAINED_GLASS_PANE },
+                    { Items.LIME_STAINED_GLASS, Items.LIME_STAINED_GLASS_PANE },
+                    { Items.PINK_STAINED_GLASS, Items.PINK_STAINED_GLASS_PANE },
+                    { Items.GRAY_STAINED_GLASS, Items.GRAY_STAINED_GLASS_PANE },
+                    { Items.LIGHT_GRAY_STAINED_GLASS, Items.LIGHT_GRAY_STAINED_GLASS_PANE },
+                    { Items.CYAN_STAINED_GLASS, Items.CYAN_STAINED_GLASS_PANE },
+                    { Items.PURPLE_STAINED_GLASS, Items.PURPLE_STAINED_GLASS_PANE },
+                    { Items.BLUE_STAINED_GLASS, Items.BLUE_STAINED_GLASS_PANE },
+                    { Items.BROWN_STAINED_GLASS, Items.BROWN_STAINED_GLASS_PANE },
+                    { Items.GREEN_STAINED_GLASS, Items.GREEN_STAINED_GLASS_PANE },
+                    { Items.RED_STAINED_GLASS, Items.RED_STAINED_GLASS_PANE },
+                    { Items.BLACK_STAINED_GLASS, Items.BLACK_STAINED_GLASS_PANE }
+            };
+
             @Override
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
@@ -424,6 +480,50 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('P', Items.BLAZE_POWDER)
                         .criterion(hasItem(Items.COBBLESTONE), conditionsFromItem(Items.COBBLESTONE))
                         .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.CONDUIT_SHELL, 1)
+                        .input(Items.NAUTILUS_SHELL)
+                        .input(Items.NAUTILUS_SHELL)
+                        .criterion(hasItem(Items.NAUTILUS_SHELL), conditionsFromItem(Items.NAUTILUS_SHELL))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.CONDUIT, 1)
+                        .input(SnailItems.CONDUIT_SHELL)
+                        .input(SnailItems.CONDUIT_SHELL)
+                        .input(Items.HEART_OF_THE_SEA)
+                        .criterion(hasItem(SnailItems.CONDUIT_SHELL), conditionsFromItem(SnailItems.CONDUIT_SHELL))
+                        .offerTo(exporter);
+
+                for (Item[] items : glassColoring){
+                    Item dye = items[0];
+                    Item glass = items[1];
+                    createShapeless(RecipeCategory.BUILDING_BLOCKS, glass, 3)
+                            .input(dye)
+                            .input(SnailItemTagsProvider.GLASS)
+                            .input(SnailItemTagsProvider.GLASS)
+                            .input(SnailItemTagsProvider.GLASS)
+                            .criterion(hasItem(dye), conditionsFromItem(dye))
+                            .offerTo(exporter);
+                }
+                for (Item[] items : glassPaneColoring){
+                    Item dye = items[0];
+                    Item glass = items[1];
+                    createShapeless(RecipeCategory.BUILDING_BLOCKS, glass, 3)
+                            .input(dye)
+                            .input(SnailItemTagsProvider.GLASS_PANES)
+                            .input(SnailItemTagsProvider.GLASS_PANES)
+                            .input(SnailItemTagsProvider.GLASS_PANES)
+                            .criterion(hasItem(dye), conditionsFromItem(dye))
+                            .offerTo(exporter);
+                }
+                for (Item[] items : glassToPane){
+                    Item glass = items[0];
+                    Item glassPane = items[1];
+
+                    createShaped(RecipeCategory.MISC, glassPane, 4)
+                            .pattern("##")
+                            .input('#', glass)
+                            .criterion(hasItem(glass), conditionsFromItem(glass))
+                            .offerTo(exporter);
+                }
             }
         };
     }

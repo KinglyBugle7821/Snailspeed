@@ -232,6 +232,8 @@ public class SnailItems {
     public static final Item STEEL_BLOCK = SnailBlocks.STEEL_BLOCK.asItem();
     public static final Item TIN_BLOCK = SnailBlocks.TIN_BLOCK.asItem();
 
+    public static final Item CONDUIT_SHELL = register("conduit_shell", Item::new);
+
     public static final Item AIR = register("air", AirItem::new);
 
     private static Item register(String name, Function<Item.Settings, Item> function) {

@@ -1,6 +1,7 @@
 package net.numericalk.snailspeed.items.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,12 @@ public class CircularSawItem extends Item {
 
         if (state.isIn(BlockTags.WOODEN_SLABS)) {
             world.setBlockState(pos, SnailBlocks.SAW_TABLE.getDefaultState());
+            stack.decrement(1);
+            world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            return ActionResult.SUCCESS;
+        }
+        if (state.isOf(Blocks.STONE_SLAB)) {
+            world.setBlockState(pos, Blocks.STONECUTTER.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
             return ActionResult.SUCCESS;

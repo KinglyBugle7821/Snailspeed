@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:filtering_tray",
+
+  "input1": "minecraft:sugar_cane",
+  "input2": "snailspeed:wood_dust",
+
+  "output": {
+    "id": "minecraft:paper"
+  }
+}

@@ -164,6 +164,12 @@ public class SnailBreakEvents {
                     damageItem(stack, player, world, true);
                     return false;
                 }
+                if (hasCircularSaw(stack)){
+                    turnBlockTo(Blocks.STONE_SLAB, pos, state, world);
+                    addDrop(world, SnailItems.PEBBLE, pos);
+                    damageItem(stack, player, world, true);
+                    return false;
+                }
                 degradeStone(world, pos, state, false, 1);
                 damageItem(stack, player, world, false);
                 return false;
@@ -210,6 +216,9 @@ public class SnailBreakEvents {
         });
     }
 
+    private static boolean hasCircularSaw(ItemStack stack) {
+        return stack.isOf(SnailItems.CIRCULAR_SAW);
+    }
 
 
     private static void halfSlab(World world, BlockPos pos, BlockState state) {

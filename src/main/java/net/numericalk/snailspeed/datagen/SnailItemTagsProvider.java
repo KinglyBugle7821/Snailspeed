@@ -2,6 +2,7 @@ package net.numericalk.snailspeed.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
@@ -42,6 +43,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> HAMMERS = of("hammers");
 
     public static final TagKey<Item> FILTERS = of("filters");
+    public static final TagKey<Item> GLASS = of("glass");
+    public static final TagKey<Item> GLASS_PANES = of("glass_panes");
 
     public static final TagKey<Item> WOODEN_TOOLS = of("wooden_tools");
     public static final TagKey<Item> STONE_TOOLS = of("stone_tools");
@@ -55,6 +58,42 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(GLASS_PANES)
+                .add(Items.GLASS_PANE)
+                .add(Items.WHITE_STAINED_GLASS_PANE)
+                .add(Items.ORANGE_STAINED_GLASS_PANE)
+                .add(Items.MAGENTA_STAINED_GLASS_PANE)
+                .add(Items.LIGHT_BLUE_STAINED_GLASS_PANE)
+                .add(Items.YELLOW_STAINED_GLASS_PANE)
+                .add(Items.LIME_STAINED_GLASS_PANE)
+                .add(Items.PINK_STAINED_GLASS_PANE)
+                .add(Items.GRAY_STAINED_GLASS_PANE)
+                .add(Items.LIGHT_GRAY_STAINED_GLASS_PANE)
+                .add(Items.CYAN_STAINED_GLASS_PANE)
+                .add(Items.PURPLE_STAINED_GLASS_PANE)
+                .add(Items.BLUE_STAINED_GLASS_PANE)
+                .add(Items.BROWN_STAINED_GLASS_PANE)
+                .add(Items.GREEN_STAINED_GLASS_PANE)
+                .add(Items.RED_STAINED_GLASS_PANE)
+                .add(Items.BLACK_STAINED_GLASS_PANE);
+        getOrCreateTagBuilder(GLASS)
+                .add(Items.GLASS)
+                .add(Items.WHITE_STAINED_GLASS)
+                .add(Items.ORANGE_STAINED_GLASS)
+                .add(Items.MAGENTA_STAINED_GLASS)
+                .add(Items.LIGHT_BLUE_STAINED_GLASS)
+                .add(Items.YELLOW_STAINED_GLASS)
+                .add(Items.LIME_STAINED_GLASS)
+                .add(Items.PINK_STAINED_GLASS)
+                .add(Items.GRAY_STAINED_GLASS)
+                .add(Items.LIGHT_GRAY_STAINED_GLASS)
+                .add(Items.CYAN_STAINED_GLASS)
+                .add(Items.PURPLE_STAINED_GLASS)
+                .add(Items.BLUE_STAINED_GLASS)
+                .add(Items.BROWN_STAINED_GLASS)
+                .add(Items.GREEN_STAINED_GLASS)
+                .add(Items.RED_STAINED_GLASS)
+                .add(Items.BLACK_STAINED_GLASS);
         getOrCreateTagBuilder(HAMMERS)
                 .add(SnailItems.COPPER_HAMMER)
                 .add(SnailItems.IRON_HAMMER)

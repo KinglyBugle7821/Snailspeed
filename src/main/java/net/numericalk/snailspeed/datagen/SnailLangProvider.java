@@ -222,6 +222,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.ROUGH_RED_WOOL, "Rough Red Wool");
         translationBuilder.add(SnailItems.ROUGH_BLACK_WOOL, "Rough Black Wool");
 
+        translationBuilder.add(SnailItems.CONDUIT_SHELL, "Conduit Shell");
+
+
 
 
 

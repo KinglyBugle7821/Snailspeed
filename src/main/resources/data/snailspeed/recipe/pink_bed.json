@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "#minecraft:planks",
+  "additionalInput": "minecraft:pink_wool",
+
+  "bed": {
+    "id": "minecraft:pink_bed"
+  }
+}

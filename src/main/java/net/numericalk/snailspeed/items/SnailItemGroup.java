@@ -268,6 +268,8 @@ public class SnailItemGroup {
                         entries.add(SnailItems.ROUGH_RED_WOOL);
                         entries.add(SnailItems.ROUGH_BLACK_WOOL);
 
+                        entries.add(SnailItems.CONDUIT_SHELL);
+
                     }).build());
 
     public static void initialize() {

@@ -36,9 +36,10 @@ public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvide
             SnailItems.HOE_CLAY_MOLD,
             SnailItems.INGOT_CLAY_MOLD,
             SnailItems.PLATE_CLAY_MOLD,
-            SnailItems.BLOCK_CLAY_MOLD
+            SnailItems.BLOCK_CLAY_MOLD,
+            SnailItems.BUCKET_CLAY_MOLD
     };
-    public static final IntProperty MOLD_SHAPE = IntProperty.of("mold_shape", 0, 8);
+    public static final IntProperty MOLD_SHAPE = IntProperty.of("mold_shape", 0, 9);
     private static final MapCodec<ClayMoldBlock> CODEC = ClayMoldBlock.createCodec(ClayMoldBlock::new);
 
     public ClayMoldBlock(Settings settings) {

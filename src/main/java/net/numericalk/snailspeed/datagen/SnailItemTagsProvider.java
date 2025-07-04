@@ -85,7 +85,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.HOE_CLAY_MOLD)
                 .add(SnailItems.INGOT_CLAY_MOLD)
                 .add(SnailItems.PLATE_CLAY_MOLD)
-                .add(SnailItems.BLOCK_CLAY_MOLD);
+                .add(SnailItems.BLOCK_CLAY_MOLD)
+                .add(SnailItems.BUCKET_CLAY_MOLD);
         getOrCreateTagBuilder(GRAPHITE_MOLD)
                 .add(SnailItems.BLANK_GRAPHITE_MOLD)
                 .add(SnailItems.SWORD_GRAPHITE_MOLD)
@@ -95,7 +96,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.HOE_GRAPHITE_MOLD)
                 .add(SnailItems.INGOT_GRAPHITE_MOLD)
                 .add(SnailItems.PLATE_GRAPHITE_MOLD)
-                .add(SnailItems.BLOCK_GRAPHITE_MOLD);
+                .add(SnailItems.BLOCK_GRAPHITE_MOLD)
+                .add(SnailItems.BUCKET_GRAPHITE_MOLD);
         getOrCreateTagBuilder(MOLD)
                 .add(SnailItems.BLANK_CLAY_MOLD)
                 .add(SnailItems.SWORD_CLAY_MOLD)
@@ -127,7 +129,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_GOLD_BLOCK)
                 .add(SnailItems.MOLTEN_TIN_BLOCK)
                 .add(SnailItems.MOLTEN_BRONZE_BLOCK)
-                .add(SnailItems.MOLTEN_STEEL_BLOCK);
+                .add(SnailItems.MOLTEN_STEEL_BLOCK)
+                .add(SnailItems.MOLTEN_GLASS);
         getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_STEEL)

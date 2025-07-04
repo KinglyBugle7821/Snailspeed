@@ -184,6 +184,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.MOLTEN_TIN_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_BRONZE_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STEEL_BLOCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_GLASS, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.FURNACE_LID, Models.GENERATED);
 
@@ -196,6 +197,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.INGOT_CLAY_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.PLATE_CLAY_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BLOCK_CLAY_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BUCKET_CLAY_MOLD, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.BLANK_GRAPHITE_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.SWORD_GRAPHITE_MOLD, Models.GENERATED);
@@ -206,6 +208,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.INGOT_GRAPHITE_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.PLATE_GRAPHITE_MOLD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BLOCK_GRAPHITE_MOLD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BUCKET_GRAPHITE_MOLD, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.COPPER_SWORD_BLADE, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.COPPER_AXE_HEAD, Models.HANDHELD);

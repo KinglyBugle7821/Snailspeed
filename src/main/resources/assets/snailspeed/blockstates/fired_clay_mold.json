@@ -71,6 +71,14 @@
       "when": {
         "mold_shape": 8
       }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/clay_mold/fired_clay_mold_bucket"
+      },
+      "when": {
+        "mold_shape": 9
+      }
     }
   ]
 }

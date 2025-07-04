@@ -22,12 +22,8 @@ public class FilteringTrayBlockEntityRenderer implements BlockEntityRenderer<Fil
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack input1 = entity.getStack(0);
         ItemStack input2 = entity.getStack(1);
-        ItemStack input3 = entity.getStack(2);
-        ItemStack input4 = entity.getStack(3);
         renderStackWith(input1, 0.9f,  entity, matrices, itemRenderer, vertexConsumers);
         renderStackWith(input2, 0.95f, entity, matrices, itemRenderer, vertexConsumers);
-        renderStackWith(input3, 1.0f, entity, matrices, itemRenderer, vertexConsumers);
-        renderStackWith(input4, 1.05f, entity, matrices, itemRenderer, vertexConsumers);
     }
 
     private void renderStackWith(ItemStack input, float y, FilteringTrayBlockEntity entity, MatrixStack matrices, ItemRenderer itemRenderer, VertexConsumerProvider vertexConsumers) {

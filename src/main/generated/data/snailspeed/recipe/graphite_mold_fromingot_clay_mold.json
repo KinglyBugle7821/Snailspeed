@@ -3,7 +3,7 @@
   "category": "misc",
   "group": "graphite_mold",
   "key": {
-    "#": "snailspeed:ingot_graphite_mold",
+    "#": "#snailspeed:graphite_mold",
     "C": "snailspeed:ingot_clay_mold"
   },
   "pattern": [

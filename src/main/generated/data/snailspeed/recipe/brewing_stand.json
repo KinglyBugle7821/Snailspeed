@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:cobblestone",
+    "B": "minecraft:blaze_rod",
+    "P": "minecraft:blaze_powder"
+  },
+  "pattern": [
+    "BP",
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:brewing_stand"
+  }
+}

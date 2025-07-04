@@ -3,7 +3,8 @@
   "package": "net.numericalk.snailspeed.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "SnailModifyLog"
+    "SnailModifyBlockBreakSpeed",
+    "SnailModifySpreadableBlock"
   ],
   "injectors": {
     "defaultRequire": 1

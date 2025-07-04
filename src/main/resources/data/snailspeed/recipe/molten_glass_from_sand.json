@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:sand",
+  "input2": "minecraft:sand",
+  "input3": "minecraft:sand",
+  "input4": "minecraft:sand",
+  "input5": "minecraft:sand",
+
+  "output": {
+    "id": "snailspeed:molten_glass"
+  }
+}

@@ -76,6 +76,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.INGOT_CLAY_MOLD, "Ingot Clay Mold");
         translationBuilder.add(SnailItems.PLATE_CLAY_MOLD, "Plate Clay Mold");
         translationBuilder.add(SnailItems.BLOCK_CLAY_MOLD, "Block Clay Mold");
+        translationBuilder.add(SnailItems.BUCKET_CLAY_MOLD, "Bucket Clay Mold");
 
         translationBuilder.add(SnailItems.BLANK_GRAPHITE_MOLD, "Blank Graphite Mold");
         translationBuilder.add(SnailItems.SWORD_GRAPHITE_MOLD, "Sword Graphite Mold");
@@ -86,6 +87,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.INGOT_GRAPHITE_MOLD, "Ingot Graphite Mold");
         translationBuilder.add(SnailItems.PLATE_GRAPHITE_MOLD, "Plate Graphite Mold");
         translationBuilder.add(SnailItems.BLOCK_GRAPHITE_MOLD, "Block Graphite Mold");
+        translationBuilder.add(SnailItems.BUCKET_GRAPHITE_MOLD, "Bucket Graphite Mold");
 
         translationBuilder.add(SnailItems.COPPER_SWORD_BLADE, "Copper Sword Blade");
         translationBuilder.add(SnailItems.COPPER_AXE_HEAD, "Copper Axe Head");
@@ -201,6 +203,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.MOLTEN_TIN_BLOCK, "Molten Tin Block");
         translationBuilder.add(SnailItems.MOLTEN_BRONZE_BLOCK, "Molten Bronze Block");
         translationBuilder.add(SnailItems.MOLTEN_STEEL_BLOCK, "Molten Steel Block");
+        translationBuilder.add(SnailItems.MOLTEN_GLASS, "Molten Glass");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");

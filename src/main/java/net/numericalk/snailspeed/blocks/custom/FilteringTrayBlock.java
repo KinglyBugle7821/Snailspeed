@@ -61,6 +61,10 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
             if(blockEntity instanceof FilteringTrayBlockEntity be) {
                 ItemScatterer.spawn(world, pos, be);
                 world.updateComparators(pos, this);
+                if (state.get(HAS_FILTER)){
+                    ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), SnailItems.FIBER_FILTER.getDefaultStack());
+                    world.updateComparators(pos, this);
+                }
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
@@ -77,14 +81,14 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
         BlockEntity be = world.getBlockEntity(pos);
         if (be instanceof FilteringTrayBlockEntity filteringTrayBlockEntity) {
             if (canInsertFilter(stack, state)) {
-                applyFilter(player, world, pos, stack, state, filteringTrayBlockEntity);
+                applyFilter(player, world, pos, stack, state);
                 return ActionResult.SUCCESS;
             } if (canTakeFilter(stack, state, filteringTrayBlockEntity)) {
                 takeFilter(player, world, pos, stack, state, filteringTrayBlockEntity);
                 return ActionResult.SUCCESS;
             }
             if (canInsertItem(stack, state)) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 2; i++) {
                     if (filteringTrayBlockEntity.getStack(i).isEmpty()) {
                         world.updateListeners(pos, state, state, 3);
                         filteringTrayBlockEntity.setStack(i, stack.copyWithCount(1));
@@ -96,8 +100,8 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
                     }
                 }
                 return ActionResult.SUCCESS;
-            } if (canTakeItem(stack, state)) {
-                for (int i = 3; i > -1; i--) {
+            } if (canTakeItem(stack)) {
+                for (int i = 1; i > -1; i--) {
                     if (!filteringTrayBlockEntity.getStack(i).isEmpty()) {
                         world.updateListeners(pos, state, state,  3);
                         world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
@@ -112,40 +116,31 @@ public class FilteringTrayBlock extends BlockWithEntity implements BlockEntityPr
         return ActionResult.PASS;
     }
 
-    private boolean canTakeItem(ItemStack stack, BlockState state) {
+    private boolean canTakeItem(ItemStack stack) {
         return stack.isEmpty();
     }
 
     private void takeFilter(PlayerEntity player, World world, BlockPos pos, ItemStack stack, BlockState state, FilteringTrayBlockEntity filteringTrayBlockEntity) {
-        if (!filteringTrayBlockEntity.getStack(4).isEmpty()) {
-            world.setBlockState(pos, state.with(HAS_FILTER, false));
-            world.updateListeners(pos, state, state,  3);
-            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-            player.giveOrDropStack(filteringTrayBlockEntity.getStack(4));
-            filteringTrayBlockEntity.setStack(4, SnailItems.AIR.getDefaultStack());
-        }
+        world.setBlockState(pos, state.with(HAS_FILTER, false));
+        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+        player.giveOrDropStack(SnailItems.FIBER_FILTER.getDefaultStack());
     }
 
     private boolean canTakeFilter(ItemStack stack, BlockState state, FilteringTrayBlockEntity filteringTrayBlockEntity) {
         return stack.isEmpty() && state.get(HAS_FILTER) &&
                 (filteringTrayBlockEntity.getStack(0).isEmpty()) &&
-                (filteringTrayBlockEntity.getStack(1).isEmpty()) &&
-                (filteringTrayBlockEntity.getStack(2).isEmpty()) &&
-                (filteringTrayBlockEntity.getStack(3).isEmpty());
+                (filteringTrayBlockEntity.getStack(1).isEmpty());
     }
 
     private boolean canInsertItem(ItemStack stack, BlockState state) {
         return !stack.isEmpty() && state.get(HAS_FILTER);
     }
 
-    private void applyFilter(PlayerEntity player, World world, BlockPos pos, ItemStack stack, BlockState state, FilteringTrayBlockEntity filteringTrayBlockEntity) {
-        if (filteringTrayBlockEntity.getStack(4).isEmpty()) {
-            world.updateListeners(pos, state, state, 3);
-            filteringTrayBlockEntity.setStack(4, stack.copyWithCount(1));
-            if (!player.isCreative()) {
-                stack.decrement(1);
-            }
-            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+    private void applyFilter(PlayerEntity player, World world, BlockPos pos, ItemStack stack, BlockState state) {
+        world.setBlockState(pos, state.with(HAS_FILTER, true));
+        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+        if (!player.isCreative()){
+            stack.decrement(1);
         }
     }
 

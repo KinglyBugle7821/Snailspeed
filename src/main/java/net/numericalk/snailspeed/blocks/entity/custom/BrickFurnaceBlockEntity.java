@@ -112,6 +112,8 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             if (hasCraftingFinished(maxProgress)) {
                 craftItem();
                 resetProgress();
+                markDirty();
+                world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
             }
         } else {
             resetProgress();

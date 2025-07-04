@@ -131,6 +131,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.INGOT_CLAY_MOLD);
                         entries.add(SnailItems.PLATE_CLAY_MOLD);
                         entries.add(SnailItems.BLOCK_CLAY_MOLD);
+                        entries.add(SnailItems.BUCKET_CLAY_MOLD);
 
                         entries.add(SnailItems.BLANK_GRAPHITE_MOLD);
                         entries.add(SnailItems.SWORD_GRAPHITE_MOLD);
@@ -140,7 +141,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.HOE_GRAPHITE_MOLD);
                         entries.add(SnailItems.INGOT_GRAPHITE_MOLD);
                         entries.add(SnailItems.PLATE_GRAPHITE_MOLD);
-                        entries.add(SnailItems.BLOCK_GRAPHITE_MOLD);
+                        entries.add(SnailItems.BUCKET_GRAPHITE_MOLD);
 
                         entries.add(SnailItems.COPPER_SWORD_BLADE);
                         entries.add(SnailItems.COPPER_AXE_HEAD);

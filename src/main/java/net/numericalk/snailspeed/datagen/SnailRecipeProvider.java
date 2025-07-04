@@ -11,6 +11,8 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
@@ -82,6 +84,8 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     {SnailItems.HOE_CLAY_MOLD, SnailItems.HOE_GRAPHITE_MOLD},
                     {SnailItems.INGOT_CLAY_MOLD, SnailItems.INGOT_GRAPHITE_MOLD},
                     {SnailItems.PLATE_CLAY_MOLD, SnailItems.PLATE_GRAPHITE_MOLD},
+                    {SnailItems.BLOCK_CLAY_MOLD, SnailItems.BLOCK_GRAPHITE_MOLD},
+                    {SnailItems.BUCKET_CLAY_MOLD, SnailItems.BUCKET_GRAPHITE_MOLD}
             };
 
             final Item[][] woolProcessing = {
@@ -405,6 +409,20 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.TIN_INGOT, 5)
                         .input(SnailBlocks.TIN_BLOCK, 1)
                         .criterion(hasItem(SnailBlocks.TIN_BLOCK), conditionsFromItem(SnailBlocks.TIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.GLASS_BOTTLE, 1)
+                        .input(SnailItemTagsProvider.LOG_BARKS)
+                        .input(Items.GLASS)
+                        .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.BREWING_STAND, 1)
+                        .pattern("BP")
+                        .pattern("##")
+                        .input('#', Items.COBBLESTONE)
+                        .input('B', Items.BLAZE_ROD)
+                        .input('P', Items.BLAZE_POWDER)
+                        .criterion(hasItem(Items.COBBLESTONE), conditionsFromItem(Items.COBBLESTONE))
                         .offerTo(exporter);
             }
         };

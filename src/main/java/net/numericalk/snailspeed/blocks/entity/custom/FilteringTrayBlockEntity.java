@@ -1,7 +1,11 @@
 package net.numericalk.snailspeed.blocks.entity.custom;
 
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,7 +15,11 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -21,13 +29,25 @@ import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipeInput;
+import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipe;
+import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipeInput;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class FilteringTrayBlockEntity extends BlockEntity implements ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+    private final ServerRecipeManager.MatchGetter<FilteringTrayRecipeInput, FilteringTrayRecipe> matchGetter;
+
+    private static final int INPUT_1 = 0;
+    private static final int INPUT_2 = 1;
 
     public FilteringTrayBlockEntity(BlockPos pos, BlockState state) {
         super(SnailBlockEntities.FILTERING_TRAY, pos, state);
+        this.matchGetter = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.FILTERING_TRAY_RECIPE_TYPE);
     }
 
     @Override
@@ -59,72 +79,87 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
     }
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
         }
         filterItem(world1, pos, state);
-
-        if (this.getStack(4).isIn(SnailItemTagsProvider.FILTERS)) {
-            world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, true));
-        } else {
-            world1.setBlockState(pos, state.with(FilteringTrayBlock.HAS_FILTER, false));
-        }
     }
     Item[][] filteringRecipe ={
             {SnailItems.GROUND_GRAPHITE, Items.CLAY_BALL, Items.AIR, Items.AIR, SnailItems.REFINED_GRAPHITE}
     };
-    private final int INPUT_1 = 0;
-    private final int INPUT_2 = 1;
-    private final int INPUT_3 = 2;
-    private final int INPUT_4 = 3;
 
     private int progress = 0;
     private int maxProgress = 20 * 60 * 3;
     private void filterItem(World world1, BlockPos pos, BlockState state) {
-        boolean matchedRecipe = false;
-
-        for (Item[] items : filteringRecipe) {
-            Item input1 = items[0];
-            Item input2 = items[1];
-            Item input3 = items[2];
-            Item input4 = items[3];
-            Item output = items[4];
-
-            if (getStack(INPUT_1).isOf(input1) &&
-                    getStack(INPUT_2).isOf(input2) &&
-                    getStack(INPUT_3).isOf(input3) &&
-                    getStack(INPUT_4).isOf(input4) &&
-                    state.get(FilteringTrayBlock.HAS_FILTER)) {
-
-                matchedRecipe = true;
-                progress++;
+        if (!world1.isClient()) {
+            if(hasRecipe(state)) {
+                increaseCraftingProgress();
                 spawnWaterParticle(world1, pos, state);
 
-                if (progress >= maxProgress) {
-                    world1.updateListeners(pos, getCachedState(), getCachedState(), FilteringTrayBlock.NOTIFY_ALL);
-                    setStack(INPUT_1, new ItemStack(output));
-
-                    setStack(INPUT_2, ItemStack.EMPTY);
-                    setStack(INPUT_3, ItemStack.EMPTY);
-                    setStack(INPUT_4, ItemStack.EMPTY);
-
-                    world1.updateListeners(pos, getCachedState(), getCachedState(), FilteringTrayBlock.NOTIFY_ALL);
-
-                    progress = 0;
+                if (hasCraftingFinished(maxProgress)) {
+                    craftItem();
+                    resetProgress();
+                    markDirty();
+                    world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
                 }
-                break;
+            } else {
+                resetProgress();
             }
-        }
-
-        if (!matchedRecipe) {
-            progress = 0;
         }
     }
 
+    private void resetProgress() {
+        progress = 0;
+    }
+
+    private void craftItem() {
+        Optional<RecipeEntry<FilteringTrayRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
+
+        this.setStack(INPUT_1, SnailItems.AIR.getDefaultStack());
+        this.setStack(INPUT_2, SnailItems.AIR.getDefaultStack());
+        this.setStack(INPUT_1, new ItemStack(output.getItem(), 1));
+    }
+
+    private boolean hasCraftingFinished(int maxProgress) {
+        return progress >= maxProgress;
+    }
+
+    private void increaseCraftingProgress() {
+        progress++;
+    }
+
+    private boolean hasRecipe(BlockState state) {
+        if (state.get(FilteringTrayBlock.HAS_FILTER)){
+            Optional<RecipeEntry<FilteringTrayRecipe>> recipe = getCurrentRecipe();
+            if(recipe.isEmpty()) {
+                return false;
+            }
+            Ingredient input1 = recipe.get().value().input1();
+            Ingredient input2 = recipe.get().value().input2();
+
+            return getOutputOf(input1, input2);
+        }
+        return false;
+    }
+    private boolean getOutputOf(Ingredient input1, Ingredient input2) {
+        ItemStack input1Slot = this.getStack(INPUT_1);
+        ItemStack input2Slot = this.getStack(INPUT_2);
+
+        return input1.test(input1Slot) &&
+                input2.test(input2Slot);
+    }
+
+    public Optional<RecipeEntry<FilteringTrayRecipe>> getCurrentRecipe() {
+        return this.matchGetter.getFirstMatch(new FilteringTrayRecipeInput(
+                inventory.get(INPUT_1),
+                inventory.get(INPUT_2)
+        ), (ServerWorld) this.world);
+    }
     private void spawnWaterParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient) {
+        if (!world1.isClient()) {
             ((ServerWorld) world1).spawnParticles(
                     ParticleTypes.DRIPPING_WATER,
                     pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,

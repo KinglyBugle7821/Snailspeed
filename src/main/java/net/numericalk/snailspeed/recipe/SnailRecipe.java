@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
 import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
+import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipe;
 import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
 
 public class SnailRecipe {
@@ -43,6 +44,18 @@ public class SnailRecipe {
                     return "brick_furnace";
                 }
             });
+
+    public static final RecipeSerializer<FilteringTrayRecipe> FILTERING_TRAY_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "filtering_tray"),
+            new FilteringTrayRecipe.Serializer());
+    public static final RecipeType<FilteringTrayRecipe> FILTERING_TRAY_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "filtering_tray"), new RecipeType<FilteringTrayRecipe>() {
+                @Override
+                public String toString() {
+                    return "filtering_tray";
+                }
+            });
+
 
     public static void initialize() {
 

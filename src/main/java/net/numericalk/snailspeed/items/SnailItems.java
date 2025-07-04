@@ -1,5 +1,6 @@
 package net.numericalk.snailspeed.items;
 
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
@@ -80,6 +81,7 @@ public class SnailItems {
     public static final Item MOLTEN_TIN_BLOCK = register("molten_tin_block", Item::new);
     public static final Item MOLTEN_BRONZE_BLOCK = register("molten_bronze_block", Item::new);
     public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", Item::new);
+    public static final Item MOLTEN_GLASS = register("molten_glass", Item::new);
 
     public static final Item FURNACE_LID = register("furnace_lid", Item::new);
 
@@ -92,6 +94,7 @@ public class SnailItems {
     public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", Item::new);
     public static final Item PLATE_CLAY_MOLD = register("plate_clay_mold", Item::new);
     public static final Item BLOCK_CLAY_MOLD = register("block_clay_mold", Item::new);
+    public static final Item BUCKET_CLAY_MOLD = register("bucket_clay_mold", Item::new);
 
     public static final Item BLANK_GRAPHITE_MOLD = register("blank_graphite_mold", Item::new);
     public static final Item SWORD_GRAPHITE_MOLD = register("sword_graphite_mold", Item::new);
@@ -102,6 +105,7 @@ public class SnailItems {
     public static final Item INGOT_GRAPHITE_MOLD = register("ingot_graphite_mold", Item::new);
     public static final Item PLATE_GRAPHITE_MOLD = register("plate_graphite_mold", Item::new);
     public static final Item BLOCK_GRAPHITE_MOLD = register("block_graphite_mold", Item::new);
+    public static final Item BUCKET_GRAPHITE_MOLD = register("bucket_graphite_mold", Item::new);
 
     public static final Item COPPER_SWORD_BLADE = register("copper_sword_blade", Item::new);
     public static final Item COPPER_AXE_HEAD = register("copper_axe_head", Item::new);

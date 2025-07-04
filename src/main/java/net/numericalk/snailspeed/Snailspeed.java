@@ -3,6 +3,7 @@ package net.numericalk.snailspeed;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.client.render.LightmapTextureManager;
+import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
@@ -34,7 +35,6 @@ public class Snailspeed implements ModInitializer {
         SnailBlockEntities.initialize();
         SnailScreenHandlers.initialize();
         SnailRecipe.initialize();
-
 
         SnailWorldGen.generateModdedWorldGen();
 

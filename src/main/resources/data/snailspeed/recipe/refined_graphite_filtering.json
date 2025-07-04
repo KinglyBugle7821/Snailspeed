@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:filtering_tray",
+
+  "input1": "snailspeed:ground_graphite",
+  "input2": "minecraft:clay_ball",
+
+  "output": {
+    "id": "snailspeed:refined_graphite"
+  }
+}

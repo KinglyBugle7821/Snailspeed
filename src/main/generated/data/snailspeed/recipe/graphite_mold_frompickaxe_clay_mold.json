@@ -3,7 +3,7 @@
   "category": "misc",
   "group": "graphite_mold",
   "key": {
-    "#": "snailspeed:pickaxe_graphite_mold",
+    "#": "#snailspeed:graphite_mold",
     "C": "snailspeed:pickaxe_clay_mold"
   },
   "pattern": [

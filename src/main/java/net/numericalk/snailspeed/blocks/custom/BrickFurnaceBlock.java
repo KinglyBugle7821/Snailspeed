@@ -135,7 +135,11 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             {SnailItems.MOLTEN_TIN_BLOCK, SnailItems.TIN_BLOCK},
             {SnailItems.MOLTEN_IRON_BLOCK, Items.IRON_BLOCK},
             {SnailItems.MOLTEN_GOLD_BLOCK, Items.GOLD_BLOCK},
-            {SnailItems.MOLTEN_STEEL_BLOCK, SnailItems.STEEL_BLOCK}
+            {SnailItems.MOLTEN_STEEL_BLOCK, SnailItems.STEEL_BLOCK},
+            {SnailItems.MOLTEN_GLASS, Items.GLASS}
+    };
+    private static final Item[][] EXTRA_BUCKET_RECIPES = {
+            {SnailItems.MOLTEN_IRON_BLOCK, Items.BUCKET}
     };
 
     @Override
@@ -201,6 +205,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
                     Item[][] extra = null;
                     if (moldType.moldIndex == 6) extra = EXTRA_INGOT_RECIPES;
                     else if (moldType.moldIndex == 8) extra = EXTRA_BLOCK_RECIPES;
+                    else if (moldType.moldIndex == 9) extra = EXTRA_BUCKET_RECIPES;
 
                     ActionResult result = castTool(world, pos, state, player, stack, brickFurnaceBlockEntity,
                             moldType, MOLDING_RECIPE, extra);
@@ -246,7 +251,6 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         Item inputItem = be.getStack(0).getItem();
         boolean matched = false;
 
-        // Try structured matrix recipe first (MOLDING_RECIPE)
         for (Item[] entry : recipe) {
             if (entry.length <= moldType.moldIndex) continue;
             if (entry[0] != inputItem) continue;
@@ -254,8 +258,7 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             Item result = entry[moldType.moldIndex];
             if (result == null || result == SnailItems.AIR) continue;
 
-            // High-smelting check
-            if (!moldType.canCastHighSmelting && result != null && (result.toString().contains("iron") || result.toString().contains("steel"))) continue;
+            if (!moldType.canCastHighSmelting && result != null && ((result.toString().contains("iron") || result.toString().equals("bucket")) || result.toString().contains("steel"))) continue;
 
             player.giveOrDropStack(result.getDefaultStack());
             be.setStack(0, SnailItems.AIR.getDefaultStack());
@@ -263,7 +266,6 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             break;
         }
 
-        // If no match, try simple fallback table (e.g. molten block → result block)
         if (!matched && extraRecipe != null) {
             for (Item[] entry : extraRecipe) {
                 if (entry[0] != inputItem) continue;
@@ -395,6 +397,8 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             new SnailMoldType(SnailItems.PLATE_CLAY_MOLD, 7, false, true),
             new SnailMoldType(SnailItems.PLATE_GRAPHITE_MOLD, 7, true, false),
             new SnailMoldType(SnailItems.BLOCK_CLAY_MOLD, 8, false, true),
-            new SnailMoldType(SnailItems.BLOCK_GRAPHITE_MOLD, 8, true, false)
+            new SnailMoldType(SnailItems.BLOCK_GRAPHITE_MOLD, 8, true, false),
+            new SnailMoldType(SnailItems.BUCKET_CLAY_MOLD, 9, false, true),
+            new SnailMoldType(SnailItems.BUCKET_GRAPHITE_MOLD, 9, true, false)
     );
 }

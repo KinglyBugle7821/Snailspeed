@@ -12,8 +12,6 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
-import net.numericalk.snailspeed.utils.enums.SawCraftable;
-import net.numericalk.snailspeed.utils.records.SnailPacketCodec;
 
 import java.util.List;
 import java.util.Optional;

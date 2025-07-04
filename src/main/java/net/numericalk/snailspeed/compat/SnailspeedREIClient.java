@@ -8,6 +8,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.compat.custom.ArmorForgeRecipeCategory;
 import net.numericalk.snailspeed.compat.custom.BrickFurnaceRecipeCategory;
+import net.numericalk.snailspeed.compat.custom.FilteringTrayRecipeCategory;
 import net.numericalk.snailspeed.compat.custom.SawTableRecipeCategory;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreen;
@@ -21,6 +22,9 @@ public class SnailspeedREIClient implements REIClientPlugin {
         registry.addWorkstations(SawTableRecipeCategory.SAW_TABLE, EntryStacks.of(SnailBlocks.SAW_TABLE));
         registry.add(new BrickFurnaceRecipeCategory());
         registry.addWorkstations(BrickFurnaceRecipeCategory.BRICK_FURNACE, EntryStacks.of(SnailBlocks.BRICK_FURNACE));
+        registry.add(new FilteringTrayRecipeCategory());
+        registry.addWorkstations(FilteringTrayRecipeCategory.FILTERING_TRAY, EntryStacks.of(SnailBlocks.FILTERING_TRAY));
+
     }
 
     @Override

@@ -224,6 +224,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.CONDUIT_SHELL, "Conduit Shell");
 
+        translationBuilder.add(SnailItems.TORCH, "Torch");
+
 
 
 

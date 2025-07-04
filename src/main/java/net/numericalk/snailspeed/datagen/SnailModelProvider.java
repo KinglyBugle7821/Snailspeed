@@ -331,6 +331,8 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.CONDUIT_SHELL, Models.GENERATED);
 
+        itemModelGenerator.register(SnailItems.TORCH, Models.GENERATED);
+
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 
 
@@ -359,5 +361,8 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(SnailBlocks.TORCH.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.WALL_TORCH.asItem(), Models.GENERATED);
     }
 }

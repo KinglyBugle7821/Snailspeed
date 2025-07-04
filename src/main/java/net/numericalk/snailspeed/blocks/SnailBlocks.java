@@ -2,8 +2,10 @@ package net.numericalk.snailspeed.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -383,12 +385,42 @@ public class SnailBlocks {
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             properties -> new Block(properties.mapColor(MapColor.TERRACOTTA_WHITE)
                     .strength(4.5F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL)));
+
+    public static final Block TORCH = registerTorch(
+            "torch",
+            settings -> new CustomTorchBlock(ParticleTypes.FLAME, settings.noCollision().breakInstantly().luminance(CustomTorchBlock::getLuminance).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)),
+            AbstractBlock.Settings.create().noCollision().breakInstantly().luminance(CustomTorchBlock::getLuminance).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)
+    );
+    public static final Block WALL_TORCH = registerTorch(
+            "wall_torch",
+            settings -> new CustomWallTorchBlock(ParticleTypes.FLAME, settings),
+            copyLootTable(TORCH, true).noCollision().breakInstantly().luminance(CustomTorchBlock::getLuminance).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)
+    );
+
+    private static AbstractBlock.Settings copyLootTable(Block block, boolean copyTranslationKey) {
+        AbstractBlock.Settings settings = block.getSettings();
+        AbstractBlock.Settings settings2 = AbstractBlock.Settings.create().lootTable(block.getLootTableKey());
+        if (copyTranslationKey) {
+            settings2 = settings2.overrideTranslationKey(block.getTranslationKey());
+        }
+
+        return settings2;
+    }
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name))));
         registerBlockItem(name, toRegister);
         return Registry.register(Registries.BLOCK, Identifier.of(Snailspeed.MOD_ID, name), toRegister);
     }
-
+    private static RegistryKey<Block> keyOf(String id) {
+        return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, id));
+    }
+    private static Block registerTorch(String id, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+        return register(keyOf(id), factory, settings);
+    }
+    public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+        Block block = (Block)factory.apply(settings.registryKey(key));
+        return Registry.register(Registries.BLOCK, key, block);
+    }
     private static Block registerBlockWithoutBlockItem(String name, Function<AbstractBlock.Settings, Block> function) {
         return Registry.register(Registries.BLOCK, Identifier.of(Snailspeed.MOD_ID, name),
                 function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Snailspeed.MOD_ID, name)))));

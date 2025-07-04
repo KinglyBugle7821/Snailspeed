@@ -1,4 +1,6 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Model Definitions
+5fc1e101a24bbe7916507d20d154059053ed6af4 assets/minecraft/items/air.json
+f1c8c83599fe5628b2c5c7eed001001ad1e74e71 assets/minecraft/models/item/air.json
 1c92d30fb6771bb6eaccad82e6502bc165abb3bd assets/snailspeed/blockstates/bronze_block.json
 20b6706bba05e520498435ba19c3e4ea62c34c44 assets/snailspeed/blockstates/clay_brick.json
 f2fb4c37678e078c2a9b35e9deb1ee9964c42cc9 assets/snailspeed/blockstates/clay_crucible.json
@@ -138,6 +140,7 @@ fc26fe646dbb37ab8ca37ea74cbba075ee7f178b assets/snailspeed/items/burnt_rabbit.js
 96b265945bac43bebb5eda9050bb4559c7380ddb assets/snailspeed/items/clay_crucible.json
 bfad1350804b80b063281e88d825dfd944d74eb5 assets/snailspeed/items/clay_mold.json
 42730f843d5feee6820e0cbfe5e2ca6cd1afd6f9 assets/snailspeed/items/clay_sand.json
+42c39267461fad23b7fa480f039dc9e02c6bb123 assets/snailspeed/items/conduit_shell.json
 93647a3a4c0d76e0d687d10803daa1a202e73976 assets/snailspeed/items/copper_axe.json
 4a207361ad13081cba6efc54ba6e06e3fdc0505b assets/snailspeed/items/copper_axe_head.json
 f14cb68b3e2771ac4cbd6e30efb6c2b526cbcabd assets/snailspeed/items/copper_boots.json
@@ -331,6 +334,7 @@ d3b342454af8d6cc5c52ea5f01555d45fdbed749 assets/snailspeed/items/tin_ingot.json
 cb28c501a49ff96369a73e4416acdc2a75b42f5c assets/snailspeed/items/tin_nugget.json
 8225cba11887068221e76a405399d470147196fa assets/snailspeed/items/tin_ore.json
 96ac1b7d5cd7e53fa615f8b5f0fc041992e6d8ff assets/snailspeed/items/tinder.json
+5cfef720555ccf2b02e7f9b54bd201190e544a57 assets/snailspeed/items/torch.json
 041ff1c5b5f8b484f6051a0cf851ddbc71eaf6fa assets/snailspeed/items/trimmed_acacia_log.json
 5943f50d22b6e7f70c4394d11f6cd34bc8b1f921 assets/snailspeed/items/trimmed_birch_log.json
 5ed2d3d592632543a61eae619873ac8643c00d60 assets/snailspeed/items/trimmed_cherry_log.json
@@ -441,6 +445,7 @@ caac1caba9921de11e8270fb9beec0800c1710a2 assets/snailspeed/models/item/clay_bric
 4083d4b28ce569309d72df40d14b8e6f1638a3a5 assets/snailspeed/models/item/clay_crucible.json
 9a9704f1276a72da8f279e0d5293c32c715715b0 assets/snailspeed/models/item/clay_mold.json
 c14c3ee42b0e16788abfbce7b087e4d64040af56 assets/snailspeed/models/item/clay_sand.json
+5cb3aebd69e3d8b5eea0c04fdfde358e94f7e9e1 assets/snailspeed/models/item/conduit_shell.json
 59644e652ffdc2f55be138f4079c07e4ba9e8879 assets/snailspeed/models/item/copper_axe.json
 23dfdf2dd92b70f0a7e9d8bafc8e30e7cab9ff5f assets/snailspeed/models/item/copper_axe_head.json
 163cb09f7334ef5e666bc3885876fdc4418f75e6 assets/snailspeed/models/item/copper_boots.json
@@ -575,5 +580,6 @@ f1f470b82f17969a662b06666b928ce37a87a3dc assets/snailspeed/models/item/tin_dust.
 a01fb8a0a20c0ef35c3ac4855ee1d386616e6426 assets/snailspeed/models/item/tin_ingot.json
 3831642a993b1800aceafe09569611f3d4217db4 assets/snailspeed/models/item/tin_nugget.json
 9eee36e118fd51c7a9bd68c77d656243c1bf4272 assets/snailspeed/models/item/tinder.json
+26069bda91956920860e25c4c6b4f1aa351b66d3 assets/snailspeed/models/item/torch.json
 e574c256ea995ad0ad986650898334cd357f1b9e assets/snailspeed/models/item/warped_stem_bark.json
 a7014cd1823b8ed91559c478d83993d58686caca assets/snailspeed/models/item/wood_dust.json

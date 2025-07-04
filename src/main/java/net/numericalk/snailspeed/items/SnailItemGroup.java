@@ -270,6 +270,8 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.CONDUIT_SHELL);
 
+                        entries.add(SnailItems.TORCH);
+
                     }).build());
 
     public static void initialize() {

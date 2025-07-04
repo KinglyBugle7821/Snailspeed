@@ -45,6 +45,10 @@ public class SnailBlockEntities {
             FabricBlockEntityTypeBuilder.create(SmallBarrelBlockEntity::new, SnailBlocks.SMALL_BARREL).build());
     public static final BlockEntityType<SawTableBlockEntity> SAW_TABLE = registerBlockEntityType("saw_table",
             FabricBlockEntityTypeBuilder.create(SawTableBlockEntity::new, SnailBlocks.SAW_TABLE).build());
+    public static final BlockEntityType<CustomTorchBlockEntity> TORCH = registerBlockEntityType("torch",
+            FabricBlockEntityTypeBuilder.create(CustomTorchBlockEntity::new, SnailBlocks.TORCH).build());
+    public static final BlockEntityType<CustomWallTorchBlockEntity> WALL_TORCH = registerBlockEntityType("wall_torch",
+            FabricBlockEntityTypeBuilder.create(CustomWallTorchBlockEntity::new, SnailBlocks.WALL_TORCH).build());
 
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntityType(String id, BlockEntityType<T> type) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, id), type);

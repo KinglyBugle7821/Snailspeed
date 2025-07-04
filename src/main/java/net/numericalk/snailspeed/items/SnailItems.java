@@ -1,5 +1,7 @@
 package net.numericalk.snailspeed.items;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
@@ -8,12 +10,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.custom.*;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class SnailItems {
@@ -232,22 +236,38 @@ public class SnailItems {
     public static final Item STEEL_BLOCK = SnailBlocks.STEEL_BLOCK.asItem();
     public static final Item TIN_BLOCK = SnailBlocks.TIN_BLOCK.asItem();
 
+    public static final Item TORCH = register(
+            SnailBlocks.TORCH,
+            ((block, settings) -> new VerticallyAttachableBlockItem(block, SnailBlocks.WALL_TORCH, Direction.DOWN, settings))
+    );
+
     public static final Item CONDUIT_SHELL = register("conduit_shell", Item::new);
 
     public static final Item AIR = register("air", AirItem::new);
 
+    public static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
+        return register(block, factory, new Item.Settings());
+    }
+    public static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
+        return register1(
+                keyOf(block.getRegistryEntry().registryKey()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockPrefixedTranslationKey()
+        );
+    }
+    private static RegistryKey<Item> keyOf(RegistryKey<Block> blockKey) {
+        return RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
+    }
     private static Item register(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(Snailspeed.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name)))));
     }
+    public static Item register1(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
+        Item item = factory.apply(settings.registryKey(key));
+        if (item instanceof BlockItem blockItem) {
+            blockItem.appendBlocks(Item.BLOCK_ITEMS, item);
+        }
 
-    private static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
-        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name));
-        Item item = itemFactory.apply(settings.registryKey(itemKey));
-        Registry.register(Registries.ITEM, itemKey, item);
-        return item;
+        return Registry.register(Registries.ITEM, key, item);
     }
-
     public static void initialize() {
     }
 }

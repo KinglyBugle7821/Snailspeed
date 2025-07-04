@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:nautilus_shell",
+    "minecraft:nautilus_shell"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:conduit_shell"
+  }
+}

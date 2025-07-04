@@ -1,0 +1,127 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_unlit"
+      },
+      "when": {
+        "facing": "east",
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_lit"
+      },
+      "when": {
+        "facing": "east",
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_ash"
+      },
+      "when": {
+        "facing": "east",
+        "lit": 2
+      }
+    },
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_unlit",
+        "y": 270
+      },
+      "when": {
+        "facing": "north",
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_lit",
+        "y": 270
+      },
+      "when": {
+        "facing": "north",
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_ash",
+        "y": 270
+      },
+      "when": {
+        "facing": "north",
+        "lit": 2
+      }
+    },
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_unlit",
+        "y": 90
+      },
+      "when": {
+        "facing": "south",
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_lit",
+        "y": 90
+      },
+      "when": {
+        "facing": "south",
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_ash",
+        "y": 90
+      },
+      "when": {
+        "facing": "south",
+        "lit": 2
+      }
+    },
+
+
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_unlit",
+        "y": 180
+      },
+      "when": {
+        "facing": "west",
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_lit",
+        "y": 180
+      },
+      "when": {
+        "facing": "west",
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/wall_torch_ash",
+        "y": 180
+      },
+      "when": {
+        "facing": "west",
+        "lit": 2
+      }
+    }
+  ]
+}

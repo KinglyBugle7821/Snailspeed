@@ -1,0 +1,28 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/torch_unlit"
+      },
+      "when": {
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/torch_lit"
+      },
+      "when": {
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/torch_ash"
+      },
+      "when": {
+        "lit": 2
+      }
+    }
+  ]
+}

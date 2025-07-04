@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:conduit_shell",
+    "snailspeed:conduit_shell",
+    "minecraft:heart_of_the_sea"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:conduit"
+  }
+}

@@ -11,10 +11,13 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.custom.CampfireBlock;
 import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
@@ -79,7 +82,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
             }
         }
         if (!canExtinguishFire(state) && fireDegradeTime > 0 && getLitBlockState(state) > CampfireBlock.LIT_UNLIT) {
-            spawnSmokeParticle(world1, pos, state);
+            spawnSmokeParticle(world1, pos);
             fireDegradeTime --;
         } else if (canExtinguishFire(state)) {
             extinguishFire(world1, pos, state);
@@ -117,16 +120,20 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         }
     }
 
-    private void spawnSmokeParticle(World world1, BlockPos pos, BlockState state) {
-        if (!world1.isClient) {
-            ((ServerWorld) world1).spawnParticles(
-                    ParticleTypes.WHITE_SMOKE,
-                    pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
-                    1,
-                    0.0, 0.5, 0.0,
-                    0.01
-            );
-        }
+    public static void spawnSmokeParticle(World world, BlockPos pos) {
+        if (world.isClient()) return;
+        Random random = world.getRandom();
+        SimpleParticleType simpleParticleType = ParticleTypes.CAMPFIRE_COSY_SMOKE;
+        world.addImportantParticle(
+                simpleParticleType,
+                true,
+                pos.getX() + 0.5 + random.nextDouble() / 3.0 * (random.nextBoolean() ? 1 : -1),
+                pos.getY() + random.nextDouble() + random.nextDouble(),
+                pos.getZ() + 0.5 + random.nextDouble() / 3.0 * (random.nextBoolean() ? 1 : -1),
+                0.0,
+                0.07,
+                0.0
+        );
     }
 
     private void extinguishFireWithoutBeingBurnt(World world1, BlockPos pos, BlockState state) {
@@ -135,16 +142,17 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     public boolean isSkyVisible(World world1, BlockPos pos) {
-        int worldHeight = world1.getHeight();
-
-        for (int y = pos.getY() + 1; y < worldHeight; y++) {
-            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
-            if (!world1.isAir(abovePos)) {
-                return false;
-            }
-        }
-
-        return true;
+//        int worldHeight = world1.getHeight();
+//
+//        for (int y = pos.getY() + 1; y < worldHeight; y++) {
+//            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
+//            if (!world1.isAir(abovePos)) {
+//                return false;
+//            }
+//        }
+//
+//        return true;
+        return world1.isSkyVisible(pos);
     }
 
     private boolean isWorldRaining(BlockState state, World world1) {

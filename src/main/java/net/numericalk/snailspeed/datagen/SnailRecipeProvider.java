@@ -511,18 +511,22 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .input(SnailItemTagsProvider.GLASS_PANES)
                             .input(SnailItemTagsProvider.GLASS_PANES)
                             .input(SnailItemTagsProvider.GLASS_PANES)
+                            .group("glass")
                             .criterion(hasItem(dye), conditionsFromItem(dye))
                             .offerTo(exporter);
                 }
-                for (Item[] items : glassToPane){
+                for (Item[] items : glassToPane) {
                     Item glass = items[0];
                     Item glassPane = items[1];
+
+                    String recipeId = Registries.ITEM.getId(glassPane).getPath() + "_from_" + Registries.ITEM.getId(glass).getPath();
 
                     createShaped(RecipeCategory.MISC, glassPane, 4)
                             .pattern("##")
                             .input('#', glass)
+                            .group("glass_pane")
                             .criterion(hasItem(glass), conditionsFromItem(glass))
-                            .offerTo(exporter);
+                            .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, recipeId)));
                 }
             }
         };

@@ -177,17 +177,17 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                 world.updateComparators(pos, this);
             }
             switch (state.get(STAGES)) {
-                case STAGES_ONE_STICK -> dropItem(world, pos, Items.STICK, 0);
-                case STAGES_TWO_STICKS -> dropItem(world, pos, Items.STICK, 1);
-                case STAGES_THREE_STICKS -> dropItem(world, pos, Items.STICK, 2);
-                case STAGES_FULL_STICK -> dropItem(world, pos, Items.STICK, 3);
-                case STAGES_BURNT -> dropItem(world, pos, Items.CHARCOAL, 1);
+                case STAGES_ONE_STICK -> dropItem(world, pos, Items.STICK, 1);
+                case STAGES_TWO_STICKS -> dropItem(world, pos, Items.STICK, 2);
+                case STAGES_THREE_STICKS -> dropItem(world, pos, Items.STICK, 3);
+                case STAGES_FULL_STICK -> dropItem(world, pos, Items.STICK, 4);
+                case STAGES_BURNT -> dropItem(world, pos, Items.CHARCOAL, 2);
                 default -> dropItem(world, pos, SnailItems.AIR, 1);
             }
             switch (state.get(COOKING)) {
-                case COOKING_ONE_SUPPORT -> dropItem(world, pos, Items.STICK, 1);
-                case COOKING_TWO_SUPPORTS -> dropItem(world, pos, Items.STICK, 2);
-                case COOKING_FULL_SUPPORT -> dropItem(world, pos, Items.STICK, 3);
+                case COOKING_ONE_SUPPORT -> dropItem(world, pos, Items.STICK, 0);
+                case COOKING_TWO_SUPPORTS -> dropItem(world, pos, Items.STICK, 1);
+                case COOKING_FULL_SUPPORT -> dropItem(world, pos, Items.STICK, 2);
                 default -> dropItem(world, pos, SnailItems.AIR, 1);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -195,7 +195,7 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     private void dropItem(World world, BlockPos pos, Item item, int count) {
-        for (int i = 0; i <= count; i++) {
+        for (int i = 0; i < count; i++) {
             ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());
         }
     }

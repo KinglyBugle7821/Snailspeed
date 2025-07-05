@@ -11,6 +11,9 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
@@ -22,13 +25,24 @@ import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenCookingRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenCookingRecipeInput;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenSmeltingRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenSmeltingRecipeInput;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
+    private final ServerRecipeManager.MatchGetter<BrickOvenCookingRecipeInput, BrickOvenCookingRecipe> matchGetterCooking;
+    private final ServerRecipeManager.MatchGetter<BrickOvenSmeltingRecipeInput, BrickOvenSmeltingRecipe> matchGetterSmelting;
 
     public BrickOvenBlockEntity(BlockPos pos, BlockState state) {
         super(SnailBlockEntities.BRICK_OVEN, pos, state);
+        this.matchGetterCooking = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.BRICK_OVEN_COOKING_RECIPE_TYPE);
+        this.matchGetterSmelting = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.BRICK_OVEN_SMELTING_RECIPE_TYPE);
     }
 
     @Override
@@ -119,53 +133,100 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     }
 
     private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
+        if (world1.isClient()) return;
         for (int i = 0; i < 5; i++) {
-            ItemStack stack = getStack(i);
-            if (stack.isEmpty()) continue;
-
-            Item smelted = getSmeltedItem(stack.getItem());
-            if (smelted != null) {
-                progress[i]++;
+            if(hasRecipe(i, true)) {
+                increaseCraftingProgress(i);
                 spawnSmokeParticle(world1, pos, state);
-                if (progress[i] >= maxProgress) {
-                    setStack(i, new ItemStack(smelted));
-                    progress[i] = 0;
 
-                    if (!world1.isClient) {
-                        markDirty();
-                        world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
-                    }
+                if (hasCraftingFinished(maxProgress, i)) {
+                    craftItem(i, true);
+                    resetProgress(i);
+                    markDirty();
+                    world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
                 }
             } else {
-                progress[i] = 0;
+                resetProgress(i);
             }
         }
     }
 
     private void cookItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
+        if (world1.isClient()) return;
         for (int i = 0; i < 5; i++) {
-            ItemStack stack = getStack(i);
-            if (stack.isEmpty()) continue;
-
-            Item cooked = getCookedItem(stack.getItem());
-            if (cooked != null) {
-                progress[i]++;
+            if(hasRecipe(i, false)) {
+                increaseCraftingProgress(i);
                 spawnSmokeParticle(world1, pos, state);
-                if (progress[i] >= maxProgress) {
-                    setStack(i, new ItemStack(cooked));
-                    progress[i] = 0;
 
-                    if (!world1.isClient) {
-                        markDirty();
-                        world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
-                    }
+                if (hasCraftingFinished(maxProgress, i)) {
+                    craftItem(i, false);
+                    resetProgress(i);
+                    markDirty();
+                    world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
                 }
             } else {
-                progress[i] = 0;
+                resetProgress(i);
             }
         }
     }
 
+    private void resetProgress(int i) {
+        progress[i] = 0;
+    }
+
+    private boolean hasCraftingFinished(int maxProgress, int i) {
+        return progress[i] >= maxProgress;
+    }
+    private void craftItem(int i, boolean isSmelting) {
+        if (hasRecipe(i, !isSmelting)){
+            Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
+            ItemStack output = recipe.get().value().output();
+
+            this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+        } else if (hasRecipe(i, isSmelting)){
+            Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
+            ItemStack output = recipe.get().value().output();
+
+            this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+        }
+    }
+    private void increaseCraftingProgress(int i) {
+        progress[i]++;
+    }
+
+    private Optional<RecipeEntry<BrickOvenCookingRecipe>> getCurrentCookingRecipe(int currentInput) {
+        return this.matchGetterCooking.getFirstMatch(new BrickOvenCookingRecipeInput(
+                inventory.get(currentInput)
+        ), (ServerWorld) this.world);
+    }
+    private Optional<RecipeEntry<BrickOvenSmeltingRecipe>> getCurrentSmeltingRecipe(int currentInput) {
+        return this.matchGetterSmelting.getFirstMatch(new BrickOvenSmeltingRecipeInput(
+                inventory.get(currentInput)
+        ), (ServerWorld) this.world);
+    }
+    private boolean hasRecipe(int i, boolean isSmelting) {
+        if (!isSmelting){
+            Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
+            if(recipe.isEmpty()) {
+                return false;
+            }
+            Ingredient input = recipe.get().value().input();
+
+            return getOutputOf(input, i);
+        }
+        Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
+        if(recipe.isEmpty()) {
+            return false;
+        }
+        Ingredient input = recipe.get().value().input();
+
+        return getOutputOf(input, i);
+    }
+    private boolean getOutputOf(Ingredient input, int currentInput) {
+        ItemStack inputSlot = this.getStack(currentInput);
+
+        return input.test(inputSlot);
+    }
     private void setLitState(int lit, World world1, BlockPos pos, BlockState state) {
         world1.setBlockState(pos, state.with(BrickOvenBlock.LIT, lit));
     }

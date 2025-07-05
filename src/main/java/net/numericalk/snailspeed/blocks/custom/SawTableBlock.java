@@ -5,12 +5,16 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
@@ -24,6 +28,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.SawTableBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class SawTableBlock extends BlockWithEntity implements BlockEntityProvider {
@@ -112,5 +117,16 @@ public class SawTableBlock extends BlockWithEntity implements BlockEntityProvide
 
         return validateTicker(type, SnailBlockEntities.SAW_TABLE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.saw_table"));
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.saw_table"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

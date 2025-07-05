@@ -5,11 +5,13 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -18,6 +20,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
@@ -36,6 +39,7 @@ import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CampfireBlock extends BlockWithEntity implements BlockEntityProvider{
@@ -371,5 +375,15 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP);
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.campfire"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

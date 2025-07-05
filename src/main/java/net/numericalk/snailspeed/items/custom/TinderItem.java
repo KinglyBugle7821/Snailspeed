@@ -1,5 +1,6 @@
 package net.numericalk.snailspeed.items.custom;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -7,13 +8,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.consume.UseAction;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.items.SnailItems;
 
+import java.util.List;
 import java.util.Random;
 
 public class TinderItem extends Item{
@@ -52,5 +56,15 @@ public class TinderItem extends Item{
             }
         }
         return stack;
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.item.tinder"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

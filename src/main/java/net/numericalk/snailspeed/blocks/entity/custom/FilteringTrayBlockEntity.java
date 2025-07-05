@@ -86,9 +86,6 @@ public class FilteringTrayBlockEntity extends BlockEntity implements Implemented
         }
         filterItem(world1, pos, state);
     }
-    Item[][] filteringRecipe ={
-            {SnailItems.GROUND_GRAPHITE, Items.CLAY_BALL, Items.AIR, Items.AIR, SnailItems.REFINED_GRAPHITE}
-    };
 
     private int progress = 0;
     private int maxProgress = 20 * 60 * 3;

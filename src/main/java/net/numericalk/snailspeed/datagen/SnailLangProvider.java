@@ -346,6 +346,39 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.STEEL_BLOCK, "Steel Block");
         translationBuilder.add(SnailBlocks.TIN_BLOCK, "Tin Block");
 
+        translationBuilder.add("tooltip.snailspeed.item.air", "Please Don't Ask about this (#IHateNetworking)");
+        translationBuilder.add("tooltip.snailspeed.item.armor_forge_plate", "Right Click On A Stripped Log To Build An Armor Forge");
+        translationBuilder.add("tooltip.snailspeed.item.bark_spud", "Right Click On A Log To Create Tapped Log");
+        translationBuilder.add("tooltip.snailspeed.item.burning_tinder", "Used To Light Campfires And Coals On Fire");
+        translationBuilder.add("tooltip.snailspeed.item.circular_saw", "Used To Break Wooden Planks/Stone Into Wooden/Stone Slabs");
+        translationBuilder.add("tooltip.snailspeed.item.tinder", "Hold Stick On The Offhand And Hold Right Click To Create Burning Tinder");
+        translationBuilder.add("tooltip.snailspeed.item.furnace_lid", "A Lid To Cover A Brick Furnace");
+        translationBuilder.add("tooltip.snailspeed.item.clay_mold", "Right-Click To Switch Between Different Patterns");
+
+        translationBuilder.add("tooltip.snailspeed.block.armor_forge", "Used To Craft Armors");
+        translationBuilder.add("tooltip.snailspeed.block.brick_furnace_base", "Right-Click With A Brick To Build A Brick Furnace, Finish It With A Clay Ball");
+        translationBuilder.add("tooltip.snailspeed.block.brick_oven_base", "Right-Click With A Brick To Build A Brick Oven, Finish It With A Clay Ball");
+        translationBuilder.add("tooltip.snailspeed.block.campfire", "Right-Click With A Stick To Build A Campfire");
+        translationBuilder.add("tooltip.snailspeed.block.crucible", "A Crucible To Be Used On A Furnace To Start Smelting");
+        translationBuilder.add("tooltip.snailspeed.block.grass_sheaf", "Drying It Might Create A Useful Item...");
+        translationBuilder.add("tooltip.snailspeed.block.dried_grass_sheaf", "Leave It Too Long In The Sun Might Start A Fire...");
+        translationBuilder.add("tooltip.snailspeed.block.filtering_tray", "Right-Click With A Stick To Build A Filtering Tray");
+        translationBuilder.add("tooltip.snailspeed.block.mortar", "Right-Click With A Pestle To Grind Things");
+        translationBuilder.add("tooltip.snailspeed.block.resin_bowl", "Place It Behind A Tapped Log To Collect Resin");
+        translationBuilder.add("tooltip.snailspeed.block.saw_table", "Used To Craft Wooden Blocks");
+        translationBuilder.add("tooltip.snailspeed.block.floating_block", "This Block Can Float");
+
+        translationBuilder.add("tooltip.snailspeed.guide.circular_saw_1", "§7Used To Create Stonecutter by Right Clicking Stone Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.circular_saw_2", "§7Used To Create Saw Table by Right Clicking Wooden Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.armor_forge", "§7Obtained By Right-Clicking Circular Saw On A Stone Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.dried_grass_sheaf", "§7Obtained By Drying Grass Sheaf In The Sun");
+        translationBuilder.add("tooltip.snailspeed.guide.grass_sheaf", "§7Obtained By Breaking Grass With A Flint Flake");
+        translationBuilder.add("tooltip.snailspeed.guide.saw_table", "§7Obtained By Right-Clicking Circular Saw On A Wooden Slab");
+
+        translationBuilder.add("tooltip.snailspeed.guide.clay_blocks", "Dry It Under The Sun");
+        translationBuilder.add("tooltip.snailspeed.guide.dried_clay_blocks", "Fire It Near A Campfire With Huge Fire");
+
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
+        translationBuilder.add("tooltip.snailspeed.has_shift_down", "§7[SHIFT] For More Info");
     }
 }

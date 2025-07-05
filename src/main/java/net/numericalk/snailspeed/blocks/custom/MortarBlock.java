@@ -5,17 +5,20 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -34,6 +37,7 @@ import net.numericalk.snailspeed.blocks.entity.custom.MortarBlockEntity;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class MortarBlock extends BlockWithEntity implements BlockEntityProvider {
@@ -109,6 +113,10 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
                     world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
                 }
                 stack.damage(1, player);
+                if (stack.getDamage() == 1){
+                    stack.decrement(1);
+                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1f, 1f);
+                }
                 return ActionResult.SUCCESS;
             }
             if (canTakeItem(stack, state)) {
@@ -214,4 +222,15 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new MortarBlockEntity(pos, state);
     }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.mortar"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
+    }
+
 }

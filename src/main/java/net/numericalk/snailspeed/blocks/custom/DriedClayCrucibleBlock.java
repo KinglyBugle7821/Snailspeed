@@ -5,11 +5,16 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -26,6 +31,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.DriedClayCrucibleBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class DriedClayCrucibleBlock extends BlockWithEntity implements BlockEntityProvider {
@@ -118,5 +124,15 @@ public class DriedClayCrucibleBlock extends BlockWithEntity implements BlockEnti
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.dried_clay_blocks"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

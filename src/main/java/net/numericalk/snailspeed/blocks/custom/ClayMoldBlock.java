@@ -5,11 +5,15 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +27,8 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.ClayMoldBlockEntity;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
@@ -105,5 +111,16 @@ public class ClayMoldBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.clay_mold"));
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.clay_blocks"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

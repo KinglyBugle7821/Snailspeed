@@ -110,7 +110,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
             spawnSmokeParticle(world1, pos, state);
 
             if (hasCraftingFinished(maxProgress)) {
-                craftItem();
+                craftItem(world1);
                 resetProgress();
                 markDirty();
                 world1.updateListeners(pos, getCachedState(), getCachedState(), 3);
@@ -124,13 +124,26 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
         progress = 0;
     }
 
-    private void craftItem() {
+    private void craftItem(World world) {
         Optional<RecipeEntry<BrickFurnaceRecipe>> recipe = getCurrentRecipe();
         ItemStack output = recipe.get().value().output();
 
-        for (int i = 0; i <= INPUT_5; i++){
-            this.setStack(i, new ItemStack(output.getItem(),
-                    this.getStack(i).getCount() + output.getCount()));
+        if (output.isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
+            for (int i = 0; i <= INPUT_5; i++){
+                this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+                markDirty();
+                world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+            }
+        } else {
+            for (int i = 0; i <= INPUT_5; i++){
+                this.setStack(i, SnailItems.AIR.getDefaultStack());
+            }
+            this.setStack(INPUT_1, new ItemStack(output.getItem(), 1));
+            for (int i = 1; i <= INPUT_5; i++){
+                this.setStack(i, SnailItems.AIR.getDefaultStack());
+            }
+            markDirty();
+            world.updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     }
 

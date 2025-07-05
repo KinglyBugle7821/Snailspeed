@@ -1,0 +1,8 @@
+{
+  "type": "snailspeed:brick_oven_cooking",
+
+  "input": "minecraft:potato",
+  "output": {
+    "id": "minecraft:baked_potato"
+  }
+}

@@ -17,7 +17,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class CustomTorchBlockEntity extends BlockEntity {
-    private final float fireDegradeTimeFinal = 1200f;
+    private final float fireDegradeTimeFinal = 20f * 60f * 30f;
     private float fireDegradeTime = fireDegradeTimeFinal;
 
     public CustomTorchBlockEntity(BlockPos pos, BlockState state) {

@@ -5,8 +5,13 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
@@ -17,6 +22,8 @@ import net.minecraft.world.block.WireOrientation;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.DriedClayMoldBlockEntity;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 import static net.numericalk.snailspeed.blocks.custom.ClayMoldBlock.MOLD_SHAPE;
 
@@ -83,5 +90,15 @@ public class DriedClayMoldBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), net.minecraft.util.math.Direction.UP);
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.dried_clay_blocks"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

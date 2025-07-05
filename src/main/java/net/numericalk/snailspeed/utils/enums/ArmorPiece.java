@@ -5,19 +5,19 @@ import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 
 public enum ArmorPiece {
-    HELMET(3, 2, 4),
-    CHESTPLATE(5, 4, 7),
-    LEGGINGS(4, 3, 5),
-    BOOTS(2, 1, 3);
+    HELMET(),
+    CHESTPLATE(),
+    LEGGINGS(),
+    BOOTS();
 
     public final int plateCount;
     public final int bindingCount;
     public final int fastenerCount;
 
-    ArmorPiece(int plateCount, int bindingCount, int fastenerCount) {
-        this.plateCount = plateCount;
-        this.bindingCount = bindingCount;
-        this.fastenerCount = fastenerCount;
+    ArmorPiece() {
+        this.plateCount = 1;
+        this.bindingCount = 1;
+        this.fastenerCount = 1;
     }
 
     public static final PacketCodec<RegistryByteBuf, ArmorPiece> PACKET_CODEC = new PacketCodec<>() {

@@ -5,12 +5,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
@@ -21,6 +25,8 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class UntiedStickBundleBlock extends FallingBlock {
 

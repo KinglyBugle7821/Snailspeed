@@ -5,10 +5,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.numericalk.snailspeed.Snailspeed;
@@ -17,6 +19,7 @@ import net.numericalk.snailspeed.items.custom.*;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -87,7 +90,9 @@ public class SnailItems {
     public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", Item::new);
     public static final Item MOLTEN_GLASS = register("molten_glass", Item::new);
 
-    public static final Item FURNACE_LID = register("furnace_lid", Item::new);
+    public static final Item FURNACE_LID = register("furnace_lid", FurnaceLidItem::new);
+
+
 
     public static final Item BLANK_CLAY_MOLD = register("blank_clay_mold", Item::new);
     public static final Item SWORD_CLAY_MOLD = register("sword_clay_mold", Item::new);

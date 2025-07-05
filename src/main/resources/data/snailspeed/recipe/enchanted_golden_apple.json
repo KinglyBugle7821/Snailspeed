@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:gold_block",
+  "input2": "minecraft:gold_block",
+  "input3": "minecraft:apple",
+  "input4": "minecraft:gold_block",
+  "input5": "minecraft:gold_block",
+
+  "output": {
+    "id": "minecraft:enchanted_golden_apple"
+  }
+}

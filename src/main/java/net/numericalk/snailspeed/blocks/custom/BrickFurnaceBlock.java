@@ -401,4 +401,6 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             new SnailMoldType(SnailItems.BUCKET_CLAY_MOLD, 9, false, true),
             new SnailMoldType(SnailItems.BUCKET_GRAPHITE_MOLD, 9, true, false)
     );
+
+
 }

@@ -3,11 +3,15 @@ package net.numericalk.snailspeed.blocks.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -21,6 +25,7 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class FilteringTrayBaseBlock extends Block {
@@ -111,5 +116,15 @@ public class FilteringTrayBaseBlock extends Block {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(STAGES);
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.filtering_tray"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

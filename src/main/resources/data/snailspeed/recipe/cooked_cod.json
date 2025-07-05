@@ -1,0 +1,8 @@
+{
+  "type": "snailspeed:brick_oven_cooking",
+
+  "input": "minecraft:cod",
+  "output": {
+    "id": "minecraft:cooked_cod"
+  }
+}

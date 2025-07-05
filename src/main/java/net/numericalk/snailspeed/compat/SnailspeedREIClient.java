@@ -3,21 +3,12 @@ package net.numericalk.snailspeed.compat;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
-import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
-import net.numericalk.snailspeed.compat.custom.ArmorForgeRecipeCategory;
-import net.numericalk.snailspeed.compat.custom.BrickFurnaceRecipeCategory;
-import net.numericalk.snailspeed.compat.custom.FilteringTrayRecipeCategory;
-import net.numericalk.snailspeed.compat.custom.SawTableRecipeCategory;
-import net.numericalk.snailspeed.recipe.SnailRecipe;
-import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
+import net.numericalk.snailspeed.compat.custom.*;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreen;
 
@@ -34,6 +25,10 @@ public class SnailspeedREIClient implements REIClientPlugin {
         registry.addWorkstations(SnailRecipeCategories.BRICK_FURNACE, EntryStacks.of(SnailBlocks.BRICK_FURNACE));
         registry.add(new FilteringTrayRecipeCategory());
         registry.addWorkstations(SnailRecipeCategories.FILTERING_TRAY, EntryStacks.of(SnailBlocks.FILTERING_TRAY));
+        registry.add(new BrickOvenCookingRecipeCategory());
+        registry.addWorkstations(SnailRecipeCategories.BRICK_OVEN_COOKING, EntryStacks.of(SnailBlocks.BRICK_OVEN));
+        registry.add(new BrickOvenSmeltingRecipeCategory());
+        registry.addWorkstations(SnailRecipeCategories.BRICK_OVEN_SMELTING, EntryStacks.of(SnailBlocks.BRICK_OVEN));
     }
 
     @Override

@@ -3,6 +3,7 @@ package net.numericalk.snailspeed.compat.custom;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import me.shedaniel.rei.api.client.favorites.FavoriteEntryType;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.display.DisplaySerializer;
@@ -10,15 +11,19 @@ import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.registry.Registry;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.metadata.ResourceFilter;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.compat.SnailRecipeCategories;
+import net.numericalk.snailspeed.items.SnailItems;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +35,7 @@ import java.util.stream.Stream;
 
 public class ArmorForgeRecipeDisplay extends BasicDisplay {
     public ArmorForgeRecipeDisplay(RecipeEntry<ArmorForgeRecipe> recipe) {
+
         super(List.of(
                 EntryIngredients.ofIngredient(recipe.value().getIngredients().get(0)),
                 EntryIngredients.ofIngredient(recipe.value().getIngredients().get(1)),

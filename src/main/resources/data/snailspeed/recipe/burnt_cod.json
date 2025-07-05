@@ -1,0 +1,8 @@
+{
+  "type": "snailspeed:brick_oven_smelting",
+
+  "input": "minecraft:cod",
+  "output": {
+    "id": "snailspeed:burnt_cod"
+  }
+}

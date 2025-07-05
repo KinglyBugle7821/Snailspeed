@@ -5,11 +5,16 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +28,8 @@ import net.minecraft.world.block.WireOrientation;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.DriedClayBrickBlockEntity;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DriedClayBrickBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
@@ -104,5 +111,15 @@ public class DriedClayBrickBlock extends BlockWithEntity implements BlockEntityP
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DriedClayBrickBlockEntity(pos, state);
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.dried_clay_blocks"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

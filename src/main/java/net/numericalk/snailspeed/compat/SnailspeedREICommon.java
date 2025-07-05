@@ -5,10 +5,7 @@ import me.shedaniel.rei.api.common.plugins.REICommonPlugin;
 import me.shedaniel.rei.api.common.registry.display.ServerDisplayRegistry;
 import net.numericalk.snailspeed.compat.custom.*;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
-import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
-import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
-import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipe;
-import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
+import net.numericalk.snailspeed.recipe.custom.*;
 
 public class SnailspeedREICommon implements REICommonPlugin {
     @Override
@@ -19,6 +16,12 @@ public class SnailspeedREICommon implements REICommonPlugin {
         registry.beginRecipeFiller(SawTableRecipe.class)
                 .filterType(SnailRecipe.SAW_TABLE_RECIPE_TYPE)
                 .fill(SawTableRecipeDisplay::new);
+        registry.beginRecipeFiller(BrickOvenCookingRecipe.class)
+                .filterType(SnailRecipe.BRICK_OVEN_COOKING_RECIPE_TYPE)
+                .fill(BrickOvenCookingRecipeDisplay::new);
+        registry.beginRecipeFiller(BrickOvenSmeltingRecipe.class)
+                .filterType(SnailRecipe.BRICK_OVEN_SMELTING_RECIPE_TYPE)
+                .fill(BrickOvenSmeltingRecipeDisplay::new);
         registry.beginRecipeFiller(BrickFurnaceRecipe.class)
                 .filterType(SnailRecipe.BRICK_FURNACE_RECIPE_TYPE)
                 .fill(BrickFurnaceRecipeDisplay::new);
@@ -33,5 +36,7 @@ public class SnailspeedREICommon implements REICommonPlugin {
         registry.register(SnailRecipeCategories.SAW_TABLE.getIdentifier(), SawTableRecipeDisplay.SERIALIZER);
         registry.register(SnailRecipeCategories.BRICK_FURNACE.getIdentifier(), BrickFurnaceRecipeDisplay.SERIALIZER);
         registry.register(SnailRecipeCategories.FILTERING_TRAY.getIdentifier(), FilteringTrayRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.BRICK_OVEN_COOKING.getIdentifier(), BrickOvenCookingRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.BRICK_OVEN_SMELTING.getIdentifier(), BrickOvenSmeltingRecipeDisplay.SERIALIZER);
     }
 }

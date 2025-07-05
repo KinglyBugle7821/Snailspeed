@@ -21,7 +21,7 @@ public class CustomWallTorchBlockEntity extends BlockEntity {
         super(SnailBlockEntities.WALL_TORCH, pos, state);
     }
 
-    private final float fireDegradeTimeFinal = 1200;
+    private final float fireDegradeTimeFinal = 20f * 60f * 30f;
     private float fireDegradeTime = fireDegradeTimeFinal;
 
     public void tick(World world1, BlockPos pos, BlockState state) {

@@ -4,12 +4,16 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -19,6 +23,8 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class UntiedThatchBlock extends FallingBlock {
     public static final EnumProperty<Direction.Axis> AXIS = Properties.AXIS;

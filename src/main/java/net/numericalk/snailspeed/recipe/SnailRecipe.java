@@ -6,10 +6,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
-import net.numericalk.snailspeed.recipe.custom.ArmorForgeRecipe;
-import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
-import net.numericalk.snailspeed.recipe.custom.FilteringTrayRecipe;
-import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
+import net.numericalk.snailspeed.recipe.custom.*;
 
 public class SnailRecipe {
     public static final RecipeSerializer<ArmorForgeRecipe> ARMOR_FORGE_RECIPE_SERIALIZER = Registry.register(
@@ -53,6 +50,28 @@ public class SnailRecipe {
                 @Override
                 public String toString() {
                     return "filtering_tray";
+                }
+            });
+
+    public static final RecipeSerializer<BrickOvenCookingRecipe> BRICK_OVEN_COOKING_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "brick_oven_cooking"),
+            new BrickOvenCookingRecipe.Serializer());
+    public static final RecipeType<BrickOvenCookingRecipe> BRICK_OVEN_COOKING_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "brick_oven_cooking"), new RecipeType<BrickOvenCookingRecipe>() {
+                @Override
+                public String toString() {
+                    return "brick_oven_cooking";
+                }
+            });
+
+    public static final RecipeSerializer<BrickOvenSmeltingRecipe> BRICK_OVEN_SMELTING_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "brick_oven_smelting"),
+            new BrickOvenSmeltingRecipe.Serializer());
+    public static final RecipeType<BrickOvenSmeltingRecipe> BRICK_OVEN_SMELTING_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "brick_oven_smelting"), new RecipeType<BrickOvenSmeltingRecipe>() {
+                @Override
+                public String toString() {
+                    return "brick_oven_smelting";
                 }
             });
 

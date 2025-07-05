@@ -1,17 +1,22 @@
 package net.numericalk.snailspeed.items.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
+
+import java.util.List;
 
 public class ArmorForgePlateBaseItem extends Item {
     public ArmorForgePlateBaseItem(Settings settings) {
@@ -34,5 +39,15 @@ public class ArmorForgePlateBaseItem extends Item {
         }
 
         return ActionResult.PASS;
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.snailspeed.item.armor_forge_plate"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

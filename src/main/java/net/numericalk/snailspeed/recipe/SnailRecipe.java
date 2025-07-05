@@ -14,7 +14,7 @@ import net.numericalk.snailspeed.recipe.custom.SawTableRecipe;
 public class SnailRecipe {
     public static final RecipeSerializer<ArmorForgeRecipe> ARMOR_FORGE_RECIPE_SERIALIZER = Registry.register(
             Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "armor_forge"),
-                    new ArmorForgeRecipe.Serializer());
+            new ArmorForgeRecipe.Serializer());
     public static final RecipeType<ArmorForgeRecipe> ARMOR_FORGE_RECIPE_TYPE = Registry.register(
             Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "armor_forge"), new RecipeType<ArmorForgeRecipe>() {
                 @Override

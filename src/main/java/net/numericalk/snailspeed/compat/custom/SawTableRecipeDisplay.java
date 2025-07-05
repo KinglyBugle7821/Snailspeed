@@ -76,5 +76,5 @@ public class SawTableRecipeDisplay extends BasicDisplay {
                     SawTableRecipeDisplay::new
             )
     );
-    
+
 }

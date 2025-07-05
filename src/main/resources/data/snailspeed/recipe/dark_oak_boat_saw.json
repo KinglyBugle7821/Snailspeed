@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:dark_oak_planks",
+  "additionalInput": "minecraft:wooden_shovel",
+
+  "boat": {
+    "id": "minecraft:dark_oak_boat"
+  }
+}

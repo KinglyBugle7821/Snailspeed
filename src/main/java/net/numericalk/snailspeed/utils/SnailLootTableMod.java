@@ -273,7 +273,7 @@ public class SnailLootTableMod {
             if (TALL_GRASS_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
-                        .conditionally(RandomChanceLootCondition.builder(0.85f))
+                        .conditionally(RandomChanceLootCondition.builder(0.9f))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(itemRegistry, SnailItems.FLINT_FLAKE)))
                         .with(ItemEntry.builder(SnailBlocks.GRASS_SHEAF.asItem()))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)).build());
@@ -292,7 +292,7 @@ public class SnailLootTableMod {
                 CAVE_SPIDER_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)) // Drops 75% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.5f))
                         .with(ItemEntry.builder(SnailItems.SOUL))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 

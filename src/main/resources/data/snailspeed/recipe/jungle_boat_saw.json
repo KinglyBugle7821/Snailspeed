@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:jungle_planks",
+  "additionalInput": "minecraft:wooden_shovel",
+
+  "boat": {
+    "id": "minecraft:jungle_boat"
+  }
+}

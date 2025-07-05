@@ -142,16 +142,6 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     public boolean isSkyVisible(World world1, BlockPos pos) {
-//        int worldHeight = world1.getHeight();
-//
-//        for (int y = pos.getY() + 1; y < worldHeight; y++) {
-//            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
-//            if (!world1.isAir(abovePos)) {
-//                return false;
-//            }
-//        }
-//
-//        return true;
         return world1.isSkyVisible(pos);
     }
 

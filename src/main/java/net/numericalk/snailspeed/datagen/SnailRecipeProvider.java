@@ -528,6 +528,13 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .criterion(hasItem(glass), conditionsFromItem(glass))
                             .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, recipeId)));
                 }
+                createShaped(RecipeCategory.MISC, Items.WOODEN_SHOVEL, 1)
+                        .pattern("#")
+                        .pattern("S")
+                        .input('#', ItemTags.PLANKS)
+                        .input('S', SnailItems.LONG_STICK)
+                        .criterion(hasItem(SnailItems.LONG_STICK), conditionsFromItem(SnailItems.LONG_STICK))
+                        .offerTo(exporter);
             }
         };
     }

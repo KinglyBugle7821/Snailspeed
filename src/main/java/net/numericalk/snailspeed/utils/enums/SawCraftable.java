@@ -16,7 +16,8 @@ public enum SawCraftable {
     PLANKS,
     HANGING_SIGN,
     SIGN,
-    TRAPDOOR;
+    TRAPDOOR,
+    BOAT;
 
     public static final Codec<SawCraftable> CODEC = Codec.STRING.xmap(
             SawCraftable::valueOf,

@@ -23,7 +23,8 @@ public record SawTableRecipe(Ingredient mainInput, Ingredient additionalInput,
                              ItemStack stairs, ItemStack slab, ItemStack door,
                              ItemStack bed, ItemStack fence, ItemStack fenceGate,
                              ItemStack chest, ItemStack barrel, ItemStack planks,
-                             ItemStack hangingSign, ItemStack sign, ItemStack trapdoor) implements Recipe<SawTableRecipeInput> {
+                             ItemStack hangingSign, ItemStack sign, ItemStack trapdoor,
+                             ItemStack boat) implements Recipe<SawTableRecipeInput> {
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.mainInput);
@@ -45,6 +46,7 @@ public record SawTableRecipe(Ingredient mainInput, Ingredient additionalInput,
             case HANGING_SIGN -> hangingSign;
             case SIGN -> sign;
             case TRAPDOOR -> trapdoor;
+            case BOAT -> boat;
         };
     }
 
@@ -72,6 +74,7 @@ public record SawTableRecipe(Ingredient mainInput, Ingredient additionalInput,
             case HANGING_SIGN -> hangingSign.copy();
             case SIGN -> sign.copy();
             case TRAPDOOR -> trapdoor.copy();
+            case BOAT -> boat.copy();
         };
     }
 
@@ -115,7 +118,8 @@ public record SawTableRecipe(Ingredient mainInput, Ingredient additionalInput,
                 ItemStack.CODEC.optionalFieldOf("planks", ItemStack.EMPTY).forGetter(SawTableRecipe::planks),
                 ItemStack.CODEC.optionalFieldOf("hangingSign", ItemStack.EMPTY).forGetter(SawTableRecipe::hangingSign),
                 ItemStack.CODEC.optionalFieldOf("sign", ItemStack.EMPTY).forGetter(SawTableRecipe::sign),
-                ItemStack.CODEC.optionalFieldOf("trapdoor", ItemStack.EMPTY).forGetter(SawTableRecipe::trapdoor)
+                ItemStack.CODEC.optionalFieldOf("trapdoor", ItemStack.EMPTY).forGetter(SawTableRecipe::trapdoor),
+                ItemStack.CODEC.optionalFieldOf("boat", ItemStack.EMPTY).forGetter(SawTableRecipe::boat)
         ).apply(instance, SawTableRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, SawTableRecipe> PACKET_CODEC =
@@ -134,6 +138,7 @@ public record SawTableRecipe(Ingredient mainInput, Ingredient additionalInput,
                         ItemStack.PACKET_CODEC, SawTableRecipe::hangingSign,
                         ItemStack.PACKET_CODEC, SawTableRecipe::sign,
                         ItemStack.PACKET_CODEC, SawTableRecipe::trapdoor,
+                        ItemStack.PACKET_CODEC, SawTableRecipe::boat,
                         SawTableRecipe::new);
 
         @Override

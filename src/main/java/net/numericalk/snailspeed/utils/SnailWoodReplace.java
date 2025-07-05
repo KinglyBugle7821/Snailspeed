@@ -77,8 +77,8 @@ public class SnailWoodReplace {
     }
     public static void planksLog(World world, BlockPos pos, BlockState state) {
         for (Block[] blocks : PLANKS_BLOCK_COMBO) {
-            Block inputLog = blocks[3]; // The log to match
-            Block outputPlanks = blocks[0]; // The planks to place
+            Block inputLog = blocks[3];
+            Block outputPlanks = blocks[0];
 
             if (state.isOf(inputLog)) {
                 world.setBlockState(pos, outputPlanks.getDefaultState());
@@ -111,7 +111,6 @@ public class SnailWoodReplace {
         }
     }
 
-    // TODO: merge the degrade log methods
     private static void degradeLogSmall(World world, BlockPos pos, BlockState state, boolean canDrop) {
         if (world.isClient()) return;
         for (Object[] log : logBlocksCombo) {

@@ -149,22 +149,22 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CustomTorchBlockEntity(pos, state);
     }
-
     @Override
-    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-        if (world instanceof World w){
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        super.onStateReplaced(state, world, pos, newState, moved);
+
+        if (newState.isOf(Blocks.AIR)){
             switch (state.get(LIT)){
                 case LIT_UNLIT -> {
-                    dropItem(w, pos, Items.COAL, 1);
-                    dropItem(w, pos, Items.STICK, 1);
+                    dropItem(world, pos, Items.COAL, 1);
+                    dropItem(world, pos, Items.STICK, 1);
                 }
-                case LIT_LIT -> dropItem(w, pos, Items.STICK, 1);
-                case LIT_ASH -> dropItem(w, pos, Items.CHARCOAL, 1);
+                case LIT_LIT -> dropItem(world, pos, Items.STICK, 1);
+                case LIT_ASH -> dropItem(world, pos, Items.CHARCOAL, 1);
             }
             super.onBroken(world, pos, state);
         }
     }
-
     private void dropItem(World world, BlockPos pos, Item item, int count) {
         for (int i = 0; i < count; i++) {
             ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());

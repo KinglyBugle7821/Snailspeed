@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:cherry_planks",
+  "additionalInput": "minecraft:wooden_shovel",
+
+  "boat": {
+    "id": "minecraft:cherry_boat"
+  }
+}

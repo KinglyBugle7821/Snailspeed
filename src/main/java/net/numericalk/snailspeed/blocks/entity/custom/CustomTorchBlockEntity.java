@@ -48,7 +48,7 @@ public class CustomTorchBlockEntity extends BlockEntity {
     }
 
     public float getFireDegradeTimeLimit() {
-        return fireDegradeTimeFinal * 4f;
+        return fireDegradeTimeFinal;
     }
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {

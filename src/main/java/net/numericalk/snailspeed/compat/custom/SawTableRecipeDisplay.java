@@ -38,7 +38,8 @@ public class SawTableRecipeDisplay extends BasicDisplay {
                                         recipe.value().planks(),
                                         recipe.value().hangingSign(),
                                         recipe.value().sign(),
-                                        recipe.value().trapdoor()
+                                        recipe.value().trapdoor(),
+                                        recipe.value().boat()
                                 )
                                 .filter(stack -> stack != null && !stack.isOf(Items.AIR))
                                 .map(EntryStacks::of)

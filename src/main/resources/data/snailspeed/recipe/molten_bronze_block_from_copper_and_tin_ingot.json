@@ -5,7 +5,7 @@
   "input2": "minecraft:copper_ingot",
   "input3": "minecraft:copper_ingot",
   "input4": "minecraft:copper_ingot",
-  "input5": "minecraft:tin_ingot",
+  "input5": "snailspeed:tin_ingot",
 
   "output": {
     "id": "snailspeed:molten_bronze_block"

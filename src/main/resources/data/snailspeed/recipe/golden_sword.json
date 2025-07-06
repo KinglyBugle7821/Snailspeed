@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "snailspeed:golden_sword_blade",
+  "inputAdditional": "snailspeed:long_stick",
+  "inputGlue": "#snailspeed:glues",
+
+  "sword": {
+    "id": "minecraft:golden_sword"
+  }
+}

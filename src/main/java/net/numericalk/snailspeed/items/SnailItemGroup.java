@@ -246,7 +246,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.LONG_STICK);
                         entries.add(SnailItems.CIRCULAR_SAW);
 
-                        entries.add(SnailItems.ARMOR_FORGE_PLATE);
+                        entries.add(SnailItems.FORGE_PLATE);
                         entries.add(SnailBlocks.ARMOR_FORGE);
                         entries.add(SnailBlocks.SMALL_BARREL);
                         entries.add(SnailBlocks.SAW_TABLE);

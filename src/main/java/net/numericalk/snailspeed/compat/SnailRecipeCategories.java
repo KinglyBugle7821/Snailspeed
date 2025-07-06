@@ -17,5 +17,6 @@ public class SnailRecipeCategories {
             CategoryIdentifier.of(Snailspeed.MOD_ID, "filtering_tray");
     public static final CategoryIdentifier<SawTableRecipeDisplay> SAW_TABLE =
             CategoryIdentifier.of(Snailspeed.MOD_ID, "saw_table");
-
+    public static final CategoryIdentifier<WeaponForgeRecipeDisplay> WEAPON_FORGE =
+            CategoryIdentifier.of(Snailspeed.MOD_ID, "weapon_forge");
 }

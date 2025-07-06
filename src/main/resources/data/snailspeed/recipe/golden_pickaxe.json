@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "snailspeed:golden_pickaxe_head",
+  "inputAdditional": "snailspeed:long_stick",
+  "inputGlue": "#snailspeed:glues",
+
+  "pickaxe": {
+    "id": "minecraft:golden_pickaxe"
+  }
+}

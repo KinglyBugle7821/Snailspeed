@@ -11,6 +11,7 @@ import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.compat.custom.*;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreen;
+import net.numericalk.snailspeed.screen.custom.WeaponForgeScreen;
 
 @Environment(EnvType.CLIENT)
 public class SnailspeedREIClient implements REIClientPlugin {
@@ -29,6 +30,9 @@ public class SnailspeedREIClient implements REIClientPlugin {
         registry.addWorkstations(SnailRecipeCategories.BRICK_OVEN_COOKING, EntryStacks.of(SnailBlocks.BRICK_OVEN));
         registry.add(new BrickOvenSmeltingRecipeCategory());
         registry.addWorkstations(SnailRecipeCategories.BRICK_OVEN_SMELTING, EntryStacks.of(SnailBlocks.BRICK_OVEN));
+        registry.add(new WeaponForgeRecipeCategory());
+        registry.addWorkstations(SnailRecipeCategories.WEAPON_FORGE, EntryStacks.of(SnailBlocks.WEAPON_FORGE));
+
     }
 
     @Override
@@ -48,6 +52,10 @@ public class SnailspeedREIClient implements REIClientPlugin {
 
         registry.registerClickArea(screen -> new Rectangle(((screen.width - 176) / 2) + 16,
                         ((screen.height - 166) / 2) + 36, 13, 13), SawTableScreen.class,
+                SnailRecipeCategories.SAW_TABLE);
+
+        registry.registerClickArea(screen -> new Rectangle(((screen.width - 176) / 2) + 67,
+                        ((screen.height - 166) / 2) + 36, 22, 15), WeaponForgeScreen.class,
                 SnailRecipeCategories.SAW_TABLE);
     }
 }

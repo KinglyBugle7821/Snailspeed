@@ -55,7 +55,7 @@ public class SnailItems {
     public static final Item BURNT_BEEF = register("burnt_beef", Item::new);
 
     public static final Item GRASS_TWINE = register("grass_twine", Item::new);
-    public static final Item PESTLE = register("pestle", settings -> new Item(settings.maxDamage(16).maxCount(1)));
+    public static final Item PESTLE = register("pestle", settings -> new Item(settings.maxCount(1)));
 
     public static final Item CLAY_SAND = register("clay_sand", Item::new);
 
@@ -87,7 +87,7 @@ public class SnailItems {
     public static final Item MOLTEN_GLASS = register("molten_glass", MoltenItem::new);
     public static final Item MOLTEN_STONE = register("molten_stone", MoltenItem::new);
     public static final Item MOLTEN_SMOOTH_STONE = register("molten_smooth_stone", MoltenItem::new);
-    public static final Item MOLTEN_DEEPSLATE = register("molten_deepslate_stone", MoltenItem::new);
+    public static final Item MOLTEN_DEEPSLATE = register("molten_deepslate", MoltenItem::new);
 
     public static final Item FURNACE_LID = register("furnace_lid", FurnaceLidItem::new);
 
@@ -215,7 +215,7 @@ public class SnailItems {
     public static final Item CHAIN_LINKS = register("chain_links", Item::new);
     public static final Item IRON_BOLT = register("iron_bolt", Item::new);
 
-    public static final Item ARMOR_FORGE_PLATE = register("armor_forge_plate", ArmorForgePlateBaseItem::new);
+    public static final Item FORGE_PLATE = register("forge_plate", ForgePlateBaseItem::new);
     public static final Item CIRCULAR_SAW = register("circular_saw", settings -> new CircularSawItem(settings.maxCount(1).maxDamage(250)));
     public static final Item LONG_STICK = register("long_stick", Item::new);
 
@@ -235,6 +235,8 @@ public class SnailItems {
     public static final Item ROUGH_GREEN_WOOL = register("rough_green_wool", Item::new);
     public static final Item ROUGH_RED_WOOL = register("rough_red_wool", Item::new);
     public static final Item ROUGH_BLACK_WOOL = register("rough_black_wool", Item::new);
+
+    public static final Item FISHING_LINE = register("fishing_ling", Item::new);
 
     public static final Item BRONZE_BLOCK = SnailBlocks.BRONZE_BLOCK.asItem();
     public static final Item STEEL_BLOCK = SnailBlocks.STEEL_BLOCK.asItem();

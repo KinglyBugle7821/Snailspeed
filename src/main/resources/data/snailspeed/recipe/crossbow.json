@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "minecraft:bow",
+  "inputAdditional": "minecraft:tripwire_hook",
+  "inputGlue": "#snailspeed:glues",
+
+  "crossbow": {
+    "id": "minecraft:crossbow"
+  }
+}

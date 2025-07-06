@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:casting_tool",
+  "criteria": {
+    "got_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft A Bronze Pickaxe",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:bronze_pickaxe"
+    },
+    "title": "Getting An Upgrade"
+  },
+  "requirements": [
+    [
+      "got_upgrade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

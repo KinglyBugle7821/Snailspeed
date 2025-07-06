@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:building_brick_furnace",
+  "criteria": {
+    "got_crucible": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:crucible"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Dry And Fire A Clay Crucible",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:crucible"
+    },
+    "title": "Smelting Nuggets"
+  },
+  "requirements": [
+    [
+      "got_crucible"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

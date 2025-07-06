@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "snailspeed:steel_shovel_head",
+  "inputAdditional": "snailspeed:long_stick",
+  "inputGlue": "#snailspeed:glues",
+
+  "shovel": {
+    "id": "snailspeed:steel_shovel"
+  }
+}

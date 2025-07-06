@@ -311,7 +311,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.CHAIN_LINKS, Models.GENERATED);
         itemModelGenerator.register(SnailItems.IRON_BOLT, Models.GENERATED);
 
-        itemModelGenerator.register(SnailItems.ARMOR_FORGE_PLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.FORGE_PLATE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.CIRCULAR_SAW, Models.GENERATED);
         itemModelGenerator.register(SnailItems.LONG_STICK, Models.HANDHELD);
 
@@ -335,6 +335,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.CONDUIT_SHELL, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.TORCH, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.FISHING_LINE, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 

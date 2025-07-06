@@ -1,0 +1,74 @@
+{
+  "parent": "snailspeed:get_clay_mold",
+  "criteria": {
+    "casted_tool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:copper_sword_blade"
+          },
+          {
+            "items": "snailspeed:copper_axe_head"
+          },
+          {
+            "items": "snailspeed:copper_shovel_head"
+          },
+          {
+            "items": "snailspeed:copper_hoe_head"
+          },
+          {
+            "items": "minecraft:copper_block"
+          },
+          {
+            "items": "minecraft:copper_ingot"
+          },
+          {
+            "items": "minecraft:bucket"
+          },
+          {
+            "items": "snailspeed:copper_plate"
+          },
+          {
+            "items": "snailspeed:bronze_sword_blade"
+          },
+          {
+            "items": "snailspeed:bronze_axe_head"
+          },
+          {
+            "items": "snailspeed:bronze_shovel_head"
+          },
+          {
+            "items": "snailspeed:bronze_hoe_head"
+          },
+          {
+            "items": "snailspeed:bronze_block"
+          },
+          {
+            "items": "snailspeed:bronze_ingot"
+          },
+          {
+            "items": "minecraft:bucket"
+          },
+          {
+            "items": "snailspeed:bronze_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Right-Click A Mold On A Molten Ingot",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:bronze_pickaxe_head"
+    },
+    "title": "Casting Ingots"
+  },
+  "requirements": [
+    [
+      "casted_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

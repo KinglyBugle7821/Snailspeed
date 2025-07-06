@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:building_brick_furnace",
+  "criteria": {
+    "got_furnace_lid": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:furnace_lid"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Create A Furnace Lid",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:furnace_lid"
+    },
+    "title": "Sealed The Deal"
+  },
+  "requirements": [
+    [
+      "got_furnace_lid"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

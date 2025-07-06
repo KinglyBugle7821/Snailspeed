@@ -12,10 +12,12 @@ import net.numericalk.snailspeed.blocks.entity.renderer.*;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
+import net.numericalk.snailspeed.networking.packets.WeaponSelectPayload;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreen;
 import net.numericalk.snailspeed.screen.custom.SmallBarrelScreen;
+import net.numericalk.snailspeed.screen.custom.WeaponForgeScreen;
 
 public class SnailspeedClient implements ClientModInitializer {
     @Override
@@ -36,6 +38,7 @@ public class SnailspeedClient implements ClientModInitializer {
         HandledScreens.register(SnailScreenHandlers.ARMOR_FORGE_SCREEN_HANDLER, ArmorForgeScreen::new);
         HandledScreens.register(SnailScreenHandlers.SMALL_BARREL_SCREEN_HANDLER, SmallBarrelScreen::new);
         HandledScreens.register(SnailScreenHandlers.SAW_TABLE_SCREEN_HANDLER, SawTableScreen::new);
+        HandledScreens.register(SnailScreenHandlers.WEAPON_FORGE_SCREEN_HANDLER, WeaponForgeScreen::new);
 
 
         SnailNetworkingBrain.registerS2CPacket();
@@ -47,7 +50,14 @@ public class SnailspeedClient implements ClientModInitializer {
                 }
         );
 
-        ClientPlayNetworking.registerGlobalReceiver(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD,
+        ClientPlayNetworking.registerGlobalReceiver(
+                SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD,
+                (payload, context) -> {
+
+                }
+        );
+        ClientPlayNetworking.registerGlobalReceiver(
+                WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID,
                 (payload, context) -> {
 
                 }

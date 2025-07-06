@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "snailspeed:item/armor_forge_plate"
-  }
-}

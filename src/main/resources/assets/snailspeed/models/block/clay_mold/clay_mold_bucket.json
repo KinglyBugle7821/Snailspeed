@@ -4,7 +4,7 @@
 	"textures": {
 		"0": "snailspeed:block/clay_mold",
 		"1": "snailspeed:block/clay_mold_side",
-		"2": "snailspeed:block/sword_mold",
+		"2": "snailspeed:block/bucket_mold",
 		"particle": "snailspeed:block/clay_mold"
 	},
 	"elements": [

@@ -1,0 +1,53 @@
+{
+  "parent": "snailspeed:get_brick",
+  "criteria": {
+    "got_clay_mold": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:blank_clay_mold"
+          },
+          {
+            "items": "snailspeed:sword_clay_mold"
+          },
+          {
+            "items": "snailspeed:axe_clay_mold"
+          },
+          {
+            "items": "snailspeed:shovel_clay_mold"
+          },
+          {
+            "items": "snailspeed:hoe_clay_mold"
+          },
+          {
+            "items": "snailspeed:block_clay_mold"
+          },
+          {
+            "items": "snailspeed:ingot_clay_mold"
+          },
+          {
+            "items": "snailspeed:bucket_clay_mold"
+          },
+          {
+            "items": "snailspeed:plate_clay_mold"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Dry And Fire A Clay Mold",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:ingot_clay_mold"
+    },
+    "title": "Shaping Mold"
+  },
+  "requirements": [
+    [
+      "got_clay_mold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -374,6 +374,9 @@ public class SnailBlocks {
     public static final Block SAW_TABLE = registerBlock("saw_table",
             properties -> new SawTableBlock(properties.mapColor(MapColor.OAK_TAN)
                     .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+    public static final Block WEAPON_FORGE = registerBlock("weapon_forge",
+            properties -> new WeaponForgeBlock(properties.mapColor(MapColor.OAK_TAN)
+                    .strength(5.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
 
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
             properties -> new Block(properties.mapColor(MapColor.ORANGE)

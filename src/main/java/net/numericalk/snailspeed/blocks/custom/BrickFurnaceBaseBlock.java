@@ -9,6 +9,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -23,6 +24,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import org.jetbrains.annotations.Nullable;
 
@@ -151,6 +153,9 @@ public class BrickFurnaceBaseBlock extends HorizontalFacingBlock {
         if (stack.isOf(Items.CLAY_BALL) && state.get(STAGES) == 4) {
             world.playSound(player, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, SnailBlocks.BRICK_FURNACE.getStateWithProperties(state).with(BrickFurnaceBlock.LID, false).with(BrickFurnaceBlock.CRUCIBLE, false));
+            if (player instanceof ServerPlayerEntity serverPlayer){
+                SnailCriteria.BUILDING_BRICK_FURNACE.trigger(serverPlayer);
+            }
             if (!player.isCreative()) {
                 stack.decrement(1);
             }

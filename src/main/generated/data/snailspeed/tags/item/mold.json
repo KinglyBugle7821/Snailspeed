@@ -9,6 +9,7 @@
     "snailspeed:ingot_clay_mold",
     "snailspeed:plate_clay_mold",
     "snailspeed:block_clay_mold",
+    "snailspeed:bucket_clay_mold",
     "snailspeed:blank_graphite_mold",
     "snailspeed:sword_graphite_mold",
     "snailspeed:axe_graphite_mold",
@@ -17,6 +18,7 @@
     "snailspeed:hoe_graphite_mold",
     "snailspeed:ingot_graphite_mold",
     "snailspeed:plate_graphite_mold",
-    "snailspeed:block_graphite_mold"
+    "snailspeed:block_graphite_mold",
+    "snailspeed:bucket_graphite_mold"
   ]
 }

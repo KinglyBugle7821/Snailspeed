@@ -10,6 +10,7 @@ public class SnailCriteria {
     public static final CookingOnCampfireCriterion CAMPFIRE_COOKING = Criteria.register(Snailspeed.MOD_ID + ":campfire_cooking", new CookingOnCampfireCriterion());
     public static final BuildingBrickOvenCriterion BUILDING_BRICK_OVEN = Criteria.register(Snailspeed.MOD_ID + ":building_brick_oven", new BuildingBrickOvenCriterion());
     public static final SoulFireCriterion SOUL_FIRE = Criteria.register(Snailspeed.MOD_ID + ":soul_fire", new SoulFireCriterion());
+    public static final BuildingBrickFurnaceCriterion BUILDING_BRICK_FURNACE = Criteria.register(Snailspeed.MOD_ID + ":building_brick_furnace", new BuildingBrickFurnaceCriterion());
 
     public static void initialize() {}
 }

@@ -10,6 +10,7 @@ import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreenHandler;
 import net.numericalk.snailspeed.screen.custom.SawTableScreenHandler;
 import net.numericalk.snailspeed.screen.custom.SmallBarrelScreenHandler;
+import net.numericalk.snailspeed.screen.custom.WeaponForgeScreenHandler;
 
 public class SnailScreenHandlers {
     public static final ScreenHandlerType<ArmorForgeScreenHandler> ARMOR_FORGE_SCREEN_HANDLER =
@@ -21,6 +22,9 @@ public class SnailScreenHandlers {
     public static final ScreenHandlerType<SawTableScreenHandler> SAW_TABLE_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(Snailspeed.MOD_ID, "saw_table_screen_handler"),
                     new ExtendedScreenHandlerType<>(SawTableScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<WeaponForgeScreenHandler> WEAPON_FORGE_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(Snailspeed.MOD_ID, "weapon_forge_screen_handler"),
+                    new ExtendedScreenHandlerType<>(WeaponForgeScreenHandler::new, BlockPos.PACKET_CODEC));
 
 
     public static void initialize() {}

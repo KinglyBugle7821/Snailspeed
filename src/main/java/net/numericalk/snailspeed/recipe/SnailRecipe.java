@@ -75,6 +75,17 @@ public class SnailRecipe {
                 }
             });
 
+    public static final RecipeSerializer<WeaponForgeRecipe> WEAPON_FORGE_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "weapon_forge"),
+            new WeaponForgeRecipe.Serializer());
+    public static final RecipeType<WeaponForgeRecipe> WEAPON_FORGE_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "weapon_forge"), new RecipeType<WeaponForgeRecipe>() {
+                @Override
+                public String toString() {
+                    return "weapon_forge";
+                }
+            });
+
 
     public static void initialize() {
 

@@ -28,6 +28,9 @@ public class SnailspeedREICommon implements REICommonPlugin {
         registry.beginRecipeFiller(FilteringTrayRecipe.class)
                 .filterType(SnailRecipe.FILTERING_TRAY_RECIPE_TYPE)
                 .fill(FilteringTrayRecipeDisplay::new);
+        registry.beginRecipeFiller(WeaponForgeRecipe.class)
+                .filterType(SnailRecipe.WEAPON_FORGE_RECIPE_TYPE)
+                .fill(WeaponForgeRecipeDisplay::new);
     }
 
     @Override
@@ -38,5 +41,6 @@ public class SnailspeedREICommon implements REICommonPlugin {
         registry.register(SnailRecipeCategories.FILTERING_TRAY.getIdentifier(), FilteringTrayRecipeDisplay.SERIALIZER);
         registry.register(SnailRecipeCategories.BRICK_OVEN_COOKING.getIdentifier(), BrickOvenCookingRecipeDisplay.SERIALIZER);
         registry.register(SnailRecipeCategories.BRICK_OVEN_SMELTING.getIdentifier(), BrickOvenSmeltingRecipeDisplay.SERIALIZER);
+        registry.register(SnailRecipeCategories.WEAPON_FORGE.getIdentifier(), WeaponForgeRecipeDisplay.SERIALIZER);
     }
 }

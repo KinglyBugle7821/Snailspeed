@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:get_brick",
+  "criteria": {
+    "got_brick_furnace": {
+      "trigger": "snailspeed:building_brick_furnace"
+    }
+  },
+  "display": {
+    "description": "Build A Brick Furnace",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:brick_furnace"
+    },
+    "title": "Industrial Evolution"
+  },
+  "requirements": [
+    [
+      "got_brick_furnace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -187,7 +187,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.CHAIN_LINKS, "Chain Links");
         translationBuilder.add(SnailItems.IRON_BOLT, "Iron Bolt");
 
-        translationBuilder.add(SnailItems.ARMOR_FORGE_PLATE, "Armor Forge Plate");
+        translationBuilder.add(SnailItems.FORGE_PLATE, "Forge Plate");
         translationBuilder.add(SnailItems.CIRCULAR_SAW, "Circular Saw");
         translationBuilder.add(SnailItems.LONG_STICK, "Long Stick");
 
@@ -226,6 +226,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.ROUGH_BLACK_WOOL, "Rough Black Wool");
 
         translationBuilder.add(SnailItems.CONDUIT_SHELL, "Conduit Shell");
+        translationBuilder.add(SnailItems.FISHING_LINE, "Fishing Line");
 
         translationBuilder.add(SnailItems.TORCH, "Torch");
 
@@ -344,13 +345,13 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.ARMOR_FORGE, "Armor Forge");
         translationBuilder.add(SnailBlocks.SMALL_BARREL, "Small Barrel");
         translationBuilder.add(SnailBlocks.SAW_TABLE, "Saw Table");
+        translationBuilder.add(SnailBlocks.WEAPON_FORGE, "Weapon Forge");
 
         translationBuilder.add(SnailBlocks.BRONZE_BLOCK, "Bronze Block");
         translationBuilder.add(SnailBlocks.STEEL_BLOCK, "Steel Block");
         translationBuilder.add(SnailBlocks.TIN_BLOCK, "Tin Block");
 
         translationBuilder.add("tooltip.snailspeed.item.air", "Please Don't Ask about this (#IHateNetworking)");
-        translationBuilder.add("tooltip.snailspeed.item.armor_forge_plate", "Right Click On A Stripped Log To Build An Armor Forge");
         translationBuilder.add("tooltip.snailspeed.item.bark_spud", "Right Click On A Log To Create Tapped Log");
         translationBuilder.add("tooltip.snailspeed.item.burning_tinder", "Used To Light Campfires And Coals On Fire");
         translationBuilder.add("tooltip.snailspeed.item.circular_saw", "Used To Break Wooden Planks/Stone Into Wooden/Stone Slabs");
@@ -372,6 +373,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.block.saw_table", "Used To Craft Wooden Blocks");
         translationBuilder.add("tooltip.snailspeed.block.floating_block", "This Block Can Float");
 
+        translationBuilder.add("tooltip.snailspeed.guide.forge_plate_1", "§7Right Click On A Stripped Log To Build An Armor Forge");
+        translationBuilder.add("tooltip.snailspeed.guide.forge_plate_2", "§7Right Click On A Log To Build An Weapon Forge");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_1", "§7Used To Create Stonecutter by Right Clicking Stone Slab");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_2", "§7Used To Create Saw Table by Right Clicking Wooden Slab");
         translationBuilder.add("tooltip.snailspeed.guide.armor_forge", "§7Obtained By Right-Clicking Circular Saw On A Stone Slab");

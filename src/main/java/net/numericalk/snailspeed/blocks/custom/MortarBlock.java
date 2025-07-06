@@ -112,11 +112,7 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
                     mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
                     world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
                 }
-                stack.damage(1, player);
-                if (stack.getDamage() == 1){
-                    stack.decrement(1);
-                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1f, 1f);
-                }
+
                 return ActionResult.SUCCESS;
             }
             if (canTakeItem(stack, state)) {

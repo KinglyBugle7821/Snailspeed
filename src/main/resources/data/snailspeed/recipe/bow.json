@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "snailspeed:long_stick",
+  "inputAdditional": "#snailspeed:string",
+  "inputGlue": "#snailspeed:glues",
+
+  "bow": {
+    "id": "minecraft:bow"
+  }
+}

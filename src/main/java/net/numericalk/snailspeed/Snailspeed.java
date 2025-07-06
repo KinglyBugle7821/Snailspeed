@@ -16,6 +16,7 @@ import net.numericalk.snailspeed.items.SnailItems;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
+import net.numericalk.snailspeed.networking.packets.WeaponSelectPayload;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.utils.*;
@@ -52,6 +53,9 @@ public class Snailspeed implements ModInitializer {
 
         PayloadTypeRegistry.playC2S().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
         PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
+
+        PayloadTypeRegistry.playC2S().register(WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID, WeaponSelectPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID, WeaponSelectPayload.CODEC);
 
         SnailNetworkingBrain.registerC2SPackets();
     }

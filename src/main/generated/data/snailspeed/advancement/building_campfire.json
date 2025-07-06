@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:get_wood_dust",
+  "criteria": {
+    "built_campfire": {
+      "trigger": "snailspeed:building_campfire"
+    }
+  },
+  "display": {
+    "description": "Build A Campfire",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:campfire_base"
+    },
+    "title": "Campfire!"
+  },
+  "requirements": [
+    [
+      "built_campfire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

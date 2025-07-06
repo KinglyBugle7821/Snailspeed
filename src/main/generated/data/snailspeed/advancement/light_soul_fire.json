@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:get_soul",
+  "criteria": {
+    "lit_soul_fire": {
+      "trigger": "snailspeed:soul_fire"
+    }
+  },
+  "display": {
+    "description": "Use A Soul On A Brick Oven",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:brick_oven"
+    },
+    "title": "It's Getting Hot In Here"
+  },
+  "requirements": [
+    [
+      "lit_soul_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

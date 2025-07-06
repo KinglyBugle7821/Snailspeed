@@ -1,0 +1,30 @@
+{
+  "parent": "snailspeed:building_brick_oven",
+  "criteria": {
+    "got_soul": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:soul"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Get A Soul By Killing Hostile Mobs",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:soul"
+    },
+    "title": "Soul Taker"
+  },
+  "requirements": [
+    [
+      "got_soul"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

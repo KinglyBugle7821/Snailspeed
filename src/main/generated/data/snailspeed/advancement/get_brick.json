@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:building_campfire",
+  "criteria": {
+    "got_brick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Get A Brick By Drying And Firing A Clay Brick",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:brick"
+    },
+    "title": "Advancing"
+  },
+  "requirements": [
+    [
+      "got_brick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

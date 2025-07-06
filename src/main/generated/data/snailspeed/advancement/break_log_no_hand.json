@@ -1,0 +1,23 @@
+{
+  "parent": "snailspeed:spawning",
+  "criteria": {
+    "broke_log_no_hand": {
+      "trigger": "snailspeed:break_log"
+    }
+  },
+  "display": {
+    "description": "Break A Log With An Empty Hand",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:barrier"
+    },
+    "title": "Uh Oh!"
+  },
+  "requirements": [
+    [
+      "broke_log_no_hand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:get_flint",
+  "criteria": {
+    "got_flint_flake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:flint_flake"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Break A Stone With A Flint To Turn It Into A Flint Flake",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:flint_flake"
+    },
+    "title": "Mason"
+  },
+  "requirements": [
+    [
+      "got_flint_flake"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

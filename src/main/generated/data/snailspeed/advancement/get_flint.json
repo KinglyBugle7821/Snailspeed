@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:break_log_no_hand",
+  "criteria": {
+    "got_flint": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:flint"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft Gravel Into Flint",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:flint"
+    },
+    "title": "Getting Started"
+  },
+  "requirements": [
+    [
+      "got_flint"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

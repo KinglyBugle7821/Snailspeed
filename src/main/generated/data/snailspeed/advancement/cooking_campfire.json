@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:get_fire",
+  "criteria": {
+    "cooked_campfire": {
+      "trigger": "snailspeed:campfire_cooking"
+    }
+  },
+  "display": {
+    "description": "Cook On A Campfire",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:campfire_base"
+    },
+    "title": "Let Him Cook"
+  },
+  "requirements": [
+    [
+      "cooked_campfire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

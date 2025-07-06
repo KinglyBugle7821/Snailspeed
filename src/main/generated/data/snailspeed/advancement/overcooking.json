@@ -1,0 +1,56 @@
+{
+  "parent": "snailspeed:cooking_campfire",
+  "criteria": {
+    "overcooked": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:burnt_beef"
+          },
+          {
+            "items": "snailspeed:burnt_chicken"
+          },
+          {
+            "items": "snailspeed:burnt_cod"
+          },
+          {
+            "items": "snailspeed:burnt_kelp"
+          },
+          {
+            "items": "snailspeed:burnt_mutton"
+          },
+          {
+            "items": "snailspeed:burnt_popped_chorus_fruit"
+          },
+          {
+            "items": "snailspeed:burnt_porkchop"
+          },
+          {
+            "items": "snailspeed:burnt_potato"
+          },
+          {
+            "items": "snailspeed:burnt_rabbit"
+          },
+          {
+            "items": "snailspeed:burnt_salmon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Overcook A Food",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:burnt_kelp"
+    },
+    "title": "Gordon Hates This"
+  },
+  "requirements": [
+    [
+      "overcooked"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

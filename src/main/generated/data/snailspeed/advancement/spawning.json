@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "spawned": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:air"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/smooth_stone.png",
+    "description": "Welcome To Snailspeed",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:grass_block"
+    },
+    "title": "Welcome"
+  },
+  "requirements": [
+    [
+      "spawned"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

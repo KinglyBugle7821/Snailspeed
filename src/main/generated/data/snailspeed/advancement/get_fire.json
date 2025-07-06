@@ -1,0 +1,29 @@
+{
+  "parent": "snailspeed:building_campfire",
+  "criteria": {
+    "got_fire": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:burning_tinder"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Start A Fire With Tinder",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:burning_tinder"
+    },
+    "title": "FIRE!"
+  },
+  "requirements": [
+    [
+      "got_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

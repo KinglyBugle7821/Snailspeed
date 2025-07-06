@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:get_brick",
+  "criteria": {
+    "got_brick_oven": {
+      "trigger": "snailspeed:building_brick_oven"
+    }
+  },
+  "display": {
+    "description": "Build A Brick Oven",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:brick_oven"
+    },
+    "title": "LET HIM COOK NOW!"
+  },
+  "requirements": [
+    [
+      "got_brick_oven"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

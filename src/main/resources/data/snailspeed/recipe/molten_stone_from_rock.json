@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "snailspeed:rock",
+  "input2": "snailspeed:rock",
+  "input3": "snailspeed:rock",
+  "input4": "snailspeed:rock",
+  "input5": "snailspeed:rock",
+
+  "output": {
+    "id": "snailspeed:molten_stone"
+  }
+}

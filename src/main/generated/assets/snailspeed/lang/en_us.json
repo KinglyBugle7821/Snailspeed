@@ -198,13 +198,16 @@
   "item.snailspeed.molten_bronze_block": "Molten Bronze Block",
   "item.snailspeed.molten_copper": "Molten Copper",
   "item.snailspeed.molten_copper_block": "Molten Copper Block",
+  "item.snailspeed.molten_deepslate_stone": "Molten Deepslate",
   "item.snailspeed.molten_glass": "Molten Glass",
   "item.snailspeed.molten_gold": "Molten Gold",
   "item.snailspeed.molten_gold_block": "Molten Gold Block",
   "item.snailspeed.molten_iron": "Molten Iron",
   "item.snailspeed.molten_iron_block": "Molten Iron Block",
+  "item.snailspeed.molten_smooth_stone": "Molten Smooth Stone",
   "item.snailspeed.molten_steel": "Molten Steel",
   "item.snailspeed.molten_steel_block": "Molten Steel Block",
+  "item.snailspeed.molten_stone": "Molten Stone",
   "item.snailspeed.molten_tin": "Molten Tin",
   "item.snailspeed.molten_tin_block": "Molten Tin Block",
   "item.snailspeed.oak_log_bark": "Oak Log Bark",
@@ -296,5 +299,6 @@
   "tooltip.snailspeed.item.circular_saw": "Used To Break Wooden Planks/Stone Into Wooden/Stone Slabs",
   "tooltip.snailspeed.item.clay_mold": "Right-Click To Switch Between Different Patterns",
   "tooltip.snailspeed.item.furnace_lid": "A Lid To Cover A Brick Furnace",
+  "tooltip.snailspeed.item.molten": "Use A Mold To Cast",
   "tooltip.snailspeed.item.tinder": "Hold Stick On The Offhand And Hold Right Click To Create Burning Tinder"
 }

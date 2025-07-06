@@ -204,6 +204,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.MOLTEN_BRONZE_BLOCK, "Molten Bronze Block");
         translationBuilder.add(SnailItems.MOLTEN_STEEL_BLOCK, "Molten Steel Block");
         translationBuilder.add(SnailItems.MOLTEN_GLASS, "Molten Glass");
+        translationBuilder.add(SnailItems.MOLTEN_STONE, "Molten Stone");
+        translationBuilder.add(SnailItems.MOLTEN_SMOOTH_STONE, "Molten Smooth Stone");
+        translationBuilder.add(SnailItems.MOLTEN_DEEPSLATE, "Molten Deepslate");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");
@@ -354,6 +357,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.item.tinder", "Hold Stick On The Offhand And Hold Right Click To Create Burning Tinder");
         translationBuilder.add("tooltip.snailspeed.item.furnace_lid", "A Lid To Cover A Brick Furnace");
         translationBuilder.add("tooltip.snailspeed.item.clay_mold", "Right-Click To Switch Between Different Patterns");
+        translationBuilder.add("tooltip.snailspeed.item.molten", "Use A Mold To Cast");
 
         translationBuilder.add("tooltip.snailspeed.block.armor_forge", "Used To Craft Armors");
         translationBuilder.add("tooltip.snailspeed.block.brick_furnace_base", "Right-Click With A Brick To Build A Brick Furnace, Finish It With A Clay Ball");

@@ -37,6 +37,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> MOLD = of("mold");
     public static final TagKey<Item> GLUES = of("glues");
 
+    public static final TagKey<Item> RAW_FOOD = of("raw_food");
+
     public static final TagKey<Item> PLATES = of("plates");
     public static final TagKey<Item> BINDERS = of("binders");
     public static final TagKey<Item> FASTENERS = of("fasteners");
@@ -58,6 +60,16 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(RAW_FOOD)
+                .add(Items.BEEF)
+                .add(Items.CHICKEN)
+                .add(Items.COD)
+                .add(Items.KELP)
+                .add(Items.MUTTON)
+                .add(Items.PORKCHOP)
+                .add(Items.POTATO)
+                .add(Items.RABBIT)
+                .add(Items.SALMON);
         getOrCreateTagBuilder(GLASS_PANES)
                 .add(Items.GLASS_PANE)
                 .add(Items.WHITE_STAINED_GLASS_PANE)
@@ -169,7 +181,10 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_TIN_BLOCK)
                 .add(SnailItems.MOLTEN_BRONZE_BLOCK)
                 .add(SnailItems.MOLTEN_STEEL_BLOCK)
-                .add(SnailItems.MOLTEN_GLASS);
+                .add(SnailItems.MOLTEN_GLASS)
+                .add(SnailItems.MOLTEN_STONE)
+                .add(SnailItems.MOLTEN_SMOOTH_STONE)
+                .add(SnailItems.MOLTEN_DEEPSLATE);
         getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_STEEL)

@@ -12,6 +12,9 @@
     "snailspeed:molten_tin_block",
     "snailspeed:molten_bronze_block",
     "snailspeed:molten_steel_block",
-    "snailspeed:molten_glass"
+    "snailspeed:molten_glass",
+    "snailspeed:molten_stone",
+    "snailspeed:molten_smooth_stone",
+    "snailspeed:molten_deepslate_stone"
   ]
 }

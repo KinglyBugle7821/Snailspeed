@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:cobbled_deepslate",
+  "input2": "minecraft:cobbled_deepslate",
+  "input3": "minecraft:cobbled_deepslate",
+  "input4": "minecraft:cobbled_deepslate",
+  "input5": "minecraft:cobbled_deepslate",
+
+  "output": {
+    "id": "snailspeed:molten_deepslate"
+  }
+}

@@ -12,6 +12,8 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -33,6 +35,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.block.WireOrientation;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.CampfireBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
@@ -239,6 +242,10 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
                         world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
 
                         world.updateListeners(pos, state, state, 0);
+
+                        if (stack.isIn(SnailItemTagsProvider.RAW_FOOD) && player instanceof ServerPlayerEntity serverPlayer){
+                            SnailCriteria.CAMPFIRE_COOKING.trigger(serverPlayer);
+                        }
                         return ActionResult.SUCCESS;
                     }
                 }
@@ -326,6 +333,9 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         world.setBlockState(pos, state.cycle(blockState));
         if (!player.isCreative()) {
             stack.decrement(1);
+        }
+        if(state.get(COOKING) == COOKING_FULL_SUPPORT - 1 && player instanceof ServerPlayerEntity serverPlayer){
+            SnailCriteria.BUILDING_CAMPFIRE.trigger(serverPlayer);
         }
     }
 

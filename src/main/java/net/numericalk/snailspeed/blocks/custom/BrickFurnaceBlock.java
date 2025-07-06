@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -24,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.BrickFurnaceBlockEntity;
@@ -136,7 +138,10 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             {SnailItems.MOLTEN_IRON_BLOCK, Items.IRON_BLOCK},
             {SnailItems.MOLTEN_GOLD_BLOCK, Items.GOLD_BLOCK},
             {SnailItems.MOLTEN_STEEL_BLOCK, SnailItems.STEEL_BLOCK},
-            {SnailItems.MOLTEN_GLASS, Items.GLASS}
+            {SnailItems.MOLTEN_GLASS, Items.GLASS},
+            {SnailItems.MOLTEN_STONE, Items.STONE},
+            {SnailItems.MOLTEN_SMOOTH_STONE, Items.SMOOTH_STONE},
+            {SnailItems.MOLTEN_DEEPSLATE, Items.DEEPSLATE}
     };
     private static final Item[][] EXTRA_BUCKET_RECIPES = {
             {SnailItems.MOLTEN_IRON_BLOCK, Items.BUCKET}
@@ -344,6 +349,9 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
 
     private void litBlueFire(ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.with(LIT, 3));
+        if (player instanceof ServerPlayerEntity serverPlayer){
+            SnailCriteria.SOUL_FIRE.trigger(serverPlayer);
+        }
         if (stack.isDamageable() && !player.isCreative()) {
             stack.damage(1, player);
         } else if (!player.isCreative()) {

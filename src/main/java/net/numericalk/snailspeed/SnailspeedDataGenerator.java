@@ -20,6 +20,7 @@ public class SnailspeedDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(SnailBlockLootTable::new);
         pack.addProvider(SnailRecipeProvider::new);
         pack.addProvider(SnailRegistryDataGenerator::new);
+        pack.addProvider(SnailAdvancementProvider::new);
     }
 
     @Override

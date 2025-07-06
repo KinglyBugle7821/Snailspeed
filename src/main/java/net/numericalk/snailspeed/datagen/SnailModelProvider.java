@@ -185,6 +185,9 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.MOLTEN_BRONZE_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STEEL_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_GLASS, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_STONE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_SMOOTH_STONE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_DEEPSLATE, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.FURNACE_LID, Models.GENERATED);
 

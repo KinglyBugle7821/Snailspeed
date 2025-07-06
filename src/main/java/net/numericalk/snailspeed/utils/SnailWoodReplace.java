@@ -9,9 +9,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
@@ -64,6 +66,9 @@ public class SnailWoodReplace {
                         if (!hasReachedDamaged(state)) {
                             degradeLogSmall(world, pos, state, false);
                             damageItem(stack, player, world, false);
+                            if (player instanceof ServerPlayerEntity serverPlayer){
+                                SnailCriteria.BREAK_LOG.trigger(serverPlayer);
+                            }
                             return false;
                         } else {
                             return true;

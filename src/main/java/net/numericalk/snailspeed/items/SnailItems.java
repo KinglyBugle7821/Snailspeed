@@ -1,16 +1,12 @@
 package net.numericalk.snailspeed.items;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.numericalk.snailspeed.Snailspeed;
@@ -19,7 +15,6 @@ import net.numericalk.snailspeed.items.custom.*;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
 
-import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -75,20 +70,24 @@ public class SnailItems {
     public static final Item IRON_DUST = register("iron_dust", Item::new);
     public static final Item GOLD_DUST = register("gold_dust", Item::new);
 
-    public static final Item MOLTEN_COPPER = register("molten_copper", Item::new);
-    public static final Item MOLTEN_IRON = register("molten_iron", Item::new);
-    public static final Item MOLTEN_GOLD = register("molten_gold", Item::new);
-    public static final Item MOLTEN_TIN = register("molten_tin", Item::new);
-    public static final Item MOLTEN_BRONZE = register("molten_bronze", Item::new);
-    public static final Item MOLTEN_STEEL = register("molten_steel", Item::new);
+    public static final Item MOLTEN_COPPER = register("molten_copper", MoltenItem::new);
+    public static final Item MOLTEN_IRON = register("molten_iron", MoltenItem::new);
+    public static final Item MOLTEN_GOLD = register("molten_gold", MoltenItem::new);
+    public static final Item MOLTEN_TIN = register("molten_tin", MoltenItem::new);
+    public static final Item MOLTEN_BRONZE = register("molten_bronze", MoltenItem::new);
+    public static final Item MOLTEN_STEEL = register("molten_steel", MoltenItem::new);
 
-    public static final Item MOLTEN_COPPER_BLOCK = register("molten_copper_block", Item::new);
-    public static final Item MOLTEN_IRON_BLOCK = register("molten_iron_block", Item::new);
-    public static final Item MOLTEN_GOLD_BLOCK = register("molten_gold_block", Item::new);
-    public static final Item MOLTEN_TIN_BLOCK = register("molten_tin_block", Item::new);
-    public static final Item MOLTEN_BRONZE_BLOCK = register("molten_bronze_block", Item::new);
-    public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", Item::new);
-    public static final Item MOLTEN_GLASS = register("molten_glass", Item::new);
+    public static final Item MOLTEN_COPPER_BLOCK = register("molten_copper_block", MoltenItem::new);
+    public static final Item MOLTEN_IRON_BLOCK = register("molten_iron_block", MoltenItem::new);
+    public static final Item MOLTEN_GOLD_BLOCK = register("molten_gold_block", MoltenItem::new);
+    public static final Item MOLTEN_TIN_BLOCK = register("molten_tin_block", MoltenItem::new);
+    public static final Item MOLTEN_BRONZE_BLOCK = register("molten_bronze_block", MoltenItem::new);
+    public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", MoltenItem::new);
+
+    public static final Item MOLTEN_GLASS = register("molten_glass", MoltenItem::new);
+    public static final Item MOLTEN_STONE = register("molten_stone", MoltenItem::new);
+    public static final Item MOLTEN_SMOOTH_STONE = register("molten_smooth_stone", MoltenItem::new);
+    public static final Item MOLTEN_DEEPSLATE = register("molten_deepslate_stone", MoltenItem::new);
 
     public static final Item FURNACE_LID = register("furnace_lid", FurnaceLidItem::new);
 

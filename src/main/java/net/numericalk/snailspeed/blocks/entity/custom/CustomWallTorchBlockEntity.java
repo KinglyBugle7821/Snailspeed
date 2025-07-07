@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.custom.CustomTorchBlock;
+import net.numericalk.snailspeed.blocks.custom.CustomWallTorchBlock;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,17 +22,20 @@ public class CustomWallTorchBlockEntity extends BlockEntity {
         super(SnailBlockEntities.WALL_TORCH, pos, state);
     }
 
-    private final float fireDegradeTimeFinal = 20f * 60f * 30f;
+    public final float fireDegradeTimeFinal = 20f * 60f * 30f;
     private float fireDegradeTime = fireDegradeTimeFinal;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (fireDegradeTime <= 0){
-            world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_ASH));
-        }
-        fireDegradeTime--;
-        if ((world1.isRaining() || world1.isThundering()) && world1.isSkyVisible(pos)){
-            world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
-            setFireDegradeTime(fireDegradeTimeFinal);
+        if (state.get(CustomWallTorchBlock.LIT) == CustomWallTorchBlock.LIT_LIT){
+            if (fireDegradeTime <= 0){
+                world1.setBlockState(pos, state.with(CustomWallTorchBlock.LIT, CustomWallTorchBlock.LIT_ASH));
+            } else {
+                fireDegradeTime--;
+            }
+            if ((world1.isRaining() || world1.isThundering()) && world1.isSkyVisible(pos)){
+                world1.setBlockState(pos, state.with(CustomWallTorchBlock.LIT, CustomWallTorchBlock.LIT_UNLIT));
+                setFireDegradeTime(fireDegradeTimeFinal);
+            }
         }
     }
     public void setFireDegradeTime(float fireDegradeTime) {

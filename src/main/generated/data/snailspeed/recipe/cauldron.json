@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "snailspeed:stone_plate",
+    "T": "snailspeed:tin_ingot"
+  },
+  "pattern": [
+    "TT",
+    "LL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:cauldron"
+  }
+}

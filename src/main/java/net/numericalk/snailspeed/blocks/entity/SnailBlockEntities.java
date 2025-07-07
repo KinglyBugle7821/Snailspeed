@@ -51,6 +51,8 @@ public class SnailBlockEntities {
             FabricBlockEntityTypeBuilder.create(CustomWallTorchBlockEntity::new, SnailBlocks.WALL_TORCH).build());
     public static final BlockEntityType<WeaponForgeBlockEntity> WEAPON_FORGE = registerBlockEntityType("weapon_forge",
             FabricBlockEntityTypeBuilder.create(WeaponForgeBlockEntity::new, SnailBlocks.WEAPON_FORGE).build());
+    public static final BlockEntityType<CustomLanternBlockEntity> LANTERN = registerBlockEntityType("lantern",
+            FabricBlockEntityTypeBuilder.create(CustomLanternBlockEntity::new, SnailBlocks.LANTERN).build());
 
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntityType(String id, BlockEntityType<T> type) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Snailspeed.MOD_ID, id), type);

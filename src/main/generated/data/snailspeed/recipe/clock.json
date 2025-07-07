@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:gold_ingot",
+    "P": "snailspeed:stone_plate",
+    "R": "minecraft:redstone",
+    "T": "snailspeed:tin_ingot"
+  },
+  "pattern": [
+    "PT",
+    "RG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:clock"
+  }
+}

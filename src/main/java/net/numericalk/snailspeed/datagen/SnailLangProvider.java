@@ -184,7 +184,6 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.COPPER_RIVET, "Copper Rivet");
         translationBuilder.add(SnailItems.LEATHER_STRIP, "Leather Strip");
 
-        translationBuilder.add(SnailItems.CHAIN_LINKS, "Chain Links");
         translationBuilder.add(SnailItems.IRON_BOLT, "Iron Bolt");
 
         translationBuilder.add(SnailItems.FORGE_PLATE, "Forge Plate");
@@ -197,16 +196,21 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.MOLTEN_TIN, "Molten Tin");
         translationBuilder.add(SnailItems.MOLTEN_BRONZE, "Molten Bronze");
         translationBuilder.add(SnailItems.MOLTEN_STEEL, "Molten Steel");
+        translationBuilder.add(SnailItems.MOLTEN_NETHERITE, "Molten Netherite");
         translationBuilder.add(SnailItems.MOLTEN_COPPER_BLOCK, "Molten Copper Block");
         translationBuilder.add(SnailItems.MOLTEN_IRON_BLOCK, "Molten Iron Block");
         translationBuilder.add(SnailItems.MOLTEN_GOLD_BLOCK, "Molten Gold Block");
         translationBuilder.add(SnailItems.MOLTEN_TIN_BLOCK, "Molten Tin Block");
         translationBuilder.add(SnailItems.MOLTEN_BRONZE_BLOCK, "Molten Bronze Block");
         translationBuilder.add(SnailItems.MOLTEN_STEEL_BLOCK, "Molten Steel Block");
+        translationBuilder.add(SnailItems.MOLTEN_REDSTONE_BLOCK, "Molten Redstone Block");
+        translationBuilder.add(SnailItems.MOLTEN_LAPIS_BLOCK, "Molten Lapis Block");
         translationBuilder.add(SnailItems.MOLTEN_GLASS, "Molten Glass");
         translationBuilder.add(SnailItems.MOLTEN_STONE, "Molten Stone");
         translationBuilder.add(SnailItems.MOLTEN_SMOOTH_STONE, "Molten Smooth Stone");
         translationBuilder.add(SnailItems.MOLTEN_DEEPSLATE, "Molten Deepslate");
+        translationBuilder.add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, "Molten Smooth Quartz Block");
+        translationBuilder.add(SnailItems.MOLTEN_NETHERITE_BLOCK, "Molten Netherite Block");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");
@@ -229,6 +233,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.FISHING_LINE, "Fishing Line");
 
         translationBuilder.add(SnailItems.TORCH, "Torch");
+        translationBuilder.add(SnailItems.STONE_PLATE, "Stone Plate");
+        translationBuilder.add(SnailItems.RAIL_TRACK, "Rail Track");
 
 
 
@@ -351,6 +357,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.STEEL_BLOCK, "Steel Block");
         translationBuilder.add(SnailBlocks.TIN_BLOCK, "Tin Block");
 
+        translationBuilder.add(SnailBlocks.LANTERN, "Lantern");
+
         translationBuilder.add("tooltip.snailspeed.item.air", "Please Don't Ask about this (#IHateNetworking)");
         translationBuilder.add("tooltip.snailspeed.item.bark_spud", "Right Click On A Log To Create Tapped Log");
         translationBuilder.add("tooltip.snailspeed.item.burning_tinder", "Used To Light Campfires And Coals On Fire");
@@ -377,7 +385,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.guide.forge_plate_2", "§7Right Click On A Log To Build An Weapon Forge");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_1", "§7Used To Create Stonecutter by Right Clicking Stone Slab");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_2", "§7Used To Create Saw Table by Right Clicking Wooden Slab");
-        translationBuilder.add("tooltip.snailspeed.guide.armor_forge", "§7Obtained By Right-Clicking Circular Saw On A Stone Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.armor_forge_1", "§7Obtained By Right-Clicking Circular Saw On A Stone Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.armor_forge_2", "§7Can Also Be Used To Trim Armors");
         translationBuilder.add("tooltip.snailspeed.guide.dried_grass_sheaf", "§7Obtained By Drying Grass Sheaf In The Sun");
         translationBuilder.add("tooltip.snailspeed.guide.grass_sheaf", "§7Obtained By Breaking Grass With A Flint Flake");
         translationBuilder.add("tooltip.snailspeed.guide.saw_table", "§7Obtained By Right-Clicking Circular Saw On A Wooden Slab");

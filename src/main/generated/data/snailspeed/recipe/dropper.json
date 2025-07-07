@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "snailspeed:stone_plate",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "PP",
+    "RP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:dropper"
+  }
+}

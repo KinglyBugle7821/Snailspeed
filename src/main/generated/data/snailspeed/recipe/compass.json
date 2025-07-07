@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "P": "snailspeed:stone_plate",
+    "R": "minecraft:redstone",
+    "T": "snailspeed:tin_ingot"
+  },
+  "pattern": [
+    "PT",
+    "RI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:compass"
+  }
+}

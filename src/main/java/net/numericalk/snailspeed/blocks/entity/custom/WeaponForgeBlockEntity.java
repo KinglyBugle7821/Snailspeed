@@ -182,11 +182,13 @@ public class WeaponForgeBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     public void tryToCreateWeapon() {
-        Optional<RecipeEntry<WeaponForgeRecipe>> recipe = getCurrentRecipe();
+        if (this.getStack(OUTPUT).isEmpty()){
+            Optional<RecipeEntry<WeaponForgeRecipe>> recipe = getCurrentRecipe();
 
-        ItemStack output = recipe.get().value().getOutput(selected);
-        this.setStack(OUTPUT, new ItemStack(output.getItem(),
-                this.getStack(OUTPUT).getCount() + output.getCount()));
+            ItemStack output = recipe.get().value().getOutput(selected);
+            this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                    this.getStack(OUTPUT).getCount() + output.getCount()));
+        }
     }
 
     public void decrementInputNoPlayer() {

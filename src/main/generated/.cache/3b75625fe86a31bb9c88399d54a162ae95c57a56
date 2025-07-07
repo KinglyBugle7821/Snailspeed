@@ -1,7 +1,12 @@
 // 1.21.4	-999999999-01-01T00:00:00	Snailspeed/Tags for minecraft:item
 9cbe802c8291b5f0bc8b16f5f252f5d5eb7d310f data/minecraft/tags/item/axes.json
+4779e8207ca790bae18e48c4f99ad1108865e1b4 data/minecraft/tags/item/chest_armor.json
+780df55105b2d19655da003b542a0cc4b8cdfa5c data/minecraft/tags/item/foot_armor.json
+b71d007ac39e588a88dabbb1b596e90c3a461dc7 data/minecraft/tags/item/head_armor.json
+902c10e72a66dbe5286b7e8f27b675386bb11553 data/minecraft/tags/item/leg_armor.json
 6458dc04bf5cfc7120dca0324316795aa28eb7b9 data/minecraft/tags/item/pickaxes.json
-112db2ed01926cafcf2276d792b8c66b1f1f1338 data/snailspeed/tags/item/binders.json
+390f664121bf328d8ed83d93c95694815b8e23b9 data/minecraft/tags/item/trimmable_armor.json
+cac81d3567996c42b2acbf1ec099005292ee974d data/snailspeed/tags/item/binders.json
 f2fb01b041ef3ab9a22bbfce6f40ae230d550bc8 data/snailspeed/tags/item/campfire_fuel.json
 1adada856fc96d86142971215001f19fe35715a8 data/snailspeed/tags/item/clay_mold.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/snailspeed/tags/item/copper_tool_repairable.json
@@ -19,7 +24,7 @@ f6f96ed27fdbc56f99a8be3e9b5b53da09842a90 data/snailspeed/tags/item/high_molten_i
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json
 75a089e3aa2e0448de8c4ac6f44f0dbb8f720cb5 data/snailspeed/tags/item/log_barks_that_burn.json
 4ff748556287e3d84cacde92f8592869cf8425ea data/snailspeed/tags/item/mold.json
-a86b8bb1f4779ad6b4851da96ed24fe472e91ac0 data/snailspeed/tags/item/molten_items.json
+3dd23ff83cf498449005dffea24b71820a79f877 data/snailspeed/tags/item/molten_items.json
 025fdcd405c7a8f2c5361c63e49f32cc52dc27c8 data/snailspeed/tags/item/netherite_tools.json
 626dd1b62fbe57cc60e739ec16ce6c7a5f8e034d data/snailspeed/tags/item/oven_fuel.json
 6cd3038da8f9a1882ae571da8eabce69702d826d data/snailspeed/tags/item/plates.json
@@ -27,4 +32,5 @@ a86b8bb1f4779ad6b4851da96ed24fe472e91ac0 data/snailspeed/tags/item/molten_items.
 d3cfafffd1e1b0c3a6658e464f122fc945faf997 data/snailspeed/tags/item/steel_tool_repairable.json
 679143ec17cfb0d2b60a941d58ef4133af39a48b data/snailspeed/tags/item/stone_tools.json
 b3d5e20b17e25bb8403cb41cda4e07c1be41d1b9 data/snailspeed/tags/item/string.json
+3d04b6a728cd0032981b253212c9037e5d66cc22 data/snailspeed/tags/item/trim_templates.json
 885676e2fb8781519540a85df22657d477e561dd data/snailspeed/tags/item/wooden_tools.json

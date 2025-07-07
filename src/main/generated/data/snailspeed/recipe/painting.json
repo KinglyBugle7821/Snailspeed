@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "#minecraft:planks",
+    "W": "#minecraft:wool"
+  },
+  "pattern": [
+    "PW",
+    "WP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:painting"
+  }
+}

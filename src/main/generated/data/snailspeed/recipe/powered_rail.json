@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:redstone",
+    "G": "minecraft:gold_ingot",
+    "R": "minecraft:rail"
+  },
+  "pattern": [
+    "RG",
+    "##"
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:powered_rail"
+  }
+}

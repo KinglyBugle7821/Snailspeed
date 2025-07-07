@@ -177,6 +177,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.MOLTEN_TIN, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_BRONZE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STEEL, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_NETHERITE, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.MOLTEN_COPPER_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_IRON_BLOCK, Models.GENERATED);
@@ -184,10 +185,15 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.MOLTEN_TIN_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_BRONZE_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STEEL_BLOCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_REDSTONE_BLOCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_LAPIS_BLOCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_NETHERITE_BLOCK, Models.GENERATED);
+
         itemModelGenerator.register(SnailItems.MOLTEN_GLASS, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STONE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_SMOOTH_STONE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_DEEPSLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.FURNACE_LID, Models.GENERATED);
 
@@ -308,7 +314,6 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.COPPER_RIVET, Models.GENERATED);
         itemModelGenerator.register(SnailItems.LEATHER_STRIP, Models.GENERATED);
 
-        itemModelGenerator.register(SnailItems.CHAIN_LINKS, Models.GENERATED);
         itemModelGenerator.register(SnailItems.IRON_BOLT, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.FORGE_PLATE, Models.GENERATED);
@@ -336,6 +341,8 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.TORCH, Models.GENERATED);
         itemModelGenerator.register(SnailItems.FISHING_LINE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STONE_PLATE, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.RAIL_TRACK, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 
@@ -365,5 +372,6 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailBlocks.RESIN_BOWL.asItem(), Models.GENERATED);
         itemModelGenerator.register(SnailBlocks.FILTERING_TRAY_BASE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(SnailBlocks.LANTERN.asItem(), Models.GENERATED);
     }
 }

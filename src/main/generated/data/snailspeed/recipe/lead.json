@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "#snailspeed:glues",
+    "S": "minecraft:string"
+  },
+  "pattern": [
+    "SS",
+    "SG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:lead"
+  }
+}

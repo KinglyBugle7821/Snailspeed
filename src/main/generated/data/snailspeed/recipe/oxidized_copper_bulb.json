@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:blaze_rod",
+    "C": "minecraft:oxidized_copper",
+    "R": "minecraft:redstone_block"
+  },
+  "pattern": [
+    "RB",
+    "CC"
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:oxidized_copper_bulb"
+  }
+}

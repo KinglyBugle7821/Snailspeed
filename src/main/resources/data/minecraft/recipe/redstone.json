@@ -1,0 +1,12 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "minecraft:redstone_block"
+  ],
+  "result": {
+    "count": 5,
+    "id": "minecraft:redstone"
+  }
+}

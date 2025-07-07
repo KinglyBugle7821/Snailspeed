@@ -1,0 +1,12 @@
+{
+  "replace": true,
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:lapis_block"
+  ],
+  "result": {
+    "count": 5,
+    "id": "minecraft:lapis_lazuli"
+  }
+}

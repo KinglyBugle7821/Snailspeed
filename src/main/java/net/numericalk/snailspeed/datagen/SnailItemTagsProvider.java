@@ -2,7 +2,6 @@ package net.numericalk.snailspeed.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
@@ -44,6 +43,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> FASTENERS = of("fasteners");
     public static final TagKey<Item> HAMMERS = of("hammers");
 
+    public static final TagKey<Item> TRIM_TEMPLATES = of("trim_templates");
+
     public static final TagKey<Item> FILTERS = of("filters");
     public static final TagKey<Item> GLASS = of("glass");
     public static final TagKey<Item> GLASS_PANES = of("glass_panes");
@@ -60,6 +61,54 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(SnailItems.COPPER_HELMET)
+                .add(SnailItems.COPPER_CHESTPLATE)
+                .add(SnailItems.COPPER_LEGGINGS)
+                .add(SnailItems.COPPER_BOOTS)
+                .add(SnailItems.BRONZE_HELMET)
+                .add(SnailItems.BRONZE_CHESTPLATE)
+                .add(SnailItems.BRONZE_LEGGINGS)
+                .add(SnailItems.BRONZE_BOOTS)
+                .add(SnailItems.STEEL_HELMET)
+                .add(SnailItems.STEEL_CHESTPLATE)
+                .add(SnailItems.STEEL_LEGGINGS)
+                .add(SnailItems.STEEL_BOOTS);
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+                .add(SnailItems.COPPER_HELMET)
+                .add(SnailItems.BRONZE_HELMET)
+                .add(SnailItems.STEEL_HELMET);
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+                .add(SnailItems.COPPER_CHESTPLATE)
+                .add(SnailItems.BRONZE_CHESTPLATE)
+                .add(SnailItems.STEEL_CHESTPLATE);
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+                .add(SnailItems.COPPER_LEGGINGS)
+                .add(SnailItems.BRONZE_LEGGINGS)
+                .add(SnailItems.STEEL_LEGGINGS);
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+                .add(SnailItems.COPPER_BOOTS)
+                .add(SnailItems.BRONZE_BOOTS)
+                .add(SnailItems.STEEL_BOOTS);
+        getOrCreateTagBuilder(TRIM_TEMPLATES)
+                .add(Items.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.EYE_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.HOST_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.VEX_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.WARD_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .add(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE);
         getOrCreateTagBuilder(RAW_FOOD)
                 .add(Items.BEEF)
                 .add(Items.CHICKEN)
@@ -115,7 +164,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.IRON_BOLT);
         getOrCreateTagBuilder(BINDERS)
                 .add(SnailItems.LEATHER_STRIP)
-                .add(SnailItems.CHAIN_LINKS);
+                .add(Items.CHAIN);
         getOrCreateTagBuilder(PLATES)
                 .add(SnailItems.BRONZE_PLATE)
                 .add(SnailItems.GOLDEN_PLATE)
@@ -177,16 +226,21 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_TIN)
                 .add(SnailItems.MOLTEN_BRONZE)
                 .add(SnailItems.MOLTEN_STEEL)
+                .add(SnailItems.MOLTEN_NETHERITE)
                 .add(SnailItems.MOLTEN_COPPER_BLOCK)
                 .add(SnailItems.MOLTEN_IRON_BLOCK)
                 .add(SnailItems.MOLTEN_GOLD_BLOCK)
                 .add(SnailItems.MOLTEN_TIN_BLOCK)
                 .add(SnailItems.MOLTEN_BRONZE_BLOCK)
                 .add(SnailItems.MOLTEN_STEEL_BLOCK)
+                .add(SnailItems.MOLTEN_REDSTONE_BLOCK)
+                .add(SnailItems.MOLTEN_LAPIS_BLOCK)
                 .add(SnailItems.MOLTEN_GLASS)
                 .add(SnailItems.MOLTEN_STONE)
                 .add(SnailItems.MOLTEN_SMOOTH_STONE)
-                .add(SnailItems.MOLTEN_DEEPSLATE);
+                .add(SnailItems.MOLTEN_DEEPSLATE)
+                .add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK)
+                .add(SnailItems.MOLTEN_NETHERITE_BLOCK);
         getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_STEEL)

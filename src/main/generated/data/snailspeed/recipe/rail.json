@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "snailspeed:long_stick",
+    "R": "snailspeed:rail_track"
+  },
+  "pattern": [
+    "RL",
+    "RL"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:rail"
+  }
+}

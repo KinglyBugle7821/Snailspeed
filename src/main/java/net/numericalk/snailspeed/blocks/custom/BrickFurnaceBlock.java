@@ -129,7 +129,8 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     };
 
     private static final Item[][] EXTRA_INGOT_RECIPES = {
-            {SnailItems.MOLTEN_TIN, SnailItems.TIN_INGOT}
+            {SnailItems.MOLTEN_TIN, SnailItems.TIN_INGOT},
+            {SnailItems.MOLTEN_NETHERITE, Items.NETHERITE_INGOT}
     };
     private static final Item[][] EXTRA_BLOCK_RECIPES = {
             {SnailItems.MOLTEN_COPPER_BLOCK, Items.COPPER_BLOCK},
@@ -138,10 +139,13 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             {SnailItems.MOLTEN_IRON_BLOCK, Items.IRON_BLOCK},
             {SnailItems.MOLTEN_GOLD_BLOCK, Items.GOLD_BLOCK},
             {SnailItems.MOLTEN_STEEL_BLOCK, SnailItems.STEEL_BLOCK},
+            {SnailItems.MOLTEN_REDSTONE_BLOCK, Items.REDSTONE_BLOCK},
             {SnailItems.MOLTEN_GLASS, Items.GLASS},
             {SnailItems.MOLTEN_STONE, Items.STONE},
             {SnailItems.MOLTEN_SMOOTH_STONE, Items.SMOOTH_STONE},
-            {SnailItems.MOLTEN_DEEPSLATE, Items.DEEPSLATE}
+            {SnailItems.MOLTEN_DEEPSLATE, Items.DEEPSLATE},
+            {SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, Items.SMOOTH_QUARTZ},
+            {SnailItems.MOLTEN_NETHERITE_BLOCK, Items.NETHERITE_BLOCK}
     };
     private static final Item[][] EXTRA_BUCKET_RECIPES = {
             {SnailItems.MOLTEN_IRON_BLOCK, Items.BUCKET}

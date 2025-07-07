@@ -241,13 +241,13 @@ public class SnailItemGroup {
                         entries.add(SnailItems.COPPER_RIVET);
                         entries.add(SnailItems.LEATHER_STRIP);
 
-                        entries.add(SnailItems.CHAIN_LINKS);
                         entries.add(SnailItems.IRON_BOLT);
                         entries.add(SnailItems.LONG_STICK);
                         entries.add(SnailItems.CIRCULAR_SAW);
 
                         entries.add(SnailItems.FORGE_PLATE);
                         entries.add(SnailBlocks.ARMOR_FORGE);
+                        entries.add(SnailBlocks.WEAPON_FORGE);
                         entries.add(SnailBlocks.SMALL_BARREL);
                         entries.add(SnailBlocks.SAW_TABLE);
 
@@ -271,6 +271,9 @@ public class SnailItemGroup {
                         entries.add(SnailItems.CONDUIT_SHELL);
 
                         entries.add(SnailItems.TORCH);
+                        entries.add(SnailBlocks.LANTERN);
+
+                        entries.add(SnailItems.STONE_PLATE);
                     }).build());
 
     public static void initialize() {

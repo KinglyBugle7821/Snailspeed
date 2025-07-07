@@ -107,7 +107,8 @@ public class ArmorForgeBlock extends BlockWithEntity implements BlockEntityProvi
             tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
         } else {
             tooltip.add(Text.translatable("tooltip.snailspeed.block.armor_forge"));
-            tooltip.add(Text.translatable("tooltip.snailspeed.guide.armor_forge"));
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.armor_forge_1"));
+            tooltip.add(Text.translatable("tooltip.snailspeed.guide.armor_forge_2"));
         }
 
         super.appendTooltip(stack, context, tooltip, type);

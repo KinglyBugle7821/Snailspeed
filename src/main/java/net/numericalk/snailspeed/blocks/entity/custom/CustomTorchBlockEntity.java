@@ -17,7 +17,7 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class CustomTorchBlockEntity extends BlockEntity {
-    private final float fireDegradeTimeFinal = 20f * 60f * 30f;
+    public final float fireDegradeTimeFinal = 20f * 60f * 30f;
     private float fireDegradeTime = fireDegradeTimeFinal;
 
     public CustomTorchBlockEntity(BlockPos pos, BlockState state) {
@@ -25,14 +25,21 @@ public class CustomTorchBlockEntity extends BlockEntity {
     }
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        if (fireDegradeTime <= 0){
-            world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_ASH));
+        if (state.get(CustomTorchBlock.LIT) == CustomTorchBlock.LIT_LIT){
+            if (fireDegradeTime <= 0){
+                world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_ASH));
+                setFireDegradeTime(fireDegradeTimeFinal);
+            } else {
+                fireDegradeTime--;
+            }
+            if ((world1.isRaining() || world1.isThundering()) && world1.isSkyVisible(pos)){
+                world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
+                setFireDegradeTime(fireDegradeTimeFinal);
+            }
         }
-        fireDegradeTime--;
-        if ((world1.isRaining() || world1.isThundering()) && world1.isSkyVisible(pos)){
-            world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
-            setFireDegradeTime(fireDegradeTimeFinal);
-        }
+    }
+    public void setFireDegradeTime(int fireDegradeTime){
+        this.fireDegradeTime = fireDegradeTime;
     }
 
     public void calculateAddedFireTime() {

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "snailspeed:block/weapon_forge"},
+    "facing=south": { "model": "snailspeed:block/weapon_forge", "y": 180 },
+    "facing=west":  { "model": "snailspeed:block/weapon_forge", "y": 270 },
+    "facing=east":  { "model": "snailspeed:block/weapon_forge", "y": 90 }
+  }
+}

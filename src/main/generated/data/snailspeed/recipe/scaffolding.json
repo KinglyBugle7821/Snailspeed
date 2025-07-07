@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:bamboo",
+    "F": "snailspeed:fiber_filter"
+  },
+  "pattern": [
+    "FF",
+    "BB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:scaffolding"
+  }
+}

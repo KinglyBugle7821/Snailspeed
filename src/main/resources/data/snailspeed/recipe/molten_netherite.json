@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:gold_ingot",
+  "input2": "minecraft:gold_ingot",
+  "input3": "minecraft:ancient_debris",
+  "input4": "minecraft:ancient_debris",
+  "input5": "minecraft:ancient_debris",
+
+  "output": {
+    "id": "snailspeed:molten_netherite"
+  }
+}

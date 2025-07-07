@@ -28,6 +28,7 @@ public class SnailspeedClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.DRIED_CLAY_MOLD, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.FIRED_CLAY_MOLD, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.SAW_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SnailBlocks.LANTERN, RenderLayer.getCutout());
 
         BlockEntityRendererFactories.register(SnailBlockEntities.CAMPFIRE, CampfireBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(SnailBlockEntities.BRICK_OVEN, BrickOvenBlockEntityRenderer::new);

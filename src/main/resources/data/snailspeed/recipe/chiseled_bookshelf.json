@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "#minecraft:wooden_slabs",
+  "additionalInput": "minecraft:book",
+
+  "planks": {
+    "id": "minecraft:chiseled_bookshelf"
+  }
+}

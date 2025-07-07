@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "snailspeed:fishing_line",
+    "S": "snailspeed:long_stick"
+  },
+  "pattern": [
+    "S#",
+    " #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:fishing_rod"
+  }
+}

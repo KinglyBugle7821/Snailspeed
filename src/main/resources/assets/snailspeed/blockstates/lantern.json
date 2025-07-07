@@ -1,0 +1,60 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_unlit"
+      },
+      "when": {
+        "hanging": false,
+        "lit": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_hanging_unlit"
+      },
+      "when": {
+        "hanging": true,
+        "lit": 0
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_lit"
+      },
+      "when": {
+        "hanging": false,
+        "lit": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_hanging_lit"
+      },
+      "when": {
+        "hanging": true,
+        "lit": 1
+      }
+    },
+
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_ash"
+      },
+      "when": {
+        "hanging": false,
+        "lit": 2
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/lantern_hanging_ash"
+      },
+      "when": {
+        "hanging": true,
+        "lit": 2
+      }
+    }
+  ]
+}

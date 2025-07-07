@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "minecraft:flint",
+  "inputAdditional": "snailspeed:long_stick",
+  "inputGlue": "#snailspeed:glues",
+
+  "arrow": {
+    "id": "minecraft:arrow"
+  }
+}

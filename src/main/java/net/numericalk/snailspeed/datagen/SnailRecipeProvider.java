@@ -129,6 +129,25 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                     { Items.RED_STAINED_GLASS, Items.RED_STAINED_GLASS_PANE },
                     { Items.BLACK_STAINED_GLASS, Items.BLACK_STAINED_GLASS_PANE }
             };
+            final Item[][] concretePowderColoring = {
+                    { Items.WHITE_DYE, Items.WHITE_CONCRETE_POWDER },
+                    { Items.ORANGE_DYE, Items.ORANGE_CONCRETE_POWDER },
+                    { Items.MAGENTA_DYE, Items.MAGENTA_CONCRETE_POWDER },
+                    { Items.LIGHT_BLUE_DYE, Items.LIGHT_BLUE_CONCRETE_POWDER },
+                    { Items.YELLOW_DYE, Items.YELLOW_CONCRETE_POWDER },
+                    { Items.LIME_DYE, Items.LIME_CONCRETE_POWDER },
+                    { Items.PINK_DYE, Items.PINK_CONCRETE_POWDER },
+                    { Items.GRAY_DYE, Items.GRAY_CONCRETE_POWDER },
+                    { Items.LIGHT_GRAY_DYE, Items.LIGHT_GRAY_CONCRETE_POWDER },
+                    { Items.CYAN_DYE, Items.CYAN_CONCRETE_POWDER },
+                    { Items.PURPLE_DYE, Items.PURPLE_CONCRETE_POWDER },
+                    { Items.BLUE_DYE, Items.BLUE_CONCRETE_POWDER },
+                    { Items.BROWN_DYE, Items.BROWN_CONCRETE_POWDER },
+                    { Items.GREEN_DYE, Items.GREEN_CONCRETE_POWDER },
+                    { Items.RED_DYE, Items.RED_CONCRETE_POWDER },
+                    { Items.BLACK_DYE, Items.BLACK_CONCRETE_POWDER }
+            };
+
 
             @Override
             public void generate() {
@@ -361,12 +380,21 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(SnailItems.COPPER_NUGGET), conditionsFromItem(SnailItems.COPPER_NUGGET))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, SnailItems.CHAIN_LINKS, 2)
-                        .pattern("$#")
-                        .pattern("#$")
-                        .input('#', Items.IRON_INGOT)
+                createShaped(RecipeCategory.MISC, Items.CHAIN, 2)
+                        .pattern("$T")
+                        .pattern("T$")
                         .input('$', Items.IRON_NUGGET)
-                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .input('T', SnailItems.TIN_NUGGET)
+                        .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailBlocks.LANTERN, 1)
+                        .pattern("C#")
+                        .pattern("NN")
+                        .input('#', SnailItems.TORCH)
+                        .input('C', Items.CHAIN)
+                        .input('N', Items.IRON_NUGGET)
+                        .criterion(hasItem(SnailBlocks.TORCH), conditionsFromItem(SnailBlocks.TORCH))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, SnailItems.IRON_BOLT, 2)
@@ -501,6 +529,243 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .pattern(" #")
                         .input('#', Items.STRING)
                         .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, SnailItems.STONE_PLATE, 1)
+                        .pattern("##")
+                        .input('#', Items.STONE)
+                        .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.REPEATER, 1)
+                        .pattern("TT")
+                        .pattern("# ")
+                        .input('#', SnailItems.STONE_PLATE)
+                        .input('T', Items.REDSTONE_TORCH)
+                        .criterion(hasItem(SnailItems.STONE_PLATE), conditionsFromItem(SnailItems.STONE_PLATE))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.COMPARATOR, 1)
+                        .pattern("TQ")
+                        .pattern("PQ")
+                        .input('P', SnailItems.STONE_PLATE)
+                        .input('T', Items.REDSTONE_TORCH)
+                        .input('Q', Items.QUARTZ)
+                        .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.PISTON, 1)
+                        .pattern("TT")
+                        .pattern("RI")
+                        .input('T', ItemTags.WOODEN_TRAPDOORS)
+                        .input('R', Items.REDSTONE)
+                        .input('I', Items.IRON_INGOT)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.STICKY_PISTON, 1)
+                        .input(Items.PISTON)
+                        .input(SnailItemTagsProvider.GLUES)
+                        .criterion(hasItem(Items.PISTON), conditionsFromItem(Items.PISTON))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.DROPPER, 1)
+                        .pattern("PP")
+                        .pattern("RP")
+                        .input('P', SnailItems.STONE_PLATE)
+                        .input('R', Items.REDSTONE)
+                        .criterion(hasItem(SnailItems.STONE_PLATE), conditionsFromItem(SnailItems.STONE_PLATE))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.DISPENSER, 1)
+                        .input(Items.DROPPER)
+                        .input(Items.BOW)
+                        .criterion(hasItem(Items.DROPPER), conditionsFromItem(Items.DROPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.REDSTONE_LAMP, 1)
+                        .pattern("PG")
+                        .pattern("RP")
+                        .input('P', SnailItems.STONE_PLATE)
+                        .input('R', Items.REDSTONE)
+                        .input('G', Items.GLOWSTONE)
+                        .criterion(hasItem(Items.GLOWSTONE), conditionsFromItem(Items.GLOWSTONE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.COMPASS, 1)
+                        .pattern("PT")
+                        .pattern("RI")
+                        .input('P', SnailItems.STONE_PLATE)
+                        .input('R', Items.REDSTONE)
+                        .input('T', SnailItems.TIN_INGOT)
+                        .input('I', Items.IRON_INGOT)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.CLOCK, 1)
+                        .pattern("PT")
+                        .pattern("RG")
+                        .input('P', SnailItems.STONE_PLATE)
+                        .input('R', Items.REDSTONE)
+                        .input('T', SnailItems.TIN_INGOT)
+                        .input('G', Items.GOLD_INGOT)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.CARTOGRAPHY_TABLE, 1)
+                        .pattern("PP")
+                        .pattern("LL")
+                        .input('P', Items.PAPER)
+                        .input('L', ItemTags.LOGS)
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.FLETCHING_TABLE, 1)
+                        .pattern("FF")
+                        .pattern("LL")
+                        .input('F', Items.FLINT)
+                        .input('L', ItemTags.LOGS)
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.CAULDRON, 1)
+                        .pattern("TT")
+                        .pattern("LL")
+                        .input('T', SnailItems.TIN_INGOT)
+                        .input('L', SnailItems.STONE_PLATE)
+                        .criterion(hasItem(SnailItems.STONE_PLATE), conditionsFromItem(SnailItems.STONE_PLATE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.BAMBOO_BLOCK, 1)
+                        .pattern("BB")
+                        .pattern("BB")
+                        .input('B', Items.BAMBOO)
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.SCAFFOLDING, 1)
+                        .pattern("FF")
+                        .pattern("BB")
+                        .input('F', SnailItems.FIBER_FILTER)
+                        .input('B', Items.BAMBOO)
+                        .criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.PAINTING, 1)
+                        .pattern("PW")
+                        .pattern("WP")
+                        .input('W', ItemTags.WOOL)
+                        .input('P', ItemTags.PLANKS)
+                        .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.ITEM_FRAME, 1)
+                        .pattern("PL")
+                        .pattern("LP")
+                        .input('L', Items.LEATHER)
+                        .input('P', ItemTags.PLANKS)
+                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.ENDER_CHEST, 1)
+                        .pattern("OO")
+                        .pattern("EC")
+                        .input('O', Items.OBSIDIAN)
+                        .input('E', Items.ENDER_EYE)
+                        .input('C', Items.CHEST)
+                        .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.COPPER_BULB, 2)
+                        .pattern("RB")
+                        .pattern("CC")
+                        .input('R', Items.REDSTONE_BLOCK)
+                        .input('B', Items.BLAZE_ROD)
+                        .input('C', Items.COPPER_BLOCK)
+                        .criterion(hasItem(Items.COPPER_BLOCK), conditionsFromItem(Items.COPPER_BLOCK))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.EXPOSED_COPPER_BULB, 2)
+                        .pattern("RB")
+                        .pattern("CC")
+                        .input('R', Items.REDSTONE_BLOCK)
+                        .input('B', Items.BLAZE_ROD)
+                        .input('C', Items.EXPOSED_COPPER)
+                        .criterion(hasItem(Items.EXPOSED_COPPER), conditionsFromItem(Items.EXPOSED_COPPER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.WEATHERED_COPPER_BULB, 2)
+                        .pattern("RB")
+                        .pattern("CC")
+                        .input('R', Items.REDSTONE_BLOCK)
+                        .input('B', Items.BLAZE_ROD)
+                        .input('C', Items.WEATHERED_COPPER)
+                        .criterion(hasItem(Items.WEATHERED_COPPER), conditionsFromItem(Items.WEATHERED_COPPER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.OXIDIZED_COPPER_BULB, 2)
+                        .pattern("RB")
+                        .pattern("CC")
+                        .input('R', Items.REDSTONE_BLOCK)
+                        .input('B', Items.BLAZE_ROD)
+                        .input('C', Items.OXIDIZED_COPPER)
+                        .criterion(hasItem(Items.OXIDIZED_COPPER), conditionsFromItem(Items.OXIDIZED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.RAIL, 4)
+                        .pattern("RL")
+                        .pattern("RL")
+                        .input('R', SnailItems.RAIL_TRACK)
+                        .input('L', SnailItems.LONG_STICK)
+                        .criterion(hasItem(SnailItems.RAIL_TRACK), conditionsFromItem(SnailItems.RAIL_TRACK))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.POWERED_RAIL, 2)
+                        .pattern("RG")
+                        .pattern("##")
+                        .input('R', Items.RAIL)
+                        .input('G', Items.GOLD_INGOT)
+                        .input('#', Items.REDSTONE)
+                        .criterion(hasItem(Items.RAIL), conditionsFromItem(Items.RAIL))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.ACTIVATOR_RAIL, 2)
+                        .pattern("RP")
+                        .pattern("##")
+                        .input('R', Items.RAIL)
+                        .input('#', Items.REDSTONE_TORCH)
+                        .input('P', Items.STONE_PRESSURE_PLATE)
+                        .criterion(hasItem(Items.RAIL), conditionsFromItem(Items.RAIL))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.DETECTOR_RAIL, 2)
+                        .pattern("RP")
+                        .input('R', Items.POWERED_RAIL)
+                        .input('P', Items.STONE_PRESSURE_PLATE)
+                        .criterion(hasItem(Items.RAIL), conditionsFromItem(Items.RAIL))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.MINECART)
+                        .pattern("II")
+                        .pattern("SS")
+                        .input('I', SnailItems.IRON_PLATE)
+                        .input('S', SnailItems.STONE_PLATE)
+                        .criterion(hasItem(SnailItems.IRON_PLATE), conditionsFromItem(SnailItems.IRON_PLATE))
+                        .offerTo(exporter);
+                for (Item[] blocks : concretePowderColoring){
+                    Item dye = blocks[0];
+                    Item concrete_powder = blocks[1];
+
+                    createShaped(RecipeCategory.MISC, concrete_powder, 2)
+                            .pattern("GG")
+                            .pattern("SD")
+                            .input('G', Items.GRAVEL)
+                            .input('S', Items.SAND)
+                            .input('D', dye)
+                            .criterion(hasItem(Items.SAND), conditionsFromItem(Items.SAND))
+                            .offerTo(exporter);
+                }
+
+                createShaped(RecipeCategory.MISC, Items.LEAD, 1)
+                        .pattern("SS")
+                        .pattern("SG")
+                        .input('G', SnailItemTagsProvider.GLUES)
+                        .input('S', Items.STRING)
+                        .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.LODESTONE, 3)
+                        .input(Items.NETHERITE_INGOT)
+                        .input(Items.CHISELED_STONE_BRICKS)
+                        .input(Items.CHISELED_STONE_BRICKS)
+                        .input(Items.CHISELED_STONE_BRICKS)
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .offerTo(exporter);
             }
         };

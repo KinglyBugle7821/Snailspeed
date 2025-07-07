@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "snailspeed:stone_plate",
+    "T": "minecraft:redstone_torch"
+  },
+  "pattern": [
+    "TT",
+    "# "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:repeater"
+  }
+}

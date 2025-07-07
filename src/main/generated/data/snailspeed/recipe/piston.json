@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone",
+    "T": "#minecraft:wooden_trapdoors"
+  },
+  "pattern": [
+    "TT",
+    "RI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:piston"
+  }
+}

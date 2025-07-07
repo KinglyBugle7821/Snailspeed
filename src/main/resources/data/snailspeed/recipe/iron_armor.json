@@ -2,7 +2,7 @@
   "type": "snailspeed:armor_forge",
 
   "inputPlate": "snailspeed:iron_plate",
-  "inputBinding": "snailspeed:chain_links",
+  "inputBinding": "minecraft:chain",
   "inputFastener": "snailspeed:iron_bolt",
   "inputTool": "snailspeed:iron_hammer",
 

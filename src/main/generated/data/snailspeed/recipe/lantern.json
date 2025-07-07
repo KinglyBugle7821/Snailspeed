@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "snailspeed:torch",
+    "C": "minecraft:chain",
+    "N": "minecraft:iron_nugget"
+  },
+  "pattern": [
+    "C#",
+    "NN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:lantern"
+  }
+}

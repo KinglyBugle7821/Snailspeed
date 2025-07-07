@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:chain",
+  "input2": "minecraft:chain",
+  "input3": "minecraft:chain",
+  "input4": "minecraft:chain",
+  "input5": "minecraft:chain",
+
+  "output": {
+    "id": "minecraft:iron_bars"
+  }
+}

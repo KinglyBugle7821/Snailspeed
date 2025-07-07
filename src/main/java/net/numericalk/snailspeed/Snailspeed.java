@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.network.packet.CustomPayload;
+import net.minecraft.recipe.SmithingRecipe;
+import net.minecraft.recipe.SmithingTrimRecipe;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;

@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:obsidian",
+  "input2": "minecraft:obsidian",
+  "input3": "minecraft:nether_star",
+  "input4": "minecraft:glass",
+  "input5": "minecraft:glass",
+
+  "output": {
+    "id": "minecraft:beacon"
+  }
+}

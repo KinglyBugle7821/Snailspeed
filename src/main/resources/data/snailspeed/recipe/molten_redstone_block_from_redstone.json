@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:redstone",
+  "input2": "minecraft:redstone",
+  "input3": "minecraft:redstone",
+  "input4": "minecraft:redstone",
+  "input5": "minecraft:redstone",
+
+  "output": {
+    "id": "snailspeed:molten_redstone_block"
+  }
+}

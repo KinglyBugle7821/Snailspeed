@@ -76,6 +76,7 @@ public class SnailItems {
     public static final Item MOLTEN_TIN = register("molten_tin", MoltenItem::new);
     public static final Item MOLTEN_BRONZE = register("molten_bronze", MoltenItem::new);
     public static final Item MOLTEN_STEEL = register("molten_steel", MoltenItem::new);
+    public static final Item MOLTEN_NETHERITE = register("molten_netherite", MoltenItem::new);
 
     public static final Item MOLTEN_COPPER_BLOCK = register("molten_copper_block", MoltenItem::new);
     public static final Item MOLTEN_IRON_BLOCK = register("molten_iron_block", MoltenItem::new);
@@ -83,11 +84,16 @@ public class SnailItems {
     public static final Item MOLTEN_TIN_BLOCK = register("molten_tin_block", MoltenItem::new);
     public static final Item MOLTEN_BRONZE_BLOCK = register("molten_bronze_block", MoltenItem::new);
     public static final Item MOLTEN_STEEL_BLOCK = register("molten_steel_block", MoltenItem::new);
+    public static final Item MOLTEN_REDSTONE_BLOCK = register("molten_redstone_block", MoltenItem::new);
+    public static final Item MOLTEN_LAPIS_BLOCK = register("molten_lapis_block", MoltenItem::new);
+    public static final Item MOLTEN_NETHERITE_BLOCK = register("molten_netherite_block", MoltenItem::new);
 
     public static final Item MOLTEN_GLASS = register("molten_glass", MoltenItem::new);
     public static final Item MOLTEN_STONE = register("molten_stone", MoltenItem::new);
     public static final Item MOLTEN_SMOOTH_STONE = register("molten_smooth_stone", MoltenItem::new);
     public static final Item MOLTEN_DEEPSLATE = register("molten_deepslate", MoltenItem::new);
+    public static final Item MOLTEN_SMOOTH_QUARTZ_BLOCK = register("molten_smooth_quartz_block", MoltenItem::new);
+
 
     public static final Item FURNACE_LID = register("furnace_lid", FurnaceLidItem::new);
 
@@ -212,7 +218,6 @@ public class SnailItems {
     public static final Item COPPER_RIVET = register("copper_rivet", Item::new);
     public static final Item LEATHER_STRIP = register("leather_strip", Item::new);
 
-    public static final Item CHAIN_LINKS = register("chain_links", Item::new);
     public static final Item IRON_BOLT = register("iron_bolt", Item::new);
 
     public static final Item FORGE_PLATE = register("forge_plate", ForgePlateBaseItem::new);
@@ -236,11 +241,14 @@ public class SnailItems {
     public static final Item ROUGH_RED_WOOL = register("rough_red_wool", Item::new);
     public static final Item ROUGH_BLACK_WOOL = register("rough_black_wool", Item::new);
 
-    public static final Item FISHING_LINE = register("fishing_ling", Item::new);
+    public static final Item FISHING_LINE = register("fishing_line", Item::new);
 
     public static final Item BRONZE_BLOCK = SnailBlocks.BRONZE_BLOCK.asItem();
     public static final Item STEEL_BLOCK = SnailBlocks.STEEL_BLOCK.asItem();
     public static final Item TIN_BLOCK = SnailBlocks.TIN_BLOCK.asItem();
+
+    public static final Item STONE_PLATE = register("stone_plate", Item::new);
+    public static final Item RAIL_TRACK = register("rail_track", Item::new);
 
     public static final Item TORCH = register(
             SnailBlocks.TORCH,

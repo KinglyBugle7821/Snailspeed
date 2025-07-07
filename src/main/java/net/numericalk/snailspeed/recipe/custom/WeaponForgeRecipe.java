@@ -2,13 +2,17 @@ package net.numericalk.snailspeed.recipe.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeBookCategories;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
@@ -48,6 +52,9 @@ public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional
         if (world.isClient()) {
             return false;
         }
+        if (input.getStackInSlot(1).isOf(Items.LINGERING_POTION) && input.getStackInSlot(0).isOf(Items.ARROW)){
+            return true;
+        }
         return inputHead.test(input.getStackInSlot(0)) &&
                 inputAdditional.test(input.getStackInSlot(1)) &&
                 inputGlue.test(input.getStackInSlot(2));
@@ -66,7 +73,6 @@ public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional
             case ARROW -> arrow.copy();
         };
     }
-
     @Override
     public RecipeSerializer<? extends Recipe<WeaponForgeRecipeInput>> getSerializer() {
         return SnailRecipe.WEAPON_FORGE_RECIPE_SERIALIZER;

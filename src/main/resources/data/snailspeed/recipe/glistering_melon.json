@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:gold_nugget",
+  "input2": "minecraft:gold_nugget",
+  "input3": "minecraft:melon_slice",
+  "input4": "minecraft:gold_nugget",
+  "input5": "minecraft:gold_nugget",
+
+  "output": {
+    "id": "minecraft:glistering_melon_slice"
+  }
+}

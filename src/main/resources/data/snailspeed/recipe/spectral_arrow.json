@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "minecraft:arrow",
+  "inputAdditional": "minecraft:glowstone_dust",
+  "inputGlue": "#snailspeed:glues",
+
+  "arrow": {
+    "id": "minecraft:spectral_arrow"
+  }
+}

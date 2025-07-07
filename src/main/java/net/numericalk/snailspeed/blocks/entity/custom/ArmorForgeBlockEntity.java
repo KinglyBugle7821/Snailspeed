@@ -13,9 +13,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.ServerRecipeManager;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.input.SmithingRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -87,36 +86,73 @@ public class ArmorForgeBlockEntity extends BlockEntity implements ExtendedScreen
 
     public void tick(World world, BlockPos pos, BlockState state) {
         boolean hasRecipe = hasRecipe();
-        if (hasRecipe) {
+        if (hasTrimRecipe((ServerWorld) world)) {
+            applyTrim((ServerWorld) world);
+        } else if (hasRecipe) {
             tryToCreateArmor();
         } else {
-            ItemStack stack = getStack(OUTPUT);
-            Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
+            cleanOutputSlot();
+        }
+    }
+    private boolean hasTrimRecipe(ServerWorld serverWorld) {
+        ItemStack template = inventory.get(BINDING_SLOT);
+        ItemStack armor = inventory.get(PLATE_SLOT);
+        ItemStack material = inventory.get(FASTENER_SLOT);
 
-            if (recipe.isEmpty()) {
-                setStack(OUTPUT, ItemStack.EMPTY);
-                return;
+        SmithingRecipeInput input = new SmithingRecipeInput(template, armor, material);
+
+        Optional<RecipeEntry<SmithingRecipe>> match = serverWorld.getRecipeManager()
+                .getFirstMatch(RecipeType.SMITHING, input, serverWorld);
+
+        return match.filter(recipe -> recipe.value() instanceof SmithingTrimRecipe).isPresent();
+    }
+
+    private void applyTrim(ServerWorld serverWorld) {
+        ItemStack template = inventory.get(BINDING_SLOT);
+        ItemStack armor = inventory.get(PLATE_SLOT);
+        ItemStack material = inventory.get(FASTENER_SLOT);
+
+        SmithingRecipeInput input = new SmithingRecipeInput(template, armor, material);
+
+        Optional<RecipeEntry<SmithingRecipe>> match = serverWorld.getRecipeManager()
+                .getFirstMatch(RecipeType.SMITHING, input, serverWorld);
+
+        if (match.isPresent() && match.get().value() instanceof SmithingTrimRecipe trimRecipe) {
+            ItemStack result = trimRecipe.craft(input, serverWorld.getRegistryManager());
+
+            inventory.set(OUTPUT, result);
+            markDirty();
+        }
+    }
+
+
+    private void cleanOutputSlot() {
+        ItemStack stack = getStack(OUTPUT);
+        Optional<RecipeEntry<ArmorForgeRecipe>> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            setStack(OUTPUT, ItemStack.EMPTY);
+            return;
+        }
+        switch (selected){
+            case HELMET -> {
+                if (!stack.isOf(recipe.get().value().outputHelmet().getItem())){
+                    removeStack(OUTPUT);
+                }
             }
-            switch (selected){
-                case HELMET -> {
-                    if (!stack.isOf(recipe.get().value().outputHelmet().getItem())){
-                        removeStack(OUTPUT);
-                    }
+            case CHESTPLATE -> {
+                if (!stack.isOf(recipe.get().value().outputChestplate().getItem())){
+                    removeStack(OUTPUT);
                 }
-                case CHESTPLATE -> {
-                    if (!stack.isOf(recipe.get().value().outputChestplate().getItem())){
-                        removeStack(OUTPUT);
-                    }
+            }
+            case LEGGINGS -> {
+                if (!stack.isOf(recipe.get().value().outputLeggings().getItem())){
+                    removeStack(OUTPUT);
                 }
-                case LEGGINGS -> {
-                    if (!stack.isOf(recipe.get().value().outputLeggings().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case BOOTS -> {
-                    if (!stack.isOf(recipe.get().value().outputBoots().getItem())){
-                        removeStack(OUTPUT);
-                    }
+            }
+            case BOOTS -> {
+                if (!stack.isOf(recipe.get().value().outputBoots().getItem())){
+                    removeStack(OUTPUT);
                 }
             }
         }

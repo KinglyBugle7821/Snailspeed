@@ -56,6 +56,6 @@ public class SnailspeedREIClient implements REIClientPlugin {
 
         registry.registerClickArea(screen -> new Rectangle(((screen.width - 176) / 2) + 67,
                         ((screen.height - 166) / 2) + 36, 22, 15), WeaponForgeScreen.class,
-                SnailRecipeCategories.SAW_TABLE);
+                SnailRecipeCategories.WEAPON_FORGE);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:piston",
+    "#snailspeed:glues"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sticky_piston"
+  }
+}

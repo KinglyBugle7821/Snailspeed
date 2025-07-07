@@ -37,7 +37,9 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
+import net.numericalk.snailspeed.blocks.entity.custom.CustomLanternBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.custom.CustomTorchBlockEntity;
+import net.numericalk.snailspeed.blocks.entity.custom.CustomWallTorchBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
@@ -83,6 +85,24 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
                 || canLitTorchWith(SnailItems.BURNING_TINDER, stack, state, world, pos)) {
             litTorchWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
+        }
+
+        if (state.get(LIT) == LIT_ASH && stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
+            if (world.getBlockEntity(pos) instanceof CustomTorchBlockEntity customTorchBlockEntity){
+                world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
+                customTorchBlockEntity.setFireDegradeTime(customTorchBlockEntity.fireDegradeTimeFinal);
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
+                return ActionResult.SUCCESS;
+            } else if (world.getBlockEntity(pos) instanceof CustomWallTorchBlockEntity customWallTorchBlockEntity){
+                world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
+                customWallTorchBlockEntity.setFireDegradeTime(customWallTorchBlockEntity.fireDegradeTimeFinal);
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
+                return ActionResult.SUCCESS;
+            }
         }
 
         if (canFeedFire(stack, state, player, pos, world)) {
@@ -159,8 +179,7 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
                     dropItem(world, pos, Items.COAL, 1);
                     dropItem(world, pos, Items.STICK, 1);
                 }
-                case LIT_LIT -> dropItem(world, pos, Items.STICK, 1);
-                case LIT_ASH -> dropItem(world, pos, Items.CHARCOAL, 1);
+                case LIT_LIT, LIT_ASH -> dropItem(world, pos, Items.STICK, 1);
             }
             super.onBroken(world, pos, state);
         }

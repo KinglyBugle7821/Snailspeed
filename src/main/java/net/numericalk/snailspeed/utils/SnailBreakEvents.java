@@ -305,6 +305,8 @@ public class SnailBreakEvents {
             turnBlockTo(Blocks.DEEPSLATE, pos, state, world);
         } else if (state.isOf(Blocks.NETHER_GOLD_ORE)) {
             turnBlockTo(Blocks.NETHERRACK, pos, state, world);
+        } else if (state.isOf(Blocks.NETHER_QUARTZ_ORE)) {
+            turnBlockTo(Blocks.NETHERRACK, pos, state, world);
         }
     }
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "snailspeed:stone_plate",
+    "Q": "minecraft:quartz",
+    "T": "minecraft:redstone_torch"
+  },
+  "pattern": [
+    "TQ",
+    "PQ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:comparator"
+  }
+}

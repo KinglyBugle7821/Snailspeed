@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:quartz",
+  "input2": "minecraft:quartz",
+  "input3": "minecraft:quartz",
+  "input4": "minecraft:quartz",
+  "input5": "minecraft:quartz",
+
+  "output": {
+    "id": "snailspeed:molten_smooth_quartz"
+  }
+}

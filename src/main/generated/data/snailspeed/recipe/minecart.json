@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "snailspeed:iron_plate",
+    "S": "snailspeed:stone_plate"
+  },
+  "pattern": [
+    "II",
+    "SS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:minecart"
+  }
+}

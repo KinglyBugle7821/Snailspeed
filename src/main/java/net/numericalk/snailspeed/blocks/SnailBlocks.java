@@ -387,7 +387,8 @@ public class SnailBlocks {
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             properties -> new Block(properties.mapColor(MapColor.TERRACOTTA_WHITE)
                     .strength(4.5F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL)));
-
+    public static final Block LANTERN = registerBlock("lantern",
+            properties -> new CustomLanternBlock(properties.mapColor(MapColor.IRON_GRAY).solid().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(CustomLanternBlock::getLuminance).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TORCH = registerTorch(
             "torch",
             settings -> new CustomTorchBlock(ParticleTypes.FLAME, settings.noCollision().breakInstantly().luminance(CustomTorchBlock::getLuminance).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)),

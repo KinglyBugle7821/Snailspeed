@@ -130,7 +130,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements ImplementedI
 
         if (output.isIn(SnailItemTagsProvider.MOLTEN_ITEMS)){
             for (int i = 0; i <= INPUT_5; i++){
-                this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+                this.setStack(i, new ItemStack(output.getItem(), 1));
                 markDirty();
                 world.updateListeners(pos, getCachedState(), getCachedState(), 3);
             }

@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:getting_upgrade",
+  "criteria": {
+    "got_armor_forge": {
+      "trigger": "snailspeed:getting_armor_forge"
+    }
+  },
+  "display": {
+    "description": "Build An Armor Forge By Using Forge Plate On A Stripped Log",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:armor_forge"
+    },
+    "title": "Mom, I'm Going To War"
+  },
+  "requirements": [
+    [
+      "got_armor_forge"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -16,7 +16,7 @@ a438423c6121ce46a5e9f2d8a149a8806ee86d09 data/snailspeed/tags/item/fasteners.jso
 4333e5b0d3c082c5e91baec1955d1a9d418dc318 data/snailspeed/tags/item/flint_flake_repairable.json
 b825ab078c817c9002707bca1305f1cabba5584b data/snailspeed/tags/item/glass.json
 0a20218273c87ee1535047a6594e5e7e7faaa512 data/snailspeed/tags/item/glass_panes.json
-45ee8816c161791d833dd8559bef514d13d1e595 data/snailspeed/tags/item/glues.json
+e1b5f7df25d573146a781e2d0d44e841949ce5d6 data/snailspeed/tags/item/glues.json
 1cbea43c9e7d287ab99e406658fa525270582612 data/snailspeed/tags/item/graphite_mold.json
 989b827197b796662cafb8f524f68ff60cb4da8d data/snailspeed/tags/item/hammers.json
 f6f96ed27fdbc56f99a8be3e9b5b53da09842a90 data/snailspeed/tags/item/high_molten_items.json
@@ -24,7 +24,7 @@ f6f96ed27fdbc56f99a8be3e9b5b53da09842a90 data/snailspeed/tags/item/high_molten_i
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json
 75a089e3aa2e0448de8c4ac6f44f0dbb8f720cb5 data/snailspeed/tags/item/log_barks_that_burn.json
 4ff748556287e3d84cacde92f8592869cf8425ea data/snailspeed/tags/item/mold.json
-e65addc5c83b53083799e3c2f90a166a104ad946 data/snailspeed/tags/item/molten_items.json
+1eb883f1b01df567570d76573dceaa83a22de9dc data/snailspeed/tags/item/molten_items.json
 025fdcd405c7a8f2c5361c63e49f32cc52dc27c8 data/snailspeed/tags/item/netherite_tools.json
 626dd1b62fbe57cc60e739ec16ce6c7a5f8e034d data/snailspeed/tags/item/oven_fuel.json
 6cd3038da8f9a1882ae571da8eabce69702d826d data/snailspeed/tags/item/plates.json

@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:brick_furnace",
+
+  "input1": "minecraft:clay_ball",
+  "input2": "minecraft:clay_ball",
+  "input3": "minecraft:clay_ball",
+  "input4": "minecraft:clay_ball",
+  "input5": "minecraft:clay_ball",
+
+  "output": {
+    "id": "snailspeed:molten_terracotta"
+  }
+}

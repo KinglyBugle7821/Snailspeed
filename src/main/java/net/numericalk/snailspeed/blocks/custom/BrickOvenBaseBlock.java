@@ -17,6 +17,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -26,6 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
+import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -220,7 +222,26 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
             default -> SHAPE_FULL;
         };
     }
-
+    @Override
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            switch (state.get(STAGES)) {
+                case 1 -> dropItem(world, pos, Items.BRICK, 1);
+                case 2 -> dropItem(world, pos, Items.BRICK, 2);
+                case 3 -> dropItem(world, pos, Items.BRICK, 3);
+                case 4 -> dropItem(world, pos, Items.BRICK, 4);
+                case 5 -> dropItem(world, pos, Items.BRICK, 5);
+                case 6 -> dropItem(world, pos, Items.BRICK, 6);
+                default -> dropItem(world, pos, SnailItems.AIR, 1);
+            }
+        }
+        super.onStateReplaced(state, world, pos, newState, moved);
+    }
+    private void dropItem(World world, BlockPos pos, Item item, int count) {
+        for (int i = 0; i < count; i++) {
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), item.getDefaultStack());
+        }
+    }
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
         return CODEC;

@@ -185,8 +185,8 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.BRICK_OVEN_BASE);
         addDrop(SnailBlocks.BRICK_FURNACE_BASE);
         addDrop(SnailBlocks.FILTERING_TRAY_BASE);
-        addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN_BASE, Items.BRICK, 4));
-        addDrop(SnailBlocks.BRICK_FURNACE, bundledBlockDrop(SnailBlocks.BRICK_FURNACE_BASE, Items.BRICK, 2));
+        addDrop(SnailBlocks.BRICK_OVEN, bundledBlockDrop(SnailBlocks.BRICK_OVEN_BASE, Items.BRICK, 6));
+        addDrop(SnailBlocks.BRICK_FURNACE, bundledBlockDrop(SnailBlocks.BRICK_FURNACE_BASE, Items.BRICK, 4));
 
         addDrop(SnailBlocks.GRASS_SHEAF);
         addDrop(SnailBlocks.DRIED_GRASS_SHEAF);
@@ -237,6 +237,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.ARMOR_FORGE);
         addDrop(SnailBlocks.SMALL_BARREL);
         addDrop(SnailBlocks.SAW_TABLE);
+        addDrop(SnailBlocks.WEAPON_FORGE);
 
         addDrop(SnailBlocks.BRONZE_BLOCK);
         addDrop(SnailBlocks.TIN_BLOCK);

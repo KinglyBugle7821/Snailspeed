@@ -1,0 +1,39 @@
+{
+  "parent": "snailspeed:getting_armor_forge",
+  "criteria": {
+    "got_steel_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:steel_helmet"
+          },
+          {
+            "items": "snailspeed:steel_chestplate"
+          },
+          {
+            "items": "snailspeed:steel_leggings"
+          },
+          {
+            "items": "snailspeed:steel_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Forge A Steel Armor",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:steel_chestplate"
+    },
+    "title": "Cover Me In Steel"
+  },
+  "requirements": [
+    [
+      "got_steel_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

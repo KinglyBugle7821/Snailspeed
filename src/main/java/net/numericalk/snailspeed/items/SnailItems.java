@@ -93,6 +93,7 @@ public class SnailItems {
     public static final Item MOLTEN_SMOOTH_STONE = register("molten_smooth_stone", MoltenItem::new);
     public static final Item MOLTEN_DEEPSLATE = register("molten_deepslate", MoltenItem::new);
     public static final Item MOLTEN_SMOOTH_QUARTZ_BLOCK = register("molten_smooth_quartz_block", MoltenItem::new);
+    public static final Item MOLTEN_TERRACOTTA = register("molten_terracotta", MoltenItem::new);
 
 
     public static final Item FURNACE_LID = register("furnace_lid", FurnaceLidItem::new);

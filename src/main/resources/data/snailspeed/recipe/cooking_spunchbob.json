@@ -1,0 +1,8 @@
+{
+  "type": "snailspeed:brick_oven_cooking",
+
+  "input": "minecraft:wet_sponge",
+  "output": {
+    "id": "minecraft:sponge"
+  }
+}

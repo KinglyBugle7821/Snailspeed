@@ -175,6 +175,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.FIBER_FILTER);
         getOrCreateTagBuilder(GLUES)
                 .add(Items.SLIME_BALL)
+                .add(Items.RESIN_CLUMP)
                 .add(SnailItems.RESIN_BALL);
         getOrCreateTagBuilder(CLAY_MOLD)
                 .add(SnailItems.BLANK_CLAY_MOLD)
@@ -240,7 +241,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_SMOOTH_STONE)
                 .add(SnailItems.MOLTEN_DEEPSLATE)
                 .add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK)
-                .add(SnailItems.MOLTEN_NETHERITE_BLOCK);
+                .add(SnailItems.MOLTEN_NETHERITE_BLOCK)
+                .add(SnailItems.MOLTEN_TERRACOTTA);
         getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_STEEL)

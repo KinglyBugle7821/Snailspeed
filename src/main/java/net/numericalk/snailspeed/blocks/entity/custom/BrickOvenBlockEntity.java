@@ -182,12 +182,12 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
             Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
             ItemStack output = recipe.get().value().output();
 
-            this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+            this.setStack(i, new ItemStack(output.getItem(), 1));
         } else if (hasRecipe(i, isSmelting)){
             Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
             ItemStack output = recipe.get().value().output();
 
-            this.setStack(i, new ItemStack(output.getItem(), this.getStack(i).getCount() + output.getCount()));
+            this.setStack(i, new ItemStack(output.getItem(), 1));
         }
     }
     private void increaseCraftingProgress(int i) {

@@ -7,12 +7,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.datagen.SnailBlockTagsProvider;
 
@@ -34,12 +36,17 @@ public class ForgePlateBaseItem extends Item {
             world.setBlockState(pos, SnailBlocks.ARMOR_FORGE.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);
-
+            if (player instanceof ServerPlayerEntity serverPlayer){
+                SnailCriteria.GETTING_WEAPON_FORGE.trigger(serverPlayer);
+            }
             return ActionResult.SUCCESS;
         } else if (state.isIn(SnailBlockTagsProvider.UNSTRIPPED_LOGS)) {
             world.setBlockState(pos, SnailBlocks.WEAPON_FORGE.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (player instanceof ServerPlayerEntity serverPlayer){
+                SnailCriteria.GETTING_ARMOR_FORGE.trigger(serverPlayer);
+            }
 
             return ActionResult.SUCCESS;
         }

@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:getting_upgrade",
+  "criteria": {
+    "got_stonecutter": {
+      "trigger": "snailspeed:getting_stonecutter"
+    }
+  },
+  "display": {
+    "description": "Build A Stonecutter By Using Circular Saw On A Stone Slab",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:stonecutter"
+    },
+    "title": "Cutting Stone"
+  },
+  "requirements": [
+    [
+      "got_stonecutter"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

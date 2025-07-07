@@ -211,6 +211,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.MOLTEN_DEEPSLATE, "Molten Deepslate");
         translationBuilder.add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, "Molten Smooth Quartz Block");
         translationBuilder.add(SnailItems.MOLTEN_NETHERITE_BLOCK, "Molten Netherite Block");
+        translationBuilder.add(SnailItems.MOLTEN_TERRACOTTA, "Molten Terracotta");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");

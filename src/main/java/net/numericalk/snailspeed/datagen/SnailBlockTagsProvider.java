@@ -395,7 +395,8 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.STICK_BUNDLE)
                 .add(SnailBlocks.ARMOR_FORGE)
                 .add(SnailBlocks.SMALL_BARREL)
-                .add(SnailBlocks.SAW_TABLE);
+                .add(SnailBlocks.SAW_TABLE)
+                .add(SnailBlocks.WEAPON_FORGE);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(SnailBlocks.BRICK_OVEN_BASE)
                 .add(SnailBlocks.BRICK_OVEN)

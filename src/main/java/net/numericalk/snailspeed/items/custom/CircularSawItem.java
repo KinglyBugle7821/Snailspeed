@@ -9,12 +9,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.advancement.SnailCriteria;
+import net.numericalk.snailspeed.advancement.custom.GettingSawCriterion;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 
 import java.util.List;
@@ -36,12 +39,18 @@ public class CircularSawItem extends Item {
             world.setBlockState(pos, SnailBlocks.SAW_TABLE.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (player instanceof ServerPlayerEntity serverPlayer){
+                SnailCriteria.GETTING_SAW.trigger(serverPlayer);
+            }
             return ActionResult.SUCCESS;
         }
         if (state.isOf(Blocks.STONE_SLAB)) {
             world.setBlockState(pos, Blocks.STONECUTTER.getDefaultState());
             stack.decrement(1);
             world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (player instanceof ServerPlayerEntity serverPlayer){
+                SnailCriteria.GETTING_STONECUTTER.trigger(serverPlayer);
+            }
             return ActionResult.SUCCESS;
         }
 

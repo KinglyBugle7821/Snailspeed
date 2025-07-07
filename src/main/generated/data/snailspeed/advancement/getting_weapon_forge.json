@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:getting_upgrade",
+  "criteria": {
+    "got_weapon_forge": {
+      "trigger": "snailspeed:getting_weapon_forge"
+    }
+  },
+  "display": {
+    "description": "Build A Weapon Forge By Using Forge Plate On A Log",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:weapon_forge"
+    },
+    "title": "Standing On Swords"
+  },
+  "requirements": [
+    [
+      "got_weapon_forge"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

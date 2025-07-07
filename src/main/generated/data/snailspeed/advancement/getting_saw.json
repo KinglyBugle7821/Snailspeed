@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:getting_upgrade",
+  "criteria": {
+    "got_saw": {
+      "trigger": "snailspeed:getting_saw"
+    }
+  },
+  "display": {
+    "description": "Build A Saw Table By Using Circular Saw On A Wooden Slab",
+    "icon": {
+      "count": 1,
+      "id": "snailspeed:saw_table"
+    },
+    "title": "Cutting Wood"
+  },
+  "requirements": [
+    [
+      "got_saw"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

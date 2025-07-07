@@ -8,6 +8,6 @@
   "input5": "minecraft:quartz",
 
   "output": {
-    "id": "snailspeed:molten_smooth_quartz"
+    "id": "snailspeed:molten_smooth_quartz_block"
   }
 }

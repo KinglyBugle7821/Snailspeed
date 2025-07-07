@@ -10,7 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -31,10 +34,16 @@ import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.blocks.entity.custom.BrickFurnaceBlockEntity;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickFurnaceRecipeInput;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenCookingRecipe;
+import net.numericalk.snailspeed.recipe.custom.BrickOvenCookingRecipeInput;
 import net.numericalk.snailspeed.utils.SnailMoldType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
@@ -43,8 +52,10 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     public static final BooleanProperty CRUCIBLE = BooleanProperty.of("crucible");
     private static final MapCodec<BrickFurnaceBlock> CODEC = BrickFurnaceBlock.createCodec(BrickFurnaceBlock::new);
 
+    private final ServerRecipeManager.MatchGetter<BrickFurnaceRecipeInput, BrickFurnaceRecipe> matchGetter;
     public BrickFurnaceBlock(Settings settings) {
         super(settings);
+        this.matchGetter = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.BRICK_FURNACE_RECIPE_TYPE);
     }
 
     @Override
@@ -329,7 +340,6 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     private boolean canPutItem(ItemStack stack, BlockState state) {
         return !stack.isEmpty() && state.get(CRUCIBLE).equals(true) && state.get(LID).equals(false);
     }
-
     private boolean canTakeItem(ItemStack stack, BlockState state) {
         return stack.isEmpty() && state.get(LID).equals(false);
     }

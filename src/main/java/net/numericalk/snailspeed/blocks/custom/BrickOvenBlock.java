@@ -75,33 +75,28 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
 
         if (world.getBlockEntity(pos) instanceof BrickOvenBlockEntity brickOvenBlockEntity) {
             if (relativeY > 0.5) {
-                if (canPutItem(stack)) {
-                    for (int i = 0; i < 5; i++) {
-                        if (brickOvenBlockEntity.getStack(i).isEmpty()) {
-                            world.updateListeners(pos, state, state, 0);
-                            brickOvenBlockEntity.setStack(i, stack.copyWithCount(1));
-                            if (!player.isCreative()) {
-                                stack.decrement(1);
-                            }
-                            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                            return ActionResult.SUCCESS;
+                for (int i = 0; i < 5; i++) {
+                    if (canPutItem(stack, brickOvenBlockEntity, i)) {
+                        world.updateListeners(pos, state, state, 0);
+                        brickOvenBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
+                        brickOvenBlockEntity.setStack(i, stack.copyWithCount(1));
+                        if (!player.isCreative()) {
+                            stack.decrement(1);
                         }
-                    }
-                }
-                if (canTakeItem(stack)) {
-                    for (int i = 0; i < 5; i++) {
-                        if (!brickOvenBlockEntity.getStack(i).isEmpty()) {
-                            world.updateListeners(pos, state, state, 0);
-                            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                            player.giveOrDropStack(brickOvenBlockEntity.getStack(i));
-                            brickOvenBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
-                            return ActionResult.SUCCESS;
-                        }
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                        return ActionResult.SUCCESS;
+                    } else if (canTakeItem(stack, brickOvenBlockEntity, i)) {
+                        world.updateListeners(pos, state, state, 0);
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                        player.giveOrDropStack(brickOvenBlockEntity.getStack(i));
+                        brickOvenBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
+                        return ActionResult.SUCCESS;
                     }
                 }
             } else {
                 if (brickOvenBlockEntity.getStack(5).isEmpty() && isFuel(stack)) {
                     world.updateListeners(pos, state, state, 0);
+                    brickOvenBlockEntity.setStack(5, SnailItems.AIR.getDefaultStack());
                     brickOvenBlockEntity.setStack(5, stack.copyWithCount(1));
                     if (!player.isCreative()) {
                         stack.decrement(1);
@@ -151,12 +146,12 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
         return false;
     }
 
-    private boolean canPutItem(ItemStack stack) {
-        return !stack.isEmpty();
+    private boolean canPutItem(ItemStack stack, BrickOvenBlockEntity brickOvenBlockEntity, int i) {
+        return !stack.isEmpty() && brickOvenBlockEntity.getStack(i).isEmpty();
     }
 
-    private boolean canTakeItem(ItemStack stack) {
-        return stack.isEmpty();
+    private boolean canTakeItem(ItemStack stack, BrickOvenBlockEntity be, int i) {
+        return stack.isEmpty() && !be.getStack(i).isEmpty();
     }
 
     private void litOvenWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
@@ -231,7 +226,6 @@ public class BrickOvenBlock extends BlockWithEntity implements BlockEntityProvid
         }
         return 0;
     }
-
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, LIT);

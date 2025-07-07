@@ -767,6 +767,22 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input(Items.CHISELED_STONE_BRICKS)
                         .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.PRISMARINE_BRICKS, 3)
+                        .input(Items.PRISMARINE)
+                        .input(Items.PRISMARINE)
+                        .input(Items.PRISMARINE)
+                        .input(Items.PRISMARINE)
+                        .criterion(hasItem(Items.PRISMARINE), conditionsFromItem(Items.PRISMARINE))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.DARK_PRISMARINE, 2)
+                        .input(Items.PRISMARINE)
+                        .input(Items.PRISMARINE)
+                        .input(Items.PRISMARINE)
+                        .input(Items.BLACK_DYE)
+                        .criterion(hasItem(Items.PRISMARINE), conditionsFromItem(Items.PRISMARINE))
+                        .offerTo(exporter);
             }
         };
     }

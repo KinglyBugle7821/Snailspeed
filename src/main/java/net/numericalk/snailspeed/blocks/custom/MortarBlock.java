@@ -94,35 +94,32 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof MortarBlockEntity mortarBlockEntity) {
-            if (canPutItem(stack)) {
-                if (mortarBlockEntity.getStack(0).isEmpty()) {
-                    mortarBlockEntity.setStack(0, stack.copyWithCount(1));
-                    if (!player.isCreative()) {
-                        stack.decrement(1);
-                    }
-                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-
-                    world.updateListeners(pos, state, state, 0);
-                    return ActionResult.SUCCESS;
-                }
-            }
             if (hasPestle(stack)) {
-                Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
-                if (hasRecipe(mortarBlockEntity)) {
+                if (hasRecipe(mortarBlockEntity)){
+                    Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
                     mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
                     world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
-                }
-
-                return ActionResult.SUCCESS;
-            }
-            if (canTakeItem(stack, state)) {
-                if (!mortarBlockEntity.getStack(0).isEmpty()) {
-                    world.updateListeners(pos, state, state, 0);
-                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                    player.giveOrDropStack(mortarBlockEntity.getStack(0));
-                    mortarBlockEntity.setStack(0, SnailItems.AIR.getDefaultStack());
                     return ActionResult.SUCCESS;
+                } else {
+                    return ActionResult.PASS;
                 }
+            }
+
+            if (canPutItem(stack, mortarBlockEntity)) {
+                mortarBlockEntity.setStack(0, stack.copyWithCount(1));
+                if (!player.isCreative()) {
+                    stack.decrement(1);
+                }
+                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+
+                world.updateListeners(pos, state, state, 0);
+                return ActionResult.SUCCESS;
+            } else if (canTakeItem(mortarBlockEntity)) {
+                world.updateListeners(pos, state, state, 0);
+                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                player.giveOrDropStack(mortarBlockEntity.getStack(0));
+                mortarBlockEntity.setStack(0, SnailItems.AIR.getDefaultStack());
+                return ActionResult.SUCCESS;
             }
         }
 
@@ -157,12 +154,17 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
             {SnailItems.RAW_GRAPHITE, SnailItems.GROUND_GRAPHITE}
     };
 
-    private static boolean canTakeItem(ItemStack stack, BlockState state) {
-        return stack.isEmpty();
+    private static boolean canTakeItem(MortarBlockEntity mortarBlockEntity) {
+        return !mortarBlockEntity.getStack(0).isEmpty();
     }
 
-    private static boolean canPutItem(ItemStack stack) {
-        return !stack.isEmpty();
+    private static boolean canPutItem(ItemStack stack, MortarBlockEntity mortarBlockEntity) {
+        for (Item[] entry : CRUSHING_RECIPE) {
+            if (!stack.isEmpty() && mortarBlockEntity.getStack(0).isEmpty() && stack.isOf(entry[0])){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

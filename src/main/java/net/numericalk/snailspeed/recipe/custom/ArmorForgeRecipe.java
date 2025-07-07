@@ -97,12 +97,11 @@ public record ArmorForgeRecipe(Ingredient inputPlate, Ingredient inputBinding, I
                 Ingredient.CODEC.fieldOf("inputBinding").forGetter(ArmorForgeRecipe::inputBinding),
                 Ingredient.CODEC.fieldOf("inputFastener").forGetter(ArmorForgeRecipe::inputFastener),
                 Ingredient.CODEC.fieldOf("inputTool").forGetter(ArmorForgeRecipe::inputTool),
-                ItemStack.CODEC.fieldOf("outputHelmet").forGetter(ArmorForgeRecipe::outputHelmet),
-                ItemStack.CODEC.fieldOf("outputChestplate").forGetter(ArmorForgeRecipe::outputChestplate),
-                ItemStack.CODEC.fieldOf("outputLeggings").forGetter(ArmorForgeRecipe::outputLeggings),
-                ItemStack.CODEC.fieldOf("outputBoots").forGetter(ArmorForgeRecipe::outputBoots)
+                ItemStack.CODEC.optionalFieldOf("outputHelmet", ItemStack.EMPTY).forGetter(ArmorForgeRecipe::outputHelmet),
+                ItemStack.CODEC.optionalFieldOf("outputChestplate", ItemStack.EMPTY).forGetter(ArmorForgeRecipe::outputChestplate),
+                ItemStack.CODEC.optionalFieldOf("outputLeggings", ItemStack.EMPTY).forGetter(ArmorForgeRecipe::outputLeggings),
+                ItemStack.CODEC.optionalFieldOf("outputBoots", ItemStack.EMPTY).forGetter(ArmorForgeRecipe::outputBoots)
         ).apply(instance, ArmorForgeRecipe::new));
-
         public static final PacketCodec<RegistryByteBuf, ArmorForgeRecipe> PACKET_CODEC =
                 PacketCodec.tuple(
                         Ingredient.PACKET_CODEC, ArmorForgeRecipe::inputPlate,

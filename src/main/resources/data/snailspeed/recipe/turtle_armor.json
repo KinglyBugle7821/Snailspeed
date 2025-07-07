@@ -1,0 +1,12 @@
+{
+  "type": "snailspeed:armor_forge",
+
+  "inputPlate": "minecraft:turtle_scute",
+  "inputBinding": "snailspeed:leather_strip",
+  "inputFastener": "snailspeed:copper_rivet",
+  "inputTool": "snailspeed:copper_hammer",
+
+  "outputHelmet": {
+    "id": "minecraft:turtle_helmet"
+  }
+}

@@ -1,7 +1,12 @@
 package net.numericalk.snailspeed.blocks.entity.custom;
 
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +21,7 @@ import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +29,7 @@ import net.minecraft.world.World;
 import net.numericalk.snailspeed.blocks.custom.BrickOvenBlock;
 import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
+import net.numericalk.snailspeed.compat.custom.BrickOvenSmeltingRecipeDisplay;
 import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
 import net.numericalk.snailspeed.items.SnailItems;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
@@ -44,7 +51,6 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         this.matchGetterCooking = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.BRICK_OVEN_COOKING_RECIPE_TYPE);
         this.matchGetterSmelting = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.BRICK_OVEN_SMELTING_RECIPE_TYPE);
     }
-
     @Override
     public DefaultedList<ItemStack> getItems() {
         return inventory;
@@ -75,7 +81,7 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     private int maxProgress;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             if (this.getStack(i).isOf(SnailItems.AIR)) {
                 this.setStack(i, ItemStack.EMPTY);
             }
@@ -116,20 +122,6 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
                     0.01
             );
         }
-    }
-
-    private Item getCookedItem(Item raw) {
-        for (Item[] entry : COOKING_RECIPES) {
-            if (entry[0] == raw) return entry[1];
-        }
-        return null;
-    }
-
-    private Item getSmeltedItem(Item raw) {
-        for (Item[] entry : SMELTING_RECIPES) {
-            if (entry[0] == raw) return entry[1];
-        }
-        return null;
     }
 
     private void smeltItem(BlockState state, World world1, BlockPos pos, int maxProgress) {
@@ -181,12 +173,13 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         if (hasRecipe(i, !isSmelting)){
             Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
             ItemStack output = recipe.get().value().output();
-
+            this.setStack(i, SnailItems.AIR.getDefaultStack());
             this.setStack(i, new ItemStack(output.getItem(), 1));
         } else if (hasRecipe(i, isSmelting)){
             Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
             ItemStack output = recipe.get().value().output();
 
+            this.setStack(i, SnailItems.AIR.getDefaultStack());
             this.setStack(i, new ItemStack(output.getItem(), 1));
         }
     }

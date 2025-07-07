@@ -7,19 +7,15 @@
   "inputTool": "snailspeed:copper_hammer",
 
   "outputHelmet": {
-    "count": 1,
     "id": "snailspeed:copper_helmet"
   },
   "outputChestplate": {
-    "count": 1,
     "id": "snailspeed:copper_chestplate"
   },
   "outputLeggings": {
-    "count": 1,
     "id": "snailspeed:copper_leggings"
   },
   "outputBoots": {
-    "count": 1,
     "id": "snailspeed:copper_boots"
   }
 }

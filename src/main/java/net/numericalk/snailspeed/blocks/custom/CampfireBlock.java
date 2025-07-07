@@ -232,33 +232,27 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
         }
 
         if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity) {
-            if (canPutItem(stack, state)) {
-                for (int i = 0; i < 3; i++) {
-                    if (campfireBlockEntity.getStack(i).isEmpty()) {
-                        campfireBlockEntity.setStack(i, stack.copyWithCount(1));
-                        if (!player.isCreative()) {
-                            stack.decrement(1);
-                        }
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-
-                        world.updateListeners(pos, state, state, 0);
-
-                        if (stack.isIn(SnailItemTagsProvider.RAW_FOOD) && player instanceof ServerPlayerEntity serverPlayer){
-                            SnailCriteria.CAMPFIRE_COOKING.trigger(serverPlayer);
-                        }
-                        return ActionResult.SUCCESS;
+            for (int i = 0; i < 3; i++) {
+                if (canPutItem(stack, state, campfireBlockEntity, i)) {
+                    campfireBlockEntity.setStack(i, stack.copyWithCount(1));
+                    if (!player.isCreative()) {
+                        stack.decrement(1);
                     }
+                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+
+                    world.updateListeners(pos, state, state, 0);
+
+                    if (stack.isIn(SnailItemTagsProvider.RAW_FOOD) && player instanceof ServerPlayerEntity serverPlayer){
+                        SnailCriteria.CAMPFIRE_COOKING.trigger(serverPlayer);
+                    }
+                    return ActionResult.SUCCESS;
                 }
-            }
-            if (canTakeItem(stack, state)) {
-                for (int i = 0; i < 3; i++) {
-                    if (!campfireBlockEntity.getStack(i).isEmpty()) {
-                        world.updateListeners(pos, state, state, 0);
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-                        player.giveOrDropStack(campfireBlockEntity.getStack(i));
-                        campfireBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
-                        return ActionResult.SUCCESS;
-                    }
+                if (canTakeItem(stack, state, campfireBlockEntity, i)){
+                    world.updateListeners(pos, state, state, 0);
+                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
+                    player.giveOrDropStack(campfireBlockEntity.getStack(i));
+                    campfireBlockEntity.setStack(i, SnailItems.AIR.getDefaultStack());
+                    return ActionResult.SUCCESS;
                 }
             }
         }
@@ -266,24 +260,15 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     public boolean isSkyVisible(World world1, BlockPos pos) {
-        int worldHeight = world1.getHeight();
-
-        for (int y = pos.getY() + 1; y < worldHeight; y++) {
-            BlockPos abovePos = new BlockPos(pos.getX(), y, pos.getZ());
-            if (!world1.isAir(abovePos)) {
-                return false;
-            }
-        }
-
-        return true;
+        return world1.isSkyVisible(pos);
     }
 
-    private boolean canTakeItem(ItemStack stack, BlockState state) {
-        return stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT;
+    private boolean canTakeItem(ItemStack stack, BlockState state, CampfireBlockEntity campfireBlockEntity, int i) {
+        return stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT && !campfireBlockEntity.getStack(i).isEmpty();
     }
 
-    private boolean canPutItem(ItemStack stack, BlockState state) {
-        return !stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT;
+    private boolean canPutItem(ItemStack stack, BlockState state, CampfireBlockEntity campfireBlockEntity, int i) {
+        return !stack.isEmpty() && state.get(COOKING) == COOKING_FULL_SUPPORT &&campfireBlockEntity.getStack(i).isEmpty();
     }
 
     private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {

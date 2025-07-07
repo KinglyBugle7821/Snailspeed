@@ -380,16 +380,18 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.block.resin_bowl", "Place It Behind A Tapped Log To Collect Resin");
         translationBuilder.add("tooltip.snailspeed.block.saw_table", "Used To Craft Wooden Blocks");
         translationBuilder.add("tooltip.snailspeed.block.floating_block", "This Block Can Float");
+        translationBuilder.add("tooltip.snailspeed.block.weapon_forge", "Used To Craft Weapons");
 
         translationBuilder.add("tooltip.snailspeed.guide.forge_plate_1", "§7Right Click On A Stripped Log To Build An Armor Forge");
         translationBuilder.add("tooltip.snailspeed.guide.forge_plate_2", "§7Right Click On A Log To Build An Weapon Forge");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_1", "§7Used To Create Stonecutter by Right Clicking Stone Slab");
         translationBuilder.add("tooltip.snailspeed.guide.circular_saw_2", "§7Used To Create Saw Table by Right Clicking Wooden Slab");
-        translationBuilder.add("tooltip.snailspeed.guide.armor_forge_1", "§7Obtained By Right-Clicking Circular Saw On A Stone Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.armor_forge_1", "§7Obtained By Right-Clicking A Forge Plate On A Stripped Log");
         translationBuilder.add("tooltip.snailspeed.guide.armor_forge_2", "§7Can Also Be Used To Trim Armors");
         translationBuilder.add("tooltip.snailspeed.guide.dried_grass_sheaf", "§7Obtained By Drying Grass Sheaf In The Sun");
         translationBuilder.add("tooltip.snailspeed.guide.grass_sheaf", "§7Obtained By Breaking Grass With A Flint Flake");
         translationBuilder.add("tooltip.snailspeed.guide.saw_table", "§7Obtained By Right-Clicking Circular Saw On A Wooden Slab");
+        translationBuilder.add("tooltip.snailspeed.guide.weapon_forge", "§7Obtained By Right-Clicking A Forge Plate On A Log");
 
         translationBuilder.add("tooltip.snailspeed.guide.clay_blocks", "Dry It Under The Sun");
         translationBuilder.add("tooltip.snailspeed.guide.dried_clay_blocks", "Fire It Near A Campfire With Huge Fire");

@@ -6,6 +6,7 @@
     "snailspeed:molten_tin",
     "snailspeed:molten_bronze",
     "snailspeed:molten_steel",
+    "snailspeed:molten_netherite",
     "snailspeed:molten_copper_block",
     "snailspeed:molten_iron_block",
     "snailspeed:molten_gold_block",
@@ -18,6 +19,7 @@
     "snailspeed:molten_stone",
     "snailspeed:molten_smooth_stone",
     "snailspeed:molten_deepslate",
-    "snailspeed:molten_smooth_quartz_block"
+    "snailspeed:molten_smooth_quartz_block",
+    "snailspeed:molten_netherite_block"
   ]
 }

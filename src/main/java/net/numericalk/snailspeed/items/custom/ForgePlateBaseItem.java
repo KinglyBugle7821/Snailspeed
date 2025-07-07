@@ -36,6 +36,12 @@ public class ForgePlateBaseItem extends Item {
             world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);
 
             return ActionResult.SUCCESS;
+        } else if (state.isIn(SnailBlockTagsProvider.UNSTRIPPED_LOGS)) {
+            world.setBlockState(pos, SnailBlocks.WEAPON_FORGE.getDefaultState());
+            stack.decrement(1);
+            world.playSound(player, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1f, 1f);
+
+            return ActionResult.SUCCESS;
         }
 
         return ActionResult.PASS;

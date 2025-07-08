@@ -20,7 +20,6 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class SnailItems {
-
     public static final Item OAK_LOG_BARK = register("oak_log_bark", Item::new);
     public static final Item SPRUCE_LOG_BARK = register("spruce_log_bark", Item::new);
     public static final Item BIRCH_LOG_BARK = register("birch_log_bark", Item::new);
@@ -61,7 +60,7 @@ public class SnailItems {
     public static final Item CLAY_SAND = register("clay_sand", Item::new);
 
     public static final Item PEBBLE = register("pebble", Item::new);
-    public static final Item ROCK = register("rock", Item::new);
+    public static final Item STONE_ROCK = register("stone_rock", Item::new);
     public static final Item STONE_DUST = register("stone_dust", Item::new);
 
     public static final Item SOUL = register("soul", Item::new);
@@ -255,6 +254,9 @@ public class SnailItems {
 
     public static final Item STONE_PLATE = register("stone_plate", Item::new);
     public static final Item RAIL_TRACK = register("rail_track", Item::new);
+
+    public static final Item FLOUR = register("flour", Item::new);
+    public static final Item DOUGH = register("dough", Item::new);
 
     public static final Item TORCH = register(
             SnailBlocks.TORCH,

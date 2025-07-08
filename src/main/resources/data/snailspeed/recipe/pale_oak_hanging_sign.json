@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_pale_oak_log",
+  "additionalInput": "minecraft:chain",
+
+  "hangingSign": {
+    "id": "minecraft:pale_oak_hanging_sign"
+  }
+}

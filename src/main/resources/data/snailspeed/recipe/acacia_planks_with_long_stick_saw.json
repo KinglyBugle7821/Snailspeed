@@ -10,9 +10,6 @@
   "fenceGate": {
     "id": "minecraft:acacia_fence_gate"
   },
-  "hangingSign": {
-    "id": "minecraft:acacia_hanging_sign"
-  },
   "sign": {
     "id": "minecraft:acacia_sign"
   }

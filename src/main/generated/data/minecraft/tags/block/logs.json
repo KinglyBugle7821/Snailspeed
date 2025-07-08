@@ -35,6 +35,9 @@
     "snailspeed:damaged_warped_stem",
     "snailspeed:tapped_spruce_log",
     "snailspeed:tapped_birch_log",
-    "snailspeed:tapped_pale_oak_log"
+    "snailspeed:tapped_pale_oak_log",
+    "snailspeed:decayed_spruce_log",
+    "snailspeed:decayed_birch_log",
+    "snailspeed:decayed_pale_oak_log"
   ]
 }

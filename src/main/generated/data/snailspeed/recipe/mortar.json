@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "snailspeed:rock"
+    "#": "snailspeed:stone_rock"
   },
   "pattern": [
     "##"

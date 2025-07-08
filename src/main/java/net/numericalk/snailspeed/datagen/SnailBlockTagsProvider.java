@@ -388,7 +388,15 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(SnailBlocks.DAMAGED_DARK_OAK_LOG)
                 .add(SnailBlocks.DAMAGED_MANGROVE_LOG)
                 .add(SnailBlocks.DAMAGED_CHERRY_LOG)
-                .add(SnailBlocks.DAMAGED_PALE_OAK_LOG);
+                .add(SnailBlocks.DAMAGED_PALE_OAK_LOG)
+
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG)
+
+                .add(SnailBlocks.DECAYED_SPRUCE_LOG)
+                .add(SnailBlocks.DECAYED_BIRCH_LOG)
+                .add(SnailBlocks.DECAYED_PALE_OAK_LOG);
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(SnailBlocks.CAMPFIRE_BASE)
                 .add(SnailBlocks.UNTIED_STICK_BUNDLE)

@@ -4,7 +4,7 @@
   "input": "#minecraft:wooden_slabs",
   "additionalInput": "minecraft:book",
 
-  "planks": {
+  "barrel": {
     "id": "minecraft:chiseled_bookshelf"
   }
 }

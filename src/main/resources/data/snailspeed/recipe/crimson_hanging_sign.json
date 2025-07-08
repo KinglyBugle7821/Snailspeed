@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_crimson_hyphae",
+  "additionalInput": "minecraft:chain",
+
+  "hangingSign": {
+    "id": "minecraft:crimson_hanging_sign"
+  }
+}

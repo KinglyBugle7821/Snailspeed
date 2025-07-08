@@ -8,10 +8,12 @@ import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.numericalk.snailspeed.blocks.custom.CustomTorchBlock;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
@@ -32,11 +34,16 @@ public class CustomTorchBlockEntity extends BlockEntity {
             } else {
                 fireDegradeTime--;
             }
-            if ((world1.isRaining() || world1.isThundering()) && world1.isSkyVisible(pos)){
+            if (((world1.isRaining() || world1.isThundering()) && !isBiomeHot(world1, pos)) && world1.isSkyVisible(pos)){
                 world1.setBlockState(pos, state.with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
                 setFireDegradeTime(fireDegradeTimeFinal);
             }
         }
+    }
+    private boolean isBiomeHot(World world, BlockPos pos){
+        RegistryEntry<Biome> biome = world.getBiome(pos);
+        Biome.Precipitation precipitation = biome.value().getPrecipitation(pos, 62);
+        return precipitation == Biome.Precipitation.NONE;
     }
     public void setFireDegradeTime(int fireDegradeTime){
         this.fireDegradeTime = fireDegradeTime;

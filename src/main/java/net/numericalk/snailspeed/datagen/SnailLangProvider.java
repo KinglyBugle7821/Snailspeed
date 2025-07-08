@@ -54,7 +54,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.BARK_SPUD, "Bark Spud");
         translationBuilder.add(SnailItems.CLAY_SAND, "Clay Sand");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");
-        translationBuilder.add(SnailItems.ROCK, "Rock");
+
+        translationBuilder.add(SnailItems.STONE_ROCK, "Stone Rock");
+
         translationBuilder.add(SnailItems.STONE_DUST, "Stone Dust");
 
         translationBuilder.add(SnailItems.SOUL, "Soul");
@@ -243,6 +245,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.GROUND_NETHERRACK, "Ground Netherrack");
         translationBuilder.add(SnailItems.HELLSTONE_DUST, "Hellstone Dust");
+        translationBuilder.add(SnailItems.FLOUR, "Flour");
+        translationBuilder.add(SnailItems.DOUGH, "Dough");
 
 
 

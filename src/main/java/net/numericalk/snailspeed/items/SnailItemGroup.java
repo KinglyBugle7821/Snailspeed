@@ -102,7 +102,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.PESTLE);
                         entries.add(SnailItems.BARK_SPUD);
                         entries.add(SnailItems.PEBBLE);
-                        entries.add(SnailItems.ROCK);
+                        entries.add(SnailItems.STONE_ROCK);
 
                         entries.add(SnailItems.SOUL);
 
@@ -282,6 +282,9 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.GROUND_NETHERRACK);
                         entries.add(SnailItems.HELLSTONE_DUST);
+
+                        entries.add(SnailItems.FLOUR);
+                        entries.add(SnailItems.DOUGH);
                     }).build());
 
     public static void initialize() {

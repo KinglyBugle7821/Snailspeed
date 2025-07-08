@@ -171,7 +171,11 @@ public class SawTableBlockEntity extends BlockEntity implements ExtendedScreenHa
 
         ItemStack output = recipe.get().value().getOutput(selected);
         if (getStack(OUTPUT).isEmpty()){
-            this.setStack(OUTPUT, new ItemStack(output.getItem(), this.getStack(OUTPUT).getCount() + output.getCount()));
+            switch (selected){
+                case STAIRS, DOOR, BED, FENCE_GATE, CHEST, BARREL, HANGING_SIGN, SIGN, BOAT -> this.setStack(OUTPUT, new ItemStack(output.getItem(), 1));
+                case SLAB, FENCE -> this.setStack(OUTPUT, new ItemStack(output.getItem(), 2));
+                case PLANKS -> this.setStack(OUTPUT, new ItemStack(output.getItem(), 3));
+            }
         }
     }
 

@@ -10,9 +10,6 @@
   "fenceGate": {
     "id": "minecraft:bamboo_fence_gate"
   },
-  "hangingSign": {
-    "id": "minecraft:bamboo_hanging_sign"
-  },
   "sign": {
     "id": "minecraft:bamboo_sign"
   }

@@ -13,12 +13,15 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.numericalk.snailspeed.blocks.custom.CampfireBlock;
 import net.numericalk.snailspeed.blocks.entity.ImplementedInventory;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
@@ -88,7 +91,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
             extinguishFire(world1, pos, state);
         }
 
-        if (isWorldRaining(state, world1) && isSkyVisible(world1, pos)) {
+        if (isWorldRaining(state, world1, pos) && isSkyVisible(world1, pos)) {
             extinguishFireWithoutBeingBurnt(world1, pos, state);
         }
         if (canUpgradeFire(state, LIT_SMALL, 200f)) {
@@ -145,8 +148,14 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         return world1.isSkyVisible(pos);
     }
 
-    private boolean isWorldRaining(BlockState state, World world1) {
-        return (world1.isRaining() || world1.isThundering()) && state.get(LIT) >= LIT_SMALL;
+    private boolean isWorldRaining(BlockState state, World world1, BlockPos pos) {
+        return ((world1.isRaining() || world1.isThundering()) && !isBiomeHot(world1, pos)) && state.get(LIT) >= LIT_SMALL;
+    }
+
+    private boolean isBiomeHot(World world, BlockPos pos){
+        RegistryEntry<Biome> biome = world.getBiome(pos);
+        Biome.Precipitation precipitation = biome.value().getPrecipitation(pos, 62);
+        return precipitation == Biome.Precipitation.NONE;
     }
 
     private void burnItem(World world1, BlockPos pos, int maxProgress) {

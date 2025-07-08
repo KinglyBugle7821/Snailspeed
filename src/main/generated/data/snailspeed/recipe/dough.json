@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:flour",
+    "snailspeed:flour",
+    "snailspeed:flour",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "count": 3,
+    "id": "snailspeed:dough"
+  }
+}

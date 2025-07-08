@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_birch_log",
+  "additionalInput": "minecraft:chain",
+
+  "hangingSign": {
+    "id": "minecraft:birch_hanging_sign"
+  }
+}

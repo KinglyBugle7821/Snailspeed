@@ -8,10 +8,12 @@ import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import org.jetbrains.annotations.Nullable;
@@ -48,7 +50,7 @@ public class GrassSheafBlockEntity extends BlockEntity {
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isGrassSheaf(state)) {
-            if (!isRaining(world1) && hasDaylight(world1, pos) && world1.isDay()) {
+            if (!isRaining(world1, pos) && hasDaylight(world1, pos) && world1.isDay()) {
                 if (hasProgressComplete()) {
                     dryGrassSheaf(world1, pos, state);
                 }
@@ -56,7 +58,7 @@ public class GrassSheafBlockEntity extends BlockEntity {
                 increaseProgress();
             } else if (!hasDaylight(world1, pos)) {
                 pauseProgress();
-            } else if (isRaining(world1)) {
+            } else if (isRaining(world1, pos) && world1.isSkyVisible(pos)) {
                 resetProgress();
             }
         } else {
@@ -102,10 +104,14 @@ public class GrassSheafBlockEntity extends BlockEntity {
         return world1.getLightLevel(LightType.SKY, pos.up()) == 15;
     }
 
-    private boolean isRaining(World world1) {
-        return world1.isRaining() || world1.isThundering();
+    private boolean isRaining(World world1, BlockPos pos) {
+        return (world1.isRaining() || world1.isThundering()) && !isBiomeHot(world1, pos);
     }
-
+    private boolean isBiomeHot(World world, BlockPos pos){
+        RegistryEntry<Biome> biome = world.getBiome(pos);
+        Biome.Precipitation precipitation = biome.value().getPrecipitation(pos, 62);
+        return precipitation == Biome.Precipitation.NONE;
+    }
     private boolean isGrassSheaf(BlockState state1) {
         return state1.isOf(SnailBlocks.GRASS_SHEAF);
     }

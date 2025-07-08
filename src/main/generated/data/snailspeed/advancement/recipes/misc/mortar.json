@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rock": {
+    "has_stone_rock": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:rock"
+            "items": "snailspeed:stone_rock"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rock"
+      "has_stone_rock"
     ]
   ],
   "rewards": {

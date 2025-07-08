@@ -10,9 +10,6 @@
   "fenceGate": {
     "id": "minecraft:warped_fence_gate"
   },
-  "hangingSign": {
-    "id": "minecraft:warped_hanging_sign"
-  },
   "sign": {
     "id": "minecraft:warped_sign"
   }

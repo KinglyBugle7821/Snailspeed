@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:note_block",
+  "additionalInput": "minecraft:diamond",
+
+  "barrel": {
+    "id": "minecraft:jukebox"
+  }
+}

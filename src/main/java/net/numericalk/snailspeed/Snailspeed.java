@@ -2,8 +2,10 @@ package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.network.packet.CustomPayload;
+import net.minecraft.recipe.CraftingDecoratedPotRecipe;
 import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.recipe.SmithingTrimRecipe;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -31,9 +33,9 @@ public class Snailspeed implements ModInitializer {
     public static final String MOD_ID = "snailspeed";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+
     @Override
     public void onInitialize() {
-
         SnailItems.initialize();
         SnailBlocks.initialize();
         SnailRecipe.initialize();
@@ -50,7 +52,6 @@ public class Snailspeed implements ModInitializer {
         SnailSetBlockOnFire.SetOnFire();
         SnailWoodReplace.replaceWood();
         SnailBreakEvents.playerBreak();
-
 
         PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);

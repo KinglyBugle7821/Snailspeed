@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "minecraft:wheat",
+
+  "output": {
+    "id": "snailspeed:flour"
+  }
+}

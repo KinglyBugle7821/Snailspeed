@@ -10,9 +10,6 @@
   "fenceGate": {
     "id": "minecraft:crimson_fence_gate"
   },
-  "hangingSign": {
-    "id": "minecraft:crimson_hanging_sign"
-  },
   "sign": {
     "id": "minecraft:crimson_sign"
   }

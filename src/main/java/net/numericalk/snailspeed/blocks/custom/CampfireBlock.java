@@ -12,6 +12,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -34,6 +35,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.block.WireOrientation;
 import net.numericalk.snailspeed.advancement.SnailCriteria;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
@@ -302,18 +304,17 @@ public class CampfireBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     private boolean canLitCampfireWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
-        return stack.isOf(item) && state.get(LIT).equals(LIT_UNLIT) && rainFireHandler(world, pos) && state.get(STAGES) == STAGES_FULL_STICK;
+        return stack.isOf(item) && state.get(LIT).equals(LIT_UNLIT) && !(isRaining(world, pos) && world.isSkyVisible(pos)) && state.get(STAGES) == STAGES_FULL_STICK;
     }
 
-    private boolean rainFireHandler(World world, BlockPos pos) {
-        if (!world.isRaining() && !world.isThundering()) {
-            return true;
-        } else if (!isSkyVisible(world, pos) && (world.isRaining() || world.isThundering())) {
-            return true;
-        }
-        return false;
+    private boolean isRaining(World world1, BlockPos pos) {
+        return (world1.isRaining() || world1.isThundering()) && !isBiomeHot(world1, pos);
     }
-
+    private boolean isBiomeHot(World world, BlockPos pos){
+        RegistryEntry<Biome> biome = world.getBiome(pos);
+        Biome.Precipitation precipitation = biome.value().getPrecipitation(pos, 62);
+        return precipitation == Biome.Precipitation.NONE;
+    }
     private void placeStickFor(IntProperty blockState, ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player) {
         world.setBlockState(pos, state.cycle(blockState));
         if (!player.isCreative()) {

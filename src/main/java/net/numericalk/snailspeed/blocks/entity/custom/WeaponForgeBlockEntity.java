@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -188,8 +189,16 @@ public class WeaponForgeBlockEntity extends BlockEntity implements ExtendedScree
             Optional<RecipeEntry<WeaponForgeRecipe>> recipe = getCurrentRecipe();
 
             ItemStack output = recipe.get().value().getOutput(selected);
-            this.setStack(OUTPUT, new ItemStack(output.getItem(),
-                    this.getStack(OUTPUT).getCount() + output.getCount()));
+            switch (selected){
+                case SWORD, AXE, PICKAXE, SHOVEL, HOE, BOW, CROSSBOW -> this.setStack(OUTPUT, new ItemStack(output.getItem(), 1));
+                case ARROW -> {
+                    if (output.isOf(Items.ARROW)){
+                        this.setStack(OUTPUT, new ItemStack(output.getItem(), 4));
+                    } else {
+                        this.setStack(OUTPUT, new ItemStack(output.getItem(), 1));
+                    }
+                }
+            }
         }
     }
 

@@ -2,11 +2,14 @@ package net.numericalk.snailspeed.recipe;
 
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.recipe.custom.*;
+import net.numericalk.snailspeed.recipe.special.SnailDecoratedPotRecipe;
+import net.numericalk.snailspeed.recipe.special.SnailTippedArrowRecipe;
 
 public class SnailRecipe {
     public static final RecipeSerializer<ArmorForgeRecipe> ARMOR_FORGE_RECIPE_SERIALIZER = Registry.register(
@@ -96,6 +99,22 @@ public class SnailRecipe {
                     return "mortar";
                 }
             });
+
+
+    //SPECIALS
+
+    public static final RecipeSerializer<SnailDecoratedPotRecipe> SNAIL_DECORATED_POT =
+            Registry.register(
+                    Registries.RECIPE_SERIALIZER,
+                    Identifier.of(Snailspeed.MOD_ID, "snail_decorated_pot"),
+                    new SpecialCraftingRecipe.SpecialRecipeSerializer<>(SnailDecoratedPotRecipe::new)
+            );
+    public static final RecipeSerializer<SnailTippedArrowRecipe> SNAIL_TIPPED_ARROW =
+            Registry.register(
+                    Registries.RECIPE_SERIALIZER,
+                    Identifier.of(Snailspeed.MOD_ID, "snail_tipped_arrow"),
+                    new SpecialCraftingRecipe.SpecialRecipeSerializer<>(SnailTippedArrowRecipe::new)
+            );
 
     public static void initialize() {
 

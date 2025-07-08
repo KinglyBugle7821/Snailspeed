@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:stripped_mangrove_log",
+  "additionalInput": "minecraft:chain",
+
+  "hangingSign": {
+    "id": "minecraft:mangrove_hanging_sign"
+  }
+}

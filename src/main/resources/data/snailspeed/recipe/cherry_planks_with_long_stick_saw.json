@@ -10,9 +10,6 @@
   "fenceGate": {
     "id": "minecraft:cherry_fence_gate"
   },
-  "hangingSign": {
-    "id": "minecraft:cherry_hanging_sign"
-  },
   "sign": {
     "id": "minecraft:cherry_sign"
   }

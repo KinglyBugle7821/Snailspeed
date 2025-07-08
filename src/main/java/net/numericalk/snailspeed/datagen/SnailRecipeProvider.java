@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
@@ -160,6 +161,7 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                             .pattern("bb")
                             .pattern("bb")
                             .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
+                            .group("campfire")
                             .criterion(hasItem(bark), conditionsFromItem(bark))
                             .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "campfire_base_from_" + idPath)));
                 }
@@ -240,14 +242,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
 
                 createShaped(RecipeCategory.MISC, SnailBlocks.MORTAR)
                         .pattern("##")
-                        .input('#', SnailItems.ROCK)
-                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
+                        .input('#', SnailItems.STONE_ROCK)
+                        .criterion(hasItem(SnailItems.STONE_ROCK), conditionsFromItem(SnailItems.STONE_ROCK))
                         .offerTo(exporter);
                 createShaped(RecipeCategory.MISC, SnailItems.PESTLE)
                         .pattern("#")
                         .pattern("#")
-                        .input('#', SnailItems.ROCK)
-                        .criterion(hasItem(SnailItems.ROCK), conditionsFromItem(SnailItems.ROCK))
+                        .input('#', SnailItems.STONE_ROCK)
+                        .criterion(hasItem(SnailItems.STONE_ROCK), conditionsFromItem(SnailItems.STONE_ROCK))
                         .offerTo(exporter);
 
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.CLAY_BRICK, 4)
@@ -702,6 +704,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.OXIDIZED_COPPER), conditionsFromItem(Items.OXIDIZED_COPPER))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, SnailItems.RAIL_TRACK, 6)
+                        .pattern("RL")
+                        .pattern("RL")
+                        .input('R', Items.IRON_NUGGET)
+                        .input('L', SnailItems.IRON_PLATE)
+                        .criterion(hasItem(SnailItems.IRON_PLATE), conditionsFromItem(SnailItems.IRON_PLATE))
+                        .offerTo(exporter);
+
                 createShaped(RecipeCategory.MISC, Items.RAIL, 4)
                         .pattern("RL")
                         .pattern("RL")
@@ -813,6 +823,29 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input(Items.PRISMARINE_CRYSTALS)
                         .input(SnailItems.HELLSTONE_DUST)
                         .criterion(hasItem(SnailItems.HELLSTONE_DUST), conditionsFromItem(SnailItems.HELLSTONE_DUST))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.DOUGH, 3)
+                        .input(SnailItems.FLOUR)
+                        .input(SnailItems.FLOUR)
+                        .input(SnailItems.FLOUR)
+                        .input(Items.WATER_BUCKET)
+                        .criterion(hasItem(SnailItems.FLOUR), conditionsFromItem(SnailItems.FLOUR))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.BOWL, 1)
+                        .pattern("ss")
+                        .pattern("bb")
+                        .input('b', SnailItemTagsProvider.LOG_BARKS_THAT_BURN)
+                        .input('s', Items.STICK)
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.TRIPWIRE_HOOK, 1)
+                        .pattern("P")
+                        .pattern("C")
+                        .input('P', ItemTags.PLANKS)
+                        .input('C', Items.CHAIN)
+                        .criterion(hasItem(Items.CHAIN), conditionsFromItem(Items.CHAIN))
                         .offerTo(exporter);
             }
         };

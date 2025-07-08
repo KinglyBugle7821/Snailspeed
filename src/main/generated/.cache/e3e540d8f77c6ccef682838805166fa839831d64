@@ -3,7 +3,7 @@
 613367057a81a8c4c302cb222064df59fabe949c data/minecraft/tags/block/incorrect_for_stone_tool.json
 613367057a81a8c4c302cb222064df59fabe949c data/minecraft/tags/block/incorrect_for_wooden_tool.json
 b053226a5d534d27a0f58ff188821fc346c29c5b data/minecraft/tags/block/logs.json
-2296d73f01f8c917b9f4e72747c9f108f5947d76 data/minecraft/tags/block/logs_that_burn.json
+79f075be0db64eb35f9a6dc86be326fdc157ae3a data/minecraft/tags/block/logs_that_burn.json
 719c1fac32f3024387624f0078d7df020306c411 data/minecraft/tags/block/mineable/axe.json
 0af5208d4d1eb458ebf73ad4942337474279ddcb data/minecraft/tags/block/mineable/pickaxe.json
 111c5562ead4b555427f31e3bfc321d52130008a data/minecraft/tags/block/needs_diamond_tool.json

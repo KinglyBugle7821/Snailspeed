@@ -1,0 +1,13 @@
+{
+  "type": "snailspeed:saw_table",
+
+  "input": "minecraft:bamboo_mosaic",
+  "additionalInput": "#minecraft:axes",
+
+  "slab": {
+    "id": "minecraft:bamboo_mosaic_slab"
+  },
+  "stairs": {
+    "id": "minecraft:bamboo_mosaic_stairs"
+  }
+}

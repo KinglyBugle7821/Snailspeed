@@ -4,7 +4,7 @@
   "input": "#minecraft:planks",
   "additionalInput": "minecraft:book",
 
-  "planks": {
+  "barrel": {
     "id": "minecraft:bookshelf"
   }
 }

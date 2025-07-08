@@ -69,7 +69,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "snailspeed:rock",
+          "name": "snailspeed:stone_rock",
           "functions": [
             {
               "function": "minecraft:set_count",

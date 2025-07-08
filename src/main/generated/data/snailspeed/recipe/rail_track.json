@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "snailspeed:iron_plate",
+    "R": "minecraft:iron_nugget"
+  },
+  "pattern": [
+    "RL",
+    "RL"
+  ],
+  "result": {
+    "count": 6,
+    "id": "snailspeed:rail_track"
+  }
+}

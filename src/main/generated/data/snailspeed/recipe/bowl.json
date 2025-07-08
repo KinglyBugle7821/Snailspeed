@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "#snailspeed:log_barks_that_burn",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "ss",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  }
+}

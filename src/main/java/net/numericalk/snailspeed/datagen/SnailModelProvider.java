@@ -161,7 +161,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.BARK_SPUD, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.CLAY_SAND, Models.GENERATED);
         itemModelGenerator.register(SnailItems.PEBBLE, Models.GENERATED);
-        itemModelGenerator.register(SnailItems.ROCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.STONE_ROCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.STONE_DUST, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.SOUL, Models.GENERATED);
@@ -352,6 +352,9 @@ public class SnailModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(SnailItems.GROUND_NETHERRACK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.HELLSTONE_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.FLOUR, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.DOUGH, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 

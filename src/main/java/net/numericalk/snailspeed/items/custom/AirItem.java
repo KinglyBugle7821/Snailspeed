@@ -7,12 +7,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import net.numericalk.snailspeed.items.SnailItems;
 
 import java.util.List;
 
 public class AirItem extends Item {
     public AirItem(Settings settings) {
         super(settings);
+    }
+    @Override
+    public ItemStack getRecipeRemainder(ItemStack stack) {
+        return SnailItems.MOLTEN_TERRACOTTA.getRecipeRemainder();
     }
 
     @Override

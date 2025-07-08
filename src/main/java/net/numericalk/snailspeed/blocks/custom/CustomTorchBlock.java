@@ -87,6 +87,15 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
             return ActionResult.SUCCESS;
         }
 
+        if (stack.isOf(SnailItems.HELLSTONE_DUST)){
+            world.playSound(player, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (!player.isCreative()){
+                stack.decrement(1);
+            }
+            world.setBlockState(pos, Blocks.TORCH.getDefaultState());
+            return ActionResult.SUCCESS;
+        }
+
         if (state.get(LIT) == LIT_ASH && stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
             if (world.getBlockEntity(pos) instanceof CustomTorchBlockEntity customTorchBlockEntity){
                 world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
@@ -111,7 +120,7 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
         }
         return ActionResult.PASS;
     }
-    private void litTorchWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
+    protected void litTorchWith(SoundEvent soundEvent, ItemStack stack, PlayerEntity player, BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.cycle(LIT));
         world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1f, 1f);
         if (stack.isDamageable() && !player.isCreative()) {
@@ -120,11 +129,11 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
             stack.decrement(1);
         }
     }
-    private boolean canLitTorchWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
+    protected boolean canLitTorchWith(Item item, ItemStack stack, BlockState state, World world, BlockPos pos) {
         return stack.isOf(item) && (state.get(LIT).equals(LIT_UNLIT)) && rainFireHandler(world, pos);
     }
 
-    private boolean rainFireHandler(World world, BlockPos pos) {
+    protected boolean rainFireHandler(World world, BlockPos pos) {
         if (!world.isRaining() && !world.isThundering()) {
             return true;
         } else if (!isSkyVisible(world, pos) && (world.isRaining() || world.isThundering())) {
@@ -132,7 +141,7 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
         }
         return false;
     }
-    private boolean isSkyVisible(World world1, BlockPos pos) {
+    protected boolean isSkyVisible(World world1, BlockPos pos) {
         int worldHeight = world1.getHeight();
 
         for (int y = pos.getY() + 1; y < worldHeight; y++) {
@@ -219,7 +228,7 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
                 (world1, pos, state1, blockEntity) ->
                         blockEntity.tick(world1, pos, state1));
     }
-    private boolean canFeedFire(ItemStack stack, BlockState state, PlayerEntity player, BlockPos pos, World world) {
+    protected boolean canFeedFire(ItemStack stack, BlockState state, PlayerEntity player, BlockPos pos, World world) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof CustomTorchBlockEntity customTorchBE)) return false;
 
@@ -228,7 +237,7 @@ public class CustomTorchBlock extends BlockWithEntity implements BlockEntityProv
                 && !player.isSneaking()
                 && customTorchBE.getFireDegradeTime() < customTorchBE.getFireDegradeTimeLimit();
     }
-    private void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
+    protected void feedFire(World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
         BlockEntity be = world.getBlockEntity(pos);
         if (be instanceof CustomTorchBlockEntity customTorchBE) {
             customTorchBE.calculateAddedFireTime();

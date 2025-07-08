@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:obsidian_shard",
+    "snailspeed:obsidian_shard",
+    "minecraft:obsidian",
+    "minecraft:obsidian"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:enchanting_table_base"
+  }
+}

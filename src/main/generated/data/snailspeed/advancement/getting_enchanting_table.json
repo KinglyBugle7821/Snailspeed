@@ -1,0 +1,22 @@
+{
+  "parent": "snailspeed:getting_armor_forge",
+  "criteria": {
+    "got_enchanting_table": {
+      "trigger": "snailspeed:getting_enchanting_table"
+    }
+  },
+  "display": {
+    "description": "Build An Enchanting Table By Using Enchanting Table Base, Diamond, Red Carpet, And Book",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:enchanting_table"
+    },
+    "title": "Magic Is Real!"
+  },
+  "requirements": [
+    [
+      "got_enchanting_table"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:prismarine_crystals",
+    "minecraft:prismarine_crystals",
+    "minecraft:prismarine_crystals",
+    "snailspeed:hellstone_dust"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sea_lantern"
+  }
+}

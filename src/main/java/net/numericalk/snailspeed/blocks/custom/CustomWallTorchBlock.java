@@ -8,13 +8,22 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.particle.SimpleParticleType;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -24,15 +33,19 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
+import net.numericalk.snailspeed.blocks.entity.custom.CustomTorchBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.custom.CustomWallTorchBlockEntity;
+import net.numericalk.snailspeed.datagen.SnailItemTagsProvider;
+import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.injection.Inject;
 
 import java.util.Map;
 
 public class CustomWallTorchBlock extends CustomTorchBlock{
     public static final MapCodec<CustomWallTorchBlock> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(PARTICLE_TYPE_CODEC.forGetter(block -> block.particle), createSettingsCodec()).apply(instance, CustomWallTorchBlock::new)
-    );    public static final EnumProperty<Direction> FACING = HorizontalFacingBlock.FACING;
+    );
 
     private static final Map<Direction, VoxelShape> BOUNDING_SHAPES = Maps.newEnumMap(
             ImmutableMap.of(
@@ -63,20 +76,65 @@ public class CustomWallTorchBlock extends CustomTorchBlock{
     }
     public CustomWallTorchBlock(SimpleParticleType simpleParticleType, Settings settings) {
         super(simpleParticleType, settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WallTorchBlock.FACING, Direction.NORTH).with(CustomTorchBlock.LIT, CustomTorchBlock.LIT_UNLIT));
     }
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return getBoundingShape(state);
     }
 
+    @Override
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (canLitTorchWith(Items.FLINT_AND_STEEL, stack, state, world, pos)) {
+            litTorchWith(SoundEvents.ITEM_FLINTANDSTEEL_USE, stack, player, state, world, pos);
+            return ActionResult.SUCCESS;
+        } else if (canLitTorchWith(Items.FIRE_CHARGE, stack, state, world, pos)
+                || canLitTorchWith(SnailItems.BURNING_TINDER, stack, state, world, pos)) {
+            litTorchWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
+            return ActionResult.SUCCESS;
+        }
+
+        if (stack.isOf(SnailItems.HELLSTONE_DUST)){
+            world.playSound(player, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (!player.isCreative()){
+                stack.decrement(1);
+            }
+            world.setBlockState(pos, Blocks.WALL_TORCH.getStateWithProperties(state));
+            return ActionResult.SUCCESS;
+        }
+
+        if (state.get(LIT) == LIT_ASH && stack.isIn(SnailItemTagsProvider.OVEN_FUEL)){
+            if (world.getBlockEntity(pos) instanceof CustomTorchBlockEntity customTorchBlockEntity){
+                world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
+                customTorchBlockEntity.setFireDegradeTime(customTorchBlockEntity.fireDegradeTimeFinal);
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
+                return ActionResult.SUCCESS;
+            } else if (world.getBlockEntity(pos) instanceof CustomWallTorchBlockEntity customWallTorchBlockEntity){
+                world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
+                customWallTorchBlockEntity.setFireDegradeTime(customWallTorchBlockEntity.fireDegradeTimeFinal);
+                if (!player.isCreative()){
+                    stack.decrement(1);
+                }
+                return ActionResult.SUCCESS;
+            }
+        }
+
+        if (canFeedFire(stack, state, player, pos, world)) {
+            feedFire(world, pos, player, stack);
+            return ActionResult.SUCCESS;
+        }
+        return ActionResult.PASS;
+    }
+
     public static VoxelShape getBoundingShape(BlockState state) {
-        return BOUNDING_SHAPES.get(state.get(FACING));
+        return BOUNDING_SHAPES.get(state.get(WallTorchBlock.FACING));
     }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT) == LIT_LIT){
-            Direction direction = state.get(FACING);
+            Direction direction = state.get(WallTorchBlock.FACING);
             double d = pos.getX() + 0.5;
             double e = pos.getY() + 0.7;
             double f = pos.getZ() + 0.5;
@@ -90,7 +148,7 @@ public class CustomWallTorchBlock extends CustomTorchBlock{
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return canPlaceAt(world, pos, state.get(FACING));
+        return canPlaceAt(world, pos, state.get(WallTorchBlock.FACING));
     }
 
     public static boolean canPlaceAt(WorldView world, BlockPos pos, Direction facing) {
@@ -110,7 +168,7 @@ public class CustomWallTorchBlock extends CustomTorchBlock{
         for (Direction direction : directions) {
             if (direction.getAxis().isHorizontal()) {
                 Direction direction2 = direction.getOpposite();
-                blockState = blockState.with(FACING, direction2);
+                blockState = blockState.with(WallTorchBlock.FACING, direction2);
                 if (blockState.canPlaceAt(worldView, blockPos)) {
                     return blockState;
                 }
@@ -131,21 +189,21 @@ public class CustomWallTorchBlock extends CustomTorchBlock{
             BlockState neighborState,
             Random random
     ) {
-        return direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
+        return direction.getOpposite() == state.get(WallTorchBlock.FACING) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
+        return state.with(WallTorchBlock.FACING, rotation.rotate(state.get(WallTorchBlock.FACING)));
     }
 
     @Override
     protected BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
+        return state.rotate(mirror.getRotation(state.get(WallTorchBlock.FACING)));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, CustomTorchBlock.LIT);
+        builder.add(WallTorchBlock.FACING, CustomTorchBlock.LIT);
     }
 }

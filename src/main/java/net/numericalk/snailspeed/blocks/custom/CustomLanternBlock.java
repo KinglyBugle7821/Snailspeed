@@ -43,7 +43,7 @@ import org.jetbrains.annotations.Nullable;
 public class CustomLanternBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final MapCodec<CustomLanternBlock> CODEC = createCodec(CustomLanternBlock::new);
     public static final IntProperty LIT = IntProperty.of("lit", 0, 2);
-    public static final BooleanProperty HANGING = Properties.HANGING;
+    public static final BooleanProperty HANGING = LanternBlock.HANGING;
     protected static final VoxelShape STANDING_SHAPE = VoxelShapes.union(
             Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 7.0, 11.0), Block.createCuboidShape(6.0, 7.0, 6.0, 10.0, 9.0, 10.0)
     );
@@ -101,7 +101,14 @@ public class CustomLanternBlock extends BlockWithEntity implements BlockEntityPr
             litLanternWith(SoundEvents.ITEM_FIRECHARGE_USE, stack, player, state, world, pos);
             return ActionResult.SUCCESS;
         }
-
+        if (stack.isOf(SnailItems.HELLSTONE_DUST)){
+            world.playSound(player, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1f, 1f);
+            if (!player.isCreative()){
+                stack.decrement(1);
+            }
+            world.setBlockState(pos, Blocks.LANTERN.getStateWithProperties(state));
+            return ActionResult.SUCCESS;
+        }
         if (state.get(LIT) == LIT_ASH && stack.isIn(SnailItemTagsProvider.OVEN_FUEL) && world.getBlockEntity(pos) instanceof CustomLanternBlockEntity customLanternBlockEntity){
             world.setBlockState(pos, state.with(LIT, LIT_UNLIT));
             customLanternBlockEntity.setFireDegradeTime(customLanternBlockEntity.fireDegradeTimeFinal);

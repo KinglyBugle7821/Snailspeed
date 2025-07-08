@@ -15,6 +15,7 @@ import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
 import net.numericalk.snailspeed.items.SnailItemGroup;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.misc.SnailComponent;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
@@ -38,6 +39,7 @@ public class Snailspeed implements ModInitializer {
         SnailRecipe.initialize();
         SnailCriteria.initialize();
         SnailItemGroup.initialize();
+        SnailComponent.initialize();
         SnailBlockEntities.initialize();
         SnailScreenHandlers.initialize();
 

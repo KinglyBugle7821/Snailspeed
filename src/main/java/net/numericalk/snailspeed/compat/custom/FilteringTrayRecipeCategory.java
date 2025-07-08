@@ -21,7 +21,7 @@ import static net.numericalk.snailspeed.compat.SnailRecipeCategories.FILTERING_T
 
 public class FilteringTrayRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
-            "textures/gui/container/filtering_tray_gui.png");
+            "textures/gui/compat/rei/filtering_tray_rei_gui.png");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

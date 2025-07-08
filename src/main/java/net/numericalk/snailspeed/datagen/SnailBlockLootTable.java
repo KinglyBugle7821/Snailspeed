@@ -195,19 +195,6 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
         addDrop(SnailBlocks.FIRED_BRICK, bundledBlockDrop(SnailBlocks.FIRED_BRICK, Items.BRICK, 1));
 
-        addDrop(Blocks.GRANITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
-        );
-        addDrop(Blocks.DIORITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
-        );
-        addDrop(Blocks.ANDESITE, LootTable.builder().pool(addSurvivesExplosionCondition(SnailItems.STONE_DUST, LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(3)))
-                .with(ItemEntry.builder(SnailItems.STONE_DUST))))
-        );
-
         addDrop(SnailBlocks.UNTIED_STICK_BUNDLE, bundledBlockDrop(SnailBlocks.UNTIED_STICK_BUNDLE, Items.STICK, 4));
         addDrop(SnailBlocks.STICK_BUNDLE);
         addDrop(SnailBlocks.UNTIED_THATCH_BLOCK, bundledBlockDrop(SnailBlocks.UNTIED_THATCH_BLOCK, SnailBlocks.DRIED_GRASS_SHEAF.asItem(), 4));
@@ -243,12 +230,33 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(SnailBlocks.TIN_BLOCK);
         addDrop(SnailBlocks.STEEL_BLOCK);
 
+        addDrop(Blocks.DIRT, bundledBlockDrop(Blocks.DIRT, SnailBlocks.UNSTEADY_DIRT.asItem(), 1f));
+        addDrop(Blocks.GRASS_BLOCK, bundledBlockDrop(Blocks.GRASS_BLOCK, SnailBlocks.UNSTEADY_DIRT.asItem(), 1f));
+        addDrop(Blocks.PODZOL, bundledBlockDrop(Blocks.PODZOL, SnailBlocks.UNSTEADY_DIRT.asItem(), 1f));
+        addDrop(Blocks.FARMLAND, bundledBlockDrop(Blocks.FARMLAND, SnailBlocks.UNSTEADY_DIRT.asItem(), 1f));
+        addDrop(Blocks.ROOTED_DIRT, bundledBlockDrop(Blocks.ROOTED_DIRT, SnailBlocks.UNSTEADY_ROOTED_DIRT.asItem(), 1f));
+        addDrop(Blocks.COARSE_DIRT, bundledBlockDrop(Blocks.COARSE_DIRT, SnailBlocks.UNSTEADY_COARSE_DIRT.asItem(), 1f));
+        addDrop(Blocks.MOSS_BLOCK, bundledBlockDropUniform(Blocks.MOSS_BLOCK, Blocks.VINE.asItem(), 1f, 2f));
+        addDrop(Blocks.PALE_MOSS_BLOCK, bundledBlockDropUniform(Blocks.PALE_MOSS_BLOCK, Blocks.VINE.asItem(), 1f, 2f));
+
+        addDrop(Blocks.OBSIDIAN, bundledBlockDropUniform(Blocks.OBSIDIAN, SnailItems.OBSIDIAN_SHARD, 2f, 5f));
+        addDrop(Blocks.CHEST, bundledBlockDropUniform(Blocks.CHEST, Items.STICK, 2f, 5f));
+        addDrop(Blocks.BARREL, bundledBlockDropUniform(Blocks.BARREL, Items.STICK, 2f, 5f));
+
+
+        addDrop(SnailBlocks.ENCHANTING_TABLE_BASE);
+
     }
 
     public LootTable.Builder bundledBlockDrop(Block drop, Item drop2, float count) {
         return this.dropsWithSilkTouch(drop,
                 this.applyExplosionDecay(drop, ItemEntry.builder(drop2)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)))));
+    }
+    public LootTable.Builder bundledBlockDropUniform(Block drop, Item drop2, float countMin, float countMax) {
+        return this.dropsWithSilkTouch(drop,
+                this.applyExplosionDecay(drop, ItemEntry.builder(drop2)
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(countMin, countMax)))));
     }
 
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {

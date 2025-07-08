@@ -783,6 +783,37 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input(Items.BLACK_DYE)
                         .criterion(hasItem(Items.PRISMARINE), conditionsFromItem(Items.PRISMARINE))
                         .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.NETHERITE_NUGGET, 5)
+                        .input(Items.NETHERITE_INGOT)
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailBlocks.ENCHANTING_TABLE_BASE, 1)
+                        .input(SnailItems.OBSIDIAN_SHARD)
+                        .input(SnailItems.OBSIDIAN_SHARD)
+                        .input(Items.OBSIDIAN)
+                        .input(Items.OBSIDIAN)
+                        .criterion(hasItem(Items.OBSIDIAN), conditionsFromItem(Items.OBSIDIAN))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.TORCH, 1)
+                        .input(SnailItems.TORCH)
+                        .input(SnailItems.HELLSTONE_DUST)
+                        .criterion(hasItem(SnailItems.HELLSTONE_DUST), conditionsFromItem(SnailItems.HELLSTONE_DUST))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.LANTERN, 1)
+                        .input(SnailBlocks.LANTERN)
+                        .input(SnailItems.HELLSTONE_DUST)
+                        .criterion(hasItem(SnailItems.HELLSTONE_DUST), conditionsFromItem(SnailItems.HELLSTONE_DUST))
+                        .offerTo(exporter, String.valueOf(Identifier.of(Snailspeed.MOD_ID, "lantern_hellstone")));
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.SEA_LANTERN, 1)
+                        .input(Items.PRISMARINE_CRYSTALS)
+                        .input(Items.PRISMARINE_CRYSTALS)
+                        .input(Items.PRISMARINE_CRYSTALS)
+                        .input(SnailItems.HELLSTONE_DUST)
+                        .criterion(hasItem(SnailItems.HELLSTONE_DUST), conditionsFromItem(SnailItems.HELLSTONE_DUST))
+                        .offerTo(exporter);
             }
         };
     }

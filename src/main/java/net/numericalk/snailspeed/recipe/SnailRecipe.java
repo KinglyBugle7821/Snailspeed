@@ -86,6 +86,16 @@ public class SnailRecipe {
                 }
             });
 
+    public static final RecipeSerializer<MortarRecipe> MORTAR_RECIPE_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(Snailspeed.MOD_ID, "mortar"),
+            new MortarRecipe.Serializer());
+    public static final RecipeType<MortarRecipe> MORTAR_RECIPE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(Snailspeed.MOD_ID, "mortar"), new RecipeType<MortarRecipe>() {
+                @Override
+                public String toString() {
+                    return "mortar";
+                }
+            });
 
     public static void initialize() {
 

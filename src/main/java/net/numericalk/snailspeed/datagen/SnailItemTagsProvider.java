@@ -24,6 +24,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = of("copper_tool_repairable");
     public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = of("copper_tool_repairable");
     public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = of("steel_tool_repairable");
+    public static final TagKey<Item> OBSIDIAN_TOOL_REPAIRABLE = of("obsidian_tool_repairable");
     public static final TagKey<Item> CAMPFIRE_FUEL = of("campfire_fuel");
     public static final TagKey<Item> LOG_BARKS = of("log_barks");
     public static final TagKey<Item> LOG_BARKS_THAT_BURN = of("log_barks_that_burn");
@@ -43,6 +44,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> FASTENERS = of("fasteners");
     public static final TagKey<Item> HAMMERS = of("hammers");
 
+    public static final TagKey<Item> RAW_NETHERITE = of("raw_netherite");
+
     public static final TagKey<Item> TRIM_TEMPLATES = of("trim_templates");
 
     public static final TagKey<Item> FILTERS = of("filters");
@@ -61,6 +64,11 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(OBSIDIAN_TOOL_REPAIRABLE)
+                .add(Items.OBSIDIAN);
+        getOrCreateTagBuilder(RAW_NETHERITE)
+                .add(Items.NETHERITE_SCRAP)
+                .add(Items.ANCIENT_DEBRIS);
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(SnailItems.COPPER_HELMET)
                 .add(SnailItems.COPPER_CHESTPLATE)

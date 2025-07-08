@@ -4,8 +4,8 @@
   "input1": "minecraft:gold_ingot",
   "input2": "minecraft:gold_ingot",
   "input3": "snailspeed:steel_shovel",
-  "input4": "minecraft:ancient_debris",
-  "input5": "minecraft:ancient_debris",
+  "input4": "#snailspeed:raw_netherite",
+  "input5": "#snailspeed:raw_netherite",
 
   "output": {
     "id": "minecraft:netherite_shovel"

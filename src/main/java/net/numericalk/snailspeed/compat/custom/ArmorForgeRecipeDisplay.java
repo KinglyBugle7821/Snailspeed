@@ -9,10 +9,12 @@ import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.display.DisplaySerializer;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
+import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -34,19 +36,20 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ArmorForgeRecipeDisplay extends BasicDisplay {
+    @SuppressWarnings("unchecked")
     public ArmorForgeRecipeDisplay(RecipeEntry<ArmorForgeRecipe> recipe) {
-
-        super(List.of(
-                EntryIngredients.ofIngredient(recipe.value().getIngredients().get(0)),
-                EntryIngredients.ofIngredient(recipe.value().getIngredients().get(1)),
-                EntryIngredients.ofIngredient(recipe.value().getIngredients().get(2)),
-                EntryIngredients.ofIngredient(recipe.value().getIngredients().get(3))),
-
-                List.of(EntryIngredient.of(
-                        EntryStacks.of(recipe.value().outputHelmet()),
-                        EntryStacks.of(recipe.value().outputChestplate()),
-                        EntryStacks.of(recipe.value().outputLeggings()),
-                        EntryStacks.of(recipe.value().outputBoots())
+        super(List.of(EntryIngredients.ofIngredient(recipe.value().getIngredients().get(0)),
+                        EntryIngredients.ofIngredient(recipe.value().getIngredients().get(1)),
+                        EntryIngredients.ofIngredient(recipe.value().getIngredients().get(2)),
+                        EntryIngredients.ofIngredient(recipe.value().getIngredients().get(3))),
+                List.of(EntryIngredient.of(Stream.of(recipe.value().outputHelmet(),
+                                        recipe.value().outputChestplate(),
+                                        recipe.value().outputLeggings(),
+                                        recipe.value().outputBoots()
+                                )
+                                .filter(stack -> stack != null && !stack.isOf(Items.AIR))
+                                .map(EntryStacks::of)
+                                .toArray(EntryStack[]::new)
                 ))
         );
     }

@@ -48,4 +48,13 @@ public class SnailToolMaterial {
             10,
             SnailItemTagsProvider.STEEL_TOOL_REPAIRABLE
     );
+
+    public static final ToolMaterial OBSIDIAN_TOOL_MATERIAL = new ToolMaterial(
+            SnailBlockTagsProvider.INCORRECT_FOR_BRONZE_TOOL,
+            50,
+            6.0F,
+            4.0F,
+            15,
+            SnailItemTagsProvider.OBSIDIAN_TOOL_REPAIRABLE
+    );
 }

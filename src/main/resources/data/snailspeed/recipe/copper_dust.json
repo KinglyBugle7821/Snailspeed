@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "minecraft:raw_copper",
+
+  "output": {
+    "id": "snailspeed:copper_dust"
+  }
+}

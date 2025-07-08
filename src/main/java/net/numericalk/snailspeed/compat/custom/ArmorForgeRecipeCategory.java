@@ -22,7 +22,7 @@ import static net.numericalk.snailspeed.compat.SnailRecipeCategories.ARMOR_FORGE
 
 public class ArmorForgeRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
-            "textures/gui/container/armor_forge_gui.png");
+            "textures/gui/compat/rei/armor_forge_rei_gui.png");
 
 
     @Override
@@ -49,16 +49,16 @@ public class ArmorForgeRecipeCategory implements DisplayCategory<BasicDisplay> {
 
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 175, 82)));
 
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 7))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 6))
                 .entries(display.getInputEntries().get(0)).markInput());
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 53, startPoint.y + 34))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 53, startPoint.y + 33))
                 .entries(display.getInputEntries().get(1)).markInput());
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 107, startPoint.y + 34))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 107, startPoint.y + 33))
                 .entries(display.getInputEntries().get(2)).markInput());
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 61))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 60))
                 .entries(display.getInputEntries().get(3)).markInput());
 
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 34))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 32))
                 .entries(display.getOutputEntries().get(0)).markOutput());
 
         return widgets;

@@ -61,6 +61,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(SnailItems.COPPER_DUST, "Copper Dust");
         translationBuilder.add(SnailItems.COPPER_NUGGET, "Copper Nugget");
+        translationBuilder.add(SnailItems.NETHERITE_NUGGET, "Netherite Nugget");
 
         translationBuilder.add(SnailItems.IRON_DUST, "Iron Dust");
         translationBuilder.add(SnailItems.GOLD_DUST, "Gold Dust");
@@ -124,6 +125,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.STEEL_PICKAXE, "Steel Pickaxe");
         translationBuilder.add(SnailItems.STEEL_SHOVEL, "Steel Shovel");
         translationBuilder.add(SnailItems.STEEL_HOE, "Steel Hoe");
+
+        translationBuilder.add(SnailItems.OBSIDIAN_SHARD, "Obsidian Shard");
+        translationBuilder.add(SnailItems.OBSIDIAN_KNIFE, "Obsidian Knife");
 
         translationBuilder.add(SnailItems.BRONZE_SWORD, "Bronze Sword");
         translationBuilder.add(SnailItems.BRONZE_AXE, "Bronze Axe");
@@ -236,6 +240,9 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.TORCH, "Torch");
         translationBuilder.add(SnailItems.STONE_PLATE, "Stone Plate");
         translationBuilder.add(SnailItems.RAIL_TRACK, "Rail Track");
+
+        translationBuilder.add(SnailItems.GROUND_NETHERRACK, "Ground Netherrack");
+        translationBuilder.add(SnailItems.HELLSTONE_DUST, "Hellstone Dust");
 
 
 
@@ -359,6 +366,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.TIN_BLOCK, "Tin Block");
 
         translationBuilder.add(SnailBlocks.LANTERN, "Lantern");
+        translationBuilder.add(SnailBlocks.ENCHANTING_TABLE_BASE, "Enchanting Table Base");
 
         translationBuilder.add("tooltip.snailspeed.item.air", "Please Don't Ask about this (#IHateNetworking)");
         translationBuilder.add("tooltip.snailspeed.item.bark_spud", "Right Click On A Log To Create Tapped Log");

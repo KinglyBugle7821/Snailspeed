@@ -1,0 +1,28 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "snailspeed:block/enchanting_table_base_base"
+      },
+      "when": {
+        "stages": 0
+      }
+    },
+    {
+      "apply": {
+        "model": "snailspeed:block/enchanting_table_base_diamond"
+      },
+      "when": {
+        "stages": 1
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/enchanting_table"
+      },
+      "when": {
+        "stages": 2
+      }
+    }
+  ]
+}

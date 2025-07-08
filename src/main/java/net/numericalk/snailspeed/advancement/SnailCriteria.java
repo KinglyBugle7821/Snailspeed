@@ -15,6 +15,7 @@ public class SnailCriteria {
     public static final GettingStonecutterCriterion GETTING_STONECUTTER = Criteria.register(Snailspeed.MOD_ID + ":getting_stonecutter", new GettingStonecutterCriterion());
     public static final GettingArmorForgeCriterion GETTING_ARMOR_FORGE = Criteria.register(Snailspeed.MOD_ID + ":getting_armor_forge", new GettingArmorForgeCriterion());
     public static final GettingWeaponForgeCriterion GETTING_WEAPON_FORGE = Criteria.register(Snailspeed.MOD_ID + ":getting_weapon_forge", new GettingWeaponForgeCriterion());
+    public static final EnchantingTableCriteria BUILDING_ENCHANTING_TABLE = Criteria.register(Snailspeed.MOD_ID + ":getting_enchanting_table", new EnchantingTableCriteria());
 
     public static void initialize() {}
 }

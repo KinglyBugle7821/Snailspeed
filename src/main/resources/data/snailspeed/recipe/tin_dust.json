@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "snailspeed:raw_tin",
+
+  "output": {
+    "id": "snailspeed:tin_dust"
+  }
+}

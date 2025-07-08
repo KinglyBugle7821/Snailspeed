@@ -23,6 +23,21 @@ public class SnailBreakEvents {
             {Blocks.STONE, SnailBlocks.SCRATCHED_STONE, SnailBlocks.CRACKED_STONE, Blocks.COBBLESTONE, SnailBlocks.FRACTURED_STONE, SnailBlocks.CRUMBLED_STONE},
             {Blocks.DEEPSLATE, SnailBlocks.SCRATCHED_DEEPSLATE, SnailBlocks.CRACKED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE, SnailBlocks.FRACTURED_DEEPSLATE, SnailBlocks.CRUMBLED_DEEPSLATE}
     };
+
+    public static final Block[][] PLANKS_BLOCK_COMBO = {
+            {Blocks.OAK_PLANKS, SnailBlocks.DAMAGED_OAK_PLANKS, Blocks.OAK_SLAB, Blocks.OAK_LOG},
+            {Blocks.SPRUCE_PLANKS, SnailBlocks.DAMAGED_SPRUCE_PLANKS, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_LOG},
+            {Blocks.BIRCH_PLANKS, SnailBlocks.DAMAGED_BIRCH_PLANKS, Blocks.BIRCH_SLAB, Blocks.BIRCH_LOG},
+            {Blocks.JUNGLE_PLANKS, SnailBlocks.DAMAGED_JUNGLE_PLANKS, Blocks.JUNGLE_SLAB, Blocks.JUNGLE_LOG},
+            {Blocks.ACACIA_PLANKS, SnailBlocks.DAMAGED_ACACIA_PLANKS, Blocks.ACACIA_SLAB, Blocks.ACACIA_LOG},
+            {Blocks.DARK_OAK_PLANKS, SnailBlocks.DAMAGED_DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB, Blocks.DARK_OAK_LOG},
+            {Blocks.MANGROVE_PLANKS, SnailBlocks.DAMAGED_MANGROVE_PLANKS, Blocks.MANGROVE_SLAB, Blocks.MANGROVE_LOG},
+            {Blocks.CHERRY_PLANKS, SnailBlocks.DAMAGED_CHERRY_PLANKS, Blocks.CHERRY_SLAB, Blocks.CHERRY_LOG},
+            {Blocks.PALE_OAK_PLANKS, SnailBlocks.DAMAGED_PALE_OAK_PLANKS, Blocks.PALE_OAK_SLAB, Blocks.PALE_OAK_LOG},
+            {Blocks.CRIMSON_PLANKS, SnailBlocks.DAMAGED_CRIMSON_PLANKS, Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STEM},
+            {Blocks.WARPED_PLANKS, SnailBlocks.DAMAGED_WARPED_PLANKS, Blocks.WARPED_SLAB, Blocks.WARPED_STEM},
+            {Blocks.BAMBOO_PLANKS, SnailBlocks.DAMAGED_BAMBOO_PLANKS, Blocks.BAMBOO_SLAB, Blocks.BAMBOO_BLOCK}
+    };
     private static final Block[] JS_DROP_ROCK_BRO = {
             Blocks.SMOOTH_STONE,
             Blocks.STONE_SLAB,
@@ -117,22 +132,6 @@ public class SnailBreakEvents {
             Blocks.SMOOTH_RED_SANDSTONE_STAIRS,
             Blocks.RED_SANDSTONE_WALL
     };
-
-    public static final Block[][] PLANKS_BLOCK_COMBO = {
-            {Blocks.OAK_PLANKS, SnailBlocks.DAMAGED_OAK_PLANKS, Blocks.OAK_SLAB, Blocks.OAK_LOG},
-            {Blocks.SPRUCE_PLANKS, SnailBlocks.DAMAGED_SPRUCE_PLANKS, Blocks.SPRUCE_SLAB, Blocks.SPRUCE_LOG},
-            {Blocks.BIRCH_PLANKS, SnailBlocks.DAMAGED_BIRCH_PLANKS, Blocks.BIRCH_SLAB, Blocks.BIRCH_LOG},
-            {Blocks.JUNGLE_PLANKS, SnailBlocks.DAMAGED_JUNGLE_PLANKS, Blocks.JUNGLE_SLAB, Blocks.JUNGLE_LOG},
-            {Blocks.ACACIA_PLANKS, SnailBlocks.DAMAGED_ACACIA_PLANKS, Blocks.ACACIA_SLAB, Blocks.ACACIA_LOG},
-            {Blocks.DARK_OAK_PLANKS, SnailBlocks.DAMAGED_DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB, Blocks.DARK_OAK_LOG},
-            {Blocks.MANGROVE_PLANKS, SnailBlocks.DAMAGED_MANGROVE_PLANKS, Blocks.MANGROVE_SLAB, Blocks.MANGROVE_LOG},
-            {Blocks.CHERRY_PLANKS, SnailBlocks.DAMAGED_CHERRY_PLANKS, Blocks.CHERRY_SLAB, Blocks.CHERRY_LOG},
-            {Blocks.PALE_OAK_PLANKS, SnailBlocks.DAMAGED_PALE_OAK_PLANKS, Blocks.PALE_OAK_SLAB, Blocks.PALE_OAK_LOG},
-            {Blocks.CRIMSON_PLANKS, SnailBlocks.DAMAGED_CRIMSON_PLANKS, Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STEM},
-            {Blocks.WARPED_PLANKS, SnailBlocks.DAMAGED_WARPED_PLANKS, Blocks.WARPED_SLAB, Blocks.WARPED_STEM},
-            {Blocks.BAMBOO_PLANKS, SnailBlocks.DAMAGED_BAMBOO_PLANKS, Blocks.BAMBOO_SLAB, Blocks.BAMBOO_BLOCK}
-    };
-
     public static void playerBreak() {
         PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
             if (player.isCreative()) return true;

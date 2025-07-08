@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "minecraft:blaze_rod",
+
+  "output": {
+    "id": "minecraft:blaze_powder"
+  }
+}

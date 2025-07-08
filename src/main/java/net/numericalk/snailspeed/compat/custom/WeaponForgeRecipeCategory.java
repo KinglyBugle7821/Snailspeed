@@ -21,7 +21,7 @@ import static net.numericalk.snailspeed.compat.SnailRecipeCategories.WEAPON_FORG
 
 public class WeaponForgeRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
-            "textures/gui/container/weapon_forge_gui.png");
+            "textures/gui/compat/rei/weapon_forge_rei_gui.png");
 
 
     @Override

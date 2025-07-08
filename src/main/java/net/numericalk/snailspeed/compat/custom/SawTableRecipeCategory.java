@@ -21,7 +21,7 @@ import static net.numericalk.snailspeed.compat.SnailRecipeCategories.SAW_TABLE;
 
 public class SawTableRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
-            "textures/gui/container/saw_table_gui.png");
+            "textures/gui/compat/rei/saw_table_rei_gui.png");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

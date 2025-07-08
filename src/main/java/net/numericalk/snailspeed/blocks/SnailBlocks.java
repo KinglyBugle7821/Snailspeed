@@ -389,6 +389,9 @@ public class SnailBlocks {
                     .strength(4.5F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL)));
     public static final Block LANTERN = registerBlock("lantern",
             properties -> new CustomLanternBlock(properties.mapColor(MapColor.IRON_GRAY).solid().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(CustomLanternBlock::getLuminance).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block ENCHANTING_TABLE_BASE = registerBlock("enchanting_table_base",
+            properties -> new EnchantingTableBaseBlock(properties.mapColor(MapColor.BLACK).solid().strength(5.0F).instrument(NoteBlockInstrument.BASEDRUM).sounds(BlockSoundGroup.STONE).nonOpaque()));
+
     public static final Block TORCH = registerTorch(
             "torch",
             settings -> new CustomTorchBlock(ParticleTypes.FLAME, settings.noCollision().breakInstantly().luminance(CustomTorchBlock::getLuminance).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)),

@@ -1,0 +1,11 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "snailspeed:obsidian_shard",
+  "inputAdditional": "minecraft:stick",
+  "inputGlue": "#snailspeed:glues",
+
+  "sword": {
+    "id": "snailspeed:obsidian_knife"
+  }
+}

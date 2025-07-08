@@ -167,6 +167,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.SOUL, Models.GENERATED);
         itemModelGenerator.register(SnailItems.COPPER_DUST, Models.GENERATED);
         itemModelGenerator.register(SnailItems.COPPER_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.NETHERITE_NUGGET, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.IRON_DUST, Models.GENERATED);
         itemModelGenerator.register(SnailItems.GOLD_DUST, Models.GENERATED);
@@ -269,6 +270,9 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.STEEL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(SnailItems.STEEL_HOE, Models.HANDHELD);
 
+        itemModelGenerator.register(SnailItems.OBSIDIAN_SHARD, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.OBSIDIAN_KNIFE, Models.HANDHELD);
+
         itemModelGenerator.register(SnailItems.RESIN_BALL, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.RAW_TIN, Models.GENERATED);
@@ -345,6 +349,9 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.FISHING_LINE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.STONE_PLATE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.RAIL_TRACK, Models.GENERATED);
+
+        itemModelGenerator.register(SnailItems.GROUND_NETHERRACK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.HELLSTONE_DUST, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.AIR, Models.GENERATED);
 

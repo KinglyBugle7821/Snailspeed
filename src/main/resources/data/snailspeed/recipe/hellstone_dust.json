@@ -1,0 +1,10 @@
+{
+  "type": "snailspeed:filtering_tray",
+
+  "input1": "snailspeed:ground_netherrack",
+  "input2": "minecraft:blaze_powder",
+
+  "output": {
+    "id": "snailspeed:hellstone_dust"
+  }
+}

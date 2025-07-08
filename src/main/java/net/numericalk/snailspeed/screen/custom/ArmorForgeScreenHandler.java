@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -41,6 +42,8 @@ public class ArmorForgeScreenHandler extends ScreenHandler {
                         stack.isIn(ItemTags.CHEST_ARMOR) ||
                         stack.isIn(ItemTags.LEG_ARMOR) ||
                         stack.isIn(ItemTags.FOOT_ARMOR) ||
+                        stack.isOf(Items.TURTLE_SCUTE) ||
+                        stack.isOf(Items.ARMADILLO_SCUTE) ||
                         stack.isIn(SnailItemTagsProvider.PLATES);
             }
         });

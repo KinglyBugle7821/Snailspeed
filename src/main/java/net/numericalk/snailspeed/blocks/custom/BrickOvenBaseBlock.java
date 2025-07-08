@@ -224,7 +224,7 @@ public class BrickOvenBaseBlock extends HorizontalFacingBlock {
     }
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
+        if (state.getBlock() != newState.getBlock() && newState.getBlock() != SnailBlocks.BRICK_OVEN) {
             switch (state.get(STAGES)) {
                 case 1 -> dropItem(world, pos, Items.BRICK, 1);
                 case 2 -> dropItem(world, pos, Items.BRICK, 2);

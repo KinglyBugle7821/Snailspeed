@@ -12,6 +12,9 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -21,6 +24,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -33,15 +37,21 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.block.WireOrientation;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
+import net.numericalk.snailspeed.blocks.entity.custom.BrickOvenBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.custom.MortarBlockEntity;
 import net.numericalk.snailspeed.items.SnailItems;
+import net.numericalk.snailspeed.recipe.SnailRecipe;
+import net.numericalk.snailspeed.recipe.custom.MortarRecipe;
+import net.numericalk.snailspeed.recipe.custom.MortarRecipeInput;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class MortarBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
+    private final ServerRecipeManager.MatchGetter<MortarRecipeInput, MortarRecipe> matchGetter;
     public static final VoxelShape SHAPE = Stream.of(
             Block.createCuboidShape(6, 0, 3, 10, 1, 13),
             Block.createCuboidShape(10, 0, 4, 12, 1, 12),
@@ -89,84 +99,102 @@ public class MortarBlock extends BlockWithEntity implements BlockEntityProvider 
 
     public MortarBlock(Settings settings) {
         super(settings);
+        this.matchGetter = ServerRecipeManager.createCachedMatchGetter(SnailRecipe.MORTAR_RECIPE_TYPE);
+    }
+
+    @Override
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if(state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if(blockEntity instanceof MortarBlockEntity) {
+                ItemScatterer.spawn(world, pos, ((MortarBlockEntity) blockEntity));
+                world.updateComparators(pos, this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof MortarBlockEntity mortarBlockEntity) {
-            if (hasPestle(stack)) {
-                if (hasRecipe(mortarBlockEntity)){
-                    Item crushedItem = getCrushedRecipe(mortarBlockEntity.getStack(0).getItem());
-                    mortarBlockEntity.setStack(0, crushedItem.getDefaultStack());
+            ItemStack rightHand = player.getMainHandStack();
+            ItemStack leftHand = player.getOffHandStack();
+            if (hasPestle(rightHand, leftHand)) {
+                if (hasRecipe(mortarBlockEntity, world)){
+                    grindItem(mortarBlockEntity, world);
                     world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
+                    world.markDirty(pos);
+                    world.updateListeners(pos, state, state, 3);
                     return ActionResult.SUCCESS;
                 } else {
-                    return ActionResult.PASS;
+                    world.playSound(player, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1f, 1f);
+                    return ActionResult.SUCCESS;
                 }
             }
-
             if (canPutItem(stack, mortarBlockEntity)) {
                 mortarBlockEntity.setStack(0, stack.copyWithCount(1));
                 if (!player.isCreative()) {
                     stack.decrement(1);
                 }
                 world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1f, 1f);
-
+                world.markDirty(pos);
                 world.updateListeners(pos, state, state, 0);
                 return ActionResult.SUCCESS;
-            } else if (canTakeItem(mortarBlockEntity)) {
-                world.updateListeners(pos, state, state, 0);
+            }
+            if (canTakeItem(mortarBlockEntity, rightHand, leftHand)) {
                 world.playSound(player, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1f, 1f);
                 player.giveOrDropStack(mortarBlockEntity.getStack(0));
                 mortarBlockEntity.setStack(0, SnailItems.AIR.getDefaultStack());
+                world.markDirty(pos);
+                world.updateListeners(pos, state, state, 0);
                 return ActionResult.SUCCESS;
             }
         }
-
         return ActionResult.PASS;
     }
 
-    private boolean hasRecipe(MortarBlockEntity mortarBlockEntity) {
-        for (Item[] entry : CRUSHING_RECIPE) {
-            if (mortarBlockEntity.getStack(0).isOf(entry[0])) {
-                return true;
-            }
-        }
-        return false;
+    private static boolean hasPestle(ItemStack mainHand, ItemStack leftHand) {
+        return mainHand.isOf(SnailItems.PESTLE) || leftHand.isOf(SnailItems.PESTLE);
     }
 
-    private static boolean hasPestle(ItemStack stack) {
-        return stack.isOf(SnailItems.PESTLE);
+    private static boolean canTakeItem(MortarBlockEntity mortarBlockEntity, ItemStack rightHand, ItemStack leftHand) {
+        return !mortarBlockEntity.getStack(0).isEmpty()
+                && (rightHand.isEmpty() || leftHand.isEmpty()) && !(rightHand.isOf(SnailItems.PESTLE) || leftHand.isOf(SnailItems.PESTLE));
     }
 
-    private Item getCrushedRecipe(Item raw) {
-        for (Item[] entry : CRUSHING_RECIPE) {
-            if (entry[0] == raw) return entry[1];
-        }
-        return null;
-    }
-
-    private static final Item[][] CRUSHING_RECIPE = {
-            {Items.RAW_COPPER, SnailItems.COPPER_DUST},
-            {Items.RAW_IRON, SnailItems.IRON_DUST},
-            {Items.RAW_GOLD, SnailItems.GOLD_DUST},
-            {SnailItems.RAW_TIN, SnailItems.TIN_DUST},
-            {SnailItems.RAW_GRAPHITE, SnailItems.GROUND_GRAPHITE}
-    };
-
-    private static boolean canTakeItem(MortarBlockEntity mortarBlockEntity) {
-        return !mortarBlockEntity.getStack(0).isEmpty();
-    }
 
     private static boolean canPutItem(ItemStack stack, MortarBlockEntity mortarBlockEntity) {
-        for (Item[] entry : CRUSHING_RECIPE) {
-            if (!stack.isEmpty() && mortarBlockEntity.getStack(0).isEmpty() && stack.isOf(entry[0])){
-                return true;
-            }
+        return !stack.isEmpty() && mortarBlockEntity.getStack(0).isEmpty() && !stack.isOf(SnailItems.PESTLE);
+    }
+    private boolean hasRecipe(MortarBlockEntity mortarBlockEntity, World world) {
+        if (world.isClient()) return false;
+        Optional<RecipeEntry<MortarRecipe>> recipe = getCurrentRecipe(mortarBlockEntity, world);
+        if (recipe.isEmpty()) {
+            System.out.println("RECIPE IS SUPER EMPTY");
+            return false;
         }
-        return false;
+
+        Ingredient input = recipe.get().value().input();
+        return getOutputOf(input, mortarBlockEntity);
     }
 
+    private Optional<RecipeEntry<MortarRecipe>> getCurrentRecipe(MortarBlockEntity mortarBlockEntity, World world) {
+        return this.matchGetter.getFirstMatch(new MortarRecipeInput(
+                mortarBlockEntity.inventory.get(0)
+        ), (ServerWorld) world);
+    }
+
+    public void grindItem(MortarBlockEntity mortarBlockEntity, World world) {
+        Optional<RecipeEntry<MortarRecipe>> recipe = getCurrentRecipe(mortarBlockEntity, world);
+
+        ItemStack output = recipe.get().value().getOutput();
+        mortarBlockEntity.setStack(0, new ItemStack(output.getItem(), 1));
+    }
+    private boolean getOutputOf(Ingredient input, MortarBlockEntity mortarBlockEntity) {
+        ItemStack inputSlot = mortarBlockEntity.getStack(0);
+
+        return input.test(inputSlot);
+    }
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());

@@ -18,7 +18,7 @@ import net.numericalk.snailspeed.items.SnailItems;
 import org.jetbrains.annotations.Nullable;
 
 public class MortarBlockEntity extends BlockEntity implements ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
+    public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public MortarBlockEntity(BlockPos pos, BlockState state) {
         super(SnailBlockEntities.MORTAR, pos, state);

@@ -12,6 +12,7 @@ import net.minecraft.util.math.Direction;
 import net.numericalk.snailspeed.Snailspeed;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.custom.*;
+import net.numericalk.snailspeed.misc.SnailComponent;
 import net.numericalk.snailspeed.utils.SnailArmorMaterial;
 import net.numericalk.snailspeed.utils.SnailToolMaterial;
 
@@ -40,7 +41,7 @@ public class SnailItems {
     public static final Item FLINT_PICKAXE = register("flint_pickaxe", settings -> new PickaxeItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 0f, -2.8f, settings));
 
     public static final Item TINDER = register("tinder", settings -> new TinderItem(settings.maxCount(1)));
-    public static final Item BURNING_TINDER = register("burning_tinder", settings -> new BurningTinderItem(settings.maxCount(1)));
+    public static final Item BURNING_TINDER = register("burning_tinder", settings -> new BurningTinderItem(settings.maxCount(1).component(SnailComponent.BURNING_ITEM, 100f)));
     public static final Item BURNT_TINDER = register("burnt_tinder", Item::new);
 
     public static final Item BURNT_POTATO = register("burnt_potato", Item::new);
@@ -67,6 +68,7 @@ public class SnailItems {
 
     public static final Item COPPER_DUST = register("copper_dust", Item::new);
     public static final Item COPPER_NUGGET = register("copper_nugget", Item::new);
+    public static final Item NETHERITE_NUGGET = register("netherite_nugget", Item::new);
     public static final Item IRON_DUST = register("iron_dust", Item::new);
     public static final Item GOLD_DUST = register("gold_dust", Item::new);
 
@@ -170,6 +172,9 @@ public class SnailItems {
     public static final Item STEEL_SHOVEL = register("steel_shovel", settings -> new ShovelItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, 1.5f, -3f, settings));
     public static final Item STEEL_HOE = register("steel_hoe", settings -> new HoeItem(SnailToolMaterial.STEEL_TOOL_MATERIAL, -3f, 0f, settings));
 
+    public static final Item OBSIDIAN_SHARD = register("obsidian_shard", Item::new);
+    public static final Item OBSIDIAN_KNIFE = register("obsidian_knife", settings -> new SwordItem(SnailToolMaterial.OBSIDIAN_TOOL_MATERIAL, 3f, -2.4f, settings));
+
     public static final Item RESIN_BALL = register("resin_ball", Item::new);
 
     public static final Item RAW_TIN = register("raw_tin", Item::new);
@@ -257,6 +262,8 @@ public class SnailItems {
     );
 
     public static final Item CONDUIT_SHELL = register("conduit_shell", Item::new);
+    public static final Item GROUND_NETHERRACK = register("ground_netherrack", Item::new);
+    public static final Item HELLSTONE_DUST = register("hellstone_dust", Item::new);
 
     public static final Item AIR = register("air", AirItem::new);
 

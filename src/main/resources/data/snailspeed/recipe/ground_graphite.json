@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "snailspeed:raw_graphite",
+
+  "output": {
+    "id": "snailspeed:ground_graphite"
+  }
+}

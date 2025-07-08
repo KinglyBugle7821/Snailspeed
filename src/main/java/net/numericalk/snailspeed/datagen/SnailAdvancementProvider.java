@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
+import net.minecraft.advancement.AdvancementRequirements;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.Inventory;
@@ -19,6 +20,8 @@ import net.numericalk.snailspeed.advancement.custom.*;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.items.SnailItems;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -59,6 +62,8 @@ public class SnailAdvancementProvider extends FabricAdvancementProvider {
         AdvancementEntry gettingArmorForge = Advancement.Builder.create().parent(gettingUpgrade).display(SnailBlocks.ARMOR_FORGE, Text.literal("Mom, I'm Going To War"), Text.literal("Build An Armor Forge By Using Forge Plate On A Stripped Log"), null, AdvancementFrame.TASK, true, true, false).criterion("got_armor_forge", SnailCriteria.GETTING_ARMOR_FORGE.create(new GettingArmorForgeCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_armor_forge");
         AdvancementEntry gettingWeaponForge = Advancement.Builder.create().parent(gettingUpgrade).display(SnailBlocks.WEAPON_FORGE, Text.literal("Standing On Swords"), Text.literal("Build A Weapon Forge By Using Forge Plate On A Log"), null, AdvancementFrame.TASK, true, true, false).criterion("got_weapon_forge", SnailCriteria.GETTING_WEAPON_FORGE.create(new GettingWeaponForgeCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_weapon_forge");
 
-        AdvancementEntry gettingSteelArmor = Advancement.Builder.create().parent(gettingArmorForge).display(SnailItems.STEEL_CHESTPLATE, Text.literal("Cover Me In Steel"), Text.literal("Forge A Steel Armor"), null, AdvancementFrame.GOAL, true, true, false).criterion("got_steel_armor", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_HELMET, SnailItems.STEEL_CHESTPLATE, SnailItems.STEEL_LEGGINGS, SnailItems.STEEL_BOOTS)).build(consumer, Snailspeed.MOD_ID + ":getting_steel_armor");
+        AdvancementEntry gettingSteelArmor = Advancement.Builder.create().parent(gettingArmorForge).display(SnailItems.STEEL_CHESTPLATE, Text.literal("Cover Me In Steel"), Text.literal("Forge a piece of Steel Armor"), null,AdvancementFrame.GOAL, true, true, false).criterion("got_steel_helmet", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_HELMET)).criterion("got_steel_chestplate", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_CHESTPLATE)).criterion("got_steel_leggings", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_LEGGINGS)).criterion("got_steel_boots", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_BOOTS)).requirements(AdvancementRequirements.anyOf(List.of("got_steel_helmet", "got_steel_chestplate","got_steel_leggings", "got_steel_boots"))).build(consumer, Snailspeed.MOD_ID + ":getting_steel_armor");
+
+        AdvancementEntry gettingEnchantingTable = Advancement.Builder.create().parent(gettingArmorForge).display(Items.ENCHANTING_TABLE, Text.literal("Magic Is Real!"), Text.literal("Build An Enchanting Table By Using Enchanting Table Base, Diamond, Red Carpet, And Book"), null, AdvancementFrame.TASK, true, true, false).criterion("got_enchanting_table", SnailCriteria.BUILDING_ENCHANTING_TABLE.create(new EnchantingTableCriteria.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_enchanting_table");
     }
 }

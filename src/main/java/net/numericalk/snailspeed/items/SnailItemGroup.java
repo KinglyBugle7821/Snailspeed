@@ -110,6 +110,7 @@ public class SnailItemGroup {
 
                         entries.add(SnailItems.COPPER_DUST);
                         entries.add(SnailItems.COPPER_NUGGET);
+                        entries.add(SnailItems.NETHERITE_NUGGET);
 
                         entries.add(SnailItems.IRON_DUST);
                         entries.add(SnailItems.GOLD_DUST);
@@ -190,6 +191,9 @@ public class SnailItemGroup {
                         entries.add(SnailItems.STEEL_PICKAXE);
                         entries.add(SnailItems.STEEL_SHOVEL);
                         entries.add(SnailItems.STEEL_HOE);
+
+                        entries.add(SnailItems.OBSIDIAN_SHARD);
+                        entries.add(SnailItems.OBSIDIAN_KNIFE);
 
                         entries.add(SnailBlocks.TIN_ORE);
                         entries.add(SnailBlocks.DEEPSLATE_TIN_ORE);
@@ -274,6 +278,10 @@ public class SnailItemGroup {
                         entries.add(SnailBlocks.LANTERN);
 
                         entries.add(SnailItems.STONE_PLATE);
+                        entries.add(SnailBlocks.ENCHANTING_TABLE_BASE);
+
+                        entries.add(SnailItems.GROUND_NETHERRACK);
+                        entries.add(SnailItems.HELLSTONE_DUST);
                     }).build());
 
     public static void initialize() {

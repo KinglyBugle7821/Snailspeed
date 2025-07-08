@@ -32,6 +32,8 @@ public class SnailspeedREIClient implements REIClientPlugin {
         registry.addWorkstations(SnailRecipeCategories.BRICK_OVEN_SMELTING, EntryStacks.of(SnailBlocks.BRICK_OVEN));
         registry.add(new WeaponForgeRecipeCategory());
         registry.addWorkstations(SnailRecipeCategories.WEAPON_FORGE, EntryStacks.of(SnailBlocks.WEAPON_FORGE));
+        registry.add(new MortarRecipeCategory());
+        registry.addWorkstations(SnailRecipeCategories.MORTAR, EntryStacks.of(SnailBlocks.MORTAR));
 
     }
 

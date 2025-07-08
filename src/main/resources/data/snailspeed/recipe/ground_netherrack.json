@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "minecraft:netherrack",
+
+  "output": {
+    "id": "snailspeed:ground_netherrack"
+  }
+}

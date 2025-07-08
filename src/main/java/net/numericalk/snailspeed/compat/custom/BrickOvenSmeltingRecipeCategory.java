@@ -21,7 +21,7 @@ import static net.numericalk.snailspeed.compat.SnailRecipeCategories.BRICK_OVEN_
 
 public class BrickOvenSmeltingRecipeCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = Identifier.of(Snailspeed.MOD_ID,
-            "textures/gui/container/brick_oven_smelting_gui.png");
+            "textures/gui/compat/rei/brick_oven_smelting_rei_gui.png");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

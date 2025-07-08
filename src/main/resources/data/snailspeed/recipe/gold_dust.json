@@ -1,0 +1,9 @@
+{
+  "type": "snailspeed:mortar",
+
+  "input": "minecraft:raw_gold",
+
+  "output": {
+    "id": "snailspeed:gold_dust"
+  }
+}

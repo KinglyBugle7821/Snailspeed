@@ -255,7 +255,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(Items.STICK))
+                        .with(ItemEntry.builder(Items.IRON_NUGGET))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);
@@ -265,7 +265,7 @@ public class SnailLootTableMod {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(1f))
-                        .with(ItemEntry.builder(SnailItems.SOUL))
+                        .with(ItemEntry.builder(Items.IRON_NUGGET))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 LootTable.Builder tableBuilder = LootTable.builder().pool(poolBuilder);

@@ -58,7 +58,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
     public static final TagKey<Item> DIAMOND_TOOLS = of("diamond_tools");
     public static final TagKey<Item> NETHERITE_TOOLS = of("netherite_tools");
 
-    public static final TagKey<Item> DIAMOND_PICKAXE_MINEABLE = of("diamond_pickaxe_mineable");
+    public static final TagKey<Item> IRON_LEVEL_AXE = of("iron_level_axe");
+    public static final TagKey<Item> DIAMOND_LEVEL_PICK = of("diamond_level_pick");
 
     private static TagKey<Item> of(String name) {
         return TagKey.of(RegistryKeys.ITEM, Identifier.of(Snailspeed.MOD_ID, name));
@@ -66,7 +67,12 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(DIAMOND_PICKAXE_MINEABLE)
+        getOrCreateTagBuilder(IRON_LEVEL_AXE)
+                .add(Items.IRON_AXE)
+                .add(Items.DIAMOND_AXE)
+                .add(SnailItems.STEEL_AXE)
+                .add(Items.NETHERITE_AXE);
+        getOrCreateTagBuilder(DIAMOND_LEVEL_PICK)
                 .add(Items.DIAMOND_PICKAXE)
                 .add(SnailItems.STEEL_PICKAXE)
                 .add(Items.NETHERITE_PICKAXE);

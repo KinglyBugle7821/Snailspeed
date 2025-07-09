@@ -9,7 +9,7 @@
           "term": {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": "#snailspeed:diamond_pickaxe_mineable"
+              "items": "#snailspeed:diamond_level_pick"
             }
           }
         }
@@ -32,7 +32,7 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "items": "#snailspeed:diamond_pickaxe_mineable"
+            "items": "#snailspeed:diamond_level_pick"
           }
         }
       ],

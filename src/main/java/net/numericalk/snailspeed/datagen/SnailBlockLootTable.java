@@ -245,7 +245,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
             addDrop(woodDustDrop, onlyDropWhenHolding(ItemTags.AXES, woodDustDrop, SnailItems.WOOD_DUST, 1f, 3f, itemLookup));
         }
         for (Block rockDrop : jsDropRockBro) {
-            addDrop(rockDrop, onlyDropWhenHolding(SnailItemTagsProvider.DIAMOND_PICKAXE_MINEABLE, rockDrop, SnailItems.STONE_ROCK, 1f, 3f, itemLookup));
+            addDrop(rockDrop, onlyDropWhenHolding(SnailItemTagsProvider.DIAMOND_LEVEL_PICK, rockDrop, SnailItems.STONE_ROCK, 1f, 3f, itemLookup));
         }
         for (Block trimmedLog : trimmedLogs) {
 

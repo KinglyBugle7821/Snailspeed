@@ -10,7 +10,7 @@ cac81d3567996c42b2acbf1ec099005292ee974d data/snailspeed/tags/item/binders.json
 f2fb01b041ef3ab9a22bbfce6f40ae230d550bc8 data/snailspeed/tags/item/campfire_fuel.json
 1adada856fc96d86142971215001f19fe35715a8 data/snailspeed/tags/item/clay_mold.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/snailspeed/tags/item/copper_tool_repairable.json
-cff0a11aed9e5159af1420ece2f242b7b2ee12d6 data/snailspeed/tags/item/diamond_pickaxe_mineable.json
+cff0a11aed9e5159af1420ece2f242b7b2ee12d6 data/snailspeed/tags/item/diamond_level_pick.json
 156a1aaf35a5d02c0b671702b9b8e22a480ebc4c data/snailspeed/tags/item/diamond_tools.json
 a438423c6121ce46a5e9f2d8a149a8806ee86d09 data/snailspeed/tags/item/fasteners.json
 7cb7df70c4cde738999e17058f9b3097c18c5d9e data/snailspeed/tags/item/filters.json
@@ -21,6 +21,7 @@ e1b5f7df25d573146a781e2d0d44e841949ce5d6 data/snailspeed/tags/item/glues.json
 1cbea43c9e7d287ab99e406658fa525270582612 data/snailspeed/tags/item/graphite_mold.json
 989b827197b796662cafb8f524f68ff60cb4da8d data/snailspeed/tags/item/hammers.json
 f6f96ed27fdbc56f99a8be3e9b5b53da09842a90 data/snailspeed/tags/item/high_molten_items.json
+21f4a9d4d4b3d01a5d105acacbf9801973328e92 data/snailspeed/tags/item/iron_level_axe.json
 53aaebfacc268a3ec8775f779b41b8f4da7e335d data/snailspeed/tags/item/iron_tools.json
 7a26d37a3b460549bc7b166b87a4561336f4942f data/snailspeed/tags/item/log_barks.json
 75a089e3aa2e0448de8c4ac6f44f0dbb8f720cb5 data/snailspeed/tags/item/log_barks_that_burn.json

@@ -6,7 +6,6 @@
   "inputGlue": "minecraft:copper_ingot",
 
   "output": {
-    "count": 4,
-    "id": "minecraft:arrow"
+    "id": "minecraft:brush"
   }
 }

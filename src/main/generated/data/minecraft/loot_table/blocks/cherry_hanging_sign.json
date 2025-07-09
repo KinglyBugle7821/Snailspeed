@@ -9,7 +9,7 @@
           "term": {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": "#minecraft:axes"
+              "items": "#snailspeed:iron_level_axe"
             }
           }
         }
@@ -32,14 +32,14 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "items": "#minecraft:axes"
+            "items": "#snailspeed:iron_level_axe"
           }
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:cherry_sapling"
+          "name": "minecraft:cherry_hanging_sign"
         }
       ],
       "rolls": 1.0

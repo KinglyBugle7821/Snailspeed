@@ -9,7 +9,7 @@
           "term": {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": "#minecraft:axes"
+              "items": "#snailspeed:iron_level_axe"
             }
           }
         }
@@ -32,7 +32,7 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "items": "#minecraft:axes"
+            "items": "#snailspeed:iron_level_axe"
           }
         }
       ],

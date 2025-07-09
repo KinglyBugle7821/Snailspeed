@@ -41,7 +41,48 @@ public class SnailAdvancementProvider extends FabricAdvancementProvider {
         AdvancementEntry campfireBuild = Advancement.Builder.create().parent(gettingWood).display(SnailBlocks.CAMPFIRE_BASE.asItem(), Text.literal("Campfire!"), Text.literal("Build A Campfire"), null, AdvancementFrame.TASK, true, true, false).criterion("built_campfire", SnailCriteria.BUILDING_CAMPFIRE.create(new BuildingCampfireCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":building_campfire");
         AdvancementEntry startingFire = Advancement.Builder.create().parent(campfireBuild).display(SnailItems.BURNING_TINDER, Text.literal("FIRE!"), Text.literal("Start A Fire With Tinder"), null, AdvancementFrame.TASK, true, true, false).criterion("got_fire", InventoryChangedCriterion.Conditions.items(SnailItems.BURNING_TINDER)).build(consumer, Snailspeed.MOD_ID + ":get_fire");
         AdvancementEntry campfireCooking = Advancement.Builder.create().parent(startingFire).display(SnailBlocks.CAMPFIRE_BASE.asItem(), Text.literal("Let Him Cook"), Text.literal("Cook On A Campfire"), null, AdvancementFrame.TASK, true, true, false).criterion("cooked_campfire", SnailCriteria.CAMPFIRE_COOKING.create(new CookingOnCampfireCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":cooking_campfire");
-        AdvancementEntry overcooked = Advancement.Builder.create().parent(campfireCooking).display(SnailItems.BURNT_KELP.asItem(), Text.literal("Gordon Hates This"), Text.literal("Overcook A Food"), null, AdvancementFrame.TASK, true, true, false).criterion("overcooked", InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_BEEF, SnailItems.BURNT_CHICKEN, SnailItems.BURNT_COD, SnailItems.BURNT_KELP, SnailItems.BURNT_MUTTON, SnailItems.BURNT_POPPED_CHORUS_FRUIT, SnailItems.BURNT_PORKCHOP, SnailItems.BURNT_POTATO, SnailItems.BURNT_RABBIT, SnailItems.BURNT_SALMON)).build(consumer, Snailspeed.MOD_ID + ":overcooking");
+        AdvancementEntry overcooked =
+                Advancement.Builder.create().parent(campfireCooking)
+                        .display(SnailItems.BURNT_KELP.asItem(),
+                                Text.literal("Gordon Hates This"),
+                                Text.literal("Overcook A Food"),
+                                null, AdvancementFrame.TASK,
+                                true, true, false)
+                        .criterion("burnt_beef",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_BEEF))
+                        .criterion("burnt_chicken",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_CHICKEN))
+                        .criterion("burnt_cod",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_COD))
+                        .criterion("burnt_kelp",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_KELP))
+                        .criterion("burnt_mutton",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_MUTTON))
+                        .criterion("burnt_popped_chorus",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_POPPED_CHORUS_FRUIT))
+                        .criterion("burnt_porkchop",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_PORKCHOP))
+                        .criterion("burnt_potato",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_POTATO))
+                        .criterion("burnt_rabbit",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_RABBIT))
+                        .criterion("burnt_salmon",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_SALMON))
+                        .criterion("burnt_bread",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BURNT_BREAD))
+                        .requirements(AdvancementRequirements.anyOf(
+                                List.of("burnt_beef",
+                                        "burnt_chicken",
+                                        "burnt_cod",
+                                        "burnt_kelp",
+                                        "burnt_mutton",
+                                        "burnt_popped_chorus",
+                                        "burnt_porkchop",
+                                        "burnt_potato",
+                                        "burnt_rabbit",
+                                        "burnt_salmon",
+                                        "burnt_bread")))
+                        .build(consumer, Snailspeed.MOD_ID + ":overcooking");
         AdvancementEntry gettingAdvanced = Advancement.Builder.create().parent(campfireBuild).display(Items.BRICK, Text.literal("Advancing"), Text.literal("Get A Brick By Drying And Firing A Clay Brick"), null, AdvancementFrame.TASK, true, true, false).criterion("got_brick", InventoryChangedCriterion.Conditions.items(Items.BRICK)).build(consumer, Snailspeed.MOD_ID + ":get_brick");
 
         AdvancementEntry brickOvenBuild = Advancement.Builder.create().parent(gettingAdvanced).display(SnailBlocks.BRICK_OVEN.asItem(), Text.literal("LET HIM COOK NOW!"), Text.literal("Build A Brick Oven"), null, AdvancementFrame.TASK, true, true, false).criterion("got_brick_oven", SnailCriteria.BUILDING_BRICK_OVEN.create(new BuildingBrickOvenCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":building_brick_oven");
@@ -52,8 +93,99 @@ public class SnailAdvancementProvider extends FabricAdvancementProvider {
         AdvancementEntry gettingCrucible = Advancement.Builder.create().parent(brickFurnaceBuild).display(SnailBlocks.CRUCIBLE.asItem(), Text.literal("Smelting Nuggets"), Text.literal("Dry And Fire A Clay Crucible"), null, AdvancementFrame.TASK, true, true, false).criterion("got_crucible", InventoryChangedCriterion.Conditions.items(SnailBlocks.CRUCIBLE.asItem())).build(consumer, Snailspeed.MOD_ID + ":get_crucible");
         AdvancementEntry gettingFurnaceLid = Advancement.Builder.create().parent(brickFurnaceBuild).display(SnailItems.FURNACE_LID, Text.literal("Sealed The Deal"), Text.literal("Create A Furnace Lid"), null, AdvancementFrame.TASK, true, true, false).criterion("got_furnace_lid", InventoryChangedCriterion.Conditions.items(SnailItems.FURNACE_LID)).build(consumer, Snailspeed.MOD_ID + ":get_furnace_lid");
 
-        AdvancementEntry gettingClayMold = Advancement.Builder.create().parent(gettingAdvanced).display(SnailItems.INGOT_CLAY_MOLD, Text.literal("Shaping Mold"), Text.literal("Dry And Fire A Clay Mold"), null, AdvancementFrame.TASK, true, true, false).criterion("got_clay_mold", InventoryChangedCriterion.Conditions.items(SnailItems.BLANK_CLAY_MOLD, SnailItems.SWORD_CLAY_MOLD, SnailItems.AXE_CLAY_MOLD, SnailItems.SHOVEL_CLAY_MOLD, SnailItems.HOE_CLAY_MOLD, SnailItems.BLOCK_CLAY_MOLD, SnailItems.INGOT_CLAY_MOLD, SnailItems.BUCKET_CLAY_MOLD, SnailItems.PLATE_CLAY_MOLD)).build(consumer, Snailspeed.MOD_ID + ":get_clay_mold");
-        AdvancementEntry gettingCastTool = Advancement.Builder.create().parent(gettingClayMold).display(SnailItems.BRONZE_PICKAXE_HEAD, Text.literal("Casting Ingots"), Text.literal("Right-Click A Mold On A Molten Ingot"), null, AdvancementFrame.TASK, true, true, false).criterion("casted_tool", InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_SWORD_BLADE, SnailItems.COPPER_AXE_HEAD, SnailItems.COPPER_SHOVEL_HEAD, SnailItems.COPPER_HOE_HEAD, Blocks.COPPER_BLOCK, Items.COPPER_INGOT, Items.BUCKET, SnailItems.COPPER_PLATE, SnailItems.BRONZE_SWORD_BLADE, SnailItems.BRONZE_AXE_HEAD, SnailItems.BRONZE_SHOVEL_HEAD, SnailItems.BRONZE_HOE_HEAD, SnailBlocks.BRONZE_BLOCK, SnailItems.BRONZE_INGOT, Items.BUCKET, SnailItems.BRONZE_PLATE)).build(consumer, Snailspeed.MOD_ID + ":casting_tool");
+        AdvancementEntry gettingClayMold =
+                Advancement.Builder.create().parent(gettingAdvanced)
+                        .display(SnailItems.INGOT_CLAY_MOLD,
+                                Text.literal("Shaping Mold"),
+                                Text.literal("Dry And Fire A Clay Mold"),
+                                null, AdvancementFrame.TASK, true,
+                                true, false)
+                        .criterion("got_blank_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BLANK_CLAY_MOLD))
+                        .criterion("got_sword_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.SWORD_CLAY_MOLD))
+                        .criterion("got_axe_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.AXE_CLAY_MOLD))
+                        .criterion("got_pickaxe_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.PICKAXE_CLAY_MOLD))
+                        .criterion("got_shovel_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.SHOVEL_CLAY_MOLD))
+                        .criterion("got_hoe_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.HOE_CLAY_MOLD))
+                        .criterion("got_block_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.INGOT_CLAY_MOLD))
+                        .criterion("got_ingot_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BLOCK_CLAY_MOLD))
+                        .criterion("got_plate_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.PLATE_CLAY_MOLD))
+                        .criterion("got_bucket_clay_mold",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BUCKET_CLAY_MOLD))
+                        .requirements(AdvancementRequirements.anyOf(
+                                List.of("got_blank_clay_mold",
+                                        "got_sword_clay_mold",
+                                        "got_axe_clay_mold",
+                                        "got_pickaxe_clay_mold",
+                                        "got_shovel_clay_mold",
+                                        "got_hoe_clay_mold",
+                                        "got_block_clay_mold",
+                                        "got_ingot_clay_mold",
+                                        "got_plate_clay_mold",
+                                        "got_bucket_clay_mold")))
+                        .build(consumer, Snailspeed.MOD_ID + ":getting_clay_mold");
+        AdvancementEntry gettingCastTool =
+                Advancement.Builder.create().parent(gettingClayMold)
+                        .display(SnailItems.BRONZE_PICKAXE_HEAD,
+                                Text.literal("Casting Ingots"),
+                                Text.literal("Right-Click A Mold On A Molten Item"),
+                                null, AdvancementFrame.TASK,
+                                true, true, false)
+                        .criterion("got_copper_sword_blade",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_SWORD_BLADE))
+                        .criterion("got_copper_axe_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_AXE_HEAD))
+                        .criterion("got_copper_shovel_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_SHOVEL_HEAD))
+                        .criterion("got_copper_hoe_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_HOE_HEAD))
+                        .criterion("got_copper_block",
+                                InventoryChangedCriterion.Conditions.items(Blocks.COPPER_BLOCK))
+                        .criterion("got_copper_ingot",
+                                InventoryChangedCriterion.Conditions.items(Items.COPPER_INGOT))
+                        .criterion("got_bronze_sword_blade",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_SWORD_BLADE))
+                        .criterion("got_bronze_axe_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_AXE_HEAD))
+                        .criterion("got_bronze_shovel_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_SHOVEL_HEAD))
+                        .criterion("got_bronze_hoe_head",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_HOE_HEAD))
+                        .criterion("got_bronze_block",
+                                InventoryChangedCriterion.Conditions.items(SnailBlocks.BRONZE_BLOCK))
+                        .criterion("got_bronze_ingot",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_INGOT))
+                        .criterion("got_bronze_plate",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_PLATE))
+                        .criterion("got_copper_plate",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.COPPER_PLATE))
+                        .criterion("got_bucket",
+                                InventoryChangedCriterion.Conditions.items(Items.BUCKET))
+                        .requirements(AdvancementRequirements.anyOf(
+                                List.of("got_copper_sword_blade",
+                                        "got_copper_axe_head",
+                                        "got_copper_shovel_head",
+                                        "got_copper_hoe_head",
+                                        "got_copper_block",
+                                        "got_copper_ingot",
+                                        "got_bronze_sword_blade",
+                                        "got_bronze_axe_head",
+                                        "got_bronze_shovel_head",
+                                        "got_bronze_hoe_head",
+                                        "got_bronze_block",
+                                        "got_bronze_ingot",
+                                        "got_bronze_plate",
+                                        "got_copper_plate",
+                                        "got_bucket")))
+                        .build(consumer, Snailspeed.MOD_ID + ":casting_tool");
         AdvancementEntry gettingUpgrade = Advancement.Builder.create().parent(gettingCastTool).display(SnailItems.BRONZE_PICKAXE, Text.literal("Getting An Upgrade"), Text.literal("Craft A Bronze Pickaxe"), null, AdvancementFrame.TASK, true, true, false).criterion("got_upgrade", InventoryChangedCriterion.Conditions.items(SnailItems.BRONZE_PICKAXE)).build(consumer, Snailspeed.MOD_ID + ":getting_upgrade");
 
         AdvancementEntry gettingSaw = Advancement.Builder.create().parent(gettingUpgrade).display(SnailBlocks.SAW_TABLE, Text.literal("Cutting Wood"), Text.literal("Build A Saw Table By Using Circular Saw On A Wooden Slab"), null, AdvancementFrame.TASK, true, true, false).criterion("got_saw", SnailCriteria.GETTING_SAW.create(new GettingSawCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_saw");
@@ -62,7 +194,27 @@ public class SnailAdvancementProvider extends FabricAdvancementProvider {
         AdvancementEntry gettingArmorForge = Advancement.Builder.create().parent(gettingUpgrade).display(SnailBlocks.ARMOR_FORGE, Text.literal("Mom, I'm Going To War"), Text.literal("Build An Armor Forge By Using Forge Plate On A Stripped Log"), null, AdvancementFrame.TASK, true, true, false).criterion("got_armor_forge", SnailCriteria.GETTING_ARMOR_FORGE.create(new GettingArmorForgeCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_armor_forge");
         AdvancementEntry gettingWeaponForge = Advancement.Builder.create().parent(gettingUpgrade).display(SnailBlocks.WEAPON_FORGE, Text.literal("Standing On Swords"), Text.literal("Build A Weapon Forge By Using Forge Plate On A Log"), null, AdvancementFrame.TASK, true, true, false).criterion("got_weapon_forge", SnailCriteria.GETTING_WEAPON_FORGE.create(new GettingWeaponForgeCriterion.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_weapon_forge");
 
-        AdvancementEntry gettingSteelArmor = Advancement.Builder.create().parent(gettingArmorForge).display(SnailItems.STEEL_CHESTPLATE, Text.literal("Cover Me In Steel"), Text.literal("Forge a piece of Steel Armor"), null,AdvancementFrame.GOAL, true, true, false).criterion("got_steel_helmet", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_HELMET)).criterion("got_steel_chestplate", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_CHESTPLATE)).criterion("got_steel_leggings", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_LEGGINGS)).criterion("got_steel_boots", InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_BOOTS)).requirements(AdvancementRequirements.anyOf(List.of("got_steel_helmet", "got_steel_chestplate","got_steel_leggings", "got_steel_boots"))).build(consumer, Snailspeed.MOD_ID + ":getting_steel_armor");
+        AdvancementEntry gettingSteelArmor =
+                Advancement.Builder.create().parent(gettingArmorForge)
+                        .display(SnailItems.STEEL_CHESTPLATE,
+                                Text.literal("Cover Me In Steel"),
+                                Text.literal("Forge a piece of Steel Armor"),
+                                null,AdvancementFrame.GOAL, true,
+                                true, false)
+                        .criterion("got_steel_helmet",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_HELMET))
+                        .criterion("got_steel_chestplate",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_CHESTPLATE))
+                        .criterion("got_steel_leggings",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_LEGGINGS))
+                        .criterion("got_steel_boots",
+                                InventoryChangedCriterion.Conditions.items(SnailItems.STEEL_BOOTS))
+                        .requirements(AdvancementRequirements.anyOf(
+                                List.of("got_steel_helmet",
+                                        "got_steel_chestplate",
+                                        "got_steel_leggings",
+                                        "got_steel_boots")))
+                        .build(consumer, Snailspeed.MOD_ID + ":getting_steel_armor");
 
         AdvancementEntry gettingEnchantingTable = Advancement.Builder.create().parent(gettingArmorForge).display(Items.ENCHANTING_TABLE, Text.literal("Magic Is Real!"), Text.literal("Build An Enchanting Table By Using Enchanting Table Base, Diamond, Red Carpet, And Book"), null, AdvancementFrame.TASK, true, true, false).criterion("got_enchanting_table", SnailCriteria.BUILDING_ENCHANTING_TABLE.create(new EnchantingTableCriteria.Conditions(Optional.empty()))).build(consumer, Snailspeed.MOD_ID + ":getting_enchanting_table");
     }

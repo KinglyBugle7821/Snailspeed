@@ -34,7 +34,6 @@ public class SnailspeedREICommon implements REICommonPlugin {
         registry.beginRecipeFiller(MortarRecipe.class)
                 .filterType(SnailRecipe.MORTAR_RECIPE_TYPE)
                 .fill(MortarRecipeDisplay::new);
-
     }
 
     @Override

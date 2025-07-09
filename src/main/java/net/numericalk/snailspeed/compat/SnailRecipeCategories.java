@@ -21,5 +21,4 @@ public class SnailRecipeCategories {
             CategoryIdentifier.of(Snailspeed.MOD_ID, "weapon_forge");
     public static final CategoryIdentifier<MortarRecipeDisplay> MORTAR =
             CategoryIdentifier.of(Snailspeed.MOD_ID, "mortar");
-
 }

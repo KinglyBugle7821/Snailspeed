@@ -408,6 +408,14 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.guide.grass_sheaf", "§7Obtained By Breaking Grass With A Flint Flake");
         translationBuilder.add("tooltip.snailspeed.guide.saw_table", "§7Obtained By Right-Clicking Circular Saw On A Wooden Slab");
         translationBuilder.add("tooltip.snailspeed.guide.weapon_forge", "§7Obtained By Right-Clicking A Forge Plate On A Log");
+        translationBuilder.add("tooltip.snailspeed.guide.clay_mold_1", "§7Cannot Cast Iron and Steel Material");
+        translationBuilder.add("tooltip.snailspeed.guide.clay_mold_2", "§7Will Destroy on Cast");
+        translationBuilder.add("tooltip.snailspeed.guide.clay_mold_3", "§7Can Cast With %s");
+
+        translationBuilder.add("tooltip.snailspeed.guide.graphite_mold_1", "§7Can Cast Iron and Steel Material");
+        translationBuilder.add("tooltip.snailspeed.guide.graphite_mold_2", "§7Will Not Destroy on Cast");
+        translationBuilder.add("tooltip.snailspeed.guide.graphite_mold_3", "§7Can Cast With %s");
+
 
         translationBuilder.add("tooltip.snailspeed.guide.clay_blocks", "§7Can Be Dried Under The Sun");
         translationBuilder.add("tooltip.snailspeed.guide.dried_clay_blocks", "§7Can Be Fired Near A Campfire");

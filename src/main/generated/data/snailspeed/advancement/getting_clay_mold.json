@@ -1,111 +1,101 @@
 {
-  "parent": "snailspeed:cooking_campfire",
+  "parent": "snailspeed:get_brick",
   "criteria": {
-    "burnt_beef": {
+    "got_axe_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_beef"
+            "items": "snailspeed:axe_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_bread": {
+    "got_blank_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_bread"
+            "items": "snailspeed:blank_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_chicken": {
+    "got_block_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_chicken"
+            "items": "snailspeed:ingot_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_cod": {
+    "got_bucket_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_cod"
+            "items": "snailspeed:bucket_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_kelp": {
+    "got_hoe_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_kelp"
+            "items": "snailspeed:hoe_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_mutton": {
+    "got_ingot_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_mutton"
+            "items": "snailspeed:block_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_popped_chorus": {
+    "got_pickaxe_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_popped_chorus_fruit"
+            "items": "snailspeed:pickaxe_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_porkchop": {
+    "got_plate_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_porkchop"
+            "items": "snailspeed:plate_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_potato": {
+    "got_shovel_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_potato"
+            "items": "snailspeed:shovel_clay_mold"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "burnt_rabbit": {
+    "got_sword_clay_mold": {
       "conditions": {
         "items": [
           {
-            "items": "snailspeed:burnt_rabbit"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "burnt_salmon": {
-      "conditions": {
-        "items": [
-          {
-            "items": "snailspeed:burnt_salmon"
+            "items": "snailspeed:sword_clay_mold"
           }
         ]
       },
@@ -113,26 +103,25 @@
     }
   },
   "display": {
-    "description": "Overcook A Food",
+    "description": "Dry And Fire A Clay Mold",
     "icon": {
       "count": 1,
-      "id": "snailspeed:burnt_kelp"
+      "id": "snailspeed:ingot_clay_mold"
     },
-    "title": "Gordon Hates This"
+    "title": "Shaping Mold"
   },
   "requirements": [
     [
-      "burnt_beef",
-      "burnt_chicken",
-      "burnt_cod",
-      "burnt_kelp",
-      "burnt_mutton",
-      "burnt_popped_chorus",
-      "burnt_porkchop",
-      "burnt_potato",
-      "burnt_rabbit",
-      "burnt_salmon",
-      "burnt_bread"
+      "got_blank_clay_mold",
+      "got_sword_clay_mold",
+      "got_axe_clay_mold",
+      "got_pickaxe_clay_mold",
+      "got_shovel_clay_mold",
+      "got_hoe_clay_mold",
+      "got_block_clay_mold",
+      "got_ingot_clay_mold",
+      "got_plate_clay_mold",
+      "got_bucket_clay_mold"
     ]
   ],
   "sends_telemetry_event": true

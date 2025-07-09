@@ -1,56 +1,151 @@
 {
-  "parent": "snailspeed:get_clay_mold",
+  "parent": "snailspeed:getting_clay_mold",
   "criteria": {
-    "casted_tool": {
+    "got_bronze_axe_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_axe_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_hoe_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_hoe_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_shovel_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_shovel_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bronze_sword_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:bronze_sword_blade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_axe_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:copper_axe_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_hoe_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:copper_hoe_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:copper_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_shovel_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "snailspeed:copper_shovel_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_copper_sword_blade": {
       "conditions": {
         "items": [
           {
             "items": "snailspeed:copper_sword_blade"
-          },
-          {
-            "items": "snailspeed:copper_axe_head"
-          },
-          {
-            "items": "snailspeed:copper_shovel_head"
-          },
-          {
-            "items": "snailspeed:copper_hoe_head"
-          },
-          {
-            "items": "minecraft:copper_block"
-          },
-          {
-            "items": "minecraft:copper_ingot"
-          },
-          {
-            "items": "minecraft:bucket"
-          },
-          {
-            "items": "snailspeed:copper_plate"
-          },
-          {
-            "items": "snailspeed:bronze_sword_blade"
-          },
-          {
-            "items": "snailspeed:bronze_axe_head"
-          },
-          {
-            "items": "snailspeed:bronze_shovel_head"
-          },
-          {
-            "items": "snailspeed:bronze_hoe_head"
-          },
-          {
-            "items": "snailspeed:bronze_block"
-          },
-          {
-            "items": "snailspeed:bronze_ingot"
-          },
-          {
-            "items": "minecraft:bucket"
-          },
-          {
-            "items": "snailspeed:bronze_plate"
           }
         ]
       },
@@ -58,7 +153,7 @@
     }
   },
   "display": {
-    "description": "Right-Click A Mold On A Molten Ingot",
+    "description": "Right-Click A Mold On A Molten Item",
     "icon": {
       "count": 1,
       "id": "snailspeed:bronze_pickaxe_head"
@@ -67,7 +162,21 @@
   },
   "requirements": [
     [
-      "casted_tool"
+      "got_copper_sword_blade",
+      "got_copper_axe_head",
+      "got_copper_shovel_head",
+      "got_copper_hoe_head",
+      "got_copper_block",
+      "got_copper_ingot",
+      "got_bronze_sword_blade",
+      "got_bronze_axe_head",
+      "got_bronze_shovel_head",
+      "got_bronze_hoe_head",
+      "got_bronze_block",
+      "got_bronze_ingot",
+      "got_bronze_plate",
+      "got_copper_plate",
+      "got_bucket"
     ]
   ],
   "sends_telemetry_event": true

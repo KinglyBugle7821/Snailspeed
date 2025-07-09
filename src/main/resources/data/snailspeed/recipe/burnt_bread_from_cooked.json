@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:brick_oven_smelting",
 
-  "input": "snailspeed:dough",
+  "input": "minecraft:bread",
   "output": {
     "id": "snailspeed:burnt_bread"
   }

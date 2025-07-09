@@ -1,0 +1,8 @@
+{
+  "type": "snailspeed:brick_oven_smelting",
+
+  "input": "minecraft:popped_chorus_fruit",
+  "output": {
+    "id": "snailspeed:burnt_popped_chorus_fruit"
+  }
+}

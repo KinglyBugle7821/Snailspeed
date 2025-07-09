@@ -103,27 +103,27 @@ public class SnailItems {
 
 
 
-    public static final Item BLANK_CLAY_MOLD = register("blank_clay_mold", Item::new);
-    public static final Item SWORD_CLAY_MOLD = register("sword_clay_mold", Item::new);
-    public static final Item AXE_CLAY_MOLD = register("axe_clay_mold", Item::new);
-    public static final Item PICKAXE_CLAY_MOLD = register("pickaxe_clay_mold", Item::new);
-    public static final Item SHOVEL_CLAY_MOLD = register("shovel_clay_mold", Item::new);
-    public static final Item HOE_CLAY_MOLD = register("hoe_clay_mold", Item::new);
-    public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", Item::new);
-    public static final Item PLATE_CLAY_MOLD = register("plate_clay_mold", Item::new);
-    public static final Item BLOCK_CLAY_MOLD = register("block_clay_mold", Item::new);
-    public static final Item BUCKET_CLAY_MOLD = register("bucket_clay_mold", Item::new);
+    public static final Item BLANK_CLAY_MOLD = register("blank_clay_mold", settings -> new ClayMoldItem(settings, "None"));
+    public static final Item SWORD_CLAY_MOLD = register("sword_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item AXE_CLAY_MOLD = register("axe_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item PICKAXE_CLAY_MOLD = register("pickaxe_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item SHOVEL_CLAY_MOLD = register("shovel_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item HOE_CLAY_MOLD = register("hoe_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item INGOT_CLAY_MOLD = register("ingot_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item PLATE_CLAY_MOLD = register("plate_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Ingot"));
+    public static final Item BLOCK_CLAY_MOLD = register("block_clay_mold", settings -> new ClayMoldItem(settings, "Molten Copper/Bronze Block"));
+    public static final Item BUCKET_CLAY_MOLD = register("bucket_clay_mold", settings -> new ClayMoldItem(settings, "None"));
 
-    public static final Item BLANK_GRAPHITE_MOLD = register("blank_graphite_mold", Item::new);
-    public static final Item SWORD_GRAPHITE_MOLD = register("sword_graphite_mold", Item::new);
-    public static final Item AXE_GRAPHITE_MOLD = register("axe_graphite_mold", Item::new);
-    public static final Item PICKAXE_GRAPHITE_MOLD = register("pickaxe_graphite_mold", Item::new);
-    public static final Item SHOVEL_GRAPHITE_MOLD = register("shovel_graphite_mold", Item::new);
-    public static final Item HOE_GRAPHITE_MOLD = register("hoe_graphite_mold", Item::new);
-    public static final Item INGOT_GRAPHITE_MOLD = register("ingot_graphite_mold", Item::new);
-    public static final Item PLATE_GRAPHITE_MOLD = register("plate_graphite_mold", Item::new);
-    public static final Item BLOCK_GRAPHITE_MOLD = register("block_graphite_mold", Item::new);
-    public static final Item BUCKET_GRAPHITE_MOLD = register("bucket_graphite_mold", Item::new);
+    public static final Item BLANK_GRAPHITE_MOLD = register("blank_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item SWORD_GRAPHITE_MOLD = register("sword_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item AXE_GRAPHITE_MOLD = register("axe_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item PICKAXE_GRAPHITE_MOLD = register("pickaxe_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item SHOVEL_GRAPHITE_MOLD = register("shovel_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item HOE_GRAPHITE_MOLD = register("hoe_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item INGOT_GRAPHITE_MOLD = register("ingot_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item PLATE_GRAPHITE_MOLD = register("plate_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Ingot"));
+    public static final Item BLOCK_GRAPHITE_MOLD = register("block_graphite_mold", settings -> new GraphiteMoldItem(settings, "Any Molten Block"));
+    public static final Item BUCKET_GRAPHITE_MOLD = register("bucket_graphite_mold", settings -> new GraphiteMoldItem(settings, "Molten Iron Block"));
 
     public static final Item COPPER_SWORD_BLADE = register("copper_sword_blade", Item::new);
     public static final Item COPPER_AXE_HEAD = register("copper_axe_head", Item::new);

@@ -138,7 +138,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(Items.PORKCHOP)
                 .add(Items.POTATO)
                 .add(Items.RABBIT)
-                .add(Items.SALMON);
+                .add(Items.SALMON)
+                .add(SnailItems.DOUGH);
         getOrCreateTagBuilder(GLASS_PANES)
                 .add(Items.GLASS_PANE)
                 .add(Items.WHITE_STAINED_GLASS_PANE)

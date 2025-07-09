@@ -100,7 +100,6 @@ public class SnailRecipe {
                 }
             });
 
-
     //SPECIALS
 
     public static final RecipeSerializer<SnailDecoratedPotRecipe> SNAIL_DECORATED_POT =

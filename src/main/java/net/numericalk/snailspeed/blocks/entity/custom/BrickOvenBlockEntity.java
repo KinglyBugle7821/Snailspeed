@@ -170,21 +170,23 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
         return progress[i] >= maxProgress;
     }
     private void craftItem(int i, boolean isSmelting) {
-        if (hasRecipe(i, !isSmelting)){
+        if (!isSmelting) {
             Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
-            if (recipe.isEmpty()) return;
+            if (recipe.isEmpty()) {
+                return;
+            }
             ItemStack output = recipe.get().value().output();
-            this.setStack(i, SnailItems.AIR.getDefaultStack());
-            this.setStack(i, new ItemStack(output.getItem(), 1));
-        } else if (hasRecipe(i, isSmelting)){
+            this.setStack(i, output.copy());
+        } else {
             Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
-            if (recipe.isEmpty()) return;
+            if (recipe.isEmpty()) {
+                return;
+            }
             ItemStack output = recipe.get().value().output();
-
-            this.setStack(i, SnailItems.AIR.getDefaultStack());
-            this.setStack(i, new ItemStack(output.getItem(), 1));
+            this.setStack(i, output.copy());
         }
     }
+
     private void increaseCraftingProgress(int i) {
         progress[i]++;
     }

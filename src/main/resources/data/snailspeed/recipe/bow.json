@@ -5,7 +5,7 @@
   "inputAdditional": "#snailspeed:string",
   "inputGlue": "#snailspeed:glues",
 
-  "bow": {
+  "output": {
     "id": "minecraft:bow"
   }
 }

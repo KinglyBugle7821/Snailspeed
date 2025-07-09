@@ -5,7 +5,7 @@
   "inputAdditional": "snailspeed:long_stick",
   "inputGlue": "#snailspeed:glues",
 
-  "axe": {
+  "output": {
     "id": "snailspeed:steel_axe"
   }
 }

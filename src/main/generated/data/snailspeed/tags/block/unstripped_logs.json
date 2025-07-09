@@ -21,6 +21,12 @@
     "minecraft:crimson_stem",
     "minecraft:crimson_hyphae",
     "minecraft:warped_stem",
-    "minecraft:warped_hyphae"
+    "minecraft:warped_hyphae",
+    "snailspeed:tapped_spruce_log",
+    "snailspeed:tapped_birch_log",
+    "snailspeed:tapped_pale_oak_log",
+    "snailspeed:decayed_spruce_log",
+    "snailspeed:decayed_birch_log",
+    "snailspeed:decayed_pale_oak_log"
   ]
 }

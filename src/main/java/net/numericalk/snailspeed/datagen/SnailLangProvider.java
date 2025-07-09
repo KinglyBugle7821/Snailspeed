@@ -55,7 +55,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.CLAY_SAND, "Clay Sand");
         translationBuilder.add(SnailItems.PEBBLE, "Pebble");
 
-        translationBuilder.add(SnailItems.STONE_ROCK, "Stone Rock");
+        translationBuilder.add(SnailItems.STONE_ROCK, "Rock");
 
         translationBuilder.add(SnailItems.STONE_DUST, "Stone Dust");
 
@@ -218,6 +218,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, "Molten Smooth Quartz Block");
         translationBuilder.add(SnailItems.MOLTEN_NETHERITE_BLOCK, "Molten Netherite Block");
         translationBuilder.add(SnailItems.MOLTEN_TERRACOTTA, "Molten Terracotta");
+        translationBuilder.add(SnailItems.MOLTEN_SANDSTONE, "Molten Sandstone");
 
         translationBuilder.add(SnailItems.ROUGH_WHITE_WOOL, "Rough White Wool");
         translationBuilder.add(SnailItems.ROUGH_ORANGE_WOOL, "Rough Orange Wool");
@@ -346,6 +347,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailBlocks.UNSTEADY_DIRT, "Unsteady Dirt");
         translationBuilder.add(SnailBlocks.UNSTEADY_ROOTED_DIRT, "Unsteady Rooted Dirt");
         translationBuilder.add(SnailBlocks.UNSTEADY_COARSE_DIRT, "Unsteady Coarse Dirt");
+        translationBuilder.add(SnailBlocks.UNSTEADY_MUD, "Unsteady Mud");
 
         translationBuilder.add(SnailBlocks.CLAY_MOLD, "Clay Mold");
         translationBuilder.add(SnailBlocks.DRIED_CLAY_MOLD, "Dried Clay Mold");
@@ -378,7 +380,6 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.item.circular_saw", "Used To Break Wooden Planks/Stone Into Wooden/Stone Slabs");
         translationBuilder.add("tooltip.snailspeed.item.tinder", "Hold Stick On The Offhand And Hold Right Click To Create Burning Tinder");
         translationBuilder.add("tooltip.snailspeed.item.furnace_lid", "A Lid To Cover A Brick Furnace");
-        translationBuilder.add("tooltip.snailspeed.item.clay_mold", "Right-Click To Switch Between Different Patterns");
         translationBuilder.add("tooltip.snailspeed.item.molten", "Use A Mold To Cast");
 
         translationBuilder.add("tooltip.snailspeed.block.armor_forge", "Used To Craft Armors");
@@ -394,6 +395,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.block.saw_table", "Used To Craft Wooden Blocks");
         translationBuilder.add("tooltip.snailspeed.block.floating_block", "This Block Can Float");
         translationBuilder.add("tooltip.snailspeed.block.weapon_forge", "Used To Craft Weapons");
+        translationBuilder.add("tooltip.snailspeed.block.clay_mold", "Right-Click To Switch Between Different Patterns");
 
         translationBuilder.add("tooltip.snailspeed.guide.forge_plate_1", "§7Right Click On A Stripped Log To Build An Armor Forge");
         translationBuilder.add("tooltip.snailspeed.guide.forge_plate_2", "§7Right Click On A Log To Build An Weapon Forge");
@@ -406,8 +408,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.snailspeed.guide.saw_table", "§7Obtained By Right-Clicking Circular Saw On A Wooden Slab");
         translationBuilder.add("tooltip.snailspeed.guide.weapon_forge", "§7Obtained By Right-Clicking A Forge Plate On A Log");
 
-        translationBuilder.add("tooltip.snailspeed.guide.clay_blocks", "Dry It Under The Sun");
-        translationBuilder.add("tooltip.snailspeed.guide.dried_clay_blocks", "Fire It Near A Campfire With Huge Fire");
+        translationBuilder.add("tooltip.snailspeed.guide.clay_blocks", "§7Can Be Dried Under The Sun");
+        translationBuilder.add("tooltip.snailspeed.guide.dried_clay_blocks", "§7Can Be Fired Near A Campfire");
 
         translationBuilder.add("itemgroup.snailspeed", "Snailspeed");
         translationBuilder.add("tooltip.snailspeed.has_shift_down", "§7[SHIFT] For More Info");

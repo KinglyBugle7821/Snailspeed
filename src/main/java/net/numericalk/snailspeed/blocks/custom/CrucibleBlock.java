@@ -113,7 +113,7 @@ public class CrucibleBlock extends Block {
         if(!Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("tooltip.snailspeed.has_shift_down"));
         } else {
-            tooltip.add(Text.translatable("tooltip.snailspeed.guide.crucible"));
+            tooltip.add(Text.translatable("tooltip.snailspeed.block.crucible"));
         }
 
         super.appendTooltip(stack, context, tooltip, type);

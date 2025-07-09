@@ -61,6 +61,8 @@ public class SnailItemGroup {
 
                         entries.add(SnailBlocks.UNSTEADY_DIRT);
                         entries.add(SnailBlocks.UNSTEADY_COARSE_DIRT);
+                        entries.add(SnailBlocks.UNSTEADY_ROOTED_DIRT);
+                        entries.add(SnailBlocks.UNSTEADY_MUD);
 
                         entries.add(SnailBlocks.SCRATCHED_STONE);
                         entries.add(SnailBlocks.CRACKED_STONE);

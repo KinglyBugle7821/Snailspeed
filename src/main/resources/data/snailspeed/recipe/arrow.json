@@ -5,7 +5,8 @@
   "inputAdditional": "snailspeed:long_stick",
   "inputGlue": "#snailspeed:glues",
 
-  "arrow": {
+  "output": {
+    "count": 4,
     "id": "minecraft:arrow"
   }
 }

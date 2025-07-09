@@ -157,7 +157,8 @@ public class BrickFurnaceBlock extends BlockWithEntity implements BlockEntityPro
             {SnailItems.MOLTEN_DEEPSLATE, Items.DEEPSLATE},
             {SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK, Items.SMOOTH_QUARTZ},
             {SnailItems.MOLTEN_NETHERITE_BLOCK, Items.NETHERITE_BLOCK},
-            {SnailItems.MOLTEN_TERRACOTTA, Items.TERRACOTTA}
+            {SnailItems.MOLTEN_TERRACOTTA, Items.TERRACOTTA},
+            {SnailItems.MOLTEN_SANDSTONE, Items.SANDSTONE}
     };
     private static final Item[][] EXTRA_BUCKET_RECIPES = {
             {SnailItems.MOLTEN_IRON_BLOCK, Items.BUCKET}

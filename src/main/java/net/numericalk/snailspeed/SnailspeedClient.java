@@ -8,12 +8,10 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.numericalk.snailspeed.blocks.SnailBlocks;
 import net.numericalk.snailspeed.blocks.entity.SnailBlockEntities;
-import net.numericalk.snailspeed.blocks.entity.custom.BrickOvenBlockEntity;
 import net.numericalk.snailspeed.blocks.entity.renderer.*;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
-import net.numericalk.snailspeed.networking.packets.WeaponSelectPayload;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.screen.custom.ArmorForgeScreen;
 import net.numericalk.snailspeed.screen.custom.SawTableScreen;
@@ -54,12 +52,6 @@ public class SnailspeedClient implements ClientModInitializer {
 
         ClientPlayNetworking.registerGlobalReceiver(
                 SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD,
-                (payload, context) -> {
-
-                }
-        );
-        ClientPlayNetworking.registerGlobalReceiver(
-                WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID,
                 (payload, context) -> {
 
                 }

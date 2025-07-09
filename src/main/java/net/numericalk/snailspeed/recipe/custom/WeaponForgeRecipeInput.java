@@ -2,9 +2,8 @@ package net.numericalk.snailspeed.recipe.custom;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.input.RecipeInput;
-import net.numericalk.snailspeed.utils.enums.WeaponPiece;
 
-public record WeaponForgeRecipeInput(ItemStack inputHead, ItemStack inputAdditional, ItemStack inputGlue, WeaponPiece selected) implements RecipeInput {
+public record WeaponForgeRecipeInput(ItemStack inputHead, ItemStack inputAdditional, ItemStack inputGlue) implements RecipeInput {
     @Override
     public ItemStack getStackInSlot(int slot) {
         return switch (slot){

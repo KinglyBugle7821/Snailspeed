@@ -88,6 +88,7 @@ public class SnailItems {
     public static final Item MOLTEN_REDSTONE_BLOCK = register("molten_redstone_block", MoltenItem::new);
     public static final Item MOLTEN_LAPIS_BLOCK = register("molten_lapis_block", MoltenItem::new);
     public static final Item MOLTEN_NETHERITE_BLOCK = register("molten_netherite_block", MoltenItem::new);
+    public static final Item MOLTEN_SANDSTONE = register("molten_sandstone", MoltenItem::new);
 
     public static final Item MOLTEN_GLASS = register("molten_glass", MoltenItem::new);
     public static final Item MOLTEN_STONE = register("molten_stone", MoltenItem::new);

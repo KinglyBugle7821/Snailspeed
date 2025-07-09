@@ -33,7 +33,6 @@ import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.recipe.custom.WeaponForgeRecipe;
 import net.numericalk.snailspeed.recipe.custom.WeaponForgeRecipeInput;
 import net.numericalk.snailspeed.screen.custom.WeaponForgeScreenHandler;
-import net.numericalk.snailspeed.utils.enums.WeaponPiece;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -85,66 +84,11 @@ public class WeaponForgeBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        boolean hasRecipe = hasRecipe();
-        if (hasRecipe) {
+        if (hasRecipe()) {
             tryToCreateWeapon();
         } else {
-            ItemStack stack = getStack(OUTPUT);
-            Optional<RecipeEntry<WeaponForgeRecipe>> recipe = getCurrentRecipe();
-
-            if (recipe.isEmpty()) {
-                setStack(OUTPUT, ItemStack.EMPTY);
-                return;
-            }
-            switch (selected){
-                case SWORD -> {
-                    if (!stack.isOf(recipe.get().value().sword().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case AXE -> {
-                    if (!stack.isOf(recipe.get().value().axe().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case PICKAXE -> {
-                    if (!stack.isOf(recipe.get().value().pickaxe().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case SHOVEL -> {
-                    if (!stack.isOf(recipe.get().value().shovel().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case HOE -> {
-                    if (!stack.isOf(recipe.get().value().hoe().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case BOW -> {
-                    if (!stack.isOf(recipe.get().value().bow().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case CROSSBOW -> {
-                    if (!stack.isOf(recipe.get().value().crossbow().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-                case ARROW -> {
-                    if (!stack.isOf(recipe.get().value().arrow().getItem())){
-                        removeStack(OUTPUT);
-                    }
-                }
-            }
+            removeStack(OUTPUT);
         }
-    }
-
-    private WeaponPiece selected = WeaponPiece.SWORD;
-
-    public void setSelectedPiece(WeaponPiece selected) {
-        this.selected = selected;
     }
 
     private boolean hasRecipe() {
@@ -157,19 +101,15 @@ public class WeaponForgeBlockEntity extends BlockEntity implements ExtendedScree
         Ingredient inputHead = recipe.get().value().inputHead();
         Ingredient inputAdditional = recipe.get().value().inputAdditional();
         Ingredient inputGlue = recipe.get().value().inputGlue();
-        if (getOutputOf(inputHead, inputAdditional, inputGlue)) {
-            ItemStack output = recipe.get().value().getOutput(selected);
-            return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
-        }
-        return false;
+
+        return getOutputOf(inputHead, inputAdditional, inputGlue);
     }
 
     private Optional<RecipeEntry<WeaponForgeRecipe>> getCurrentRecipe() {
         return this.matchGetter.getFirstMatch(new WeaponForgeRecipeInput(
                 inventory.get(INPUT_HEAD),
                 inventory.get(INPUT_ADDITIONAL),
-                inventory.get(INPUT_GLUE),
-                selected
+                inventory.get(INPUT_GLUE)
         ), (ServerWorld) this.world);
     }
 
@@ -188,17 +128,10 @@ public class WeaponForgeBlockEntity extends BlockEntity implements ExtendedScree
         if (this.getStack(OUTPUT).isEmpty()){
             Optional<RecipeEntry<WeaponForgeRecipe>> recipe = getCurrentRecipe();
 
-            ItemStack output = recipe.get().value().getOutput(selected);
-            switch (selected){
-                case SWORD, AXE, PICKAXE, SHOVEL, HOE, BOW, CROSSBOW -> this.setStack(OUTPUT, new ItemStack(output.getItem(), 1));
-                case ARROW -> {
-                    if (output.isOf(Items.ARROW)){
-                        this.setStack(OUTPUT, new ItemStack(output.getItem(), 4));
-                    } else {
-                        this.setStack(OUTPUT, new ItemStack(output.getItem(), 1));
-                    }
-                }
-            }
+            ItemStack output = recipe.get().value().getOutput();
+            this.setStack(OUTPUT, new ItemStack(output.getItem(),
+                    this.getStack(OUTPUT).getCount() + output.getCount()));
+
         }
     }
 

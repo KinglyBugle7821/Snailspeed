@@ -124,12 +124,17 @@ public class SnailWoodReplace {
             Block damaged = (Block) log[8];
             Item bark = (Item) log[9];
             for (int i = 0; i < 6; i++) {
-                if (state.isOf((Block) log[i])) {
+                if (state.isOf((Block) log[i]) && state.isIn(SnailBlockTagsProvider.UNSTRIPPED_LOGS)) {
                     turnBlockTo(trimmed, pos, state, world);
                     if (canDrop) {
                         addDrop(world, bark, pos);
                     }
                     return;
+                } else if (state.isOf((Block) log[i]) && state.isIn(SnailBlockTagsProvider.STRIPPED_LOGS)){
+                    turnBlockTo(trimmed, pos, state, world);
+                    if (canDrop){
+                        addDrop(world, SnailItems.WOOD_DUST, pos);
+                    }
                 }
             }
             if (state.isOf(trimmed)) {
@@ -153,13 +158,19 @@ public class SnailWoodReplace {
             Block damaged = (Block) log[8];
             Item bark = (Item) log[9];
             for (int i = 0; i < 6; i++) {
-                if (state.isOf((Block) log[i])) {
+                if (state.isOf((Block) log[i]) && state.isIn(SnailBlockTagsProvider.UNSTRIPPED_LOGS)) {
                     turnBlockTo(cracked, pos, state, world);
                     if (canDrop) {
-                        addDrop(world, bark, pos);
+                        addDrop(world, SnailItems.WOOD_DUST, pos);
                         addDrop(world, SnailItems.WOOD_DUST, pos);
                     }
                     return;
+                } else if (state.isOf((Block) log[i]) && state.isIn(SnailBlockTagsProvider.STRIPPED_LOGS)){
+                    turnBlockTo(cracked, pos, state, world);
+                    if (canDrop){
+                        addDrop(world, SnailItems.WOOD_DUST, pos);
+                        addDrop(world, SnailItems.WOOD_DUST, pos);
+                    }
                 }
             }
             if (state.isOf(trimmed)) {

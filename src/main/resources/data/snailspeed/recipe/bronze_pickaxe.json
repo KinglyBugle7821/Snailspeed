@@ -5,7 +5,7 @@
   "inputAdditional": "snailspeed:long_stick",
   "inputGlue": "#snailspeed:glues",
 
-  "pickaxe": {
+  "output": {
     "id": "snailspeed:bronze_pickaxe"
   }
 }

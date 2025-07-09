@@ -22,25 +22,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class WeaponForgeRecipeDisplay extends BasicDisplay {
-    @SuppressWarnings("unchecked")
     public WeaponForgeRecipeDisplay(RecipeEntry<WeaponForgeRecipe> recipe) {
         super(List.of(EntryIngredients.ofIngredient(recipe.value().getIngredients().get(0)),
                         EntryIngredients.ofIngredient(recipe.value().getIngredients().get(1)),
                         EntryIngredients.ofIngredient(recipe.value().getIngredients().get(2))),
-                List.of(EntryIngredient.of(
-                        Stream.of(recipe.value().sword(),
-                                        recipe.value().axe(),
-                                        recipe.value().pickaxe(),
-                                        recipe.value().shovel(),
-                                        recipe.value().hoe(),
-                                        recipe.value().bow(),
-                                        recipe.value().crossbow(),
-                                        recipe.value().arrow()
-                                )
-                                .filter(stack -> stack != null && !stack.isOf(Items.AIR))
-                                .map(EntryStacks::of)
-                                .toArray(EntryStack[]::new)
-                ))
+                List.of(EntryIngredient.of(EntryStacks.of(recipe.value().output())))
         );
     }
     public WeaponForgeRecipeDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs) {

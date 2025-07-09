@@ -256,7 +256,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
                 .add(SnailItems.MOLTEN_DEEPSLATE)
                 .add(SnailItems.MOLTEN_SMOOTH_QUARTZ_BLOCK)
                 .add(SnailItems.MOLTEN_NETHERITE_BLOCK)
-                .add(SnailItems.MOLTEN_TERRACOTTA);
+                .add(SnailItems.MOLTEN_TERRACOTTA)
+                .add(SnailItems.MOLTEN_SANDSTONE);
         getOrCreateTagBuilder(HIGH_MOLTEN_ITEMS)
                 .add(SnailItems.MOLTEN_IRON)
                 .add(SnailItems.MOLTEN_STEEL)

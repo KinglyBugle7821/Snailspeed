@@ -201,7 +201,13 @@ public class SnailBlockTagsProvider extends FabricTagProvider<Block> {
                 .add(Blocks.CRIMSON_STEM)
                 .add(Blocks.CRIMSON_HYPHAE)
                 .add(Blocks.WARPED_STEM)
-                .add(Blocks.WARPED_HYPHAE);
+                .add(Blocks.WARPED_HYPHAE)
+                .add(SnailBlocks.TAPPED_SPRUCE_LOG)
+                .add(SnailBlocks.TAPPED_BIRCH_LOG)
+                .add(SnailBlocks.TAPPED_PALE_OAK_LOG)
+                .add(SnailBlocks.DECAYED_SPRUCE_LOG)
+                .add(SnailBlocks.DECAYED_BIRCH_LOG)
+                .add(SnailBlocks.DECAYED_PALE_OAK_LOG);
         getOrCreateTagBuilder(STRIPPED_LOGS)
                 .add(Blocks.STRIPPED_OAK_LOG)
                 .add(Blocks.STRIPPED_OAK_WOOD)

@@ -1,0 +1,12 @@
+{
+  "type": "snailspeed:weapon_forge",
+
+  "inputHead": "minecraft:feather",
+  "inputAdditional": "minecraft:stick",
+  "inputGlue": "minecraft:copper_ingot",
+
+  "output": {
+    "count": 4,
+    "id": "minecraft:arrow"
+  }
+}

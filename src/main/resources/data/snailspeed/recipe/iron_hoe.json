@@ -5,7 +5,7 @@
   "inputAdditional": "snailspeed:long_stick",
   "inputGlue": "#snailspeed:glues",
 
-  "hoe": {
+  "output": {
     "id": "minecraft:iron_hoe"
   }
 }

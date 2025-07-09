@@ -90,15 +90,14 @@ public class WeaponForgeBlock extends BlockWithEntity implements BlockEntityProv
         return ActionResult.SUCCESS;
     }
 
-    @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (world.isClient()) {
             return null;
         }
-
         return validateTicker(type, SnailBlockEntities.WEAPON_FORGE,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+                (world1, pos, state1, blockEntity) ->
+                        blockEntity.tick(world1, pos, state1));
     }
 
     @Override

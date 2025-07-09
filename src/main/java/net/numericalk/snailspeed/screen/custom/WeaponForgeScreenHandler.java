@@ -34,23 +34,13 @@ public class WeaponForgeScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inv, WeaponForgeBlockEntity.INPUT_HEAD, 44, 18));
         this.addSlot(new Slot(inv, WeaponForgeBlockEntity.INPUT_ADDITIONAL, 44, 54));
-        this.addSlot(new Slot(inv, WeaponForgeBlockEntity.INPUT_GLUE, 26, 36) {
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return stack.isIn(SnailItemTagsProvider.GLUES);
-            }
-        });
+        this.addSlot(new Slot(inv, WeaponForgeBlockEntity.INPUT_GLUE, 26, 36));
 
         this.addSlot(new Slot(inv, WeaponForgeBlockEntity.OUTPUT, 98, 36) {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 be.decrementInputNoPlayer();
                 be.playForgingSound(player);
-            }
-
-            @Override
-            public boolean canTakeItems(PlayerEntity playerEntity) {
-                return true;
             }
 
             @Override

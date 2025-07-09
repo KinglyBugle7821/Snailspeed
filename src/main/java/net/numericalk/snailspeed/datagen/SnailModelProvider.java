@@ -105,6 +105,7 @@ public class SnailModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_ROOTED_DIRT);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_COARSE_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.UNSTEADY_MUD);
 
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(SnailBlocks.DEEPSLATE_TIN_ORE);
@@ -189,6 +190,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.MOLTEN_REDSTONE_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_LAPIS_BLOCK, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_NETHERITE_BLOCK, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.MOLTEN_SANDSTONE, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.MOLTEN_GLASS, Models.GENERATED);
         itemModelGenerator.register(SnailItems.MOLTEN_STONE, Models.GENERATED);

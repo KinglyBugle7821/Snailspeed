@@ -2,13 +2,7 @@ package net.numericalk.snailspeed;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
-import net.minecraft.block.DecoratedPotPattern;
 import net.minecraft.client.render.LightmapTextureManager;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.recipe.CraftingDecoratedPotRecipe;
-import net.minecraft.recipe.SmithingRecipe;
-import net.minecraft.recipe.SmithingTrimRecipe;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
@@ -21,7 +15,6 @@ import net.numericalk.snailspeed.misc.SnailComponent;
 import net.numericalk.snailspeed.networking.SnailNetworkingBrain;
 import net.numericalk.snailspeed.networking.packets.ArmorSelectPayload;
 import net.numericalk.snailspeed.networking.packets.SawSelectRecipePayload;
-import net.numericalk.snailspeed.networking.packets.WeaponSelectPayload;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
 import net.numericalk.snailspeed.screen.SnailScreenHandlers;
 import net.numericalk.snailspeed.utils.*;
@@ -32,7 +25,6 @@ import org.slf4j.LoggerFactory;
 public class Snailspeed implements ModInitializer {
     public static final String MOD_ID = "snailspeed";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
 
     @Override
     public void onInitialize() {
@@ -52,15 +44,13 @@ public class Snailspeed implements ModInitializer {
         SnailSetBlockOnFire.SetOnFire();
         SnailWoodReplace.replaceWood();
         SnailBreakEvents.playerBreak();
+        SnailHurtCactus.cactusHurtAw();
 
         PayloadTypeRegistry.playC2S().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(ArmorSelectPayload.ARMOR_SELECT_PACKET_ID, ArmorSelectPayload.CODEC);
 
         PayloadTypeRegistry.playC2S().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
         PayloadTypeRegistry.playS2C().register(SawSelectRecipePayload.SAW_CRAFTABLE_RECIPE_PAYLOAD, SawSelectRecipePayload.CODEC);
-
-        PayloadTypeRegistry.playC2S().register(WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID, WeaponSelectPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(WeaponSelectPayload.WEAPON_SELECT_PAYLOAD_ID, WeaponSelectPayload.CODEC);
 
         SnailNetworkingBrain.registerC2SPackets();
     }

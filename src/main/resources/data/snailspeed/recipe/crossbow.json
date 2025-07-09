@@ -5,7 +5,7 @@
   "inputAdditional": "minecraft:tripwire_hook",
   "inputGlue": "#snailspeed:glues",
 
-  "crossbow": {
+  "output": {
     "id": "minecraft:crossbow"
   }
 }

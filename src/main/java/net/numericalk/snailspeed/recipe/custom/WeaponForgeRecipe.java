@@ -16,16 +16,13 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import net.numericalk.snailspeed.recipe.SnailRecipe;
-import net.numericalk.snailspeed.utils.enums.SawCraftable;
-import net.numericalk.snailspeed.utils.enums.WeaponPiece;
 import net.numericalk.snailspeed.utils.records.SnailPacketCodec;
 
 import java.util.List;
 import java.util.Optional;
 
 public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional, Ingredient inputGlue,
-                                ItemStack sword, ItemStack axe, ItemStack pickaxe, ItemStack shovel,
-                                ItemStack hoe, ItemStack bow, ItemStack crossbow, ItemStack arrow) implements Recipe<WeaponForgeRecipeInput> {
+                                ItemStack output) implements Recipe<WeaponForgeRecipeInput> {
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputHead);
@@ -34,26 +31,14 @@ public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional
         return list;
     }
 
-    public ItemStack getOutput(WeaponPiece weaponPiece) {
-        return switch (weaponPiece) {
-            case SWORD -> sword;
-            case AXE -> axe;
-            case PICKAXE -> pickaxe;
-            case SHOVEL -> shovel;
-            case HOE -> hoe;
-            case BOW -> bow;
-            case CROSSBOW -> crossbow;
-            case ARROW -> arrow;
-        };
+    public ItemStack getOutput() {
+        return output;
     }
 
     @Override
     public boolean matches(WeaponForgeRecipeInput input, World world) {
         if (world.isClient()) {
             return false;
-        }
-        if (input.getStackInSlot(1).isOf(Items.LINGERING_POTION) && input.getStackInSlot(0).isOf(Items.ARROW)){
-            return true;
         }
         return inputHead.test(input.getStackInSlot(0)) &&
                 inputAdditional.test(input.getStackInSlot(1)) &&
@@ -62,16 +47,7 @@ public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional
 
     @Override
     public ItemStack craft(WeaponForgeRecipeInput input, RegistryWrapper.WrapperLookup registries) {
-        return switch (input.selected()){
-            case SWORD -> sword.copy();
-            case AXE -> axe.copy();
-            case PICKAXE -> pickaxe.copy();
-            case SHOVEL -> shovel.copy();
-            case HOE -> hoe.copy();
-            case BOW -> bow.copy();
-            case CROSSBOW -> crossbow.copy();
-            case ARROW -> arrow.copy();
-        };
+        return output.copy();
     }
     @Override
     public RecipeSerializer<? extends Recipe<WeaponForgeRecipeInput>> getSerializer() {
@@ -104,29 +80,15 @@ public record WeaponForgeRecipe(Ingredient inputHead, Ingredient inputAdditional
                 Ingredient.CODEC.fieldOf("inputAdditional").forGetter(WeaponForgeRecipe::inputAdditional),
                 Ingredient.CODEC.fieldOf("inputGlue").forGetter(WeaponForgeRecipe::inputGlue),
 
-                ItemStack.CODEC.optionalFieldOf("sword", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::sword),
-                ItemStack.CODEC.optionalFieldOf("axe", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::axe),
-                ItemStack.CODEC.optionalFieldOf("pickaxe", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::pickaxe),
-                ItemStack.CODEC.optionalFieldOf("shovel", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::shovel),
-                ItemStack.CODEC.optionalFieldOf("hoe", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::hoe),
-                ItemStack.CODEC.optionalFieldOf("bow", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::bow),
-                ItemStack.CODEC.optionalFieldOf("crossbow", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::crossbow),
-                ItemStack.CODEC.optionalFieldOf("arrow", ItemStack.EMPTY).forGetter(WeaponForgeRecipe::arrow)
+                ItemStack.CODEC.fieldOf("output").forGetter(WeaponForgeRecipe::output)
         ).apply(instance, WeaponForgeRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, WeaponForgeRecipe> PACKET_CODEC =
-                SnailPacketCodec.tuple(
+                PacketCodec.tuple(
                         Ingredient.PACKET_CODEC, WeaponForgeRecipe::inputHead,
                         Ingredient.PACKET_CODEC, WeaponForgeRecipe::inputAdditional,
                         Ingredient.PACKET_CODEC, WeaponForgeRecipe::inputGlue,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::sword,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::axe,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::pickaxe,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::shovel,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::hoe,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::bow,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::crossbow,
-                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::arrow,
+                        ItemStack.PACKET_CODEC, WeaponForgeRecipe::output,
                         WeaponForgeRecipe::new);
 
         @Override

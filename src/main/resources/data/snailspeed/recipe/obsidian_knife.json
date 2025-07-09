@@ -5,7 +5,7 @@
   "inputAdditional": "minecraft:stick",
   "inputGlue": "#snailspeed:glues",
 
-  "sword": {
+  "output": {
     "id": "snailspeed:obsidian_knife"
   }
 }

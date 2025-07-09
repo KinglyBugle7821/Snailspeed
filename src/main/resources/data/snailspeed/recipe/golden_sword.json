@@ -5,7 +5,7 @@
   "inputAdditional": "snailspeed:long_stick",
   "inputGlue": "#snailspeed:glues",
 
-  "sword": {
+  "output": {
     "id": "minecraft:golden_sword"
   }
 }

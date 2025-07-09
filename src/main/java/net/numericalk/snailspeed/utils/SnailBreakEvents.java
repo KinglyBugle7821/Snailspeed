@@ -207,9 +207,10 @@ public class SnailBreakEvents {
         });
 
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
-            if (state.isIn(SnailBlockTagsProvider.ORES) ||
-                    state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES) ||
-                    !player.isCreative() && state.isOf(Blocks.NETHER_GOLD_ORE)) {
+            if ((state.isIn(SnailBlockTagsProvider.ORES)
+                    || state.isIn(SnailBlockTagsProvider.DEEPSLATE_ORES)
+                    || state.isOf(Blocks.NETHER_GOLD_ORE)
+                    || state.isOf(Blocks.NETHER_QUARTZ_ORE) && !player.isCreative())) {
                 degradeOreBlock(world, pos, state);
             }
         });

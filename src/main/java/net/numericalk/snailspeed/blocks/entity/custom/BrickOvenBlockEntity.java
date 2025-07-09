@@ -172,11 +172,13 @@ public class BrickOvenBlockEntity extends BlockEntity implements ImplementedInve
     private void craftItem(int i, boolean isSmelting) {
         if (hasRecipe(i, !isSmelting)){
             Optional<RecipeEntry<BrickOvenCookingRecipe>> recipe = getCurrentCookingRecipe(i);
+            if (recipe.isEmpty()) return;
             ItemStack output = recipe.get().value().output();
             this.setStack(i, SnailItems.AIR.getDefaultStack());
             this.setStack(i, new ItemStack(output.getItem(), 1));
         } else if (hasRecipe(i, isSmelting)){
             Optional<RecipeEntry<BrickOvenSmeltingRecipe>> recipe = getCurrentSmeltingRecipe(i);
+            if (recipe.isEmpty()) return;
             ItemStack output = recipe.get().value().output();
 
             this.setStack(i, SnailItems.AIR.getDefaultStack());

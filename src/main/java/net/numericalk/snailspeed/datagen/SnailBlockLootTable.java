@@ -124,7 +124,6 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 Blocks.MANGROVE_LOG, Blocks.MANGROVE_WOOD, Blocks.STRIPPED_MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_WOOD, Blocks.MANGROVE_PLANKS,
                 Blocks.MANGROVE_FENCE, Blocks.MANGROVE_FENCE_GATE, Blocks.MANGROVE_DOOR, Blocks.MANGROVE_TRAPDOOR,
                 Blocks.MANGROVE_SLAB, Blocks.MANGROVE_STAIRS, Blocks.MANGROVE_SIGN, Blocks.MANGROVE_WALL_SIGN,
-                Blocks.MANGROVE_ROOTS, Blocks.MUDDY_MANGROVE_ROOTS,
 
                 Blocks.CHERRY_LOG, Blocks.CHERRY_WOOD, Blocks.STRIPPED_CHERRY_LOG, Blocks.STRIPPED_CHERRY_WOOD, Blocks.CHERRY_PLANKS,
                 Blocks.CHERRY_FENCE, Blocks.CHERRY_FENCE_GATE, Blocks.CHERRY_DOOR, Blocks.CHERRY_TRAPDOOR,
@@ -332,6 +331,8 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
         addDrop(Blocks.FARMLAND, bundledBlockDrop(Blocks.FARMLAND, SnailBlocks.UNSTEADY_DIRT.asItem(), 1f));
         addDrop(Blocks.ROOTED_DIRT, bundledBlockDrop(Blocks.ROOTED_DIRT, SnailBlocks.UNSTEADY_ROOTED_DIRT.asItem(), 1f));
         addDrop(Blocks.COARSE_DIRT, bundledBlockDrop(Blocks.COARSE_DIRT, SnailBlocks.UNSTEADY_COARSE_DIRT.asItem(), 1f));
+        addDrop(Blocks.MANGROVE_ROOTS, bundledBlockDrop(Blocks.MANGROVE_ROOTS, SnailItems.LONG_STICK, 1f, 3f));
+        addDrop(Blocks.MUDDY_MANGROVE_ROOTS, bundledBlockDrop(Blocks.MUDDY_MANGROVE_ROOTS, SnailBlocks.UNSTEADY_MUD.asItem(), 1f));
         addDrop(Blocks.MUD, bundledBlockDrop(Blocks.MUD, SnailBlocks.UNSTEADY_MUD.asItem(), 1f));
         addDrop(Blocks.MOSS_BLOCK, bundledBlockDrop(Blocks.MOSS_BLOCK, Blocks.VINE.asItem(), 1f, 2f));
         addDrop(Blocks.PALE_MOSS_BLOCK, bundledBlockDrop(Blocks.PALE_MOSS_BLOCK, Blocks.VINE.asItem(), 1f, 2f));

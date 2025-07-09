@@ -53,6 +53,7 @@ public class SnailItems {
     public static final Item BURNT_SALMON = register("burnt_salmon", Item::new);
     public static final Item BURNT_KELP = register("burnt_kelp", Item::new);
     public static final Item BURNT_BEEF = register("burnt_beef", Item::new);
+    public static final Item BURNT_BREAD = register("burnt_bread", Item::new);
 
     public static final Item GRASS_TWINE = register("grass_twine", Item::new);
     public static final Item PESTLE = register("pestle", settings -> new Item(settings.maxCount(1)));

@@ -147,6 +147,7 @@ db13580cefa921ec54b2d3c19abb2072a5513bb4 data/snailspeed/advancement/recipes/mis
 a5006929174644f6a86543710099a100718160bb data/snailspeed/advancement/recipes/misc/iron_bolt.json
 c88c8ff86c41ce1023f9af19bac3e5341f076550 data/snailspeed/advancement/recipes/misc/iron_hammer.json
 6dcee825fd16850734590d7ea5dd67f128198dd5 data/snailspeed/advancement/recipes/misc/item_frame.json
+fc788cf8b5410644f1fdf97841301f95388019dc data/snailspeed/advancement/recipes/misc/ladder.json
 5cd4ac9547db595ffb7795b8a226ef5310a54167 data/snailspeed/advancement/recipes/misc/lantern.json
 ebfe79de0b146dafb25177b3e79fe338aaef2e5a data/snailspeed/advancement/recipes/misc/lead.json
 6482b97f43b96867a0eee9537722f850265e26e2 data/snailspeed/advancement/recipes/misc/leather_strip.json
@@ -293,6 +294,7 @@ a4cc990de173989a778af51b1d386cc72ca9f1cd data/snailspeed/recipe/green_stained_gl
 c7a939847b6d0599df7e17f9534f45c8afceca1e data/snailspeed/recipe/iron_bolt.json
 aaeec2a89bc7dc254605d0ed8e7d0e42f3a316f9 data/snailspeed/recipe/iron_hammer.json
 ea11c8450181faa882f0011984595b23ab1d943c data/snailspeed/recipe/item_frame.json
+00a8d2e9a262a769e6cebca82e01c023b7d0d841 data/snailspeed/recipe/ladder.json
 dcdc7f95b336c290d7f7501ce0cb392ef4594540 data/snailspeed/recipe/lantern.json
 c00ad90523d98c9b5b984cb4a8b7c62e63046e1c data/snailspeed/recipe/lantern_hellstone.json
 8d54cf96252f0e3b7b09213878104306ba2f6f6c data/snailspeed/recipe/lead.json

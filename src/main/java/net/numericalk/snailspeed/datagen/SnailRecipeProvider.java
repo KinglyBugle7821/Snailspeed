@@ -855,6 +855,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .input('R', Items.REDSTONE)
                         .criterion(hasItem(Items.COMPARATOR), conditionsFromItem(Items.COMPARATOR))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.LADDER, 2)
+                        .pattern("SL")
+                        .pattern("SL")
+                        .input('S', SnailItems.LONG_STICK)
+                        .input('L', Items.STICK)
+                        .criterion(hasItem(SnailItems.LONG_STICK), conditionsFromItem(SnailItems.LONG_STICK))
+                        .offerTo(exporter);
             }
         };
     }

@@ -146,7 +146,7 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
                 Blocks.WARPED_FENCE, Blocks.WARPED_FENCE_GATE, Blocks.WARPED_DOOR, Blocks.WARPED_TRAPDOOR,
                 Blocks.WARPED_SLAB, Blocks.WARPED_STAIRS, Blocks.WARPED_SIGN, Blocks.WARPED_WALL_SIGN, Blocks.WARPED_HANGING_SIGN, Blocks.WARPED_WALL_HANGING_SIGN
         };
-
+        //NETHER ROCK AND CALCITE
         Block[] jsDropRockBro = {
                 Blocks.SMOOTH_STONE,
                 Blocks.STONE_SLAB,
@@ -225,16 +225,21 @@ public class SnailBlockLootTable extends FabricBlockLootTableProvider {
 
                 Blocks.SANDSTONE,
                 Blocks.CHISELED_SANDSTONE,
+                Blocks.CUT_SANDSTONE,
                 Blocks.SMOOTH_SANDSTONE,
                 Blocks.SANDSTONE_SLAB,
+                Blocks.CUT_SANDSTONE_SLAB,
                 Blocks.SMOOTH_SANDSTONE_SLAB,
                 Blocks.SANDSTONE_STAIRS,
                 Blocks.SMOOTH_SANDSTONE_STAIRS,
                 Blocks.SANDSTONE_WALL,
+
                 Blocks.RED_SANDSTONE,
                 Blocks.CHISELED_RED_SANDSTONE,
+                Blocks.CUT_RED_SANDSTONE,
                 Blocks.SMOOTH_RED_SANDSTONE,
                 Blocks.RED_SANDSTONE_SLAB,
+                Blocks.CUT_RED_SANDSTONE_SLAB,
                 Blocks.SMOOTH_RED_SANDSTONE_SLAB,
                 Blocks.RED_SANDSTONE_STAIRS,
                 Blocks.SMOOTH_RED_SANDSTONE_STAIRS,

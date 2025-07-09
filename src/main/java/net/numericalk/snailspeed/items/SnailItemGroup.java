@@ -99,6 +99,7 @@ public class SnailItemGroup {
                         entries.add(SnailItems.BURNT_SALMON);
                         entries.add(SnailItems.BURNT_KELP);
                         entries.add(SnailItems.BURNT_BEEF);
+                        entries.add(SnailItems.BURNT_BREAD);
 
                         entries.add(SnailItems.GRASS_TWINE);
                         entries.add(SnailItems.PESTLE);

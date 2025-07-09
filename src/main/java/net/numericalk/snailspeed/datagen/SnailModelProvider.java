@@ -156,6 +156,7 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.BURNT_SALMON, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BURNT_KELP, Models.GENERATED);
         itemModelGenerator.register(SnailItems.BURNT_BEEF, Models.GENERATED);
+        itemModelGenerator.register(SnailItems.BURNT_BREAD, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.GRASS_TWINE, Models.GENERATED);
         itemModelGenerator.register(SnailItems.PESTLE, Models.HANDHELD);

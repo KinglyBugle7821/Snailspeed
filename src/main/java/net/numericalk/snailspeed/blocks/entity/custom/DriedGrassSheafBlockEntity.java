@@ -1,6 +1,7 @@
 package net.numericalk.snailspeed.blocks.entity.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -46,7 +47,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
     }
 
     private int burnTimeRemaining = 0;
-    private final int maxBurnTime = 20 * 60 * 2;
+    private final int maxBurnTime = 20 * 60 * 5;
 
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (isDriedGrassSheaf(state)) {
@@ -92,7 +93,7 @@ public class DriedGrassSheafBlockEntity extends BlockEntity {
         if (world1.isClient()) {
             return;
         }
-        world1.setBlockState(pos, SnailBlocks.DRIED_GRASS_SHEAF.getStateWithProperties(state));
+        world1.setBlockState(pos, Blocks.FIRE.getStateWithProperties(state));
     }
 
     private boolean hasProgressComplete() {

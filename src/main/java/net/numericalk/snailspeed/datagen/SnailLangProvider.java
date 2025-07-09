@@ -44,6 +44,7 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.BURNT_SALMON, "Burnt Salmon");
         translationBuilder.add(SnailItems.BURNT_KELP, "Burnt Kelp");
         translationBuilder.add(SnailItems.BURNT_BEEF, "Burnt Beef");
+        translationBuilder.add(SnailItems.BURNT_BREAD, "Burnt Bread");
 
         translationBuilder.add(SnailItems.FLINT_FLAKE, "Flint Flake");
         translationBuilder.add(SnailItems.FLINT_HATCHET, "Flint Hatchet");

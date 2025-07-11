@@ -22,7 +22,7 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     public static final TagKey<Item> FLINT_FLAKE_REPAIRABLE = of("flint_flake_repairable");
     public static final TagKey<Item> COPPER_TOOL_REPAIRABLE = of("copper_tool_repairable");
-    public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = of("copper_tool_repairable");
+    public static final TagKey<Item> BRONZE_TOOL_REPAIRABLE = of("bronze_tool_repairable");
     public static final TagKey<Item> STEEL_TOOL_REPAIRABLE = of("steel_tool_repairable");
     public static final TagKey<Item> OBSIDIAN_TOOL_REPAIRABLE = of("obsidian_tool_repairable");
     public static final TagKey<Item> CAMPFIRE_FUEL = of("campfire_fuel");

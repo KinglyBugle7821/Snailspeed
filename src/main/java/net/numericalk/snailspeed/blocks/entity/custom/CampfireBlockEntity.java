@@ -110,7 +110,7 @@ public class CampfireBlockEntity extends BlockEntity implements ImplementedInven
         //RECIPE
 
         if (getLitBlockState(state) == 2) {
-            maxProgress = 20 * 60 * 4;
+            maxProgress = 20 * 60 * 3;
             cookItem(world1, pos, maxProgress);
         }
         if (getLitBlockState(state) == 3) {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "snailspeed:pebble",
+    "snailspeed:pebble",
+    "#snailspeed:string",
+    "minecraft:stick"
+  ],
+  "result": {
+    "count": 1,
+    "id": "snailspeed:stone_knife"
+  }
+}

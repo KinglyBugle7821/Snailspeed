@@ -132,6 +132,8 @@ public class SnailLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SnailItems.OBSIDIAN_SHARD, "Obsidian Shard");
         translationBuilder.add(SnailItems.OBSIDIAN_KNIFE, "Obsidian Knife");
 
+        translationBuilder.add(SnailItems.STONE_KNIFE, "Stone Knife");
+
         translationBuilder.add(SnailItems.BRONZE_SWORD, "Bronze Sword");
         translationBuilder.add(SnailItems.BRONZE_AXE, "Bronze Axe");
         translationBuilder.add(SnailItems.BRONZE_PICKAXE, "Bronze Pickaxe");

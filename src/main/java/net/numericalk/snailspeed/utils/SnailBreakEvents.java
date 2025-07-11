@@ -290,7 +290,10 @@ public class SnailBreakEvents {
 
     private static void damageItem(ItemStack stack, PlayerEntity player, World world, boolean canDecrement) {
         if (world.isClient()) return;
-        if (stack.isDamageable()) {
+        if (stack.isOf(Items.FLINT)){
+            stack.decrement(1);
+        }
+        if (stack.isDamageable() && !stack.isOf(Items.FLINT)) {
             stack.damage(1, player);
         } else if (canDecrement) {
             stack.decrement(1);

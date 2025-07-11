@@ -67,6 +67,8 @@ public class SnailItemTagsProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ItemTags.PICKAXES)
+                .add(Items.FLINT);
         getOrCreateTagBuilder(IRON_LEVEL_AXE)
                 .add(Items.IRON_AXE)
                 .add(Items.DIAMOND_AXE)

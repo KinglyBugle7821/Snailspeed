@@ -276,6 +276,8 @@ public class SnailModelProvider extends FabricModelProvider {
         itemModelGenerator.register(SnailItems.OBSIDIAN_SHARD, Models.GENERATED);
         itemModelGenerator.register(SnailItems.OBSIDIAN_KNIFE, Models.HANDHELD);
 
+        itemModelGenerator.register(SnailItems.STONE_KNIFE, Models.HANDHELD);
+
         itemModelGenerator.register(SnailItems.RESIN_BALL, Models.GENERATED);
 
         itemModelGenerator.register(SnailItems.RAW_TIN, Models.GENERATED);

@@ -807,6 +807,14 @@ public class SnailRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.OBSIDIAN), conditionsFromItem(Items.OBSIDIAN))
                         .offerTo(exporter);
 
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, SnailItems.STONE_KNIFE, 1)
+                        .input(SnailItems.PEBBLE)
+                        .input(SnailItems.PEBBLE)
+                        .input(SnailItemTagsProvider.STRING)
+                        .input(Items.STICK)
+                        .criterion(hasItem(SnailItems.STONE_ROCK), conditionsFromItem(SnailItems.STONE_ROCK))
+                        .offerTo(exporter);
+
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.TORCH, 1)
                         .input(SnailItems.TORCH)
                         .input(SnailItems.HELLSTONE_DUST)

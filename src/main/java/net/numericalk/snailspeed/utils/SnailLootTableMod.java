@@ -31,8 +31,22 @@ public class SnailLootTableMod {
     private static final Identifier SPIDER_ID = Identifier.of("minecraft", "entities/spider");
     private static final Identifier CAVE_SPIDER_ID = Identifier.of("minecraft", "entities/cave_spider");
 
+    private static final Identifier OAK_LEAVES_ID = Identifier.of("minecraft", "blocks/oak_leaves");
+    private static final Identifier SPRUCE_LEAVES_ID = Identifier.of("minecraft", "blocks/spruce_leaves");
+    private static final Identifier BIRCH_LEAVES_ID = Identifier.of("minecraft", "blocks/birch_leaves");
+    private static final Identifier JUNGLE_LEAVES_ID = Identifier.of("minecraft", "blocks/jungle_leaves");
+    private static final Identifier ACACIA_LEAVES_ID = Identifier.of("minecraft", "blocks/acacia_leaves");
+    private static final Identifier DARK_OAK_LEAVES_ID = Identifier.of("minecraft", "blocks/dark_oak_leaves");
+    private static final Identifier MANGROVE_LEAVES_ID = Identifier.of("minecraft", "blocks/mangrove_leaves");
+    private static final Identifier CHERRY_LEAVES_ID = Identifier.of("minecraft", "blocks/cherry_leaves");
+    private static final Identifier AZALEA_LEAVES_ID = Identifier.of("minecraft", "blocks/azalea_leaves");
+    private static final Identifier FLOWERING_AZALEA_LEAVES_ID = Identifier.of("minecraft", "blocks/flowering_azalea_leaves");
+    private static final Identifier PALE_OAK_LEAVES_ID = Identifier.of("minecraft", "blocks/pale_oak_leaves"); // 1.21
+
     private static final Identifier SHORT_GRASS_ID = Identifier.of("minecraft", "blocks/short_grass");
     private static final Identifier TALL_GRASS_ID = Identifier.of("minecraft", "blocks/tall_grass");
+    private static final Identifier FERN_ID = Identifier.of("minecraft", "blocks/fern");
+    private static final Identifier TALL_FERN_ID = Identifier.of("minecraft", "blocks/tall_fern");
 
     private static final Identifier GRASS_BLOCK_ID = Identifier.of("minecraft", "blocks/grass_block");
     private static final Identifier DIRT_ID = Identifier.of("minecraft", "blocks/dirt");
@@ -87,6 +101,20 @@ public class SnailLootTableMod {
 
     private static final Identifier CHEST_ID = Identifier.of("minecraft", "blocks/chest");
     private static final Identifier BARREL_ID = Identifier.of("minecraft", "blocks/barrel");
+
+    static final Identifier[] leaves = {
+            OAK_LEAVES_ID,
+            SPRUCE_LEAVES_ID,
+            BIRCH_LEAVES_ID,
+            JUNGLE_LEAVES_ID,
+            ACACIA_LEAVES_ID,
+            DARK_OAK_LEAVES_ID,
+            MANGROVE_LEAVES_ID,
+            CHERRY_LEAVES_ID,
+            AZALEA_LEAVES_ID,
+            FLOWERING_AZALEA_LEAVES_ID,
+            PALE_OAK_LEAVES_ID
+    };
 
     static final Identifier[] candles = {
             BLACK_CANDLE_ID,
@@ -184,17 +212,31 @@ public class SnailLootTableMod {
         LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
             RegistryEntryLookup<Item> itemRegistry = wrapperLookup.getOrThrow(RegistryKeys.ITEM);
 
-            if (SHORT_GRASS_ID.equals(registryKey.getValue())) {
+            for (Identifier block : leaves){
+                if (block.equals(registryKey.getValue())){
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1f))
+                            .conditionally(RandomChanceLootCondition.builder(0.8f))
+                            .with(ItemEntry.builder(Items.STICK))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
+
+                    builder.pool(poolBuilder.build());
+                }
+            }
+
+            if (SHORT_GRASS_ID.equals(registryKey.getValue()) ||
+                FERN_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
-                        .conditionally(RandomChanceLootCondition.builder(0.35f))
+                        .conditionally(RandomChanceLootCondition.builder(0.6f))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(itemRegistry, SnailItems.FLINT_FLAKE)))
                         .with(ItemEntry.builder(SnailBlocks.GRASS_SHEAF.asItem()))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1f)).build());
 
                 builder.pool(poolBuilder.build());
             }
-            if (TALL_GRASS_ID.equals(registryKey.getValue())) {
+            if (TALL_GRASS_ID.equals(registryKey.getValue()) ||
+                TALL_FERN_ID.equals(registryKey.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1f))
                         .conditionally(RandomChanceLootCondition.builder(0.9f))

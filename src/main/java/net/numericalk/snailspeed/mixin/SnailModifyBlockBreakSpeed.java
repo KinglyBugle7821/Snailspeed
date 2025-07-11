@@ -58,7 +58,6 @@ public class SnailModifyBlockBreakSpeed {
     private static float changeWarpedHyphaeHardness(float originalHardness) {
         return 6.0f;
     }
-
     @ModifyArgs(method = "<clinit>", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=oak_planks")), at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractBlock$Settings;strength(FF)Lnet/minecraft/block/AbstractBlock$Settings;", ordinal = 0))
     private static void changeOakPlanksStrength(Args args) {
         float hardness = 3.0f;

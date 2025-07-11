@@ -176,6 +176,9 @@ public class SnailItems {
     public static final Item OBSIDIAN_SHARD = register("obsidian_shard", Item::new);
     public static final Item OBSIDIAN_KNIFE = register("obsidian_knife", settings -> new SwordItem(SnailToolMaterial.OBSIDIAN_TOOL_MATERIAL, 3f, -2.4f, settings));
 
+    public static final Item STONE_KNIFE = register("stone_knife", settings -> new SwordItem(SnailToolMaterial.FLINT_TOOL_MATERIAL, 2, -2.4f, settings));
+
+
     public static final Item RESIN_BALL = register("resin_ball", Item::new);
 
     public static final Item RAW_TIN = register("raw_tin", Item::new);

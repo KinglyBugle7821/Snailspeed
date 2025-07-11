@@ -35,7 +35,17 @@ public class ResinBowlBlockEntity extends BlockEntity {
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         return createNbt(registryLookup);
     }
+    @Override
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        nbt.putInt("ResinDripping", progress);
+    }
 
+    @Override
+    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.readNbt(nbt, registryLookup);
+        progress = nbt.getInt("ResinDripping");
+    }
     public void tick(World world1, BlockPos pos, BlockState state) {
         if (hasTappedLog(world1, state, pos)) {
             increaseProgress();

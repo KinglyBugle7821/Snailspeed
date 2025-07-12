@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:crimson_stem",
+  "input": "#minecraft:crimson_stems",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

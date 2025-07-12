@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:mangrove_log",
+  "input": "#minecraft:mangrove_logs",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

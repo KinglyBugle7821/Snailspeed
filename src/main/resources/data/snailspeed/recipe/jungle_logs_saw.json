@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:jungle_log",
+  "input": "#minecraft:jungle_logs",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

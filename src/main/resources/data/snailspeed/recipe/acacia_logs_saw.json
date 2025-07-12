@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:acacia_log",
+  "input": "#minecraft:acacia_logs",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

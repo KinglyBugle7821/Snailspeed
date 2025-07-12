@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:birch_log",
+  "input": "#minecraft:birch_logs",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

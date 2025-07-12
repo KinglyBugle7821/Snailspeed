@@ -1,11 +1,11 @@
 {
   "type": "snailspeed:brick_furnace",
 
-  "input1": "snailspeed:stone_dust",
-  "input2": "snailspeed:stone_dust",
-  "input3": "snailspeed:stone_dust",
-  "input4": "snailspeed:stone_dust",
-  "input5": "snailspeed:stone_dust",
+  "input1": "snailspeed:stone_rock",
+  "input2": "snailspeed:stone_rock",
+  "input3": "snailspeed:stone_rock",
+  "input4": "snailspeed:stone_rock",
+  "input5": "snailspeed:stone_rock",
 
   "output": {
     "id": "snailspeed:molten_stone"

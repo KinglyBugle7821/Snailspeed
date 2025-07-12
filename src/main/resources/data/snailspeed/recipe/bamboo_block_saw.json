@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:bamboo_block",
+  "input": "#minecraft:bamboo_blocks",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

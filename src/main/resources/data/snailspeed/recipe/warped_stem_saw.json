@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:warped_stem",
+  "input": "#minecraft:warped_stems",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

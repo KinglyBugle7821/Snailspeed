@@ -1,7 +1,7 @@
 {
   "type": "snailspeed:saw_table",
 
-  "input": "minecraft:oak_log",
+  "input": "#minecraft:oak_logs",
   "additionalInput": "#minecraft:axes",
 
   "planks": {

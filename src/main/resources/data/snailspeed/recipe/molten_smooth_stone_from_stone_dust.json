@@ -1,11 +1,11 @@
 {
   "type": "snailspeed:brick_furnace",
 
-  "input1": "minecraft:stone",
-  "input2": "minecraft:stone",
-  "input3": "minecraft:stone",
-  "input4": "minecraft:stone",
-  "input5": "minecraft:stone",
+  "input1": "snailspeed:stone_dust",
+  "input2": "snailspeed:stone_dust",
+  "input3": "snailspeed:stone_dust",
+  "input4": "snailspeed:stone_dust",
+  "input5": "snailspeed:stone_dust",
 
   "output": {
     "id": "snailspeed:molten_smooth_stone"

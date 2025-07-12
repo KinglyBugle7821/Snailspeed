@@ -139,7 +139,6 @@ public class SnailBreakEvents {
                 ItemStack stack = player.getMainHandStack();
                 if (playerHas(Items.FLINT, player)) {
                     degradeStone(world, pos, state, true, 1);
-                    damageItem(stack, player, world, true);
                     givePlayer(SnailItems.FLINT_FLAKE, player, world);
                 }
             }

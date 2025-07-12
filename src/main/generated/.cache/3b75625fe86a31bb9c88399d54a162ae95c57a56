@@ -7,6 +7,7 @@ b71d007ac39e588a88dabbb1b596e90c3a461dc7 data/minecraft/tags/item/head_armor.jso
 1ab08dfc7559689dddacfd5e6c1b08168d53f31f data/minecraft/tags/item/pickaxes.json
 390f664121bf328d8ed83d93c95694815b8e23b9 data/minecraft/tags/item/trimmable_armor.json
 cac81d3567996c42b2acbf1ec099005292ee974d data/snailspeed/tags/item/binders.json
+8811d21908e1054fa07940edf9dbb826f8fdee01 data/snailspeed/tags/item/bronze_tool_repairable.json
 f2fb01b041ef3ab9a22bbfce6f40ae230d550bc8 data/snailspeed/tags/item/campfire_fuel.json
 1adada856fc96d86142971215001f19fe35715a8 data/snailspeed/tags/item/clay_mold.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/snailspeed/tags/item/copper_tool_repairable.json
